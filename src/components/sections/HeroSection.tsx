@@ -71,10 +71,45 @@ export function HeroSection() {
             contactElement.scrollIntoView({ behavior: "smooth" });
         }
     };
+    
+    const orbit1Tech = [
+        { label: "React Native", icon: "📱", color: "97, 218, 251" },
+        { label: "Expo", icon: "🚀", color: "255, 255, 255" },
+        { label: "NativeWind", icon: "💨", color: "6, 182, 212" },
+        { label: "Kotlin", icon: "🟣", color: "167, 139, 250" },
+        { label: "LangChain", icon: "🔗", color: "16, 185, 129" },
+        { label: "n8n", icon: "🔄", color: "234, 88, 12" },
+        { label: "Playwright", icon: "🎭", color: "45, 150, 90" },
+    ];
+    
+    const orbit2Tech = [
+        { label: "Java", icon: "☕", color: "237, 117, 35" },
+        { label: "Spring Boot", icon: "⚙️", color: "0, 89, 156" },
+        { label: "Spring Security", icon: "🔐", color: "51, 153, 51" },
+        { label: "Spring Data JPA", icon: "🗃️", color: "68, 121, 161" },
+        { label: "Hibernate", icon: "♨️", color: "119, 123, 180" },
+        { label: "Maven", icon: "📦", color: "210, 71, 38" },
+        { label: "JUnit", icon: "🧪", color: "37, 150, 100" },
+        { label: "PHP", icon: "🐘", color: "119, 123, 180" },
+        { label: "Node.js", icon: "🟢", color: "51, 153, 51" },
+        { label: "SQL", icon: "🗄️", color: "68, 121, 161" },
+        { label: "Docker", icon: "🐙", color: "240, 80, 50" },
+        { label: "Cloud", icon: "☁️", color: "16, 185, 129" },
+        { label: "Git & GitHub", icon: "📑", color: "210, 71, 38" },
+    ];
+
+    const orbit3Tech = [
+        { label: "HTML5", icon: "🌐", color: "227, 79, 38" },
+        { label: "CSS3", icon: "🎨", color: "21, 114, 182" },
+        { label: "JavaScript", icon: "⚡", color: "247, 223, 30" },
+        { label: "React.js", icon: "⚛️", color: "97, 218, 251" },
+        { label: "Next.js", icon: "▲", color: "255, 255, 255" },
+        { label: "TypeScript", icon: "🔷", color: "49, 120, 198" },
+        { label: "Tailwind", icon: "💨", color: "6, 182, 212" },
+    ];
 
     return (
         <>
-            {/* Keyframes com raios otimizados para a roda externa mais compacta */}
             <style jsx global>{`
                 @keyframes rotate-ring {
                     from { transform: rotate(0deg); }
@@ -85,176 +120,157 @@ export function HeroSection() {
                     to { transform: rotate(-360deg); }
                 }
                 @keyframes orbit-r1 {
-                    from { transform: rotate(0deg) translateX(145px) rotate(0deg); }
-                    to { transform: rotate(360deg) translateX(145px) rotate(-360deg); }
+                    from { transform: rotate(0deg) translateX(155px) rotate(0deg); }
+                    to { transform: rotate(360deg) translateX(155px) rotate(-360deg); }
                 }
                 @keyframes orbit-r2 {
-                    from { transform: rotate(0deg) translateX(190px) rotate(0deg); }
-                    to { transform: rotate(-360deg) translateX(190px) rotate(360deg); }
+                    from { transform: rotate(0deg) translateX(200px) rotate(0deg); }
+                    to { transform: rotate(-360deg) translateX(200px) rotate(360deg); }
+                }
+                @keyframes orbit-r3 {
+                    from { transform: rotate(0deg) translateX(242px) rotate(0deg); }
+                    to { transform: rotate(360deg) translateX(242px) rotate(-360deg); }
                 }
             `}</style>
 
             <CyberLoader isLoading={isLoading} text="ACESSANDO CURRÍCULO..." />
 
-            <section id="hero" className="relative min-h-screen pt-32 pb-20 flex items-center justify-center px-4 overflow-hidden">
-                <div className="max-w-6xl w-full grid grid-cols-1 lg:grid-cols-12 gap-20 items-center">
+            <div className="fixed top-0 left-0 right-0 h-19 bg-slate-950 z-[40] pointer-events-none" />
 
-                    {/* Lado Esquerdo: Avatar + Sistema Orbital Compacto */}
+            <section id="hero" className="relative min-h-screen pt-44 pb-20 flex items-center justify-center px-4 overflow-hidden z-10">
+                <div className="max-w-7xl w-full grid grid-cols-1 lg:grid-cols-12 gap-1 items-center relative z-10">
+
+                    {/* Lado Esquerdo: Aproximado mais do bloco da direita com margem ajustada */}
                     <motion.div
                         initial={{ opacity: 0, scale: 0.9 }}
                         animate={{ opacity: 1, scale: 1 }}
                         transition={{ duration: 0.8 }}
-                        className="lg:col-span-5 flex justify-center relative"
+                        className="lg:col-span-5 flex justify-start items-center relative ml-8 lg:ml-12"
                     >
-                        <div className="relative flex items-center justify-center" style={{ width: "440px", height: "440px" }}>
+                        <div className="relative flex items-center justify-center w-[300px] h-[350px] my-10">
 
-                            {/* Anel Tracejado Interno */}
+                            {/* --- FOTO DO AVATAR (z-index 20) --- */}
                             <div
-                                className="absolute rounded-full border border-dashed pointer-events-none"
-                                style={{
-                                    borderColor: "rgb(0, 245, 255)",
-                                    opacity: 0.12,
-                                    top: "50%",
-                                    left: "50%",
-                                    width: "290px",
-                                    height: "290px",
-                                    marginTop: "-145px",
-                                    marginLeft: "-145px",
-                                    animation: "rotate-ring 28s linear infinite",
-                                }}
-                            />
-
-                            {/* Anel Tracejado Externo Reduzido */}
-                            <div
-                                className="absolute rounded-full border border-dashed pointer-events-none"
-                                style={{
-                                    borderColor: "rgb(139, 92, 246)",
-                                    opacity: 0.07,
-                                    top: "50%",
-                                    left: "50%",
-                                    width: "380px",
-                                    height: "380px",
-                                    marginTop: "-190px",
-                                    marginLeft: "-190px",
-                                    animation: "rotate-ring-rev 45s linear infinite",
-                                }}
-                            />
-
-                            {/* --- ORBITA 1 --- */}
-                            <div style={{ position: "absolute", top: "50%", left: "50%", marginTop: "-14px", marginLeft: "-14px", animation: "orbit-r1 24s linear 0s infinite", zIndex: 10 }}>
-                                <div className="flex items-center gap-1 rounded-full px-2 py-0.5 text-[9px] font-mono whitespace-nowrap backdrop-blur-sm" style={{ background: "rgba(227, 79, 38, 0.094)", border: "1px solid rgba(227, 79, 38, 0.25)", color: "rgb(227, 79, 38)", boxShadow: "rgba(227, 79, 38, 0.19) 0px 0px 8px" }}>
-                                    <span>🌐</span><span>HTML5</span>
-                                </div>
-                            </div>
-                            <div style={{ position: "absolute", top: "50%", left: "50%", marginTop: "-14px", marginLeft: "-14px", animation: "orbit-r1 24s linear -2.66s infinite", zIndex: 10 }}>
-                                <div className="flex items-center gap-1 rounded-full px-2 py-0.5 text-[9px] font-mono whitespace-nowrap backdrop-blur-sm" style={{ background: "rgba(21, 114, 182, 0.094)", border: "1px solid rgba(21, 114, 182, 0.25)", color: "rgb(21, 114, 182)", boxShadow: "rgba(21, 114, 182, 0.19) 0px 0px 8px" }}>
-                                    <span>🎨</span><span>CSS3 / SC</span>
-                                </div>
-                            </div>
-                            <div style={{ position: "absolute", top: "50%", left: "50%", marginTop: "-14px", marginLeft: "-14px", animation: "orbit-r1 24s linear -5.33s infinite", zIndex: 10 }}>
-                                <div className="flex items-center gap-1 rounded-full px-2 py-0.5 text-[9px] font-mono whitespace-nowrap backdrop-blur-sm" style={{ background: "rgba(247, 223, 30, 0.094)", border: "1px solid rgba(247, 223, 30, 0.25)", color: "rgb(247, 223, 30)", boxShadow: "rgba(247, 223, 30, 0.19) 0px 0px 8px" }}>
-                                    <span>⚡</span><span>JavaScript</span>
-                                </div>
-                            </div>
-                            <div style={{ position: "absolute", top: "50%", left: "50%", marginTop: "-14px", marginLeft: "-14px", animation: "orbit-r1 24s linear -8.0s infinite", zIndex: 10 }}>
-                                <div className="flex items-center gap-1 rounded-full px-2 py-0.5 text-[9px] font-mono whitespace-nowrap backdrop-blur-sm" style={{ background: "rgba(97, 218, 251, 0.094)", border: "1px solid rgba(97, 218, 251, 0.25)", color: "rgb(97, 218, 251)", boxShadow: "rgba(97, 218, 251, 0.19) 0px 0px 8px" }}>
-                                    <span>⚛️</span><span>React.js</span>
-                                </div>
-                            </div>
-                            <div style={{ position: "absolute", top: "50%", left: "50%", marginTop: "-14px", marginLeft: "-14px", animation: "orbit-r1 24s linear -10.66s infinite", zIndex: 10 }}>
-                                <div className="flex items-center gap-1 rounded-full px-2 py-0.5 text-[9px] font-mono whitespace-nowrap backdrop-blur-sm" style={{ background: "rgba(255, 255, 255, 0.094)", border: "1px solid rgba(255, 255, 255, 0.25)", color: "rgb(255, 255, 255)", boxShadow: "rgba(255, 255, 255, 0.19) 0px 0px 8px" }}>
-                                    <span>▲</span><span>Next.js</span>
-                                </div>
-                            </div>
-                            <div style={{ position: "absolute", top: "50%", left: "50%", marginTop: "-14px", marginLeft: "-14px", animation: "orbit-r1 24s linear -13.33s infinite", zIndex: 10 }}>
-                                <div className="flex items-center gap-1 rounded-full px-2 py-0.5 text-[9px] font-mono whitespace-nowrap backdrop-blur-sm" style={{ background: "rgba(49, 120, 198, 0.094)", border: "1px solid rgba(49, 120, 198, 0.25)", color: "rgb(49, 120, 198)", boxShadow: "rgba(49, 120, 198, 0.19) 0px 0px 8px" }}>
-                                    <span>🔷</span><span>TypeScript</span>
-                                </div>
-                            </div>
-                            <div style={{ position: "absolute", top: "50%", left: "50%", marginTop: "-14px", marginLeft: "-14px", animation: "orbit-r1 24s linear -16.0s infinite", zIndex: 10 }}>
-                                <div className="flex items-center gap-1 rounded-full px-2 py-0.5 text-[9px] font-mono whitespace-nowrap backdrop-blur-sm" style={{ background: "rgba(6, 182, 212, 0.094)", border: "1px solid rgba(6, 182, 212, 0.25)", color: "rgb(6, 182, 212)", boxShadow: "rgba(6, 182, 212, 0.19) 0px 0px 8px" }}>
-                                    <span>💨</span><span>Tailwind</span>
-                                </div>
-                            </div>
-                            <div style={{ position: "absolute", top: "50%", left: "50%", marginTop: "-14px", marginLeft: "-14px", animation: "orbit-r1 24s linear -18.66s infinite", zIndex: 10 }}>
-                                <div className="flex items-center gap-1 rounded-full px-2 py-0.5 text-[9px] font-mono whitespace-nowrap backdrop-blur-sm" style={{ background: "rgba(119, 123, 180, 0.094)", border: "1px solid rgba(119, 123, 180, 0.25)", color: "rgb(119, 123, 180)", boxShadow: "rgba(119, 123, 180, 0.19) 0px 0px 8px" }}>
-                                    <span>🐘</span><span>Java</span>
-                                </div>
-                            </div>
-                            <div style={{ position: "absolute", top: "50%", left: "50%", marginTop: "-14px", marginLeft: "-14px", animation: "orbit-r1 24s linear -21.33s infinite", zIndex: 10 }}>
-                                <div className="flex items-center gap-1 rounded-full px-2 py-0.5 text-[9px] font-mono whitespace-nowrap backdrop-blur-sm" style={{ background: "rgba(55, 118, 171, 0.094)", border: "1px solid rgba(55, 118, 171, 0.25)", color: "rgb(55, 118, 171)", boxShadow: "rgba(55, 118, 171, 0.19) 0px 0px 8px" }}>
-                                    <span>🐍</span><span>Python</span>
-                                </div>
-                            </div>
-
-                            {/* --- ORBITA 2 --- */}
-                            <div style={{ position: "absolute", top: "50%", left: "50%", marginTop: "-14px", marginLeft: "-14px", animation: "orbit-r2 36s linear 0s infinite", zIndex: 10 }}>
-                                <div className="flex items-center gap-1 rounded-full px-2 py-0.5 text-[9px] font-mono whitespace-nowrap backdrop-blur-sm" style={{ background: "rgba(51, 153, 51, 0.094)", border: "1px solid rgba(51, 153, 51, 0.25)", color: "rgb(51, 153, 51)", boxShadow: "rgba(51, 153, 51, 0.19) 0px 0px 8px" }}>
-                                    <span>🟢</span><span>Node.js</span>
-                                </div>
-                            </div>
-                            <div style={{ position: "absolute", top: "50%", left: "50%", marginTop: "-14px", marginLeft: "-14px", animation: "orbit-r2 36s linear -4.5s infinite", zIndex: 10 }}>
-                                <div className="flex items-center gap-1 rounded-full px-2 py-0.5 text-[9px] font-mono whitespace-nowrap backdrop-blur-sm" style={{ background: "rgba(0, 89, 156, 0.094)", border: "1px solid rgba(0, 89, 156, 0.25)", color: "rgb(0, 89, 156)", boxShadow: "rgba(0, 89, 156, 0.19) 0px 0px 8px" }}>
-                                    <span>⚙️</span><span>Spring Boot</span>
-                                </div>
-                            </div>
-                            <div style={{ position: "absolute", top: "50%", left: "50%", marginTop: "-14px", marginLeft: "-14px", animation: "orbit-r2 36s linear -9.0s infinite", zIndex: 10 }}>
-                                <div className="flex items-center gap-1 rounded-full px-2 py-0.5 text-[9px] font-mono whitespace-nowrap backdrop-blur-sm" style={{ background: "rgba(68, 121, 161, 0.094)", border: "1px solid rgba(68, 121, 161, 0.25)", color: "rgb(68, 121, 161)", boxShadow: "rgba(68, 121, 161, 0.19) 0px 0px 8px" }}>
-                                    <span>🗄️</span><span>PostgreSQL</span>
-                                </div>
-                            </div>
-                            <div style={{ position: "absolute", top: "50%", left: "50%", marginTop: "-14px", marginLeft: "-14px", animation: "orbit-r2 36s linear -13.5s infinite", zIndex: 10 }}>
-                                <div className="flex items-center gap-1 rounded-full px-2 py-0.5 text-[9px] font-mono whitespace-nowrap backdrop-blur-sm" style={{ background: "rgba(240, 80, 50, 0.094)", border: "1px solid rgba(240, 80, 50, 0.25)", color: "rgb(240, 80, 50)", boxShadow: "rgba(240, 80, 50, 0.19) 0px 0px 8px" }}>
-                                    <span>🐙</span><span>Docker</span>
-                                </div>
-                            </div>
-                            <div style={{ position: "absolute", top: "50%", left: "50%", marginTop: "-14px", marginLeft: "-14px", animation: "orbit-r2 36s linear -18.0s infinite", zIndex: 10 }}>
-                                <div className="flex items-center gap-1 rounded-full px-2 py-0.5 text-[9px] font-mono whitespace-nowrap backdrop-blur-sm" style={{ background: "rgba(16, 185, 129, 0.094)", border: "1px solid rgba(16, 185, 129, 0.25)", color: "rgb(16, 185, 129)", boxShadow: "rgba(16, 185, 129, 0.19) 0px 0px 8px" }}>
-                                    <span>🔍</span><span>Cloud</span>
-                                </div>
-                            </div>
-                            <div style={{ position: "absolute", top: "50%", left: "50%", marginTop: "-14px", marginLeft: "-14px", animation: "orbit-r2 36s linear -22.5s infinite", zIndex: 10 }}>
-                                <div className="flex items-center gap-1 rounded-full px-2 py-0.5 text-[9px] font-mono whitespace-nowrap backdrop-blur-sm" style={{ background: "rgba(43, 87, 154, 0.094)", border: "1px solid rgba(43, 87, 154, 0.25)", color: "rgb(43, 87, 154)", boxShadow: "rgba(43, 87, 154, 0.19) 0px 0px 8px" }}>
-                                    <span>📝</span><span>Mobile</span>
-                                </div>
-                            </div>
-                            <div style={{ position: "absolute", top: "50%", left: "50%", marginTop: "-14px", marginLeft: "-14px", animation: "orbit-r2 36s linear -27.0s infinite", zIndex: 10 }}>
-                                <div className="flex items-center gap-1 rounded-full px-2 py-0.5 text-[9px] font-mono whitespace-nowrap backdrop-blur-sm" style={{ background: "rgba(33, 115, 70, 0.094)", border: "1px solid rgba(33, 115, 70, 0.25)", color: "rgb(33, 115, 70)", boxShadow: "rgba(33, 115, 70, 0.19) 0px 0px 8px" }}>
-                                    <span>📊</span><span>Figma</span>
-                                </div>
-                            </div>
-                            <div style={{ position: "absolute", top: "50%", left: "50%", marginTop: "-14px", marginLeft: "-14px", animation: "orbit-r2 36s linear -31.5s infinite", zIndex: 10 }}>
-                                <div className="flex items-center gap-1 rounded-full px-2 py-0.5 text-[9px] font-mono whitespace-nowrap backdrop-blur-sm" style={{ background: "rgba(210, 71, 38, 0.094)", border: "1px solid rgba(210, 71, 38, 0.25)", color: "rgb(210, 71, 38)", boxShadow: "rgba(210, 71, 38, 0.19) 0px 0px 8px" }}>
-                                    <span>📑</span><span>Git & GitHub</span>
-                                </div>
-                            </div>
-
-                            {/* --- CARTÃO CENTRAL DO AVATAR --- */}
-                            <div
-                                style={{
-                                    transformStyle: "preserve-3d",
-                                    perspective: "600px",
-                                    position: "absolute",
-                                    top: "50%",
-                                    left: "50%",
-                                    width: "200px",
-                                    height: "240px",
-                                    marginTop: "-120px",
-                                    marginLeft: "-100px"
-                                }}
-                                className="group cursor-pointer"
+                                className="relative w-[220px] h-[270px] rounded-3xl overflow-hidden border border-white/20 shadow-2xl bg-slate-900 z-20 group cursor-pointer transition-transform duration-500 hover:scale-105 hover:-translate-y-2"
+                                style={{ transformStyle: "preserve-3d", perspective: "600px" }}
                             >
-                                <div style={{ width: "100%", height: "100%", position: "relative" }} className="transition-transform duration-500 group-hover:scale-105 group-hover:-translate-y-2">
-                                    <div className="absolute inset-0 rounded-3xl blur-2xl opacity-35 scale-90" style={{ background: "linear-gradient(135deg, rgb(0, 245, 255), rgb(139, 92, 246))" }}></div>
-                                    <div className="relative w-full h-full rounded-3xl overflow-hidden border border-white/10 shadow-2xl bg-slate-900">
-                                        <img
-                                            src="/avatar.jpg"
-                                            alt={personal.name}
-                                            className="w-full h-full object-cover object-center group-hover:scale-110 transition-transform duration-700"
-                                        />
-                                        <div className="absolute inset-x-0 bottom-0 h-16 bg-gradient-to-t from-black/60 to-transparent"></div>
+                                <div className="absolute inset-0 rounded-3xl blur-2xl opacity-40 scale-90 -z-10" style={{ background: "linear-gradient(135deg, rgb(0, 245, 255), rgb(139, 92, 246))" }}></div>
+                                <img
+                                    src="/avatar.jpg"
+                                    alt={personal.name}
+                                    className="w-full h-full object-cover object-center group-hover:scale-110 transition-transform duration-700"
+                                />
+                                <div className="absolute inset-x-0 bottom-0 h-16 bg-gradient-to-t from-black/70 to-transparent"></div>
+                            </div>
+
+                            {/* --- CAMADA DAS ÓRBITAS (z-index 40) --- */}
+                            <div className="absolute inset-0 flex items-center justify-center pointer-events-none z-40">
+
+                                <div
+                                    className="absolute rounded-full border border-dashed pointer-events-none z-10"
+                                    style={{
+                                        borderColor: "rgb(0, 245, 255)",
+                                        opacity: 0.12,
+                                        width: "310px",
+                                        height: "310px",
+                                        animation: "rotate-ring 45s linear infinite",
+                                    }}
+                                />
+                                <div
+                                    className="absolute rounded-full border border-dashed pointer-events-none z-10"
+                                    style={{
+                                        borderColor: "rgb(139, 92, 246)",
+                                        opacity: 0.07,
+                                        width: "370px",
+                                        height: "370px",
+                                        animation: "rotate-ring-rev 65s linear infinite",
+                                    }}
+                                />
+
+                                {/* ORBITA 1 (45s) */}
+                                {orbit1Tech.map((tech, index) => (
+                                    <div
+                                        key={`frontend-${tech.label}`}
+                                        style={{
+                                            position: "absolute",
+                                            top: "50%",
+                                            left: "50%",
+                                            transformOrigin: "center center",
+                                            animation: `orbit-r1 45s linear -${(index * (45 / orbit1Tech.length)).toFixed(2)}s infinite`,
+                                            zIndex: 40,
+                                        }}
+                                    >
+                                        <div
+                                            className="flex items-center gap-1 rounded-full px-2 py-0.5 text-[9px] font-mono whitespace-nowrap backdrop-blur-sm pointer-events-auto"
+                                            style={{
+                                                transform: "translate(-50%, -50%)",
+                                                background: `rgba(${tech.color}, 0.094)`,
+                                                border: `1px solid rgba(${tech.color}, 0.25)`,
+                                                color: `rgb(${tech.color})`,
+                                                boxShadow: `rgba(${tech.color}, 0.19) 0px 0px 8px`,
+                                            }}
+                                        >
+                                            <span>{tech.icon}</span><span>{tech.label}</span>
+                                        </div>
                                     </div>
-                                </div>
+                                ))}
+
+                                {/* ORBITA 2 (65s) */}
+                                {orbit2Tech.map((tech, index) => (
+                                    <div
+                                        key={`backend-${tech.label}`}
+                                        style={{
+                                            position: "absolute",
+                                            top: "50%",
+                                            left: "50%",
+                                            transformOrigin: "center center",
+                                            animation: `orbit-r2 65s linear -${(index * (65 / orbit2Tech.length)).toFixed(2)}s infinite`,
+                                            zIndex: 40,
+                                        }}
+                                    >
+                                        <div
+                                            className="flex items-center gap-1 rounded-full px-2 py-0.5 text-[9px] font-mono whitespace-nowrap backdrop-blur-sm pointer-events-auto"
+                                            style={{
+                                                transform: "translate(-50%, -50%)",
+                                                background: `rgba(${tech.color}, 0.094)`,
+                                                border: `1px solid rgba(${tech.color}, 0.25)`,
+                                                color: `rgb(${tech.color})`,
+                                                boxShadow: `rgba(${tech.color}, 0.19) 0px 0px 8px`,
+                                            }}
+                                        >
+                                            <span>{tech.icon}</span><span>{tech.label}</span>
+                                        </div>
+                                    </div>
+                                ))}
+
+                                {/* ORBITA 3 (85s) */}
+                                {orbit3Tech.map((tech, index) => (
+                                    <div
+                                        key={`mobile-ai-${tech.label}`}
+                                        style={{
+                                            position: "absolute",
+                                            top: "50%",
+                                            left: "50%",
+                                            transformOrigin: "center center",
+                                            animation: `orbit-r3 85s linear -${(index * (85 / orbit3Tech.length)).toFixed(2)}s infinite`,
+                                            zIndex: 40,
+                                        }}
+                                    >
+                                        <div
+                                            className="flex items-center gap-1 rounded-full px-2 py-0.5 text-[9px] font-mono whitespace-nowrap backdrop-blur-sm pointer-events-auto"
+                                            style={{
+                                                transform: "translate(-50%, -50%)",
+                                                background: `rgba(${tech.color}, 0.094)`,
+                                                border: `1px solid rgba(${tech.color}, 0.25)`,
+                                                color: `rgb(${tech.color})`,
+                                                boxShadow: `rgba(${tech.color}, 0.19) 0px 0px 8px`,
+                                            }}
+                                        >
+                                            <span>{tech.icon}</span><span>{tech.label}</span>
+                                        </div>
+                                    </div>
+                                ))}
+
                             </div>
 
                         </div>
@@ -268,18 +284,19 @@ export function HeroSection() {
                         className="lg:col-span-7 flex flex-col gap-6"
                     >
                         <div className="flex flex-wrap items-center gap-2">
-                            <span className="px-2.5 py-1 rounded-xl text-[11px] font-semibold bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 flex items-center gap-1.5">
-                                <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
-                                {personal.status.toUpperCase()}
-                            </span>
-                            <span className="px-2.5 py-1 rounded-xl text-[11px] font-medium bg-white/5 border border-white/10 text-gray-300 flex items-center gap-1.5">
-                                <MapPin className="w-3 h-3 text-cyan-400" />
+                            <div className="flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-emerald-500/30 bg-emerald-500/[0.07]">
+                                <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
+                                <span className="text-xs font-mono text-emerald-400 whitespace-nowrap">
+                                    Disponível para trabalho
+                                </span>
+                            </div>
+                            <span className="px-3.5 py-1.5 rounded-full text-xs font-mono bg-white/5 border border-white/10 text-gray-300 flex items-center gap-2">
+                                <MapPin className="w-3.5 h-3.5 text-red-500 animate-pulse drop-shadow-[0_0_8px_rgba(239,68,68,0.6)]" />
                                 {personal.location}
                             </span>
                         </div>
 
-                        <p className="text-xs font-mono text-slate-600 tracking-widest">
-
+                        <p className="text-xs font-mono text-slate-500 tracking-widest">
                             {"// "}Full Stack & Cloud Developer
                         </p>
 

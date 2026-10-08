@@ -59,7 +59,7 @@ export const portfolioData = {
     ],
     tagline: "Unindo a precisão da engenharia de software com experiências digitais marcantes e de alta performance.",
     location: "Brasília - DF, Brasil",
-    status: "Disponível para trabalho remoto",
+    status: "Disponível para trabalho",
     bio: "Desenvolvedor Full Stack apaixonado por criar aplicações web e mobile de alto desempenho. Especialista em ecossistemas React, Next.js, Node.js e Java/Spring Boot.",
     stats: [
       { value: "3+", label: "Anos de Experiência" },
