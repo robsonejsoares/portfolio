@@ -1,0 +1,76 @@
+export const resumeData = {
+    personal: {
+        name: "Robson Edvaldo Jose Soares",
+        role: "Desenvolvedor Full Stack Júnior",
+        email: "robsoncsoares.1050@gmail.com",
+        phone: "(61) 99501-5804",
+        whatsappMessage: "Olá Robson,\n\nVi seu currículo no portfólio e gostaria de entrar em contato.",
+        location: "Brasília - DF",
+        linkedin: "https://www.linkedin.com/in/robson-soares-b22513170/",
+        github: "https://github.com/robsonejsoares",
+    },
+    summary: "Desenvolvedor Full Stack Júnior. Experiência prática no Sebrae DF em desenvolvimento web, APIs REST, banco de dados e design de interfaces. Domínio do ecossistema JavaScript/TypeScript (ReactJS, Next.js, Node.js, NestJS, React Native) e prototipagem no Figma (UI/UX), aplicando boas práticas de engenharia de software e usabilidade.",
+    experiences: [
+        {
+            company: "G4F",
+            subtitle: "(Prestação de Serviços no Sebrae DF)",
+            period: "04/2025 – 07/2026",
+            role: "Analista de Suporte",
+            highlights: [
+                "Execução de testes funcionais e de regressão em mais de 10 sistemas e módulos corporativos.",
+                "Apoio direto a equipes de desenvolvimento no diagnóstico, reporte e resolução de bugs.",
+                "Análise de logs para identificação da causa raiz de falhas e elaboração de documentação técnica.",
+                "Gestão de incidentes N2 e acompanhamento de chamados mantendo alta taxa de resolução via SLA.",
+            ],
+        },
+        {
+            company: "Sebrae DF",
+            subtitle: "",
+            period: "03/2024 – 04/2025",
+            role: "Estagiário de Desenvolvimento Full-Stack",
+            highlights: [
+                "Prototipagem de interfaces (UI/UX) e criação de Design Systems no Figma para múltiplos projetos internos.",
+                "Construção de interfaces web modernas e responsivas utilizando ReactJS, Next.js e TypeScript.",
+                "Desenvolvimento e consumo de APIs REST eficientes no Back-end com Node.js e NestJS.",
+                "Criação e manutenção de telas para aplicações mobile multiplataforma (iOS/Android) com React Native.",
+                "Modelagem de dados e integração com bancos de dados relacionais (SQL) e NoSQL (Firebase).",
+                "Escrita de testes automatizados no Front-end e Back-end para elevação da cobertura e qualidade do código.",
+                "Versionamento via Git/GitHub e aplicação de IA (Claude Code) otimizando o tempo de entrega de código.",
+            ],
+        },
+    ],
+    education: [
+        {
+            degree: "Análise e Desenvolvimento de Sistemas",
+            institution: "Estácio de Sá",
+            status: "Concluída em 04/2026",
+        },
+        {
+            degree: "Pós Full Stack Cloud",
+            institution: "Gran Faculdade",
+            status: "Concluída em 01/2026",
+        },
+        {
+            degree: "Pós Linguagens e Paradigmas",
+            institution: "Gran Faculdade",
+            status: "Concluída em 01/2026",
+        },
+    ],
+    technologies: {
+        backend: "Node.js, NestJS",
+        frontend: "TypeScript, ReactJS, Next.js, HTML5, CSS3, Bootstrap, Sass",
+        mobile: "React Native",
+        design: "Figma (Design Systems, Auto Layout, Protótipos Interativos), UI/UX Design",
+        database: "PostgreSQL, SQL Server, MySQL, Oracle SQL, MongoDB, Firebase",
+        devops: "Git, GitHub, GitLab, Prisma ORM, VPS",
+        others: "APIs REST, Testes Automatizados, IA para Devs (Claude Code)",
+    },
+    certifications: [
+        "Formação Full Stack - Senai",
+        "Formação Full Stack - Sujeito Programador",
+        "Formação Full Stack JavaScript - OneBitCode",
+        "Curso Completo de Bancos de Dados Relacionais - Udemy",
+        "Curso UI/UX Design & Prototipagem Figma - Sujeito Programador",
+        "Administrador de Banco de Dados - IFRS (Instituto Federal Rio Grande do Sul)",
+    ],
+};
