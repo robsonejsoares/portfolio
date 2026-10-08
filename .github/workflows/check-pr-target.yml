@@ -1,0 +1,17 @@
+name: Check PR Target Branch
+
+on:
+  pull_request:
+    types: [opened, edited, synchronize]
+
+jobs:
+  validate-branch:
+    name: Validar Origem do PR
+    runs-on: ubuntu-latest
+    steps:
+      - name: Verificar se a origem para a main é a develop
+        if: github.base_ref == 'main' && github.head_ref != 'develop'
+        run: |
+          echo "❌ ERRO: Pull Requests para a branch 'main' SÓ são permitidos a partir da branch 'develop'!"
+          echo "Sua branch de origem atual é: '${{ github.head_ref }}'"
+          exit 1
