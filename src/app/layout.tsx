@@ -13,8 +13,17 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://oprogramadorautonomo.com.br"),
   title: "Robson Soares | Portfólio Full Stack",
   description: "Portfólio cyberpunk e de alta performance de Robson Soares",
+  openGraph: {
+    title: "Robson Soares | Portfólio Full Stack",
+    description: "Portfólio cyberpunk e de alta performance de Robson Soares",
+    url: "https://oprogramadorautonomo.com.br/portfolio/robson-soares",
+    siteName: "Robson Soares - Programador Autônomo",
+    locale: "pt_BR",
+    type: "website",
+  },
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
