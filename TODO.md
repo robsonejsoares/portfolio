@@ -11,11 +11,11 @@
   - [x] Links de ancoragem com navegação suave (#hero, #about, #skills, #projects, #experience, #services, #contact)
   - [x] Botão de status ("Disponível para trabalho") e CTA ("Contrate-me")
 
-- [ ] **Etapa 3: Hero Section & Avatar Interativo**
-  - [ ] Criar o componente `src/components/HeroSection.tsx`
-  - [ ] Título principal com gradiente animado e badges de topo
-  - [ ] Card de Avatar central com badges de tech flutuantes e animação de flutuação (Framer Motion)
-  - [ ] Grid de estatísticas (contadores) e botões de ação ("Baixar currículo", "Vamos conversar")
+- [x] **Etapa 3: Hero Section & Avatar Interativo**
+  - [x] Criar o componente `src/components/HeroSection.tsx`
+  - [x] Título principal com gradiente animado e badges de topo
+  - [x] Card de Avatar central com badges de tech flutuantes e animação de flutuação (Framer Motion)
+  - [x] Grid de estatísticas (contadores) e botões de ação ("Baixar currículo", "Vamos conversar")
 
 - [ ] **Etapa 4: Sobre Mim (About Me)**
   - [ ] Criar o componente `src/components/AboutSection.tsx`
