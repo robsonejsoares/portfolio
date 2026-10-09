@@ -6,30 +6,30 @@ import { resumeData } from "@/data/resumeData";
 
 export function FloatingWhatsApp() {
     const { phone, whatsappMessage } = resumeData.personal;
-    
-    // Remove caracteres não numéricos do telefone (ex: parênteses, traços e espaços) para o link do WhatsApp
-    const cleanPhone = phone.replace(/\D/g, "");
-    const message = encodeURIComponent(whatsappMessage);
-    const whatsappUrl = `https://wa.me/55${cleanPhone}?text=${message}`;
+    const number = phone.replace(/\D/g, "");
+    const url = `https://wa.me/${number.startsWith("55") ? number : `55${number}`}?text=${encodeURIComponent(whatsappMessage)}`;
 
     return (
-        <div className="fixed bottom-6 right-6 z-[99999] pointer-events-auto isolate">
-            <motion.a
-                initial={{ opacity: 0, scale: 0.5 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.4, delay: 0.5 }}
-                href={whatsappUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="Contacto via WhatsApp"
-                className="relative flex items-center justify-center w-14 h-14 bg-emerald-500 hover:bg-emerald-400 text-white rounded-full shadow-[0_4px_25px_rgba(16,185,129,0.6)] transition-all duration-300 hover:scale-110 group"
-            >
-                {/* Efeito de pulso suave ao fundo */}
-                <span className="absolute inset-0 rounded-full bg-emerald-500 animate-ping opacity-25 pointer-events-none" />
-                
-                {/* Ícone do WhatsApp */}
-                <MessageCircle className="w-7 h-7 relative z-10 transition-transform group-hover:rotate-12" />
-            </motion.a>
-        </div>
+        <motion.a
+            href={url}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Fale comigo pelo WhatsApp"
+            animate={{
+                y: [0, -5, 0],
+                boxShadow: [
+                    "0 0 15px rgba(16,185,129,0.2)",
+                    "0 0 30px rgba(16,185,129,0.45)",
+                    "0 0 15px rgba(16,185,129,0.2)",
+                ],
+            }}
+            transition={{ duration: 2.5, repeat: Infinity, ease: "easeInOut" }}
+            whileHover={{ scale: 1.1, y: -2 }}
+            whileTap={{ scale: 0.94 }}
+            className="fixed bottom-6 right-6 z-50 flex h-14 w-14 items-center justify-center rounded-full border-2 border-emerald-400/70 bg-slate-950 text-emerald-400"
+        >
+            <MessageCircle size={27} strokeWidth={2.2} />
+        </motion.a>
     );
+
 }
