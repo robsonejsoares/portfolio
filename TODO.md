@@ -17,10 +17,10 @@
   - [x] Card de Avatar central com badges de tech flutuantes e animação de flutuação (Framer Motion)
   - [x] Grid de estatísticas (contadores) e botões de ação ("Baixar currículo", "Vamos conversar")
 
-- [ ] **Etapa 4: Sobre Mim (About Me)**
-  - [ ] Criar o componente `src/components/AboutSection.tsx`
-  - [ ] Lado esquerdo: Card simulando editor de código (Syntax Highlighting)
-  - [ ] Lado direito: Texto descritivo e marcadores com tópicos em neon
+- [x] **Etapa 4: Sobre Mim (About Me)**
+  - [x] Criar o componente `src/components/AboutSection.tsx`
+  - [x] Lado esquerdo: Card simulando editor de código (Syntax Highlighting)
+  - [x] Lado direito: Texto descritivo e marcadores com tópicos em neon
 
 - [ ] **Etapa 5: Matriz de Habilidades (Skills Matrix)**
   - [ ] Criar o componente `src/components/SkillsSection.tsx`

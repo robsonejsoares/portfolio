@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
-import { MapPin, Mail } from "lucide-react";
+import { MapPin, Mail, Database, Server, Code2, Layers } from "lucide-react";
 import { portfolioData } from "@/data/portfolioData";
 import { DialogResume } from "@/components/dialogs/DialogResume";
 import { CyberLoader } from "@/components/common/CyberLoader";
@@ -71,7 +71,7 @@ export function HeroSection() {
             contactElement.scrollIntoView({ behavior: "smooth" });
         }
     };
-    
+
     const orbit1Tech = [
         { label: "React Native", icon: "📱", color: "97, 218, 251" },
         { label: "Expo", icon: "🚀", color: "255, 255, 255" },
@@ -81,7 +81,7 @@ export function HeroSection() {
         { label: "n8n", icon: "🔄", color: "234, 88, 12" },
         { label: "Playwright", icon: "🎭", color: "45, 150, 90" },
     ];
-    
+
     const orbit2Tech = [
         { label: "Java", icon: "☕", color: "237, 117, 35" },
         { label: "Spring Boot", icon: "⚙️", color: "0, 89, 156" },
@@ -106,6 +106,13 @@ export function HeroSection() {
         { label: "Next.js", icon: "▲", color: "255, 255, 255" },
         { label: "TypeScript", icon: "🔷", color: "49, 120, 198" },
         { label: "Tailwind", icon: "💨", color: "6, 182, 212" },
+    ];
+
+    // Estatísticas personalizadas com CleanCode e Boas Práticas
+    const customStats = [
+        { value: "3+", label: "Anos de Experiência" },
+        { value: "CleanCode", label: "Boas Práticas" },
+        { value: "100%", label: "Comprometimento" }
     ];
 
     return (
@@ -140,7 +147,7 @@ export function HeroSection() {
             <section id="hero" className="relative min-h-screen pt-44 pb-20 flex items-center justify-center px-4 overflow-hidden z-10">
                 <div className="max-w-7xl w-full grid grid-cols-1 lg:grid-cols-12 gap-1 items-center relative z-10">
 
-                    {/* Lado Esquerdo: Aproximado mais do bloco da direita com margem ajustada */}
+                    {/* Lado Esquerdo: Avatar e Órbitas */}
                     <motion.div
                         initial={{ opacity: 0, scale: 0.9 }}
                         animate={{ opacity: 1, scale: 1 }}
@@ -149,7 +156,6 @@ export function HeroSection() {
                     >
                         <div className="relative flex items-center justify-center w-[300px] h-[350px] my-10">
 
-                            {/* --- FOTO DO AVATAR (z-index 20) --- */}
                             <div
                                 className="relative w-[220px] h-[270px] rounded-3xl overflow-hidden border border-white/20 shadow-2xl bg-slate-900 z-20 group cursor-pointer transition-transform duration-500 hover:scale-105 hover:-translate-y-2"
                                 style={{ transformStyle: "preserve-3d", perspective: "600px" }}
@@ -163,9 +169,7 @@ export function HeroSection() {
                                 <div className="absolute inset-x-0 bottom-0 h-16 bg-gradient-to-t from-black/70 to-transparent"></div>
                             </div>
 
-                            {/* --- CAMADA DAS ÓRBITAS (z-index 40) --- */}
                             <div className="absolute inset-0 flex items-center justify-center pointer-events-none z-40">
-
                                 <div
                                     className="absolute rounded-full border border-dashed pointer-events-none z-10"
                                     style={{
@@ -187,7 +191,6 @@ export function HeroSection() {
                                     }}
                                 />
 
-                                {/* ORBITA 1 (45s) */}
                                 {orbit1Tech.map((tech, index) => (
                                     <div
                                         key={`frontend-${tech.label}`}
@@ -215,7 +218,6 @@ export function HeroSection() {
                                     </div>
                                 ))}
 
-                                {/* ORBITA 2 (65s) */}
                                 {orbit2Tech.map((tech, index) => (
                                     <div
                                         key={`backend-${tech.label}`}
@@ -243,7 +245,6 @@ export function HeroSection() {
                                     </div>
                                 ))}
 
-                                {/* ORBITA 3 (85s) */}
                                 {orbit3Tech.map((tech, index) => (
                                     <div
                                         key={`mobile-ai-${tech.label}`}
@@ -270,13 +271,11 @@ export function HeroSection() {
                                         </div>
                                     </div>
                                 ))}
-
                             </div>
-
                         </div>
                     </motion.div>
 
-                    {/* Lado Direito: Informações, Typewriter & Botões */}
+                    {/* Lado Direito: Informações, Typewriter & Cards */}
                     <motion.div
                         initial={{ opacity: 0, x: 30 }}
                         animate={{ opacity: 1, x: 0 }}
@@ -284,6 +283,21 @@ export function HeroSection() {
                         className="lg:col-span-7 flex flex-col gap-6"
                     >
                         <div className="flex flex-wrap items-center gap-2">
+                            <div className="flex items-center gap-2.5 px-3.5 py-1.5 rounded-full bg-white/5 border border-white/10">
+                                <div className="text-emerald-400" title="Database">
+                                    <Database className="w-3.5 h-3.5" />
+                                </div>
+                                <div className="text-amber-400" title="Server">
+                                    <Server className="w-3.5 h-3.5" />
+                                </div>
+                                <div className="text-purple-400" title="Code">
+                                    <Code2 className="w-3.5 h-3.5" />
+                                </div>
+                                <div className="text-cyan-400" title="Layers">
+                                    <Layers className="w-3.5 h-3.5" />
+                                </div>
+                            </div>
+
                             <div className="flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-emerald-500/30 bg-emerald-500/[0.07]">
                                 <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
                                 <span className="text-xs font-mono text-emerald-400 whitespace-nowrap">
@@ -297,7 +311,7 @@ export function HeroSection() {
                         </div>
 
                         <p className="text-xs font-mono text-slate-500 tracking-widest">
-                            {"// "}Full Stack & Cloud Developer
+                            {"// "}Full Stack Developer
                         </p>
 
                         <h1 className="text-4xl sm:text-6xl font-black tracking-tight text-white">
@@ -316,13 +330,13 @@ export function HeroSection() {
                         </p>
 
                         <div className="grid grid-cols-3 gap-3 my-2">
-                            {personal.stats.map((stat, idx) => (
+                            {customStats.map((stat, idx) => (
                                 <motion.div
                                     key={idx}
                                     whileHover={{ scale: 1.03 }}
                                     className="glass-card p-4 rounded-2xl border border-white/10 text-center flex flex-col justify-center bg-slate-900/40 hover:border-cyan-500/40 transition-colors"
                                 >
-                                    <span className="text-2xl sm:text-3xl font-black text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-teal-300">
+                                    <span className="text-lg sm:text-xl font-black text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-teal-300">
                                         {stat.value}
                                     </span>
                                     <span className="text-xs text-gray-400 font-medium mt-1">
