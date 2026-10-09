@@ -4,7 +4,7 @@ export const resumeData = {
         role: "Desenvolvedor Full Stack Júnior",
         email: "robsoncsoares.1050@gmail.com",
         phone: "(61) 99501-5804",
-        whatsappMessage: "Olá Robson,\n\nVi seu currículo no portfólio e gostaria de entrar em contato.",
+        whatsappMessage: "Olá Robson,\n\nVi o seu portfólio e gostaria de entrar em contato.",
         location: "Brasília - DF",
         linkedin: "https://www.linkedin.com/in/robson-soares-b22513170/",
         github: "https://github.com/robsonejsoares",
