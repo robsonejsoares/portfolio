@@ -28,9 +28,9 @@
   - [x] Animações de entrada e efeitos de hover magnético/brilho
 
 - [x] **Etapa 6: Galeria de Projetos & Modal Expansível**
-  - [x] Criar os componentes `src/components/sections/SectionProjetos.tsx` e `src/components/dialogs/dialogs-section-projetos/DetalhesProjetoDialog.tsx`
+  - [x] Criar os componentes `src/components/sections/SectionProjetos.tsx`
   - [x] Filtros por categoria (Todos, Web, Mobile, etc.)
-  - [x] Cards de projetos em `src/components/sections/projetos-section/CardProjeto.tsx`
+  - [x] Cards de projetos empkjm>fcgtdfghfdgfhgfhgf
   - [x] Modal expansível com Framer Motion (`layoutId`) detalhando tecnologia, links e imagens
 
 - [ ] **Etapa 7: Linha do Tempo de Experiência**

@@ -8,6 +8,7 @@ import { EfeitosFundo } from "@/components/common/EfeitosFundo";
 import { IndicadorRolagem } from "@/components/common/IndicadorRolagem";
 import { WhatsAppFlutuante } from "@/components/common/WhatsAppFlutuante";
 import { Navbar } from "@/components/layout/Navbar";
+import { Footer } from "@/components/layout/Footer";
 import { SectionHero } from "@/components/sections/section-hero/SectionHero";
 import { SectionSobre } from "@/components/sections/section-sobre/SectionSobre";
 import { SectionHabilidades } from "@/components/sections/section-habilidades/SectionHabilidades";
@@ -120,6 +121,7 @@ export default function HomePortfolio() {
       </div>
 
       <WhatsAppFlutuante />
+      <Footer />
     </main>
   );
 }

@@ -2,10 +2,10 @@
 
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { 
-    Layout, 
-    Server, 
-    Database, 
+import {
+    Layout,
+    Server,
+    Database,
     Smartphone,
     Bot,
     GitBranch,
@@ -41,7 +41,9 @@ const skillCategories = [
             { name: "Java", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg", shadow: "hover:shadow-[0_0_25px_rgba(239,68,68,0.4)]" },
             { name: "Spring Boot", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/spring/spring-original.svg", shadow: "hover:shadow-[0_0_25px_rgba(13,148,136,0.4)]" },
             { name: "Node.js", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg", shadow: "hover:shadow-[0_0_25px_rgba(16,185,129,0.4)]" },
-            { name: "NestJS", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nestjs/nestjs-original.svg", shadow: "hover:shadow-[0_0_25px_rgba(225,29,72,0.4)]" }
+            { name: "NestJS", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nestjs/nestjs-original.svg", shadow: "hover:shadow-[0_0_25px_rgba(225,29,72,0.4)]" },
+            { name: "Python", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg", shadow: "hover:shadow-[0_0_25px_rgba(59,130,246,0.4)]" },
+            { name: "PHP", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/php/php-original.svg", shadow: "hover:shadow-[0_0_25px_rgba(147,51,234,0.4)]" }
         ]
     },
     {
@@ -83,7 +85,7 @@ const skillCategories = [
         activeBg: "bg-amber-500/15",
         glowShadow: "shadow-[0_0_25px_rgba(245,158,11,0.4)]",
         skills: [
-            { name: "Agentes IA", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg", shadow: "hover:shadow-[0_0_25px_rgba(147,51,234,0.4)]" },
+            { name: "Agentes IA", logo: "https://api.iconify.design/lucide:cpu.svg?color=%2338bdf8", shadow: "hover:shadow-[0_0_25px_rgba(56,189,248,0.4)]", extraClass: "drop-shadow-[0_0_10px_rgba(56,189,248,0.6)]" },
             { name: "n8n", logo: "https://cdn.simpleicons.org/n8n/EA4B71", shadow: "hover:shadow-[0_0_25px_rgba(234,75,113,0.4)]" }
         ]
     },
@@ -145,7 +147,7 @@ export function SectionHabilidades() {
     return (
         <section id="skills" className="py-20 relative z-10">
             <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-                
+
                 {/* Cabeçalho da Seção */}
                 <div className="text-center mb-10">
                     <motion.div
@@ -157,30 +159,30 @@ export function SectionHabilidades() {
                         <h2 className="text-3xl sm:text-5xl font-extrabold tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-sky-400 to-blue-500">
                             Habilidades e Tecnologias
                         </h2>
-                        
+
                         {/* Indicador visual pulsante */}
                         <div className="flex items-center justify-center gap-2 mt-4">
-                            <motion.span 
+                            <motion.span
                                 initial={{ opacity: 0.5, width: "3rem" }}
                                 animate={{ opacity: [0.5, 1, 0.5], width: ["3rem", "4rem", "3rem"] }}
                                 transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
                                 className="h-[2px] bg-gradient-to-r from-transparent to-cyan-500/80"
                             ></motion.span>
-                            
-                            <motion.span 
-                                animate={{ 
+
+                            <motion.span
+                                animate={{
                                     scale: [1, 1.3, 1],
                                     boxShadow: [
-                                        "0 0 8px rgba(6,182,212,0.8)", 
-                                        "0 0 16px rgba(6,182,212,1)", 
+                                        "0 0 8px rgba(6,182,212,0.8)",
+                                        "0 0 16px rgba(6,182,212,1)",
                                         "0 0 8px rgba(6,182,212,0.8)"
                                     ]
                                 }}
                                 transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
                                 className="w-2 h-2 rounded-full bg-cyan-400"
                             ></motion.span>
-                            
-                            <motion.span 
+
+                            <motion.span
                                 initial={{ opacity: 0.5, width: "3rem" }}
                                 animate={{ opacity: [0.5, 1, 0.5], width: ["3rem", "4rem", "3rem"] }}
                                 transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
@@ -191,7 +193,7 @@ export function SectionHabilidades() {
                 </div>
 
                 {/* Abas com Transição Fluida e Dinâmica */}
-                <div 
+                <div
                     className="flex flex-wrap justify-center gap-2 mb-10 relative p-1.5 rounded-2xl bg-slate-950/70 border border-slate-800/80 backdrop-blur-md max-w-fit mx-auto shadow-2xl"
                     onMouseEnter={() => setIsPaused(true)}
                     onMouseLeave={() => setIsPaused(false)}
@@ -205,20 +207,19 @@ export function SectionHabilidades() {
                                 onClick={() => handleTabClick(category.id)}
                                 whileHover={{ scale: 1.03 }}
                                 whileTap={{ scale: 0.97 }}
-                                className={`relative flex items-center gap-2 px-4 py-2.5 rounded-xl text-xs sm:text-sm font-mono whitespace-nowrap transition-colors duration-300 cursor-pointer select-none ${
-                                    isActive 
-                                        ? "text-white font-semibold" 
+                                className={`relative flex items-center gap-2 px-4 py-2.5 rounded-xl text-xs sm:text-sm font-mono whitespace-nowrap transition-colors duration-300 cursor-pointer select-none ${isActive
+                                        ? "text-white font-semibold"
                                         : "text-slate-400 hover:text-slate-200"
-                                }`}
+                                    }`}
                             >
                                 {isActive && (
                                     <motion.div
                                         layoutId="activeTabIndicator"
                                         className={`absolute inset-0 rounded-xl border backdrop-blur-xl ${category.activeBorder} ${category.activeBg} ${category.glowShadow} z-0`}
-                                        transition={{ 
-                                            type: "spring", 
-                                            stiffness: 500, 
-                                            damping: 35 
+                                        transition={{
+                                            type: "spring",
+                                            stiffness: 500,
+                                            damping: 35
                                         }}
                                     />
                                 )}
@@ -251,19 +252,19 @@ export function SectionHabilidades() {
                                 className={`group relative bg-slate-900/90 backdrop-blur-md border border-slate-700/70 hover:border-cyan-500/50 rounded-xl p-3.5 flex flex-col items-center justify-center w-32 sm:w-36 h-34 shadow-xl transition-all duration-300 overflow-hidden ${skill.shadow}`}
                             >
                                 {/* Card Interno com apenas o efeito de flutuação */}
-                                <motion.div 
+                                <motion.div
                                     animate={{ y: [0, -4, 0] }}
                                     transition={{ duration: 3, repeat: Infinity, ease: "easeInOut", delay: index * 0.15 }}
                                     className="w-14 h-14 sm:w-16 sm:h-16 rounded-xl bg-slate-950/80 border border-slate-700/80 flex items-center justify-center p-2.5 shadow-inner transition-colors duration-300 group-hover:border-cyan-500/40 mb-2"
                                 >
-                                    <img 
-                                        src={skill.logo} 
-                                        alt={skill.name} 
+                                    <img
+                                        src={skill.logo}
+                                        alt={skill.name}
                                         className={`w-full h-full object-contain filter drop-shadow-md ${skill.extraClass || ""}`}
                                     />
                                 </motion.div>
 
-                                <span className="text-slate-300 font-mono text-xs sm:text-sm group-hover:text-white transition-colors tracking-wide text-center whitespace-nowrap truncate w-full">
+                                <span className="text-slate-500 font-mono text-xs sm:text-sm group-hover:text-slate-300 transition-colors tracking-wide text-center whitespace-nowrap truncate w-full">
                                     {skill.name}
                                 </span>
                             </motion.div>

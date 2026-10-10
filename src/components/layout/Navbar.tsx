@@ -25,7 +25,7 @@ export function Navbar() {
             setScrolled(window.scrollY > 20);
 
             const sections = navLinks.map((link) => link.href.substring(1));
-            const scrollPosition = window.scrollY + 200;
+            const scrollPosition = window.scrollY + 250;
 
             for (const section of sections) {
                 const element = document.getElementById(section);
@@ -49,7 +49,14 @@ export function Navbar() {
         const targetId = href.replace("#", "");
         const element = document.getElementById(targetId);
         if (element) {
-            element.scrollIntoView({ behavior: "smooth" });
+            const navOffset = targetId === "about" ? 235 : 90;
+            const elementPosition = element.getBoundingClientRect().top + window.scrollY;
+            const offsetPosition = elementPosition - navOffset;
+
+            window.scrollTo({
+                top: offsetPosition,
+                behavior: "smooth"
+            });
             setMobileMenuOpen(false);
         }
     };
@@ -60,13 +67,12 @@ export function Navbar() {
                 initial={{ y: -50, opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}
                 transition={{ duration: 0.5 }}
-                className={`w-full max-w-[95rem] px-3 sm:px-6 h-16 flex items-center justify-between gap-2 transition-all duration-500 ease-in-out pointer-events-auto ${
-                    scrolled
+                className={`w-full max-w-[95rem] px-3 sm:px-6 h-16 flex items-center justify-between gap-2 transition-all duration-500 ease-in-out pointer-events-auto ${scrolled
                         ? "bg-slate-950/85 backdrop-blur-xl rounded-2xl shadow-2xl shadow-cyan-950/30 border border-white/10"
                         : "bg-transparent border border-transparent shadow-none"
-                }`}
+                    }`}
             >
-                {/* 1. Lado Esquerdo: Logótipo colado na borda */}
+                {/* 1. Lado Esquerdo: Logótipo*/}
                 <div className="flex items-center shrink-0">
                     <a
                         href="#hero"
@@ -88,7 +94,7 @@ export function Navbar() {
                     </a>
                 </div>
 
-                {/* 2. Centro: Links de Navegação, Tema e Contato */}
+                {/* 2. Centro: Links de Navegação*/}
                 <div className="hidden lg:flex items-center gap-1.5">
                     {navLinks.map((link) => {
                         const isActive = activeSection === link.href.substring(1);
@@ -97,16 +103,22 @@ export function Navbar() {
                                 key={link.href}
                                 href={link.href}
                                 onClick={(e) => handleScrollTo(e, link.href)}
-                                className={`relative px-3 py-1.5 rounded-lg text-sm font-medium transition-all duration-300 flex items-center gap-1.5 ${
-                                    isActive
-                                        ? "text-cyan-400 bg-cyan-500/15 border border-cyan-500/40 shadow-[0_0_15px_rgba(6,182,212,0.3)] font-semibold hover:bg-cyan-500/25 hover:border-cyan-400 hover:shadow-[0_0_20px_rgba(6,182,212,0.5)]"
-                                        : "text-slate-400 hover:text-cyan-300 hover:bg-cyan-500/10 hover:border hover:border-cyan-500/30 hover:shadow-[0_0_10px_rgba(6,182,212,0.2)]"
-                                }`}
+                                className={`relative px-4 py-2 rounded-xl text-sm font-medium transition-colors duration-200 flex items-center justify-center ${isActive ? "text-cyan-300 font-semibold" : "text-slate-400 hover:text-slate-200"
+                                    }`}
                             >
                                 {isActive && (
-                                    <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse shadow-[0_0_8px_#34d399]" />
+                                    <motion.div
+                                        layoutId="navbar-active-pill"
+                                        className="absolute inset-0 bg-slate-800/80 rounded-xl border border-white/10"
+                                        transition={{ type: "spring", stiffness: 380, damping: 30 }}
+                                    />
                                 )}
-                                {link.name}
+                                <span className="relative z-10 flex items-center gap-2">
+                                    {isActive && (
+                                        <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse shadow-[0_0_8px_#34d399]" />
+                                    )}
+                                    {link.name}
+                                </span>
                             </a>
                         );
                     })}
@@ -121,13 +133,13 @@ export function Navbar() {
                         className="hidden md:flex relative overflow-hidden px-4 py-2 text-xs font-extrabold text-black bg-gradient-to-r from-cyan-400 via-sky-400 to-blue-500 rounded-xl shadow-lg shadow-cyan-500/25 hover:scale-105 hover:brightness-110 active:scale-95 transition-all duration-300 items-center gap-1.5 group cursor-pointer ml-1"
                     >
                         <span className="relative z-10 flex items-center gap-1.5">
-                            <span>Contate-me</span>
+                            <span>Contato</span>
                             <Send className="w-3.5 h-3.5 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform duration-300" />
                         </span>
                     </a>
                 </div>
 
-                {/* 3. Lado Direito: Status "Disponível para trabalho" forçado na extremidade */}
+                {/* 3. Lado Direito: Status "Disponível para trabalho" */}
                 <div className="hidden xl:flex items-center shrink-0">
                     <div className="flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-emerald-500/30 bg-emerald-500/[0.07]">
                         <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
@@ -172,11 +184,10 @@ export function Navbar() {
                                         <a
                                             href={link.href}
                                             onClick={(e) => handleScrollTo(e, link.href)}
-                                            className={`flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-medium transition-all ${
-                                                isActive
-                                                    ? "bg-cyan-500/20 border border-cyan-500/40 text-cyan-400 font-semibold"
-                                                    : "text-gray-300 hover:bg-white/5 hover:text-white"
-                                            }`}
+                                            className={`flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-medium transition-colors ${isActive
+                                                    ? "text-cyan-300 bg-slate-800/80 border border-white/10 font-semibold"
+                                                    : "text-gray-300 hover:bg-white/5 hover:text-white border border-transparent"
+                                                }`}
                                         >
                                             <IconComponent className={`w-4 h-4 ${isActive ? "text-cyan-400" : "text-gray-400"}`} />
                                             <span>{link.name}</span>

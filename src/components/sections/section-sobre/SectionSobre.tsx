@@ -202,7 +202,7 @@ export function SectionSobre() {
     };
 
     return (
-        <section id="about" className="relative py-28 px-4 flex items-center justify-center z-10 bg-slate-950/60">
+        <section id="about" className="relative py-28 px-4 flex items-center justify-center z-10">
             <div className="max-w-7xl w-full">
                 <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
 
@@ -308,29 +308,31 @@ export function SectionSobre() {
                             transition={{ duration: 0.6, delay: 0.2 }}
                             className="space-y-2.5"
                         >
-                            <div className="flex items-center gap-3 text-sm text-gray-300">
-                                <div className="w-1.5 h-1.5 rounded-full shrink-0" style={{ background: "rgb(0, 245, 255)", boxShadow: "rgba(0, 245, 255, 0.6) 0px 0px 6px" }}></div>
-                                Desenvolvimento web e mobile moderno (React, Next.js, React Native).
-                            </div>
-                            <div className="flex items-center gap-3 text-sm text-gray-300">
-                                <div className="w-1.5 h-1.5 rounded-full shrink-0" style={{ background: "rgb(0, 245, 255)", boxShadow: "rgba(0, 245, 255, 0.6) 0px 0px 6px" }}></div>
-                                Construção de microsserviços e APIs REST com Java, Node.js e NestJS.
-                            </div>
-                            <div className="flex items-center gap-3 text-sm text-gray-300">
-                                <div className="w-1.5 h-1.5 rounded-full shrink-0" style={{ background: "rgb(0, 245, 255)", boxShadow: "rgba(0, 245, 255, 0.6) 0px 0px 6px" }}></div>
-                                Modelagem de dados em bancos relacionais e NoSQL (PostgreSQL, MongoDB).
-                            </div>
-                            <div className="flex items-center gap-3 text-sm text-gray-300">
-                                <div className="w-1.5 h-1.5 rounded-full shrink-0" style={{ background: "rgb(0, 245, 255)", boxShadow: "rgba(0, 245, 255, 0.6) 0px 0px 6px" }}></div>
-                                Criação de Design Systems e prototipagem interativa (UI/UX).
-                            </div>
-                            <div className="flex items-center gap-3 text-sm text-gray-300">
-                                <div className="w-1.5 h-1.5 rounded-full shrink-0" style={{ background: "rgb(0, 245, 255)", boxShadow: "rgba(0, 245, 255, 0.6) 0px 0px 6px" }}></div>
-                                Garantia de qualidade com testes automatizados e IA aplicada ao desenvolvimento.
-                            </div>
-                            <div className="flex items-center gap-3 text-sm text-gray-300">
-                                <div className="w-1.5 h-1.5 rounded-full shrink-0" style={{ background: "rgb(0, 245, 255)", boxShadow: "rgba(0, 245, 255, 0.6) 0px 0px 6px" }}></div>
-                                Gestão de ambientes, containers e automação de entrega (Docker & Cloud).
+                            <div className="space-y-2.5">
+                                <div className="flex items-center gap-3 text-sm text-gray-300">
+                                    <div className="w-1.5 h-1.5 rounded-full shrink-0" style={{ background: "rgb(0, 245, 255)", boxShadow: "rgba(0, 245, 255, 0.6) 0px 0px 6px" }}></div>
+                                    Desenvolvimento web e mobile moderno.
+                                </div>
+                                <div className="flex items-center gap-3 text-sm text-gray-300">
+                                    <div className="w-1.5 h-1.5 rounded-full shrink-0" style={{ background: "rgb(0, 245, 255)", boxShadow: "rgba(0, 245, 255, 0.6) 0px 0px 6px" }}></div>
+                                    Construção de microsserviços e APIs REST.
+                                </div>
+                                <div className="flex items-center gap-3 text-sm text-gray-300">
+                                    <div className="w-1.5 h-1.5 rounded-full shrink-0" style={{ background: "rgb(0, 245, 255)", boxShadow: "rgba(0, 245, 255, 0.6) 0px 0px 6px" }}></div>
+                                    Modelagem de dados em bancos relacionais e NoSQL.
+                                </div>
+                                <div className="flex items-center gap-3 text-sm text-gray-300">
+                                    <div className="w-1.5 h-1.5 rounded-full shrink-0" style={{ background: "rgb(0, 245, 255)", boxShadow: "rgba(0, 245, 255, 0.6) 0px 0px 6px" }}></div>
+                                    Gestão de ambientes, containers e automação de entrega.
+                                </div>
+                                <div className="flex items-center gap-3 text-sm text-gray-300">
+                                    <div className="w-1.5 h-1.5 rounded-full shrink-0" style={{ background: "rgb(0, 245, 255)", boxShadow: "rgba(0, 245, 255, 0.6) 0px 0px 6px" }}></div>
+                                    Testes automatizados com IA aplicada ao desenvolvimento.
+                                </div>
+                                <div className="flex items-center gap-3 text-sm text-gray-300">
+                                    <div className="w-1.5 h-1.5 rounded-full shrink-0" style={{ background: "rgb(0, 245, 255)", boxShadow: "rgba(0, 245, 255, 0.6) 0px 0px 6px" }}></div>
+                                    Criação de Design Systems e prototipagem interativa (UI/UX).
+                                </div>
                             </div>
                         </motion.div>
                     </motion.div>
