@@ -2,8 +2,8 @@
 
 import { motion, AnimatePresence } from "framer-motion";
 import { FileText, Mail, Phone, MapPin, Briefcase, GraduationCap, Cpu, Award, User } from "lucide-react";
-import { ButtonClose } from "@/components/ui/ButtonClose";
-import { resumeData } from "@/data/resumeData";
+import { ButtonFechar } from "@/components/ui/ButtonFechar";
+import { dadosCurriculo } from "@/data/dadosCurriculo";
 
 function GithubIcon({ className = "w-4 h-4" }: { className?: string }) {
     return (
@@ -27,7 +27,7 @@ interface DialogResumeProps {
 }
 
 export function DialogResume({ isOpen, onClose }: DialogResumeProps) {
-    const { personal, summary, experiences, education, technologies, certifications } = resumeData;
+    const { personal, summary, experiences, education, technologies, certifications } = dadosCurriculo;
     const whatsappUrl = `https://wa.me/5561995015804?text=${encodeURIComponent(personal.whatsappMessage)}`;
 
     return (
@@ -73,7 +73,7 @@ export function DialogResume({ isOpen, onClose }: DialogResumeProps) {
                                     </span>
                                 </a>
 
-                                <ButtonClose onClick={onClose} />
+                                <ButtonFechar onClick={onClose} />
                             </div>
                         </div>
 
@@ -113,18 +113,18 @@ export function DialogResume({ isOpen, onClose }: DialogResumeProps) {
                                 </div>
                             </div>
 
-{/* Resumo Profissional */}
-<div>
-    <h2 className="text-sm font-mono uppercase tracking-widest text-cyan-300 mb-4 flex items-center gap-2 font-semibold">
-        <User className="w-4 h-4 text-purple-400" />
-        Resumo Profissional
-    </h2>
-    <div className="p-5 rounded-xl border border-cyan-500/20 bg-[#101726] shadow-md">
-        <p className="text-sm sm:text-base leading-relaxed text-gray-200">
-            {summary}
-        </p>
-    </div>
-</div>
+                            {/* Resumo Profissional */}
+                            <div>
+                                <h2 className="text-sm font-mono uppercase tracking-widest text-cyan-300 mb-4 flex items-center gap-2 font-semibold">
+                                    <User className="w-4 h-4 text-purple-400" />
+                                    Resumo Profissional
+                                </h2>
+                                <div className="p-5 rounded-xl border border-cyan-500/20 bg-[#101726] shadow-md">
+                                    <p className="text-sm sm:text-base leading-relaxed text-gray-200">
+                                        {summary}
+                                    </p>
+                                </div>
+                            </div>
 
                             {/* Experiência Profissional */}
                             <div>

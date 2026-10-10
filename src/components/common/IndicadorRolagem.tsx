@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 
-export function ScrollIndicator() {
+export function IndicadorRolagem() {
     return (
         <div className="flex flex-col items-center gap-2 pointer-events-none select-none my-4">
             <div className="flex flex-col items-center gap-1.5 h-12 justify-center">

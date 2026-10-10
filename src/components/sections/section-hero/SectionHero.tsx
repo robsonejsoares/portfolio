@@ -3,9 +3,8 @@
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { MapPin, Mail, Database, Server, Code2, Layers } from "lucide-react";
-import { portfolioData } from "@/data/portfolioData";
-import { DialogResume } from "@/components/dialogs/DialogResume";
-import { CyberLoader } from "@/components/common/CyberLoader";
+import { dadosPortfolio } from "@/data/dadosPortfolio";
+import { LoadingDialogCurriculo } from "@/components/sections/section-hero/components/LoadingDialogCurriculo";
 
 // Ícones Sociais
 function GitIcon({ className = "w-4 h-4" }: { className?: string }) {
@@ -24,8 +23,8 @@ function LinkedinIcon({ className = "w-4 h-4" }: { className?: string }) {
     );
 }
 
-export function HeroSection() {
-    const { personal } = portfolioData;
+export function SectionHero() {
+    const { personal } = dadosPortfolio;
     const [isResumeOpen, setIsResumeOpen] = useState(false);
     const [isLoading, setIsLoading] = useState(false);
 
@@ -140,7 +139,7 @@ export function HeroSection() {
                 }
             `}</style>
 
-            <CyberLoader isLoading={isLoading} text="ACESSANDO CURRÍCULO..." />
+            <LoadingDialogCurriculo isLoading={isLoading} text="ACESSANDO CURRÍCULO..." />
 
             <div className="fixed top-0 left-0 right-0 h-19 bg-slate-950 z-[40] pointer-events-none" />
 
@@ -405,9 +404,9 @@ export function HeroSection() {
                 </div>
             </section>
 
-            <DialogResume
-                isOpen={isResumeOpen}
-                onClose={() => setIsResumeOpen(false)}
+            <LoadingDialogCurriculo
+                isLoading={isResumeOpen}
+                
             />
         </>
     );

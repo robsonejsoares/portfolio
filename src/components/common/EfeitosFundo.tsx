@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 
-export function BackgroundEffects() {
+export function EfeitosFundo() {
   return (
     <div className="fixed inset-0 pointer-events-none z-0 overflow-hidden">
       {/* Grade de Fundo */}

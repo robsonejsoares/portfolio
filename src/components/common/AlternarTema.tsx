@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import { Sun, Moon } from "lucide-react";
 import { useTheme } from "next-themes";
 
-export function ThemeToggle() {
+export function AlternarTema() {
     const { theme, setTheme, resolvedTheme } = useTheme();
     const [mounted, setMounted] = useState(false);
 

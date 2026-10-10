@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, Send, Home, User, Cpu, FolderGit2, Briefcase, Layers, Mail } from "lucide-react";
-import { ThemeToggle } from "@/components/common/ThemeToggle";
+import { AlternarTema } from "@/components/common/AlternarTema";
 import Image from "next/image";
 
 const navLinks = [
@@ -113,7 +113,7 @@ export function Navbar() {
 
                     <div className="w-px h-5 bg-white/10 mx-1.5" />
 
-                    <ThemeToggle />
+                    <AlternarTema />
 
                     <a
                         href="#contact"

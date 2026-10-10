@@ -117,7 +117,7 @@ const skillCategories = [
     }
 ];
 
-export function SkillsSection() {
+export function SectionHabilidades() {
     const [activeTab, setActiveTab] = useState(skillCategories[0].id);
     const [isPaused, setIsPaused] = useState(false);
 

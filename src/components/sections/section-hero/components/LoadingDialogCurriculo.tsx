@@ -3,12 +3,12 @@
 import { motion, AnimatePresence } from "framer-motion";
 import { Cpu } from "lucide-react";
 
-interface CyberLoaderProps {
+interface LoadingDialogCurriculoProps {
     isLoading: boolean;
     text?: string;
 }
 
-export function CyberLoader({ isLoading, text = "ACESSANDO PROTOCOLO..." }: CyberLoaderProps) {
+export function LoadingDialogCurriculo({ isLoading, text = "ACESSANDO CURRÍCULO..." }: LoadingDialogCurriculoProps) {
     return (
         <AnimatePresence>
             {isLoading && (
@@ -18,7 +18,7 @@ export function CyberLoader({ isLoading, text = "ACESSANDO PROTOCOLO..." }: Cybe
                     exit={{ opacity: 0 }}
                     className="fixed inset-0 z-50 flex items-center justify-center bg-black/90 backdrop-blur-md"
                 >
-<div className="flex flex-col items-center gap-4 p-6 rounded-2xl border border-cyan-500/40 bg-[#070a12] shadow-[0_0_30px_rgba(6,182,212,0.3)]">
+                    <div className="flex flex-col items-center gap-4 p-6 rounded-2xl border border-cyan-500/40 bg-[#070a12] shadow-[0_0_30px_rgba(6,182,212,0.3)]">
                         {/* Spinner Cibernético */}
                         <div className="relative w-12 h-12 flex items-center justify-center">
                             <motion.div

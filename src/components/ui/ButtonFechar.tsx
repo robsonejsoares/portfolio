@@ -2,12 +2,12 @@
 
 import { X } from "lucide-react";
 
-interface ButtonCloseProps {
+interface ButtonFecharProps {
     onClick: () => void;
     className?: string;
 }
 
-export function ButtonClose({ onClick, className = "" }: ButtonCloseProps) {
+export function ButtonFechar({ onClick, className = "" }: ButtonFecharProps) {
     return (
         <button
             onClick={onClick}

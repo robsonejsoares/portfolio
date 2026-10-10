@@ -1,4 +1,4 @@
-export const resumeData = {
+export const dadosCurriculo = {
     personal: {
         name: "Robson Edvaldo Jose Soares",
         role: "Desenvolvedor Full Stack Júnior",

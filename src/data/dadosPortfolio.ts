@@ -48,7 +48,7 @@ export interface Testimonial {
   rating: number;
 }
 
-export const portfolioData = {
+export const dadosPortfolio = {
   personal: {
     name: "Robson Soares",
     roles: [

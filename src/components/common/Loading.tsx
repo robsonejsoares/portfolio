@@ -1,38 +1,37 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 
-interface LoadingScreenProps {
+interface LoadingProps {
   onComplete: () => void;
 }
 
-export function LoadingScreen({ onComplete }: { onComplete: () => void }) {
-  const [progress, setProgress] = useState(0);
-  const [isReady, setIsReady] = useState(false);
+export function Loading({ onComplete }: LoadingProps) {
+  const [progresso, setProgresso] = useState(0);
+  const [estaPronto, setEstaPronto] = useState(false);
 
   useEffect(() => {
-    // Controla a velocidade do carregamento (ajuste o intervalo para mais rápido ou mais lento)
-    const intervalTime = 35; // total de ~2 segundos para ir de 0 a 100
-    const timer = setInterval(() => {
-      setProgress((prev) => {
+    
+    const tempoIntervalo = 35;
+    const temporizador = setInterval(() => {
+      setProgresso((prev) => {
         if (prev >= 100) {
-          clearInterval(timer);
-          setIsReady(true);
+          clearInterval(temporizador);
+          setEstaPronto(true);
           setTimeout(() => {
             onComplete();
-          }, 600); // Pequeno delay após chegar em 100 para mostrar o "READY"
+          }, 600);
           return 100;
         }
         return prev + 1;
       });
-    }, intervalTime);
+    }, tempoIntervalo);
 
-    return () => clearInterval(timer);
+    return () => clearInterval(temporizador);
   }, [onComplete]);
 
-  // Formata o número para 3 dígitos (ex: 005, 042, 100)
-  const formattedProgress = String(progress).padStart(3, "0");
+  const progressoFormatado = String(progresso).padStart(3, "0");
 
   return (
     <motion.div
@@ -55,20 +54,20 @@ export function LoadingScreen({ onComplete }: { onComplete: () => void }) {
 
         {/* Status Text */}
         <div className="text-xs tracking-[0.3em] text-cyan-400/80 uppercase">
-          {isReady ? "READY" : "INITIALIZING..."}
+          {estaPronto ? "READY" : "INITIALIZING..."}
         </div>
 
         {/* Barra de Progresso */}
         <div className="w-full h-1 bg-slate-800 rounded-full overflow-hidden relative">
           <motion.div
             className="absolute top-0 left-0 bottom-0 bg-gradient-to-r from-cyan-400 to-purple-500 rounded-full"
-            style={{ width: `${progress}%` }}
+            style={{ width: `${progresso}%` }}
           />
         </div>
 
         {/* Contador Numérico (000 / 100) */}
         <div className="text-xs text-gray-400 tracking-widest">
-          {formattedProgress} / 100
+          {progressoFormatado} / 100
         </div>
 
       </div>
