@@ -21,12 +21,12 @@ function LinkedinIcon({ className = "w-4 h-4" }: { className?: string }) {
     );
 }
 
-interface DialogResumeProps {
+interface DialogCurriculoProps {
     isOpen: boolean;
     onClose: () => void;
 }
 
-export function DialogResume({ isOpen, onClose }: DialogResumeProps) {
+export function DialogCurriculo({ isOpen, onClose }: DialogCurriculoProps) {
     const { personal, summary, experiences, education, technologies, certifications } = dadosCurriculo;
     const whatsappUrl = `https://wa.me/5561995015804?text=${encodeURIComponent(personal.whatsappMessage)}`;
 
