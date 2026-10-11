@@ -1,7 +1,7 @@
+
 "use client";
 
 import Image from "next/image";
-import { ArrowUp, Mail } from "lucide-react";
 
 function GitIcon({ className = "w-4 h-4" }: { className?: string }) {
     return (
@@ -20,16 +20,13 @@ function LinkedinIcon({ className = "w-4 h-4" }: { className?: string }) {
 }
 
 export function Footer() {
-    const scrollToTop = () => {
-        window.scrollTo({ top: 0, behavior: "smooth" });
-    };
 
-    const currentYear = new Date().getFullYear();
+    const currentYear = 2026;
 
     return (
         <footer className="fixed bottom-0 inset-x-0 bg-slate-950/90 backdrop-blur-xl border-t border-white/10 py-2 px-6 z-40 pointer-events-auto shadow-2xl">
             <div className="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-2 text-xs font-mono">
-                
+
                 {/* Lado Esquerdo: Logo igual ao topo */}
                 <div className="flex items-center">
                     <a
@@ -63,7 +60,7 @@ export function Footer() {
                     </a>
                 </div>
 
-                {/* Lado Direito: Redes Sociais Coloridas e Botão Topo */}
+                {/* Lado Direito: Redes Sociais Coloridas */}
                 <div className="flex items-center gap-2.5">
                     <div className="flex items-center gap-1.5">
                         {/* GitHub */}
@@ -76,7 +73,7 @@ export function Footer() {
                         >
                             <GitIcon className="w-3 h-3 text-slate-100 group-hover:scale-110 transition-transform" />
                         </a>
-                        
+
                         {/* LinkedIn */}
                         <a
                             href="https://www.linkedin.com/in/robson-soares-b22513170/?isSelfProfile=true"
@@ -86,15 +83,6 @@ export function Footer() {
                             className="w-6 h-6 rounded-md bg-blue-500/10 border border-blue-500/30 flex items-center justify-center text-blue-400 hover:bg-blue-500/20 hover:border-blue-400 transition-all group shadow-sm"
                         >
                             <LinkedinIcon className="w-3 h-3 text-blue-400 group-hover:scale-110 transition-transform" />
-                        </a>
-
-                        {/* E-mail */}
-                        <a
-                            href="mailto:robsoncsoares.1050@gmail.com"
-                            aria-label="E-mail"
-                            className="w-6 h-6 rounded-md bg-purple-500/10 border border-purple-500/30 flex items-center justify-center text-purple-400 hover:bg-purple-500/20 hover:border-purple-400 transition-all group shadow-sm"
-                        >
-                            <Mail className="w-3 h-3 text-purple-400 group-hover:scale-110 transition-transform" />
                         </a>
                     </div>
                 </div>

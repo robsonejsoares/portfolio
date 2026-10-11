@@ -32,7 +32,7 @@ export default function HomePortfolio() {
       <SectionHero />
 
       {/* Indicador de rolagem */}
-      <div className="flex justify-center -mt-24 mb-4 relative z-20">
+      <div className="flex justify-center -mt-45 mb-4 relative z-20">
         <IndicadorRolagem />
       </div>
 

@@ -13,7 +13,7 @@ export function Loading({ onComplete }: LoadingProps) {
 
   useEffect(() => {
     
-    const tempoIntervalo = 35;
+    const tempoIntervalo = 15;
     const temporizador = setInterval(() => {
       setProgresso((prev) => {
         if (prev >= 100) {
