@@ -3,11 +3,9 @@
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { MapPin, Mail, Database, Server, Code2, Layers } from "lucide-react";
-import { portfolioData } from "@/data/portfolioData";
-import { DialogResume } from "@/components/dialogs/DialogResume";
-import { CyberLoader } from "@/components/common/CyberLoader";
+import { dadosPortfolio } from "@/data/dadosPortfolio";
+import { LoadingDialogCurriculo } from "@/components/sections/section-hero/components/LoadingDialogCurriculo";
 
-// Ícones Sociais
 function GitIcon({ className = "w-4 h-4" }: { className?: string }) {
     return (
         <svg className={className} viewBox="0 0 24 24" fill="currentColor">
@@ -24,8 +22,8 @@ function LinkedinIcon({ className = "w-4 h-4" }: { className?: string }) {
     );
 }
 
-export function HeroSection() {
-    const { personal } = portfolioData;
+export function SectionHero() {
+    const { personal } = dadosPortfolio;
     const [isResumeOpen, setIsResumeOpen] = useState(false);
     const [isLoading, setIsLoading] = useState(false);
 
@@ -140,7 +138,7 @@ export function HeroSection() {
                 }
             `}</style>
 
-            <CyberLoader isLoading={isLoading} text="ACESSANDO CURRÍCULO..." />
+            <LoadingDialogCurriculo isLoading={isLoading} text="ACESSANDO CURRÍCULO..." />
 
             <div className="fixed top-0 left-0 right-0 h-19 bg-slate-950 z-[40] pointer-events-none" />
 
@@ -297,22 +295,11 @@ export function HeroSection() {
                                     <Layers className="w-3.5 h-3.5" />
                                 </div>
                             </div>
-
-                            <div className="flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-emerald-500/30 bg-emerald-500/[0.07]">
-                                <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
-                                <span className="text-xs font-mono text-emerald-400 whitespace-nowrap">
-                                    Disponível para trabalho
-                                </span>
-                            </div>
                             <span className="px-3.5 py-1.5 rounded-full text-xs font-mono bg-white/5 border border-white/10 text-gray-300 flex items-center gap-2">
                                 <MapPin className="w-3.5 h-3.5 text-red-500 animate-pulse drop-shadow-[0_0_8px_rgba(239,68,68,0.6)]" />
                                 {personal.location}
                             </span>
                         </div>
-
-                        <p className="text-xs font-mono text-slate-500 tracking-widest">
-                            {"// "}Full Stack Developer
-                        </p>
 
                         <h1 className="text-4xl sm:text-6xl font-black tracking-tight text-white">
                             {personal.name.split(" ")[0]} <span className="text-gradient-cyan">{personal.name.split(" ")[1]}</span>
@@ -325,7 +312,7 @@ export function HeroSection() {
                             <span className="w-[3px] h-6 bg-cyan-400 ml-1.5 animate-pulse rounded-xl" />
                         </div>
 
-                        <p className="text-gray-300 text-base sm:text-lg leading-relaxed max-w-2xl">
+                        <p className="text-xs font-mono text-slate-500 tracking-widest">
                             {personal.tagline}
                         </p>
 
@@ -339,7 +326,7 @@ export function HeroSection() {
                                     <span className="text-lg sm:text-xl font-black text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-teal-300">
                                         {stat.value}
                                     </span>
-                                    <span className="text-xs text-gray-400 font-medium mt-1">
+                                    <span className="text-xs font-mono text-slate-500 mt-1">
                                         {stat.label}
                                     </span>
                                 </motion.div>
@@ -349,7 +336,7 @@ export function HeroSection() {
                         <div className="flex flex-wrap items-center gap-4 pt-2">
                             <button
                                 onClick={handleOpenResume}
-                                className="relative overflow-hidden px-6 py-2.5 rounded-xl text-sm font-extrabold text-black bg-gradient-to-r from-cyan-400 via-sky-400 to-blue-500 shadow-lg shadow-cyan-500/25 hover:scale-105 hover:brightness-110 hover:shadow-[0_0_35px_rgba(6,182,212,0.9)] active:scale-95 transition-all duration-300 flex items-center gap-2 group cursor-pointer"
+                                className="relative overflow-hidden px-6 py-2.5 rounded-xl text-sm font-semibold text-black bg-gradient-to-r from-cyan-400 via-sky-400 to-blue-500 shadow-lg shadow-cyan-500/25 hover:scale-105 hover:brightness-110 hover:shadow-[0_0_35px_rgba(6,182,212,0.9)] active:scale-95 transition-all duration-300 flex items-center gap-2 group cursor-pointer"
                             >
                                 <span className="absolute inset-0 w-full h-full bg-gradient-to-r from-transparent via-white/50 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700 ease-in-out pointer-events-none" />
 
@@ -362,7 +349,7 @@ export function HeroSection() {
                             <a
                                 href="#contact"
                                 onClick={handleScrollToContact}
-                                className="relative overflow-hidden px-6 py-2.5 rounded-xl text-sm font-bold text-white glass-card hover:bg-white/10 border border-white/10 hover:border-cyan-400 hover:scale-105 hover:shadow-[0_0_30px_rgba(6,182,212,0.4)] active:scale-95 transition-all duration-300 flex items-center gap-2 group cursor-pointer"
+                                className="relative overflow-hidden px-6 py-2.5 rounded-xl text-sm font-semibold text-slate-300 glass-card hover:bg-white/10 border border-white/10 hover:border-cyan-400 hover:scale-105 hover:shadow-[0_0_30px_rgba(6,182,212,0.4)] active:scale-95 transition-all duration-300 flex items-center gap-2 group cursor-pointer"
                             >
                                 <span className="absolute inset-0 w-full h-full bg-gradient-to-r from-transparent via-white/25 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700 ease-in-out pointer-events-none" />
 
@@ -373,7 +360,7 @@ export function HeroSection() {
                             </a>
                         </div>
 
-                        <div className="flex items-center gap-6 pt-4 text-xs font-semibold text-gray-400 border-t border-white/10 tracking-widest">
+                        <div className="flex items-center gap-6 pt-4 text-xs font-mono font-semibold text-gray-400 border-t border-white/10 tracking-widest">
                             <a
                                 href="https://github.com/robsonejsoares"
                                 target="_blank"
@@ -405,9 +392,9 @@ export function HeroSection() {
                 </div>
             </section>
 
-            <DialogResume
-                isOpen={isResumeOpen}
-                onClose={() => setIsResumeOpen(false)}
+            <LoadingDialogCurriculo
+                isLoading={isResumeOpen}
+                
             />
         </>
     );

@@ -2,10 +2,10 @@
 
 import { motion } from "framer-motion";
 import { MessageCircle } from "lucide-react";
-import { resumeData } from "@/data/resumeData";
+import { dadosCurriculo } from "@/data/dadosCurriculo";
 
-export function FloatingWhatsApp() {
-    const { phone, whatsappMessage } = resumeData.personal;
+export function WhatsAppFlutuante() {
+    const { phone, whatsappMessage } = dadosCurriculo.personal;
     const number = phone.replace(/\D/g, "");
     const url = `https://wa.me/${number.startsWith("55") ? number : `55${number}`}?text=${encodeURIComponent(whatsappMessage)}`;
 

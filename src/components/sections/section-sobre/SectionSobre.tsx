@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
-import { portfolioData } from "@/data/portfolioData";
+import { dadosCurriculo } from "@/data/dadosCurriculo";
 import { Code } from "lucide-react";
 
 const codeLinesWithoutComment = [
@@ -22,8 +22,8 @@ const codeLinesWithoutComment = [
 
 const finalComment = '// Movido por código limpo, lógica e alta performance.';
 
-export function AboutSection() {
-    const { personal } = portfolioData;
+export function SectionSobre() {
+    const { personal } = dadosCurriculo;
     const [displayedLines, setDisplayedLines] = useState<string[]>([""]);
     const [currentLineIndex, setCurrentLineIndex] = useState(0);
     const [isFullyTyped, setIsFullyTyped] = useState(false);
@@ -56,7 +56,7 @@ export function AboutSection() {
 
                         const char = targetLine.charAt(charIdx - 1);
                         let humanDelay = Math.floor(Math.random() * 90) + 80;
-                        
+
                         if (targetLine.includes("return")) {
                             humanDelay = Math.floor(Math.random() * 110) + 95;
                         }
@@ -202,10 +202,10 @@ export function AboutSection() {
     };
 
     return (
-        <section id="about" className="relative py-28 px-4 flex items-center justify-center z-10 bg-slate-950/60">
+        <section id="about" className="relative py-28 px-4 flex items-center justify-center z-10">
             <div className="max-w-7xl w-full">
                 <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-                    
+
                     {/* Lado Esquerdo: Simulador de Editor de Código */}
                     <motion.div
                         initial={{ opacity: 0, x: -30 }}
@@ -217,20 +217,20 @@ export function AboutSection() {
                         {/* Barra Superior do Editor com bolinhas animadas */}
                         <div className="flex items-center justify-between px-4 py-3 bg-slate-950/80 border-b border-white/10">
                             <div className="flex items-center gap-2.5">
-                                <motion.span 
+                                <motion.span
                                     animate={{ scale: [1, 1.25, 1], opacity: [0.7, 1, 0.7] }}
                                     transition={{ repeat: Infinity, duration: 2, ease: "easeInOut" }}
-                                    className="w-3 h-3 rounded-full bg-red-500 inline-block shadow-[0_0_8px_rgba(239,68,68,0.7)] cursor-pointer" 
+                                    className="w-3 h-3 rounded-full bg-red-500 inline-block shadow-[0_0_8px_rgba(239,68,68,0.7)] cursor-pointer"
                                 />
-                                <motion.span 
+                                <motion.span
                                     animate={{ scale: [1, 1.25, 1], opacity: [0.7, 1, 0.7] }}
                                     transition={{ repeat: Infinity, duration: 2, delay: 0.3, ease: "easeInOut" }}
-                                    className="w-3 h-3 rounded-full bg-amber-500 inline-block shadow-[0_0_8px_rgba(245,158,11,0.7)] cursor-pointer" 
+                                    className="w-3 h-3 rounded-full bg-amber-500 inline-block shadow-[0_0_8px_rgba(245,158,11,0.7)] cursor-pointer"
                                 />
-                                <motion.span 
+                                <motion.span
                                     animate={{ scale: [1, 1.25, 1], opacity: [0.7, 1, 0.7] }}
                                     transition={{ repeat: Infinity, duration: 2, delay: 0.6, ease: "easeInOut" }}
-                                    className="w-3 h-3 rounded-full bg-emerald-500 inline-block shadow-[0_0_8px_rgba(16,185,129,0.7)] cursor-pointer" 
+                                    className="w-3 h-3 rounded-full bg-emerald-500 inline-block shadow-[0_0_8px_rgba(16,185,129,0.7)] cursor-pointer"
                                 />
                             </div>
                             <div className="flex items-center gap-1.5 text-xs font-mono text-gray-400">
@@ -260,11 +260,11 @@ export function AboutSection() {
                                     );
                                 })}
                             </div>
-                            
+
                             {/* Frase final */}
                             <div className="h-8 flex items-center pt-2 border-t border-white/5">
                                 {isFullyTyped && (
-                                    <motion.div 
+                                    <motion.div
                                         initial={{ opacity: 0, y: 4 }}
                                         animate={{ opacity: 1, y: 0 }}
                                         exit={{ opacity: 0, y: 4 }}
@@ -286,7 +286,7 @@ export function AboutSection() {
                         transition={{ duration: 0.8 }}
                         className="lg:col-span-6 flex flex-col justify-center"
                     >
-                        <div>                            
+                        <div>
                             <h2 className="font-display font-black text-4xl md:text-5xl bg-gradient-to-r from-cyan-400 via-indigo-400 to-purple-500 bg-clip-text text-transparent mb-6">
                                 Sobre mim
                             </h2>
@@ -301,36 +301,38 @@ export function AboutSection() {
                         </div>
 
                         {/* Lista de competências */}
-                        <motion.div 
+                        <motion.div
                             initial={{ opacity: 0, y: 20 }}
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
                             transition={{ duration: 0.6, delay: 0.2 }}
                             className="space-y-2.5"
                         >
-                            <div className="flex items-center gap-3 text-sm text-gray-300">
-                                <div className="w-1.5 h-1.5 rounded-full shrink-0" style={{ background: "rgb(0, 245, 255)", boxShadow: "rgba(0, 245, 255, 0.6) 0px 0px 6px" }}></div>
-                                Desenvolvimento web e mobile moderno (React, Next.js, React Native).
-                            </div>
-                            <div className="flex items-center gap-3 text-sm text-gray-300">
-                                <div className="w-1.5 h-1.5 rounded-full shrink-0" style={{ background: "rgb(0, 245, 255)", boxShadow: "rgba(0, 245, 255, 0.6) 0px 0px 6px" }}></div>
-                                Construção de microsserviços e APIs REST com Java, Node.js e NestJS.
-                            </div>
-                            <div className="flex items-center gap-3 text-sm text-gray-300">
-                                <div className="w-1.5 h-1.5 rounded-full shrink-0" style={{ background: "rgb(0, 245, 255)", boxShadow: "rgba(0, 245, 255, 0.6) 0px 0px 6px" }}></div>
-                                Modelagem de dados em bancos relacionais e NoSQL (PostgreSQL, MongoDB).
-                            </div>
-                            <div className="flex items-center gap-3 text-sm text-gray-300">
-                                <div className="w-1.5 h-1.5 rounded-full shrink-0" style={{ background: "rgb(0, 245, 255)", boxShadow: "rgba(0, 245, 255, 0.6) 0px 0px 6px" }}></div>
-                                Criação de Design Systems e prototipagem interativa (UI/UX).
-                            </div>
-                            <div className="flex items-center gap-3 text-sm text-gray-300">
-                                <div className="w-1.5 h-1.5 rounded-full shrink-0" style={{ background: "rgb(0, 245, 255)", boxShadow: "rgba(0, 245, 255, 0.6) 0px 0px 6px" }}></div>
-                                Garantia de qualidade com testes automatizados e IA aplicada ao desenvolvimento.
-                            </div>
-                            <div className="flex items-center gap-3 text-sm text-gray-300">
-                                <div className="w-1.5 h-1.5 rounded-full shrink-0" style={{ background: "rgb(0, 245, 255)", boxShadow: "rgba(0, 245, 255, 0.6) 0px 0px 6px" }}></div>
-                                Gestão de ambientes, containers e automação de entrega (Docker & Cloud).
+                            <div className="space-y-2.5">
+                                <div className="flex items-center gap-3 text-sm text-gray-300">
+                                    <div className="w-1.5 h-1.5 rounded-full shrink-0" style={{ background: "rgb(0, 245, 255)", boxShadow: "rgba(0, 245, 255, 0.6) 0px 0px 6px" }}></div>
+                                    Desenvolvimento web e mobile moderno.
+                                </div>
+                                <div className="flex items-center gap-3 text-sm text-gray-300">
+                                    <div className="w-1.5 h-1.5 rounded-full shrink-0" style={{ background: "rgb(0, 245, 255)", boxShadow: "rgba(0, 245, 255, 0.6) 0px 0px 6px" }}></div>
+                                    Construção de microsserviços e APIs REST.
+                                </div>
+                                <div className="flex items-center gap-3 text-sm text-gray-300">
+                                    <div className="w-1.5 h-1.5 rounded-full shrink-0" style={{ background: "rgb(0, 245, 255)", boxShadow: "rgba(0, 245, 255, 0.6) 0px 0px 6px" }}></div>
+                                    Modelagem de dados em bancos relacionais e NoSQL.
+                                </div>
+                                <div className="flex items-center gap-3 text-sm text-gray-300">
+                                    <div className="w-1.5 h-1.5 rounded-full shrink-0" style={{ background: "rgb(0, 245, 255)", boxShadow: "rgba(0, 245, 255, 0.6) 0px 0px 6px" }}></div>
+                                    Gestão de ambientes, containers e automação de entrega.
+                                </div>
+                                <div className="flex items-center gap-3 text-sm text-gray-300">
+                                    <div className="w-1.5 h-1.5 rounded-full shrink-0" style={{ background: "rgb(0, 245, 255)", boxShadow: "rgba(0, 245, 255, 0.6) 0px 0px 6px" }}></div>
+                                    Testes automatizados com IA aplicada ao desenvolvimento.
+                                </div>
+                                <div className="flex items-center gap-3 text-sm text-gray-300">
+                                    <div className="w-1.5 h-1.5 rounded-full shrink-0" style={{ background: "rgb(0, 245, 255)", boxShadow: "rgba(0, 245, 255, 0.6) 0px 0px 6px" }}></div>
+                                    Criação de Design Systems e prototipagem interativa (UI/UX).
+                                </div>
                             </div>
                         </motion.div>
                     </motion.div>
