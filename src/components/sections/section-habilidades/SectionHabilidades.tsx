@@ -208,8 +208,8 @@ export function SectionHabilidades() {
                                 whileHover={{ scale: 1.03 }}
                                 whileTap={{ scale: 0.97 }}
                                 className={`relative flex items-center gap-2 px-4 py-2.5 rounded-xl text-xs sm:text-sm font-mono whitespace-nowrap transition-colors duration-300 cursor-pointer select-none ${isActive
-                                        ? "text-white font-semibold"
-                                        : "text-slate-400 hover:text-slate-200"
+                                    ? "text-white font-semibold"
+                                    : "text-slate-400 hover:text-slate-200"
                                     }`}
                             >
                                 {isActive && (

@@ -23,7 +23,7 @@ export function SectionContato() {
                 >
                     <h2
                         id="contact-title"
-                        className="mb-3 bg-gradient-to-r from-cyan-400 via-indigo-400 to-purple-500 bg-clip-text text-4xl font-display font-black text-transparent md:text-5xl"
+                        className="font-display font-black text-4xl md:text-5xl bg-gradient-to-r from-cyan-400 via-indigo-400 to-purple-500 bg-clip-text text-transparent mb-6"
                     >
                         Contato
                     </h2>
