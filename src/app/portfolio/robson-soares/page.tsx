@@ -13,7 +13,8 @@ import { SectionHero } from "@/components/sections/section-hero/SectionHero";
 import { SectionSobre } from "@/components/sections/section-sobre/SectionSobre";
 import { SectionHabilidades } from "@/components/sections/section-habilidades/SectionHabilidades";
 import { SectionProjetos } from "@/components/sections/section-projetos/SectionProjetos";
-import { Wrench, Briefcase, Mail } from "lucide-react";
+import { Wrench, Briefcase } from "lucide-react";
+import { SectionContato } from "@/components/sections/section-contato/SectionContato";
 
 export default function HomePortfolio() {
   const [estaCarregando, setEstaCarregando] = useState(true);
@@ -38,16 +39,16 @@ export default function HomePortfolio() {
 
       <SectionSobre />
 
-      {/* Seção de Habilidades */}
+      {/* Seção Habilidades */}
       <SectionHabilidades />
 
-      {/* Seção de Projetos */}
+      {/* Seção Projetos */}
       <SectionProjetos />
 
       {/* Demais Seções em construção */}
       <div className="relative z-10 px-6 max-w-6xl mx-auto space-y-28 pb-32 pt-16">
 
-        {/* Experiência */}
+        {/* Seção Experiência */}
         <motion.section
           id="experience"
           initial={{ opacity: 0, y: 30 }}
@@ -71,7 +72,7 @@ export default function HomePortfolio() {
           </div>
         </motion.section>
 
-        {/* Serviços */}
+        {/* Seção Serviços */}
         <motion.section
           id="services"
           initial={{ opacity: 0, y: 30 }}
@@ -94,31 +95,10 @@ export default function HomePortfolio() {
             </p>
           </div>
         </motion.section>
-
-        {/* Contato */}
-        <motion.section
-          id="contact"
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
-          className="relative min-h-[35vh] rounded-3xl p-8 overflow-hidden group border border-cyan-500/20 bg-slate-900/40 backdrop-blur-xl transition-all duration-500 hover:border-cyan-500/60 hover:shadow-[0_0_40px_rgba(6,182,212,0.2)]"
-        >
-          <div className="absolute -inset-px bg-gradient-to-r from-cyan-500/0 via-cyan-500/10 to-cyan-500/0 opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none rounded-3xl" />
-
-          <div className="relative z-10 flex flex-col items-center justify-center text-center h-full min-h-[20vh] space-y-4">
-            <div className="p-3 rounded-2xl bg-cyan-500/10 border border-cyan-500/20 text-cyan-400 group-hover:scale-110 transition-transform duration-300">
-              <Mail className="w-8 h-8" />
-            </div>
-            <h2 className="text-3xl sm:text-4xl font-black text-gradient-cyan tracking-tight">
-              Contato <span className="text-gray-500 font-mono text-xl sm:text-2xl">(Em construção)</span>
-            </h2>
-            <p className="text-gray-400 font-mono text-xs sm:text-sm max-w-md">
-              Estabelecendo canais diretos de comunicação e conexões profissionais.
-            </p>
-          </div>
-        </motion.section>
       </div>
+
+      {/* Seção Contato */}
+      <SectionContato />
 
       <WhatsAppFlutuante />
       <Footer />

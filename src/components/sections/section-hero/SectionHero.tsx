@@ -135,7 +135,7 @@ export function SectionHero() {
                             initial={{ opacity: 0, scale: 0.9 }}
                             animate={{ opacity: 1, scale: 1 }}
                             transition={{ duration: 0.8 }}
-                            className="flex justify-center lg:justify-start order-2 lg:order-1 relative"
+                            className="flex justify-center lg:justify-start order-1 lg:order-1 relative"
                         >
                             <div className="relative flex items-center justify-center w-[300px] h-[350px] my-6">
 
@@ -236,7 +236,7 @@ export function SectionHero() {
                             initial={{ opacity: 0, x: 30 }}
                             animate={{ opacity: 1, x: 0 }}
                             transition={{ duration: 0.8, delay: 0.2 }}
-                            className="order-1 lg:order-2 flex flex-col gap-6"
+                            className="order-2 lg:order-2 flex flex-col gap-6"
                         >
                             <div className="flex flex-wrap items-center gap-2">
                                 <div className="flex items-center gap-2.5 px-3.5 py-1.5 rounded-full bg-white/5 border border-white/10">
@@ -259,7 +259,7 @@ export function SectionHero() {
                                 </span>
                             </div>
 
-                            <h1 className="text-4xl sm:text-6xl font-black tracking-tight text-white">
+                            <h1 className="text-4xl sm:text-5xl font-black tracking-tight text-white">
                                 {personal.name.split(" ")[0]} <span className="text-gradient-cyan">{personal.name.split(" ")[1]}</span>
                             </h1>
 
