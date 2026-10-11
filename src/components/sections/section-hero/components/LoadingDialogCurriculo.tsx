@@ -23,7 +23,7 @@ export function LoadingDialogCurriculo({ isLoading, text = "ACESSANDO CURRÍCULO
                         <div className="relative w-12 h-12 flex items-center justify-center">
                             <motion.div
                                 animate={{ rotate: 360 }}
-                                transition={{ duration: 3, repeat: Infinity, ease: "linear" }}
+                                transition={{ duration: 2, repeat: Infinity, ease: "linear" }}
                                 className="absolute inset-0 rounded-full border-2 border-cyan-500/20 border-t-cyan-400 shadow-[0_0_15px_rgba(6,182,212,0.8)]"
                             />
                             <Cpu className="w-5 h-5 text-cyan-400 animate-pulse" />
@@ -38,7 +38,7 @@ export function LoadingDialogCurriculo({ isLoading, text = "ACESSANDO CURRÍCULO
                                 <motion.div
                                     initial={{ x: "-100%" }}
                                     animate={{ x: "100%" }}
-                                    transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
+                                    transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
                                     className="w-full h-full bg-gradient-to-r from-transparent via-cyan-400 to-transparent"
                                 />
                             </div>

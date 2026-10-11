@@ -26,10 +26,9 @@ export function WhatsAppFlutuante() {
             transition={{ duration: 2.5, repeat: Infinity, ease: "easeInOut" }}
             whileHover={{ scale: 1.1, y: -2 }}
             whileTap={{ scale: 0.94 }}
-            className="fixed bottom-6 right-6 z-50 flex h-14 w-14 items-center justify-center rounded-full border-2 border-emerald-400/70 bg-slate-950 text-emerald-400"
+            className="fixed bottom-14 right-6 z-50 flex h-14 w-14 items-center justify-center rounded-full border-2 border-emerald-400/70 bg-slate-950 text-emerald-400 shadow-xl"
         >
             <MessageCircle size={27} strokeWidth={2.2} />
         </motion.a>
     );
-
 }
