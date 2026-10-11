@@ -287,7 +287,7 @@ export function SectionSobre() {
                         className="lg:col-span-6 flex flex-col justify-center"
                     >
                         <div>
-                            <h2 className="font-display font-black text-4xl md:text-5xl bg-gradient-to-r from-cyan-400 via-indigo-400 to-purple-500 bg-clip-text text-transparent mb-6">
+                            <h2 className="font-display font-black text-4xl md:text-4xl bg-gradient-to-r from-cyan-400 via-indigo-400 to-purple-500 bg-clip-text text-transparent mb-6">
                                 Sobre mim
                             </h2>
 

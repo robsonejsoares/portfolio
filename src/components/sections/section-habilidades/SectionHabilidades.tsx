@@ -156,7 +156,7 @@ export function SectionHabilidades() {
                         viewport={{ once: true }}
                         transition={{ duration: 0.5 }}
                     >
-                        <h2 className="text-3xl sm:text-5xl font-extrabold tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-sky-400 to-blue-500">
+                        <h2 className="font-display font-black text-4xl md:text-4xl bg-gradient-to-r from-cyan-400 via-indigo-400 to-purple-500 bg-clip-text text-transparent mb-6">
                             Habilidades e Tecnologias
                         </h2>
 
@@ -208,8 +208,8 @@ export function SectionHabilidades() {
                                 whileHover={{ scale: 1.03 }}
                                 whileTap={{ scale: 0.97 }}
                                 className={`relative flex items-center gap-2 px-4 py-2.5 rounded-xl text-xs sm:text-sm font-mono whitespace-nowrap transition-colors duration-300 cursor-pointer select-none ${isActive
-                                        ? "text-white font-semibold"
-                                        : "text-slate-400 hover:text-slate-200"
+                                    ? "text-white font-semibold"
+                                    : "text-slate-400 hover:text-slate-200"
                                     }`}
                             >
                                 {isActive && (
