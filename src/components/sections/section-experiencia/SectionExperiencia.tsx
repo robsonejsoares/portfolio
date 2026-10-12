@@ -1,4 +1,3 @@
-
 "use client";
 
 import { useCallback, useState } from "react";
@@ -75,7 +74,6 @@ export function SectionExperiencia() {
 
     return (
         <>
-            {/* Loading compartilhado */}
             <LoadingDialog
                 isLoading={isLoading}
                 text="ACESSANDO EXPERIÊNCIAS..."
@@ -84,10 +82,10 @@ export function SectionExperiencia() {
 
             <section
                 id="experience"
-                className="relative z-10 px-6 py-16 sm:py-20 lg:px-8"
+                className="relative z-10 w-full py-6 sm:py-8"
             >
-                <div className="mx-auto max-w-4xl space-y-10">
-                    {/* Cabeçalho da seção */}
+                {/* Conteúdo usando toda a largura disponível */}
+                <div className="w-full min-w-0 space-y-10">
                     <motion.header
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
@@ -106,15 +104,13 @@ export function SectionExperiencia() {
                         </p>
                     </motion.header>
 
-                    {/* Timeline */}
-                    <div className="relative">
+                    <div className="relative w-full min-w-0">
                         <div
                             aria-hidden="true"
                             className="absolute left-6 top-0 hidden h-[calc(100%-5rem)] w-px bg-gradient-to-b from-cyan-400/70 via-purple-500/60 to-emerald-400/30 md:block"
                         />
 
-                        {/* Experiências recentes */}
-                        <div className="space-y-8">
+                        <div className="w-full min-w-0 space-y-8">
                             {experienciasRecentes.map(
                                 (experiencia, indice) => {
                                     const visual =
@@ -140,7 +136,6 @@ export function SectionExperiencia() {
                             )}
                         </div>
 
-                        {/* Botão para consultar o histórico completo */}
                         {experiencias.length > 2 && (
                             <div className="mt-10 flex justify-center">
                                 <button
@@ -149,9 +144,8 @@ export function SectionExperiencia() {
                                     disabled={isLoading || dialogAberto}
                                     aria-haspopup="dialog"
                                     aria-expanded={dialogAberto}
-                                    className="group relative flex cursor-pointer items-center gap-2 overflow-hidden rounded-xl bg-gradient-to-r from-cyan-400 via-sky-400 to-blue-500 px-6 py-2.5 text-sm font-semibold text-black shadow-lg shadow-cyan-500/25 transition-all duration-300 hover:scale-105 hover:brightness-110 hover:shadow-[0_0_35px_rgba(6,182,212,0.9)] active:scale-95 disabled:cursor-wait disabled:opacity-70"
+                                    className="group relative flex cursor-pointer items-center gap-2 overflow-hidden rounded-md bg-gradient-to-r from-cyan-400 via-sky-400 to-blue-500 px-6 py-2.5 text-sm font-semibold text-black shadow-lg shadow-cyan-500/25 transition-all duration-300 hover:scale-105 hover:brightness-110 hover:shadow-[0_0_35px_rgba(6,182,212,0.9)] active:scale-95 disabled:cursor-wait disabled:opacity-70"
                                 >
-                                    {/* Efeito de brilho ao passar o mouse */}
                                     <span
                                         aria-hidden="true"
                                         className="pointer-events-none absolute inset-0 h-full w-full -translate-x-full bg-gradient-to-r from-transparent via-white/50 to-transparent transition-transform duration-700 ease-in-out group-hover:translate-x-full"
@@ -179,7 +173,6 @@ export function SectionExperiencia() {
                 </div>
             </section>
 
-            {/* Modal com o histórico completo */}
             <DialogExperiencias
                 isOpen={dialogAberto}
                 onClose={() => setDialogAberto(false)}

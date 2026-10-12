@@ -89,7 +89,7 @@ export function DialogCurriculo({
                             y: 16,
                         }}
                         transition={{ duration: 0.2 }}
-                        className="relative z-10 flex h-[85dvh] max-h-[900px] w-full max-w-4xl flex-col overflow-hidden rounded-2xl border border-cyan-500/30 bg-[#090d16] shadow-2xl shadow-black/40"
+                        className="relative z-10 flex h-[85dvh] max-h-[900px] w-full max-w-4xl flex-col overflow-hidden rounded-xl border border-cyan-500/30 bg-[#090d16] shadow-2xl shadow-black/40"
                     >
                         {/* Cabeçalho fixo */}
                         <header className="flex shrink-0 items-center justify-between gap-3 border-b border-cyan-500/20 bg-[#070a12] p-4 sm:p-5">
@@ -109,7 +109,7 @@ export function DialogCurriculo({
                                 <a
                                     href="/curriculo.pdf"
                                     download="Curriculo_Robson_Soares.pdf"
-                                    className="group relative flex cursor-pointer items-center gap-1.5 overflow-hidden rounded-xl bg-gradient-to-r from-cyan-400 via-sky-400 to-purple-500 px-3 py-2 text-xs font-extrabold text-black shadow-md shadow-cyan-500/20 transition-all duration-300 hover:scale-105 hover:brightness-110 hover:shadow-[0_0_25px_rgba(6,182,212,0.8)] active:scale-95 sm:px-4"
+                                    className="group relative flex cursor-pointer items-center gap-1.5 overflow-hidden rounded-md bg-gradient-to-r from-cyan-400 via-sky-400 to-purple-500 px-3 py-2 text-xs font-extrabold text-black shadow-md shadow-cyan-500/20 transition-all duration-300 hover:scale-105 hover:brightness-110 hover:shadow-[0_0_25px_rgba(6,182,212,0.8)] active:scale-95 sm:px-4"
                                 >
                                     <span
                                         aria-hidden="true"
