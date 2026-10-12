@@ -22,10 +22,10 @@ export function CardServico({ servico, indice }: CardServicoProps) {
                 delay: (indice % 3) * 0.07,
             }}
             whileHover={{ y: -8 }}
-            className={`glass-card group flex h-full flex-col rounded-2xl border border-white/10 p-5 transition-all duration-300 hover:shadow-xl bg-slate-900/60 backdrop-blur-xl ${estilo.brilho} ${estilo.sombra}`}
+            className={`glass-card group flex h-full flex-col rounded-xl border border-white/10 p-5 transition-all duration-300 hover:shadow-xl bg-slate-900/60 backdrop-blur-xl ${estilo.brilho} ${estilo.sombra}`}
         >
             <div
-                className={`mb-5 flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl border ${estilo.fundo} ${estilo.borda} ${estilo.texto} transition-transform duration-300 group-hover:scale-110`}
+                className={`mb-5 flex h-12 w-12 shrink-0 items-center justify-center rounded-xl border ${estilo.fundo} ${estilo.borda} ${estilo.texto} transition-transform duration-300 group-hover:scale-110`}
             >
                 <Icone
                     aria-hidden="true"

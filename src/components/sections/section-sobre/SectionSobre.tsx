@@ -1,4 +1,3 @@
-
 "use client";
 
 import { useState, useEffect } from "react";
@@ -245,17 +244,18 @@ export function SectionSobre() {
     return (
         <section
             id="about"
-            className="relative z-10 flex items-center justify-center px-4 pt-6 pb-16 sm:pt-8 sm:pb-20"
+            className="relative z-10 flex w-full min-w-0 items-center justify-center pt-6 pb-16 sm:pt-8 sm:pb-20"
         >
-            <div className="w-full max-w-7xl">
-                <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-12">
+            {/* Conteúdo usando toda a largura disponível */}
+            <div className="w-full min-w-0">
+                <div className="grid w-full min-w-0 grid-cols-1 items-center gap-12 lg:grid-cols-12">
                     {/* Editor: segundo no mobile, primeiro no desktop */}
                     <motion.div
                         initial={{ opacity: 0, x: -30 }}
                         whileInView={{ opacity: 1, x: 0 }}
                         viewport={{ once: true }}
                         transition={{ duration: 0.8 }}
-                        className="order-2 min-w-0 overflow-hidden rounded-2xl border border-white/10 bg-slate-900/80 shadow-2xl backdrop-blur-xl lg:order-1 lg:col-span-6"
+                        className="order-2 min-w-0 overflow-hidden rounded-xl border border-white/10 bg-slate-900/80 shadow-2xl backdrop-blur-xl lg:order-1 lg:col-span-6"
                     >
                         {/* Barra superior do editor */}
                         <div className="flex items-center justify-between border-b border-white/10 bg-slate-950/80 px-4 py-3">
@@ -376,6 +376,9 @@ export function SectionSobre() {
                                 Conheça minha trajetória e como transformo ideias em soluções.
                             </p>
 
+                            {/* Linha separadora */}
+                            <div className="mb-5 h-px w-full bg-gradient-to-r from-cyan-400/50 via-white/10 to-transparent" />
+
                             <p className="mb-4 text-base leading-relaxed text-slate-300">
                                 Sou{" "}
                                 <span className="font-medium">
@@ -396,7 +399,7 @@ export function SectionSobre() {
                             </p>
                         </div>
 
-                        {/* Lista de competências otimizada */}
+                        {/* Lista de competências */}
                         <motion.div
                             initial={{ opacity: 0, y: 20 }}
                             whileInView={{ opacity: 1, y: 0 }}

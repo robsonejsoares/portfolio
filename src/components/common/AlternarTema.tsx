@@ -15,7 +15,7 @@ export function AlternarTema() {
 
     if (!mounted) {
         return (
-            <div className="p-2 rounded-xl bg-white/5 border border-white/10 w-9 h-9 flex items-center justify-center opacity-0">
+            <div className="p-2 rounded-md bg-white/5 border border-white/10 w-9 h-9 flex items-center justify-center opacity-0">
                 <div className="w-4 h-4" />
             </div>
         );
@@ -28,7 +28,7 @@ export function AlternarTema() {
         <div className="relative group">
             <button
                 onClick={() => setTheme(isDark ? "light" : "dark")}
-                className="p-2 rounded-xl text-gray-300 hover:text-white bg-white/5 border border-white/10 hover:bg-white/10 hover:border-cyan-500/40 transition-all cursor-pointer flex items-center justify-center"
+                className="p-2 rounded-md text-gray-300 hover:text-white bg-white/5 border border-white/10 hover:bg-white/10 hover:border-cyan-500/40 transition-all cursor-pointer flex items-center justify-center"
                 aria-label="Alternar Tema"
             >
                 {isDark ? (

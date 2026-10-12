@@ -1,4 +1,3 @@
-
 "use client";
 
 import { motion } from "framer-motion";
@@ -10,16 +9,16 @@ export function SectionContato() {
         <section
             id="contact"
             aria-labelledby="contact-title"
-            className="relative isolate overflow-hidden py-16 sm:py-20"
+            className="relative z-10 w-full py-6 sm:py-8"
         >
-            <div className="mx-auto w-full max-w-7xl px-6">
+            <div className="w-full space-y-10">
                 {/* Cabeçalho */}
                 <motion.header
                     initial={{ opacity: 0, y: 24 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true, amount: 0.2 }}
                     transition={{ duration: 0.6 }}
-                    className="mx-auto mb-8 max-w-3xl text-center"
+                    className="w-full space-y-3 text-center"
                 >
                     <h2
                         id="contact-title"
@@ -33,13 +32,13 @@ export function SectionContato() {
                     </p>
                 </motion.header>
 
-                {/* Formulário centralizado */}
+                {/* Formulário ocupando toda a largura disponível */}
                 <motion.div
                     initial={{ opacity: 0, x: 24 }}
                     whileInView={{ opacity: 1, x: 0 }}
                     viewport={{ once: true, amount: 0.15 }}
                     transition={{ duration: 0.6, delay: 0.1 }}
-                    className="mx-auto w-full max-w-2xl"
+                    className="w-full min-w-0"
                 >
                     <FormularioContato />
                 </motion.div>

@@ -55,11 +55,11 @@ export function DialogServicos({
                         role="dialog"
                         aria-modal="true"
                         aria-labelledby="dialog-servicos-titulo"
-                        initial={{ opacity: 0, scale: 0.96, y: 16 }}
+                        initial={{ opacity: 0, scale: 0.96, y: 16 }}c
                         animate={{ opacity: 1, scale: 1, y: 0 }}
                         exit={{ opacity: 0, scale: 0.96, y: 16 }}
                         transition={{ duration: 0.2 }}
-                        className="relative z-10 flex h-[85dvh] max-h-[900px] w-full max-w-5xl flex-col overflow-hidden rounded-2xl border border-cyan-500/30 bg-[#090d16] shadow-2xl shadow-black/40"
+                        className="relative z-10 flex h-[85dvh] max-h-[900px] w-full max-w-5xl flex-col overflow-hidden rounded-xl border border-cyan-500/30 bg-[#090d16] shadow-2xl shadow-black/40"
                     >
                         <header className="flex shrink-0 items-center justify-between gap-4 border-b border-cyan-500/20 bg-[#070a12] p-4 sm:p-5">
                             <div className="flex min-w-0 items-center gap-3">

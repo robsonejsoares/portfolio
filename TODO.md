@@ -34,11 +34,12 @@
 
 ## 🔄 Etapa 6: Galeria de Projetos e Modal Expansível
 
-- [ ] Criar o componente `src/components/sections/SectionProjetos.tsx`.
-- [ ] Implementar filtros por categoria (Todos, Web, Mobile etc.).
+- [ ] Criar ou finalizar o componente `src/components/sections/SectionProjetos.tsx`.
+- [ ] Implementar filtros por categoria (Todos, Web, Mobile, Automação/IA etc.).
 - [ ] Criar cards interativos para apresentação dos projetos.
 - [ ] Implementar modal expansível com Framer Motion (`layoutId`).
 - [ ] Exibir detalhes de cada projeto (descrição, tecnologias, imagens e links para demonstração e repositório).
+- [ ] Garantir responsividade e consistência visual dos cards.
 
 ## ✅ Etapa 7: Linha do Tempo de Experiência Profissional
 
@@ -47,7 +48,16 @@
 - [x] Criar cards do histórico profissional com ícones por categoria.
 - [x] Apresentar cargos, empresas, períodos, responsabilidades e principais realizações.
 
-## ✅ Etapa 8: Seção de Serviços
+## 🆕 Etapa 11: Formação Acadêmica
+
+- [ ] Criar o componente `src/components/sections/SectionFormacao.tsx`.
+- [ ] Apresentar formação acadêmica, instituições de ensino e cursos relevantes.
+- [ ] Exibir períodos, situação (concluído ou em andamento) e informações complementares.
+- [ ] Criar cards para cada formação, seguindo o Design System do portfólio.
+- [ ] Integrar a seção à página principal e à barra de navegação.
+- [ ] Garantir responsividade e consistência visual.
+
+## ✅ Etapa 9: Seção de Serviços
 
 - [x] Criar o componente `src/components/sections/SectionServicos.tsx`.
 - [x] Desenvolver grid de cards para os serviços oferecidos.
@@ -55,7 +65,7 @@
 - [x] Adicionar animações e efeitos de interação nos cards.
 - [x] Implementar chamadas para ação direcionadas à seção de contato.
 
-## ✅ Etapa 9: Seção de Contato
+## ✅ Etapa 10: Seção de Contato
 
 - [x] Criar o componente `src/components/sections/SectionContato.tsx`.
 - [x] Desenvolver formulário de contato interativo.
@@ -66,14 +76,18 @@
 
 ---
 
-## 📌 Resumo do progresso
+## 📌 Resumo do Progresso
 
-- [x] Etapa 1 — Design System, Fundo Futurista e Dados
-- [x] Etapa 2 — Barra de Navegação
-- [x] Etapa 3 — Hero e Avatar Interativo
-- [x] Etapa 4 — Sobre Mim
-- [x] Etapa 5 — Habilidades e tecnologias
-- [ ] Etapa 6 — Galeria de Projetos
-- [x] Etapa 7 — Experiência Profissional
-- [x] Etapa 8 — Serviços
-- [x] Etapa 10 — Contato
+- [x] Etapa 001 — Design System, Fundo Futurista e Dados
+- [x] Etapa 002 — Barra de Navegação
+- [x] Etapa 003 — Hero e Avatar Interativo
+- [x] Etapa 004 — Sobre Mim
+- [x] Etapa 005 — Habilidades e Tecnologias
+- [ ] Etapa 006 — Galeria de Projetos
+- [x] Etapa 007 — Experiência Profissional
+- [ ] Etapa 008 — Formação Acadêmica
+- [x] Etapa 009 — Serviços
+- [x] Etapa 010 — Contato
+- [ ] Etapa 011 — Padronização das Seções em Cards
+
+---

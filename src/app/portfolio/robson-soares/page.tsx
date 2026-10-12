@@ -7,6 +7,8 @@ import { Navbar } from "@/components/layout/Navbar";
 import { Loading } from "@/components/common/Loading";
 import { EfeitosFundo } from "@/components/common/EfeitosFundo";
 import { WhatsAppFlutuante } from "@/components/common/WhatsAppFlutuante";
+import { SectionCard } from "@/components/common/SectionCard";
+
 import { SectionHero } from "@/components/sections/section-hero/SectionHero";
 import { SectionSobre } from "@/components/sections/section-sobre/SectionSobre";
 import { SectionContato } from "@/components/sections/section-contato/SectionContato";
@@ -16,52 +18,61 @@ import { SectionHabilidades } from "@/components/sections/section-habilidades/Se
 import { SectionExperiencia } from "@/components/sections/section-experiencia/SectionExperiencia";
 
 export default function HomePortfolio() {
+    const [estaCarregando, setEstaCarregando] = useState(true);
 
-  const [estaCarregando, setEstaCarregando] = useState(true);
+    return (
+        <main className="relative min-h-screen bg-[#070913] pb-14 text-white">
+            {/* Loading */}
+            <AnimatePresence>
+                {estaCarregando && (
+                    <Loading onComplete={() => setEstaCarregando(false)} />
+                )}
+            </AnimatePresence>
 
-  return (
+            {/* Efeitos de Fundo */}
+            <EfeitosFundo />
 
-    <main className="relative min-h-screen bg-[#070913] text-white overflow-hidden">
+            {/* Navbar */}
+            <Navbar />
 
-      {/* Loading */}
-      <AnimatePresence>
-        {estaCarregando && (
-          <Loading onComplete={() => setEstaCarregando(false)} />
-        )}
-      </AnimatePresence>
+            {/* Seção Hero */}
+            <SectionHero />
 
-      {/* Efeitos de Fundo */}
-      <EfeitosFundo />
+            {/* Seção Sobre */}
+            <SectionCard>
+                <SectionSobre />
+            </SectionCard>
 
-      {/* Navbar */}
-      <Navbar />
+            {/* Seção Habilidades */}
+            <SectionCard>
+                <SectionHabilidades />
+            </SectionCard>
 
-      {/* Seção Hero */}
-      <SectionHero />
+            {/* Seção Projetos */}
+            <SectionCard>
+                <SectionProjetos />
+            </SectionCard>
 
-      {/* Seção Sobre */}
-      <SectionSobre />
+            {/* Seção Experiência */}
+            <SectionCard>
+                <SectionExperiencia />
+            </SectionCard>
 
-      {/* Seção Habilidades */}
-      <SectionHabilidades />
+            {/* Seção Serviços */}
+            <SectionCard>
+                <SectionServicos />
+            </SectionCard>
 
-      {/* Seção Projetos */}
-      <SectionProjetos />
+            {/* Seção Contato */}
+            <SectionCard>
+                <SectionContato />
+            </SectionCard>
 
-      {/* Seção Experiência */}
-      <SectionExperiencia />
+            {/* WhatsApp Flutuante */}
+            <WhatsAppFlutuante />
 
-      {/* Seção Serviços */}
-      <SectionServicos />
-
-      {/* Seção Contato */}
-      <SectionContato />
-
-      {/* WhatsApp Flutuante */}
-      <WhatsAppFlutuante />
-
-      {/* Footer */}
-      <Footer />
-    </main>
-  );
+            {/* Footer fixo */}
+            <Footer />
+        </main>
+    );
 }
