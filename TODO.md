@@ -57,12 +57,12 @@
 
 ## ⏳ Etapa 9: Seção de Contato
 
-- [ ] Criar o componente `src/components/sections/SectionContato.tsx`.
-- [ ] Desenvolver formulário de contato interativo.
-- [ ] Implementar campos para nome, e-mail, assunto e mensagem.
-- [ ] Adicionar validação dos campos e feedback de envio.
-- [ ] Apresentar informações de contato e links para redes sociais.
-- [ ] Integrar o formulário a um serviço de envio de mensagens ou API.
+- [x] Criar o componente `src/components/sections/SectionContato.tsx`.
+- [x] Desenvolver formulário de contato interativo.
+- [x] Implementar campos para nome, e-mail, assunto e mensagem.
+- [x] Adicionar validação dos campos e feedback de envio.
+- [x] Apresentar informações de contato e links para redes sociais.
+- [x] Integrar o formulário a um serviço de envio de mensagens ou API.
 
 ---
 
@@ -74,8 +74,8 @@
 - [x] Etapa 4 — Sobre Mim
 - [x] Etapa 5 — Matriz de Habilidades
 - [ ] Etapa 6 — Galeria de Projetos
-- [ ] Etapa 7 — Experiência Profissional
+- [x]  Etapa 7 — Experiência Profissional
 - [ ] Etapa 8 — Serviços
 - [ ] Etapa 9 — Depoimentos
-- [ ] Etapa 10 — Contato
+- [x]  Etapa 10 — Contato
 - [ ] Etapa 11 — Animações, Responsividade e Deploy
