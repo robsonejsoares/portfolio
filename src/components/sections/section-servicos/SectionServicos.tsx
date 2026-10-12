@@ -40,7 +40,7 @@ export function SectionServicos() {
             <section
                 id="services"
                 aria-labelledby="services-title"
-                className="relative z-10 px-6 py-16 sm:py-20 lg:px-8 max-w-7xl mx-auto"
+                className="relative z-10 py-6 sm:py-8"
             >
                 <div className="space-y-10">
                     <motion.header
@@ -80,7 +80,7 @@ export function SectionServicos() {
                             disabled={isLoading || dialogAberto}
                             aria-haspopup="dialog"
                             aria-expanded={dialogAberto}
-                            className="group relative flex cursor-pointer items-center gap-3 overflow-hidden rounded-xl bg-gradient-to-r from-cyan-400 via-sky-400 to-blue-500 px-6 py-3 text-sm font-semibold text-black shadow-lg shadow-cyan-500/25 transition-all duration-300 hover:scale-105 hover:brightness-110 hover:shadow-[0_0_35px_rgba(6,182,212,0.5)] active:scale-95 disabled:cursor-wait disabled:opacity-70"
+                            className="group relative flex cursor-pointer items-center gap-3 overflow-hidden rounded-md bg-gradient-to-r from-cyan-400 via-sky-400 to-blue-500 px-6 py-3 text-sm font-semibold text-black shadow-lg shadow-cyan-500/25 transition-all duration-300 hover:scale-105 hover:brightness-110 hover:shadow-[0_0_35px_rgba(6,182,212,0.5)] active:scale-95 disabled:cursor-wait disabled:opacity-70"
                         >
                             <span
                                 aria-hidden="true"

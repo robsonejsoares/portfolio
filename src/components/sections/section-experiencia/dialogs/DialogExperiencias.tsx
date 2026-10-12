@@ -79,7 +79,7 @@ export function DialogExperiencias({
                         animate={{ opacity: 1, scale: 1, y: 0 }}
                         exit={{ opacity: 0, scale: 0.96, y: 16 }}
                         transition={{ duration: 0.2 }}
-                        className="relative z-10 flex h-[85dvh] max-h-[900px] w-full max-w-4xl flex-col overflow-hidden rounded-2xl border border-cyan-500/30 bg-[#090d16] shadow-2xl shadow-black/40"
+                        className="relative z-10 flex h-[85dvh] max-h-[900px] w-full max-w-4xl flex-col overflow-hidden rounded-xl border border-cyan-500/30 bg-[#090d16] shadow-2xl shadow-black/40"
                     >
                         {/* Cabeçalho fixo */}
                         <header className="flex shrink-0 items-center justify-between gap-4 border-b border-cyan-500/20 bg-[#070a12] p-4 sm:p-5">

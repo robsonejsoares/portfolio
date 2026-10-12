@@ -398,7 +398,7 @@ export function SectionHero() {
                                     <motion.div
                                         key={stat.label}
                                         whileHover={{ scale: 1.03 }}
-                                        className="glass-card flex flex-col justify-center rounded-2xl border border-white/10 bg-slate-900/40 p-4 text-center transition-colors hover:border-cyan-500/40"
+                                        className="glass-card flex flex-col justify-center rounded-md border border-white/10 bg-slate-900/40 p-4 text-center transition-colors hover:border-cyan-500/40"
                                     >
                                         <span className="bg-gradient-to-r from-cyan-400 to-teal-300 bg-clip-text text-lg font-black text-transparent sm:text-xl">
                                             {stat.value}
@@ -419,7 +419,7 @@ export function SectionHero() {
                                     disabled={isLoading || isResumeOpen}
                                     aria-haspopup="dialog"
                                     aria-expanded={isResumeOpen}
-                                    className="group relative flex cursor-pointer items-center gap-2 overflow-hidden rounded-xl bg-gradient-to-r from-cyan-400 via-sky-400 to-blue-500 px-6 py-2.5 text-sm font-semibold text-black shadow-lg shadow-cyan-500/25 transition-all duration-300 hover:scale-105 hover:brightness-110 hover:shadow-[0_0_35px_rgba(6,182,212,0.9)] active:scale-95 disabled:cursor-wait disabled:opacity-70"
+                                    className="group relative flex cursor-pointer items-center gap-2 overflow-hidden rounded-md bg-gradient-to-r from-cyan-400 via-sky-400 to-blue-500 px-6 py-2.5 text-sm font-semibold text-black shadow-lg shadow-cyan-500/25 transition-all duration-300 hover:scale-105 hover:brightness-110 hover:shadow-[0_0_35px_rgba(6,182,212,0.9)] active:scale-95 disabled:cursor-wait disabled:opacity-70"
                                 >
                                     <span
                                         aria-hidden="true"
@@ -440,7 +440,7 @@ export function SectionHero() {
                                 <a
                                     href="#contact"
                                     onClick={handleScrollToContact}
-                                    className="group relative flex cursor-pointer items-center gap-2 overflow-hidden rounded-xl border border-white/10 px-6 py-2.5 text-sm font-semibold text-slate-300 transition-all duration-300 glass-card hover:scale-105 hover:border-cyan-400 hover:bg-white/10 hover:shadow-[0_0_30px_rgba(6,182,212,0.4)] active:scale-95"
+                                    className="group relative flex cursor-pointer items-center gap-2 overflow-hidden rounded-md border border-white/10 px-6 py-2.5 text-sm font-semibold text-slate-300 transition-all duration-300 glass-card hover:scale-105 hover:border-cyan-400 hover:bg-white/10 hover:shadow-[0_0_30px_rgba(6,182,212,0.4)] active:scale-95"
                                 >
                                     <span
                                         aria-hidden="true"

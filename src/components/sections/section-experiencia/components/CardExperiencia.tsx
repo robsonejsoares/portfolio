@@ -50,7 +50,7 @@ export function CardExperiencia({
             </div>
 
             {/* Card profissional */}
-            <div className="glass-card rounded-2xl p-7 transition-all duration-300 hover:-translate-y-1 hover:border-white/20">
+            <div className="glass-card rounded-xl p-7 transition-all duration-300 hover:-translate-y-1 hover:border-white/20">
                 {/* Cargo, empresa e período */}
                 <div className="mb-4 flex flex-wrap items-start justify-between gap-3">
                     <div className="min-w-0 flex-1">

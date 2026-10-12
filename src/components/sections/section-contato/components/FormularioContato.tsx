@@ -12,7 +12,8 @@ export function FormularioContato() {
     const [sucesso, setSucesso] = useState("");
     const [enviando, setEnviando] = useState(false);
 
-    const temporizadorSucesso = useRef<ReturnType<typeof setTimeout> | null>(null);
+    const temporizadorSucesso =
+        useRef<ReturnType<typeof setTimeout> | null>(null);
 
     useEffect(() => {
         return () => {
@@ -93,7 +94,7 @@ export function FormularioContato() {
             if (!resposta.ok) {
                 throw new Error(
                     resultado.error ||
-                    "Não foi possível enviar sua mensagem. Tente novamente.",
+                        "Não foi possível enviar sua mensagem. Tente novamente.",
                 );
             }
 
@@ -122,7 +123,7 @@ export function FormularioContato() {
     }
 
     return (
-        <div className="rounded-3xl border border-white/10 bg-slate-900/60 p-5 shadow-2xl shadow-black/20 backdrop-blur-xl sm:p-8">
+        <div className="rounded-xl border border-white/10 bg-slate-900/60 p-5 shadow-2xl shadow-black/20 backdrop-blur-xl sm:p-8">
             <div className="mb-7">
                 <h4 className="mt-2 text-xl font-bold text-slate-400 sm:text-2xl">
                     Envie uma mensagem
@@ -150,7 +151,7 @@ export function FormularioContato() {
                             onChange={(event) => setNome(event.target.value)}
                             placeholder="Seu nome"
                             disabled={enviando}
-                            className="w-full rounded-xl border border-white/10 bg-slate-950/70 px-4 py-3 text-sm text-slate-400 outline-none transition placeholder:text-slate-600 focus:border-cyan-400/60 focus:ring-2 focus:ring-cyan-400/10 disabled:opacity-60"
+                            className="w-full rounded-md border border-white/10 bg-slate-950/70 px-4 py-3 text-sm text-slate-400 outline-none transition placeholder:text-slate-600 focus:border-cyan-400/60 focus:ring-2 focus:ring-cyan-400/10 disabled:opacity-60"
                         />
                     </div>
 
@@ -173,7 +174,7 @@ export function FormularioContato() {
                             onChange={(event) => setEmail(event.target.value)}
                             placeholder="voce@exemplo.com"
                             disabled={enviando}
-                            className="w-full rounded-xl border border-white/10 bg-slate-950/70 px-4 py-3 text-sm text-slate-400 outline-none transition placeholder:text-slate-600 focus:border-cyan-400/60 focus:ring-2 focus:ring-cyan-400/10 disabled:opacity-60"
+                            className="w-full rounded-md border border-white/10 bg-slate-950/70 px-4 py-3 text-sm text-slate-400 outline-none transition placeholder:text-slate-600 focus:border-cyan-400/60 focus:ring-2 focus:ring-cyan-400/10 disabled:opacity-60"
                         />
                     </div>
                 </div>
@@ -196,7 +197,7 @@ export function FormularioContato() {
                         onChange={(event) => setAssunto(event.target.value)}
                         placeholder="Sobre o que vamos conversar?"
                         disabled={enviando}
-                        className="w-full rounded-xl border border-white/10 bg-slate-950/70 px-4 py-3 text-sm text-slate-400 outline-none transition placeholder:text-slate-600 focus:border-cyan-400/60 focus:ring-2 focus:ring-cyan-400/10 disabled:opacity-60"
+                        className="w-full rounded-md border border-white/10 bg-slate-950/70 px-4 py-3 text-sm text-slate-400 outline-none transition placeholder:text-slate-600 focus:border-cyan-400/60 focus:ring-2 focus:ring-cyan-400/10 disabled:opacity-60"
                     />
                 </div>
 
@@ -219,7 +220,7 @@ export function FormularioContato() {
                         onChange={(event) => setMensagem(event.target.value)}
                         placeholder="Conte um pouco sobre sua ideia, projeto ou oportunidade..."
                         disabled={enviando}
-                        className="w-full resize-y rounded-xl border border-white/10 bg-slate-950/70 px-4 py-3 text-sm leading-6 text-slate-400 outline-none transition placeholder:text-slate-600 focus:border-cyan-400/60 focus:ring-2 focus:ring-cyan-400/10 disabled:opacity-60"
+                        className="w-full resize-y rounded-md border border-white/10 bg-slate-950/70 px-4 py-3 text-sm leading-6 text-slate-400 outline-none transition placeholder:text-slate-600 focus:border-cyan-400/60 focus:ring-2 focus:ring-cyan-400/10 disabled:opacity-60"
                     />
 
                     <p className="mt-2 text-right text-xs text-slate-600">
@@ -230,7 +231,7 @@ export function FormularioContato() {
                 {erro && (
                     <p
                         role="alert"
-                        className="rounded-xl border border-red-400/20 bg-red-400/5 px-4 py-3 text-sm text-red-300"
+                        className="rounded-md border border-red-400/20 bg-red-400/5 px-4 py-3 text-sm text-red-300"
                     >
                         {erro}
                     </p>
@@ -247,30 +248,33 @@ export function FormularioContato() {
                     </p>
                 )}
 
-                <button
-                    type="submit"
-                    disabled={enviando}
-                    className="group relative flex w-full cursor-pointer items-center justify-center gap-2 overflow-hidden rounded-xl bg-gradient-to-r from-cyan-400 via-sky-400 to-blue-500 px-6 py-3.5 text-sm font-bold text-black shadow-lg shadow-cyan-500/25 transition-all duration-300 hover:scale-105 hover:brightness-110 hover:shadow-[0_0_35px_rgba(6,182,212,0.5)] active:scale-95 disabled:cursor-not-allowed disabled:opacity-60 disabled:hover:scale-100"
-                >
-                    <span
-                        aria-hidden="true"
-                        className="pointer-events-none absolute inset-0 h-full w-full -translate-x-full bg-gradient-to-r from-transparent via-white/50 to-transparent transition-transform duration-700 ease-in-out group-hover:translate-x-full"
-                    />
+                {/* Botão centralizado, mantendo o tamanho original */}
+                <div className="flex justify-center">
+                    <button
+                        type="submit"
+                        disabled={enviando}
+                        className="group relative flex cursor-pointer items-center justify-center gap-2 overflow-hidden rounded-md bg-gradient-to-r from-cyan-400 via-sky-400 to-blue-500 px-6 py-3.5 text-sm font-bold text-black shadow-lg shadow-cyan-500/25 transition-all duration-300 hover:scale-105 hover:brightness-110 hover:shadow-[0_0_35px_rgba(6,182,212,0.5)] active:scale-95 disabled:cursor-not-allowed disabled:opacity-60 disabled:hover:scale-100"
+                    >
+                        <span
+                            aria-hidden="true"
+                            className="pointer-events-none absolute inset-0 h-full w-full -translate-x-full bg-gradient-to-r from-transparent via-white/50 to-transparent transition-transform duration-700 ease-in-out group-hover:translate-x-full"
+                        />
 
-                    <span className="relative z-10 flex items-center justify-center gap-2">
-                        {enviando ? (
-                            <>
-                                Enviando mensagem...
-                                <LoaderCircle className="h-4 w-4 animate-spin" />
-                            </>
-                        ) : (
-                            <>
-                                Enviar mensagem
-                                <Send className="h-4 w-4 transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
-                            </>
-                        )}
-                    </span>
-                </button>
+                        <span className="relative z-10 flex items-center justify-center gap-2">
+                            {enviando ? (
+                                <>
+                                    Enviando mensagem...
+                                    <LoaderCircle className="h-4 w-4 animate-spin" />
+                                </>
+                            ) : (
+                                <>
+                                    Enviar mensagem
+                                    <Send className="h-4 w-4 transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
+                                </>
+                            )}
+                        </span>
+                    </button>
+                </div>
             </form>
         </div>
     );
