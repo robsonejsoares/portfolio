@@ -1,3 +1,4 @@
+
 "use client";
 
 import { useState, useEffect } from "react";
@@ -145,77 +146,53 @@ export function SectionHabilidades() {
     const currentCategory = skillCategories.find(cat => cat.id === activeTab) || skillCategories[0];
 
     return (
-        <section id="skills" className="py-20 relative z-10">
-            <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <section id="skills" className="relative z-10 py-16 sm:py-20">
+            <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
 
                 {/* Cabeçalho da Seção */}
-                <div className="text-center mb-10">
+                <div className="mb-8 text-center">
                     <motion.div
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                         transition={{ duration: 0.5 }}
                     >
-                        <h2 className="font-display font-black text-4xl md:text-4xl bg-gradient-to-r from-cyan-400 via-indigo-400 to-purple-500 bg-clip-text text-transparent mb-6">
+                        <h2 className="mb-3 bg-gradient-to-r from-cyan-400 via-indigo-400 to-purple-500 bg-clip-text font-display text-4xl font-black text-transparent">
                             Habilidades e Tecnologias
                         </h2>
 
-                        {/* Indicador visual pulsante */}
-                        <div className="flex items-center justify-center gap-2 mt-4">
-                            <motion.span
-                                initial={{ opacity: 0.5, width: "3rem" }}
-                                animate={{ opacity: [0.5, 1, 0.5], width: ["3rem", "4rem", "3rem"] }}
-                                transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
-                                className="h-[2px] bg-gradient-to-r from-transparent to-cyan-500/80"
-                            ></motion.span>
-
-                            <motion.span
-                                animate={{
-                                    scale: [1, 1.3, 1],
-                                    boxShadow: [
-                                        "0 0 8px rgba(6,182,212,0.8)",
-                                        "0 0 16px rgba(6,182,212,1)",
-                                        "0 0 8px rgba(6,182,212,0.8)"
-                                    ]
-                                }}
-                                transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
-                                className="w-2 h-2 rounded-full bg-cyan-400"
-                            ></motion.span>
-
-                            <motion.span
-                                initial={{ opacity: 0.5, width: "3rem" }}
-                                animate={{ opacity: [0.5, 1, 0.5], width: ["3rem", "4rem", "3rem"] }}
-                                transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
-                                className="h-[2px] bg-gradient-to-l from-transparent to-cyan-500/80"
-                            ></motion.span>
-                        </div>
+                        <p className="text-xs font-mono tracking-widest text-slate-400">
+                            Tecnologias e ferramentas que utilizo para desenvolver soluções.
+                        </p>
                     </motion.div>
                 </div>
 
                 {/* Abas com Transição Fluida e Dinâmica */}
                 <div
-                    className="flex flex-wrap justify-center gap-2 mb-10 relative p-1.5 rounded-2xl bg-slate-950/70 border border-slate-800/80 backdrop-blur-md max-w-fit mx-auto shadow-2xl"
+                    className="relative mx-auto mb-10 flex max-w-fit flex-wrap justify-center gap-2 rounded-2xl border border-slate-800/80 bg-slate-950/70 p-1.5 shadow-2xl backdrop-blur-md"
                     onMouseEnter={() => setIsPaused(true)}
                     onMouseLeave={() => setIsPaused(false)}
                 >
                     {skillCategories.map((category) => {
                         const Icon = category.icon;
                         const isActive = activeTab === category.id;
+
                         return (
                             <motion.button
                                 key={category.id}
                                 onClick={() => handleTabClick(category.id)}
                                 whileHover={{ scale: 1.03 }}
                                 whileTap={{ scale: 0.97 }}
-                                className={`relative flex items-center gap-2 px-4 py-2.5 rounded-xl text-xs sm:text-sm font-mono whitespace-nowrap transition-colors duration-300 cursor-pointer select-none ${isActive
-                                    ? "text-white font-semibold"
-                                    : "text-slate-400 hover:text-slate-200"
-                                    }`}
+                                className={`relative flex cursor-pointer select-none items-center gap-2 whitespace-nowrap rounded-xl px-4 py-2.5 font-mono text-xs transition-colors duration-300 sm:text-sm ${
+                                    isActive
+                                        ? "font-semibold text-white"
+                                        : "text-slate-400 hover:text-slate-200"
+                                }`}
                             >
                                 {isActive && (
                                     <motion.div
                                         layoutId="activeTabIndicator"
-                                        className={`absolute inset-0 rounded-xl border backdrop-blur-xl ${category.activeBorder} ${category.activeBg} ${category.glowShadow} z-0`}
+                                        className={`absolute inset-0 z-0 rounded-xl border backdrop-blur-xl ${category.activeBorder} ${category.activeBg} ${category.glowShadow}`}
                                         transition={{
                                             type: "spring",
                                             stiffness: 500,
@@ -223,8 +200,9 @@ export function SectionHabilidades() {
                                         }}
                                     />
                                 )}
+
                                 <span className="relative z-10 flex items-center gap-2">
-                                    <Icon className={`w-4 h-4 shrink-0 transition-colors duration-300 ${category.iconColor}`} />
+                                    <Icon className={`h-4 w-4 shrink-0 transition-colors duration-300 ${category.iconColor}`} />
                                     <span>{category.label}</span>
                                 </span>
                             </motion.button>
@@ -240,7 +218,7 @@ export function SectionHabilidades() {
                         animate={{ opacity: 1, y: 0, scale: 1 }}
                         exit={{ opacity: 0, y: -12, scale: 0.99 }}
                         transition={{ duration: 0.25, ease: "easeOut" }}
-                        className="flex flex-wrap justify-center items-center gap-3.5 max-w-5xl mx-auto"
+                        className="mx-auto flex max-w-5xl flex-wrap items-center justify-center gap-3.5"
                     >
                         {currentCategory.skills.map((skill, index) => (
                             <motion.div
@@ -249,22 +227,27 @@ export function SectionHabilidades() {
                                 animate={{ opacity: 1, scale: 1 }}
                                 transition={{ duration: 0.3, delay: index * 0.04 }}
                                 whileHover={{ scale: 1.05, y: -3 }}
-                                className={`group relative bg-slate-900/90 backdrop-blur-md border border-slate-700/70 hover:border-cyan-500/50 rounded-xl p-3.5 flex flex-col items-center justify-center w-32 sm:w-36 h-34 shadow-xl transition-all duration-300 overflow-hidden ${skill.shadow}`}
+                                className={`group relative flex h-34 w-32 flex-col items-center justify-center overflow-hidden rounded-xl border border-slate-700/70 bg-slate-900/90 p-3.5 shadow-xl backdrop-blur-md transition-all duration-300 hover:border-cyan-500/50 sm:w-36 ${skill.shadow}`}
                             >
-                                {/* Card Interno com apenas o efeito de flutuação */}
+                                {/* Card interno com efeito de flutuação */}
                                 <motion.div
                                     animate={{ y: [0, -4, 0] }}
-                                    transition={{ duration: 3, repeat: Infinity, ease: "easeInOut", delay: index * 0.15 }}
-                                    className="w-14 h-14 sm:w-16 sm:h-16 rounded-xl bg-slate-950/80 border border-slate-700/80 flex items-center justify-center p-2.5 shadow-inner transition-colors duration-300 group-hover:border-cyan-500/40 mb-2"
+                                    transition={{
+                                        duration: 3,
+                                        repeat: Infinity,
+                                        ease: "easeInOut",
+                                        delay: index * 0.15
+                                    }}
+                                    className="mb-2 flex h-14 w-14 items-center justify-center rounded-xl border border-slate-700/80 bg-slate-950/80 p-2.5 shadow-inner transition-colors duration-300 group-hover:border-cyan-500/40 sm:h-16 sm:w-16"
                                 >
                                     <img
                                         src={skill.logo}
                                         alt={skill.name}
-                                        className={`w-full h-full object-contain filter drop-shadow-md ${skill.extraClass || ""}`}
+                                        className={`h-full w-full object-contain drop-shadow-md ${skill.extraClass || ""}`}
                                     />
                                 </motion.div>
 
-                                <span className="text-slate-500 font-mono text-xs sm:text-sm group-hover:text-slate-300 transition-colors tracking-wide text-center whitespace-nowrap truncate w-full">
+                                <span className="w-full truncate whitespace-nowrap text-center font-mono text-xs tracking-wide text-slate-500 transition-colors group-hover:text-slate-300 sm:text-sm">
                                     {skill.name}
                                 </span>
                             </motion.div>

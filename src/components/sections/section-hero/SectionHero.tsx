@@ -1,7 +1,8 @@
+
 "use client";
 
 import { motion } from "framer-motion";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import type { MouseEvent } from "react";
 import { dadosPortfolio } from "@/data/dadosPortfolio";
 import {
@@ -11,9 +12,10 @@ import {
     Server,
     Code2,
     Layers,
+    ArrowRight,
 } from "lucide-react";
 
-import { LoadingDialog } from "@/components/sections/section-hero/components/LoadingDialog";
+import { LoadingDialog } from "@/components/common/LoadingDialog";
 import { DialogCurriculo } from "@/components/sections/section-hero/dialogs/DialogCurriculo";
 
 function GitIcon({ className = "w-4 h-4" }: { className?: string }) {
@@ -96,16 +98,16 @@ export function SectionHero() {
     }, [displayText, isDeleting, roleIndex, personal.roles]);
 
     // Abre o currículo com carregamento animado.
-    const handleOpenResume = () => {
+    const handleOpenResume = useCallback(() => {
         if (isLoading || isResumeOpen) return;
 
         setIsLoading(true);
+    }, [isLoading, isResumeOpen]);
 
-        window.setTimeout(() => {
-            setIsLoading(false);
-            setIsResumeOpen(true);
-        }, 1500);
-    };
+    const finalizarLoadingCurriculo = useCallback(() => {
+        setIsLoading(false);
+        setIsResumeOpen(true);
+    }, []);
 
     // Rola suavemente até a seção de contato.
     const handleScrollToContact = (
@@ -154,58 +156,59 @@ export function SectionHero() {
     return (
         <>
             <style jsx global>{`
-            @keyframes rotate-ring {
-                from {
-                    transform: rotate(0deg);
+                @keyframes rotate-ring {
+                    from {
+                        transform: rotate(0deg);
+                    }
+                    to {
+                        transform: rotate(360deg);
+                    }
                 }
-                to {
-                    transform: rotate(360deg);
-                }
-            }
 
-            @keyframes rotate-ring-rev {
-                from {
-                    transform: rotate(0deg);
+                @keyframes rotate-ring-rev {
+                    from {
+                        transform: rotate(0deg);
+                    }
+                    to {
+                        transform: rotate(-360deg);
+                    }
                 }
-                to {
-                    transform: rotate(-360deg);
-                }
-            }
 
-            @keyframes orbit-r1 {
-                from {
-                    transform: rotate(0deg) translateX(135px)
-                        rotate(0deg);
+                @keyframes orbit-r1 {
+                    from {
+                        transform: rotate(0deg) translateX(135px)
+                            rotate(0deg);
+                    }
+                    to {
+                        transform: rotate(360deg) translateX(135px)
+                            rotate(-360deg);
+                    }
                 }
-                to {
-                    transform: rotate(360deg) translateX(135px)
-                        rotate(-360deg);
-                }
-            }
 
-            @keyframes orbit-r2 {
-                from {
-                    transform: rotate(0deg) translateX(180px)
-                        rotate(0deg);
+                @keyframes orbit-r2 {
+                    from {
+                        transform: rotate(0deg) translateX(180px)
+                            rotate(0deg);
+                    }
+                    to {
+                        transform: rotate(-360deg) translateX(180px)
+                            rotate(360deg);
+                    }
                 }
-                to {
-                    transform: rotate(-360deg) translateX(180px)
-                        rotate(360deg);
-                }
-            }
-        `}</style>
+            `}</style>
 
             {/* Loading compartilhado com a seção de experiências */}
             <LoadingDialog
                 isLoading={isLoading}
                 text="ACESSANDO CURRÍCULO..."
+                onFinished={finalizarLoadingCurriculo}
             />
 
             <section
                 id="hero"
                 className="relative z-10 flex min-h-screen items-center justify-center overflow-hidden pb-16 pt-28"
             >
-                <div className="relative z-10 mx-auto w-full max-w-7xl px-6 py-12">
+                <div className="relative z-10 mx-auto w-full max-w-7xl px-6 py-6 sm:py-8">
                     <div className="grid grid-cols-1 items-center gap-8 lg:grid-cols-2 lg:gap-14">
                         {/* Lado esquerdo: Avatar e órbitas */}
                         <motion.div
@@ -344,31 +347,19 @@ export function SectionHero() {
                         >
                             <div className="flex flex-wrap items-center gap-2">
                                 <div className="flex items-center gap-2.5 rounded-full border border-white/10 bg-white/5 px-3.5 py-1.5">
-                                    <div
-                                        className="text-emerald-400"
-                                        title="Database"
-                                    >
+                                    <div className="text-emerald-400" title="Database">
                                         <Database className="h-3.5 w-3.5" />
                                     </div>
 
-                                    <div
-                                        className="text-amber-400"
-                                        title="Server"
-                                    >
+                                    <div className="text-amber-400" title="Server">
                                         <Server className="h-3.5 w-3.5" />
                                     </div>
 
-                                    <div
-                                        className="text-purple-400"
-                                        title="Code"
-                                    >
+                                    <div className="text-purple-400" title="Code">
                                         <Code2 className="h-3.5 w-3.5" />
                                     </div>
 
-                                    <div
-                                        className="text-cyan-400"
-                                        title="Layers"
-                                    >
+                                    <div className="text-cyan-400" title="Layers">
                                         <Layers className="h-3.5 w-3.5" />
                                     </div>
                                 </div>
@@ -438,9 +429,11 @@ export function SectionHero() {
                                     <span className="relative z-10 flex items-center gap-2">
                                         <span>Ver currículo</span>
 
-                                        <span className="text-base font-bold transition-transform duration-300 group-hover:translate-x-1.5">
-                                            →
-                                        </span>
+                                        <ArrowRight
+                                            size={17}
+                                            aria-hidden="true"
+                                            className="transition-transform duration-300 group-hover:translate-x-1"
+                                        />
                                     </span>
                                 </button>
 
@@ -455,11 +448,13 @@ export function SectionHero() {
                                     />
 
                                     <span className="relative z-10 flex items-center gap-2">
-                                        <span>Entre em contato</span>
+                                        <span>Entrar em contato</span>
 
-                                        <span className="text-base font-bold text-cyan-400 transition-transform duration-300 group-hover:translate-x-1.5">
-                                            →
-                                        </span>
+                                        <ArrowRight
+                                            size={17}
+                                            aria-hidden="true"
+                                            className="transition-transform duration-300 group-hover:translate-x-1"
+                                        />
                                     </span>
                                 </a>
                             </div>
@@ -506,5 +501,4 @@ export function SectionHero() {
             />
         </>
     );
-
 }
