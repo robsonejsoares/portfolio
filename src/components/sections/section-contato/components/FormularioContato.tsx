@@ -250,19 +250,26 @@ export function FormularioContato() {
                 <button
                     type="submit"
                     disabled={enviando}
-                    className="group flex w-full cursor-pointer items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-cyan-400 via-sky-400 to-blue-500 px-6 py-3.5 text-sm font-bold text-slate-950 shadow-lg shadow-cyan-500/15 transition-all duration-300 hover:scale-[1.01] hover:brightness-110 active:scale-[0.99] disabled:cursor-not-allowed disabled:opacity-60 disabled:hover:scale-100"
+                    className="group relative flex w-full cursor-pointer items-center justify-center gap-2 overflow-hidden rounded-xl bg-gradient-to-r from-cyan-400 via-sky-400 to-blue-500 px-6 py-3.5 text-sm font-bold text-black shadow-lg shadow-cyan-500/25 transition-all duration-300 hover:scale-105 hover:brightness-110 hover:shadow-[0_0_35px_rgba(6,182,212,0.5)] active:scale-95 disabled:cursor-not-allowed disabled:opacity-60 disabled:hover:scale-100"
                 >
-                    {enviando ? (
-                        <>
-                            Enviando mensagem...
-                            <LoaderCircle className="h-4 w-4 animate-spin" />
-                        </>
-                    ) : (
-                        <>
-                            Enviar mensagem
-                            <Send className="h-4 w-4 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
-                        </>
-                    )}
+                    <span
+                        aria-hidden="true"
+                        className="pointer-events-none absolute inset-0 h-full w-full -translate-x-full bg-gradient-to-r from-transparent via-white/50 to-transparent transition-transform duration-700 ease-in-out group-hover:translate-x-full"
+                    />
+
+                    <span className="relative z-10 flex items-center justify-center gap-2">
+                        {enviando ? (
+                            <>
+                                Enviando mensagem...
+                                <LoaderCircle className="h-4 w-4 animate-spin" />
+                            </>
+                        ) : (
+                            <>
+                                Enviar mensagem
+                                <Send className="h-4 w-4 transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
+                            </>
+                        )}
+                    </span>
                 </button>
             </form>
         </div>

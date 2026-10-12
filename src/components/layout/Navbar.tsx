@@ -78,7 +78,7 @@ export function Navbar() {
         const element = document.getElementById(targetId);
 
         if (element) {
-            const navOffset = targetId === "about" ? 235 : 90;
+            const navOffset = 90;
             const elementPosition =
                 element.getBoundingClientRect().top + window.scrollY;
             const offsetPosition = elementPosition - navOffset;

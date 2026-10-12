@@ -1,3 +1,4 @@
+
 "use client";
 
 import { useState } from "react";
@@ -8,7 +9,7 @@ import { Button } from "@/components/ui/Button";
 
 const categories = [
     { id: "all", label: "Todos" },
-    { id: "Aplicativos Web", label: "Aplicativos Web" },
+    { id: "Sistemas Web", label: "Sistemas Web" },
     { id: "mobile", label: "Mobile" },
     { id: "ai", label: "Automação / IA" }
 ];
@@ -21,7 +22,7 @@ export function SectionProjetos() {
         : dadosPortfolio.projects.filter(p => p.category.toLowerCase() === selectedCategory.toLowerCase());
 
     return (
-        <section id="projects" className="py-20 relative z-10">
+        <section id="projects" className="relative z-10 py-16 sm:py-20">
             <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
 
                 {/* Cabeçalho da Seção */}
@@ -33,17 +34,12 @@ export function SectionProjetos() {
                         transition={{ duration: 0.5 }}
                         className="flex flex-col items-center"
                     >
-                        <div className="w-12 h-12 rounded-xl bg-purple-950/60 border border-purple-500/40 flex items-center justify-center text-purple-400 mb-4 shadow-[0_0_15px_rgba(168,85,247,0.2)]">
-                            <Code2 className="w-6 h-6" />
-                        </div>
-
-                        <h2 className="text-3xl sm:text-5xl font-extrabold tracking-tight text-white flex items-center justify-center gap-2">
+                        <h2 className="mb-3 bg-gradient-to-r from-cyan-400 via-indigo-400 to-purple-500 bg-clip-text font-display text-4xl font-black text-transparent">
                             <span>Projetos</span>
-                            <span className="text-purple-400 font-normal text-2xl sm:text-4xl">(Destaques)</span>
                         </h2>
 
-                        <p className="text-slate-400 text-sm sm:text-base mt-3 max-w-xl font-mono leading-relaxed">
-                            Empacotando aplicações full-stack, repositórios e cases de alta performance para exibição.
+                        <p className="text-xs font-mono tracking-widest text-slate-400">
+                            Alguns dos projetos que desenvolvi e suas soluções.
                         </p>
                     </motion.div>
                 </div>

@@ -10,7 +10,7 @@ export function SectionContato() {
         <section
             id="contact"
             aria-labelledby="contact-title"
-            className="relative isolate overflow-hidden py-24 sm:py-32"
+            className="relative isolate overflow-hidden py-16 sm:py-20"
         >
             <div className="mx-auto w-full max-w-7xl px-6">
                 {/* Cabeçalho */}
@@ -23,7 +23,7 @@ export function SectionContato() {
                 >
                     <h2
                         id="contact-title"
-                        className="font-display font-black text-4xl md:text-5xl bg-gradient-to-r from-cyan-400 via-indigo-400 to-purple-500 bg-clip-text text-transparent mb-6"
+                        className="mb-3 bg-gradient-to-r from-cyan-400 via-indigo-400 to-purple-500 bg-clip-text font-display text-4xl font-black text-transparent"
                     >
                         Contato
                     </h2>
