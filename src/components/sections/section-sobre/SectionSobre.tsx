@@ -245,7 +245,7 @@ export function SectionSobre() {
     return (
         <section
             id="about"
-            className="relative z-10 flex items-center justify-center px-4 py-28"
+            className="relative z-10 flex items-center justify-center px-4 pt-6 pb-16 sm:pt-8 sm:pb-20"
         >
             <div className="w-full max-w-7xl">
                 <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-12">
@@ -368,9 +368,13 @@ export function SectionSobre() {
                         className="order-1 flex min-w-0 flex-col justify-center lg:order-2 lg:col-span-6"
                     >
                         <div>
-                            <h2 className="mb-6 bg-gradient-to-r from-cyan-400 via-indigo-400 to-purple-500 bg-clip-text font-display text-4xl font-black text-transparent">
+                            <h2 className="mb-3 bg-gradient-to-r from-cyan-400 via-indigo-400 to-purple-500 bg-clip-text font-display text-4xl font-black text-transparent">
                                 Sobre mim
                             </h2>
+
+                            <p className="mb-5 text-xs font-mono tracking-widest text-slate-400">
+                                Conheça minha trajetória e como transformo ideias em soluções.
+                            </p>
 
                             <p className="mb-4 text-base leading-relaxed text-slate-300">
                                 Sou{" "}

@@ -1,13 +1,13 @@
+
 "use client";
 
-import { useState } from "react";
+import { useCallback, useState } from "react";
 import { motion } from "framer-motion";
-import { BriefcaseBusiness } from "lucide-react";
-
+import { ArrowRight, BriefcaseBusiness } from "lucide-react";
 import { dadosCurriculo } from "@/data/dadosCurriculo";
 import { CardExperiencia } from "./components/CardExperiencia";
 import { DialogExperiencias } from "./dialogs/DialogExperiencias";
-import { LoadingDialog } from "@/components/sections/section-hero/components/LoadingDialog";
+import { LoadingDialog } from "@/components/common/LoadingDialog";
 
 const experienciaFreelancer = {
     company: "O Programador Autônomo",
@@ -62,30 +62,31 @@ export function SectionExperiencia() {
     // Exibe somente as duas experiências mais recentes na página.
     const experienciasRecentes = experiencias.slice(0, 2);
 
-    const handleOpenExperiences = () => {
+    const handleOpenExperiences = useCallback(() => {
         if (isLoading || dialogAberto) return;
 
         setIsLoading(true);
+    }, [isLoading, dialogAberto]);
 
-        window.setTimeout(() => {
-            setIsLoading(false);
-            setDialogAberto(true);
-        }, 2500);
-    };
+    const finalizarLoadingExperiencias = useCallback(() => {
+        setIsLoading(false);
+        setDialogAberto(true);
+    }, []);
 
     return (
         <>
-            {/* Carregamento compartilhado com o currículo */}
+            {/* Loading compartilhado */}
             <LoadingDialog
                 isLoading={isLoading}
                 text="ACESSANDO EXPERIÊNCIAS..."
+                onFinished={finalizarLoadingExperiencias}
             />
 
             <section
                 id="experience"
-                className="relative z-10 px-6 py-24 lg:px-8"
+                className="relative z-10 px-6 py-16 sm:py-20 lg:px-8"
             >
-                <div className="mx-auto max-w-4xl space-y-16">
+                <div className="mx-auto max-w-4xl space-y-10">
                     {/* Cabeçalho da seção */}
                     <motion.header
                         initial={{ opacity: 0, y: 20 }}
@@ -94,19 +95,22 @@ export function SectionExperiencia() {
                         transition={{ duration: 0.5 }}
                         className="space-y-3 text-center"
                     >
-                        <h2 className="mb-6 bg-gradient-to-r from-cyan-400 via-indigo-400 to-purple-500 bg-clip-text font-display text-4xl font-black text-transparent">
+                        <h2 className="mb-3 bg-gradient-to-r from-cyan-400 via-indigo-400 to-purple-500 bg-clip-text font-display text-4xl font-black text-transparent">
                             <span className="text-gradient-cyan">
                                 Experiência
                             </span>
                         </h2>
+
+                        <p className="text-xs font-mono tracking-widest text-slate-400">
+                            Minha trajetória profissional e experiências em desenvolvimento.
+                        </p>
                     </motion.header>
 
                     {/* Timeline */}
                     <div className="relative">
-                        {/* Linha vertical da timeline */}
                         <div
                             aria-hidden="true"
-                            className="absolute bottom-0 left-6 top-0 hidden w-px bg-gradient-to-b from-cyan-400/70 via-purple-500/60 to-emerald-400/30 md:block"
+                            className="absolute left-6 top-0 hidden h-[calc(100%-5rem)] w-px bg-gradient-to-b from-cyan-400/70 via-purple-500/60 to-emerald-400/30 md:block"
                         />
 
                         {/* Experiências recentes */}
@@ -162,9 +166,11 @@ export function SectionExperiencia() {
                                             {experiencias.length}
                                         </span>
 
-                                        <span className="text-base font-bold transition-transform duration-300 group-hover:translate-x-1.5">
-                                            →
-                                        </span>
+                                        <ArrowRight
+                                            size={17}
+                                            aria-hidden="true"
+                                            className="transition-transform duration-300 group-hover:translate-x-1"
+                                        />
                                     </span>
                                 </button>
                             </div>
@@ -182,5 +188,4 @@ export function SectionExperiencia() {
             />
         </>
     );
-
 }

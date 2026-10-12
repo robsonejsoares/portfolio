@@ -40,22 +40,22 @@
 - [ ] Implementar modal expansível com Framer Motion (`layoutId`).
 - [ ] Exibir detalhes de cada projeto (descrição, tecnologias, imagens e links para demonstração e repositório).
 
-## ⏳ Etapa 7: Linha do Tempo de Experiência Profissional
+## ✅ Etapa 7: Linha do Tempo de Experiência Profissional
 
-- [ ] Criar o componente `src/components/sections/SectionExperiencia.tsx`.
-- [ ] Desenvolver timeline vertical conectada por linha em gradiente neon.
-- [ ] Criar cards do histórico profissional com ícones por categoria.
-- [ ] Apresentar cargos, empresas, períodos, responsabilidades e principais realizações.
+- [x] Criar o componente `src/components/sections/SectionExperiencia.tsx`.
+- [x] Desenvolver timeline vertical conectada por linha em gradiente neon.
+- [x] Criar cards do histórico profissional com ícones por categoria.
+- [x] Apresentar cargos, empresas, períodos, responsabilidades e principais realizações.
 
-## ⏳ Etapa 8: Seção de Serviços
+## ✅ Etapa 8: Seção de Serviços
 
-- [ ] Criar o componente `src/components/sections/SectionServicos.tsx`.
-- [ ] Desenvolver grid de cards para os serviços oferecidos.
-- [ ] Apresentar descrição, benefícios e tecnologias relacionadas a cada serviço.
-- [ ] Adicionar animações e efeitos de interação nos cards.
-- [ ] Implementar chamadas para ação direcionadas à seção de contato.
+- [x] Criar o componente `src/components/sections/SectionServicos.tsx`.
+- [x] Desenvolver grid de cards para os serviços oferecidos.
+- [x] Apresentar descrição, benefícios e tecnologias relacionadas a cada serviço.
+- [x] Adicionar animações e efeitos de interação nos cards.
+- [x] Implementar chamadas para ação direcionadas à seção de contato.
 
-## ⏳ Etapa 9: Seção de Contato
+## ✅ Etapa 9: Seção de Contato
 
 - [x] Criar o componente `src/components/sections/SectionContato.tsx`.
 - [x] Desenvolver formulário de contato interativo.
@@ -72,10 +72,8 @@
 - [x] Etapa 2 — Barra de Navegação
 - [x] Etapa 3 — Hero e Avatar Interativo
 - [x] Etapa 4 — Sobre Mim
-- [x] Etapa 5 — Matriz de Habilidades
+- [x] Etapa 5 — Habilidades e tecnologias
 - [ ] Etapa 6 — Galeria de Projetos
-- [x]  Etapa 7 — Experiência Profissional
-- [ ] Etapa 8 — Serviços
-- [ ] Etapa 9 — Depoimentos
-- [x]  Etapa 10 — Contato
-- [ ] Etapa 11 — Animações, Responsividade e Deploy
+- [x] Etapa 7 — Experiência Profissional
+- [x] Etapa 8 — Serviços
+- [x] Etapa 10 — Contato
