@@ -318,7 +318,7 @@ export function SectionSobre() {
                         </div>
 
                         {/* Corpo do código */}
-                        <div className="flex h-[400px] flex-col justify-between overflow-hidden p-6 font-mono text-xs leading-relaxed text-gray-300 sm:text-sm">
+                        <div className="flex h-[400px] flex-col justify-between overflow-hidden p-5 font-mono text-xs leading-relaxed text-gray-300 sm:text-sm">
                             <div className="space-y-1">
                                 {displayedLines.map((line, index) => {
                                     const isCurrentLine =

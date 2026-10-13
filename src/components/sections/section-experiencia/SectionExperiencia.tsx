@@ -3,6 +3,7 @@
 import { useCallback, useState } from "react";
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
+
 import { dadosCurriculo } from "@/data/dadosCurriculo";
 import { CardExperiencia } from "./components/CardExperiencia";
 import { DialogExperiencias } from "./dialogs/DialogExperiencias";
@@ -66,6 +67,10 @@ export function SectionExperiencia() {
         setIsLoading(true);
     }, [isLoading, dialogAberto]);
 
+    const handleCloseDialog = useCallback(() => {
+        setDialogAberto(false);
+    }, []);
+
     const finalizarLoadingExperiencias = useCallback(() => {
         setIsLoading(false);
         setDialogAberto(true);
@@ -75,12 +80,13 @@ export function SectionExperiencia() {
         <>
             <LoadingDialog
                 isLoading={isLoading}
-                text="ACESSANDO EXPERIÊNCIAS..."
+                text="Acessando experiências..."
                 onFinished={finalizarLoadingExperiencias}
             />
 
             <section
                 id="experience"
+                aria-labelledby="experience-title"
                 className="relative z-10 w-full py-6 sm:py-8"
             >
                 <div className="w-full min-w-0 space-y-10">
@@ -91,16 +97,19 @@ export function SectionExperiencia() {
                         transition={{ duration: 0.5 }}
                         className="mb-8 w-full text-left"
                     >
-                        <h2 className="mb-3 font-display text-2xl font-bold text-cyan-300/70">
+                        <h2
+                            id="experience-title"
+                            className="mb-3 font-display text-2xl font-bold text-cyan-300/70"
+                        >
                             Experiência
                         </h2>
 
-                        <p className="text-left text-xs font-mono tracking-widest text-slate-400">
+                        <p className="text-left font-mono text-xs tracking-widest text-slate-400">
                             Minha trajetória profissional e experiências em desenvolvimento.
                         </p>
                     </motion.header>
 
-                    {/* Experiências sem timeline */}
+                    {/* Experiências recentes */}
                     <div className="w-full min-w-0 space-y-4">
                         {experienciasRecentes.map(
                             (experiencia, indice) => {
@@ -164,7 +173,7 @@ export function SectionExperiencia() {
 
             <DialogExperiencias
                 isOpen={dialogAberto}
-                onClose={() => setDialogAberto(false)}
+                onClose={handleCloseDialog}
                 experiencias={experiencias}
                 configuracaoVisual={configuracaoVisual}
             />

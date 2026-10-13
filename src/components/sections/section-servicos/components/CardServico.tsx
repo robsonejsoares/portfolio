@@ -1,3 +1,4 @@
+
 "use client";
 
 import { motion } from "framer-motion";
@@ -21,11 +22,11 @@ export function CardServico({ servico, indice }: CardServicoProps) {
                 delay: (indice % 3) * 0.07,
             }}
             whileHover={{ y: -8 }}
-            className={`glass-card group flex h-full flex-col rounded-xl border border-white/10 bg-slate-900/60 p-3 backdrop-blur-xl transition-all duration-300 hover:shadow-xl ${estilo.brilho} ${estilo.sombra}`}
+            className={`glass-card group flex h-full cursor-default flex-col rounded-xl border border-white/10 bg-slate-900/60 p-3 backdrop-blur-xl transition-all duration-300 hover:shadow-xl ${estilo.brilho} ${estilo.sombra}`}
         >
             <div
                 aria-hidden="true"
-                className="mb-1 flex h-7 w-7 shrink-0 items-center justify-center rounded-xl text-lg leading-none transition-transform duration-300 group-hover:scale-110"
+                className="mb-1 flex h-7 w-7 shrink-0 items-center justify-center rounded-xl text-lg leading-none"
             >
                 {servico.emoji}
             </div>

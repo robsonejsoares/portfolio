@@ -200,7 +200,7 @@ export function SectionHero() {
             {/* Loading compartilhado com a seção de experiências */}
             <LoadingDialog
                 isLoading={isLoading}
-                text="ACESSANDO CURRÍCULO..."
+                text="Acessando currículo..."
                 onFinished={finalizarLoadingCurriculo}
             />
 

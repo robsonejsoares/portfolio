@@ -32,7 +32,7 @@ export function SectionServicos() {
         <>
             <LoadingDialog
                 isLoading={isLoading}
-                text="ACESSANDO SERVIÇOS..."
+                text="Acessando serviços..."
                 onFinished={finalizarLoadingServicos}
             />
 
