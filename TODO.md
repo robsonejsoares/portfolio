@@ -10,7 +10,7 @@
 
 - [x] Criar o componente `src/components/layout/BarraNavegacao.tsx`.
 - [x] Aplicar estilização glassmorphism (blur e bordas translúcidas).
-- [x] Implementar links de ancoragem com navegação suave (`#hero`, `#about`, `#skills`, `#projects`, `#experience`, `#services` e `#contact`).
+- [x] Implementar links de ancoragem com navegação suave (`#hero`, `#about`, `#education`, `#skills`, `#projects`, `#experience`, `#services` e `#contact`).
 - [x] Criar o botão de status ("Disponível para trabalho") e a chamada para ação (CTA) "Contrate-me".
 
 ## ✅ Etapa 3: Seção Hero e Avatar Interativo
@@ -26,13 +26,22 @@
 - [x] Desenvolver o card que simula um editor de código com syntax highlighting.
 - [x] Implementar texto descritivo e marcadores com efeitos neon.
 
-## ✅ Etapa 5: Matriz de Habilidades (Skills Matrix)
+## 🆕 Etapa 5: Formação Acadêmica (Education)
+
+- [x] Criar o componente `src/components/sections/SectionFormacaoAcademica.tsx`.
+- [x] Apresentar formação acadêmica, instituições de ensino e cursos relevantes.
+- [x] Exibir períodos, situação (concluído ou em andamento) e informações complementares.
+- [x] Criar cards para cada formação, seguindo o Design System do portfólio.
+- [x] Integrar a seção à página principal e à barra de navegação.
+- [x] Garantir responsividade e consistência visual.
+
+## ✅ Etapa 6: Matriz de Habilidades (Skills Matrix)
 
 - [x] Criar o componente `src/components/sections/SectionHabilidades.tsx`.
 - [x] Implementar grid de ícones e badges de tecnologias (Java, Spring Boot, Node.js, React Native, Next.js etc.).
 - [x] Adicionar animações de entrada, efeitos de hover magnético e brilho.
 
-## 🔄 Etapa 6: Galeria de Projetos e Modal Expansível
+## 🔄 Etapa 7: Galeria de Projetos e Modal Expansível
 
 - [ ] Criar ou finalizar o componente `src/components/sections/SectionProjetos.tsx`.
 - [ ] Implementar filtros por categoria (Todos, Web, Mobile, Automação/IA etc.).
@@ -41,21 +50,12 @@
 - [ ] Exibir detalhes de cada projeto (descrição, tecnologias, imagens e links para demonstração e repositório).
 - [ ] Garantir responsividade e consistência visual dos cards.
 
-## ✅ Etapa 7: Linha do Tempo de Experiência Profissional
+## ✅ Etapa 8: Linha do Tempo de Experiência Profissional
 
 - [x] Criar o componente `src/components/sections/SectionExperiencia.tsx`.
 - [x] Desenvolver timeline vertical conectada por linha em gradiente neon.
 - [x] Criar cards do histórico profissional com ícones por categoria.
 - [x] Apresentar cargos, empresas, períodos, responsabilidades e principais realizações.
-
-## 🆕 Etapa 11: Formação Acadêmica
-
-- [ ] Criar o componente `src/components/sections/SectionFormacao.tsx`.
-- [ ] Apresentar formação acadêmica, instituições de ensino e cursos relevantes.
-- [ ] Exibir períodos, situação (concluído ou em andamento) e informações complementares.
-- [ ] Criar cards para cada formação, seguindo o Design System do portfólio.
-- [ ] Integrar a seção à página principal e à barra de navegação.
-- [ ] Garantir responsividade e consistência visual.
 
 ## ✅ Etapa 9: Seção de Serviços
 
@@ -74,6 +74,12 @@
 - [x] Apresentar informações de contato e links para redes sociais.
 - [x] Integrar o formulário a um serviço de envio de mensagens ou API.
 
+## 🆕 Etapa 11: Padronização das Seções em Cards
+
+- [ ] Padronizar o layout dos containers das seções.
+- [ ] Uniformizar bordas, fundos, espaçamentos e efeitos glassmorphism.
+- [ ] Garantir consistência visual e responsividade em todas as seções.
+
 ---
 
 ## 📌 Resumo do Progresso
@@ -82,10 +88,10 @@
 - [x] Etapa 002 — Barra de Navegação
 - [x] Etapa 003 — Hero e Avatar Interativo
 - [x] Etapa 004 — Sobre Mim
-- [x] Etapa 005 — Habilidades e Tecnologias
-- [ ] Etapa 006 — Galeria de Projetos
-- [x] Etapa 007 — Experiência Profissional
-- [ ] Etapa 008 — Formação Acadêmica
+- [ ] Etapa 005 — Formação Acadêmica
+- [x] Etapa 006 — Habilidades e Tecnologias
+- [ ] Etapa 007 — Galeria de Projetos
+- [x] Etapa 008 — Experiência Profissional
 - [x] Etapa 009 — Serviços
 - [x] Etapa 010 — Contato
 - [ ] Etapa 011 — Padronização das Seções em Cards

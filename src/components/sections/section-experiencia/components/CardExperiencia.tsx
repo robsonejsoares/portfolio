@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { CalendarDays, type LucideIcon } from "lucide-react";
+import { CalendarDays } from "lucide-react";
 
 interface CardExperienciaProps {
     cargo: string;
@@ -12,7 +12,6 @@ interface CardExperienciaProps {
     descricao: string;
     destaques: string[];
     cor: string;
-    icone: LucideIcon;
     indice: number;
 }
 
@@ -25,7 +24,6 @@ export function CardExperiencia({
     descricao,
     destaques,
     cor,
-    icone: Icone,
     indice,
 }: CardExperienciaProps) {
     return (
@@ -34,45 +32,35 @@ export function CardExperiencia({
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.15 }}
             transition={{ duration: 0.55, delay: indice * 0.12 }}
-            className="relative md:pl-16"
+            className="relative"
         >
-            {/* Marcador da timeline */}
-            <div
-                className="absolute left-0 top-6 hidden h-12 w-12 items-center justify-center rounded-full border-2 md:flex"
-                style={{
-                    backgroundColor: `${cor}18`,
-                    borderColor: `${cor}40`,
-                    color: cor,
-                }}
-                aria-hidden="true"
-            >
-                <Icone size={18} strokeWidth={2} />
-            </div>
-
-            {/* Card profissional */}
-            <div className="glass-card rounded-xl p-7 transition-all duration-300 hover:-translate-y-1 hover:border-white/20">
+            <div className="glass-card rounded-xl p-5 transition-all duration-300 hover:-translate-y-1 hover:border-white/20">
                 {/* Cargo, empresa e período */}
-                <div className="mb-4 flex flex-wrap items-start justify-between gap-3">
+                <div className="mb-2 flex flex-wrap items-start justify-between gap-3">
                     <div className="min-w-0 flex-1">
-                        <h3 className="text-xl font-semibold tracking-tight text-slate-300">
+                        <h3 className="text-base font-semibold tracking-tight text-[#A8B3C7]">
                             {cargo}
                         </h3>
 
-                        <p className="mt-0.5 font-display font-normal text-slate-400">
-                            {empresa}{subtitulo && ` - ${subtitulo}`}
+                        <p className="mt-0.5 font-display text-xs font-normal text-slate-400">
+                            {empresa}
+                            {subtitulo && ` - ${subtitulo}`}
                         </p>
                     </div>
 
                     <div className="flex flex-col items-start gap-2 sm:items-end">
                         <span className="flex items-center gap-1.5 text-xs text-slate-400">
-                            <CalendarDays size={12} aria-hidden="true" />
+                            <CalendarDays
+                                size={12}
+                                aria-hidden="true"
+                            />
                             {periodo}
                         </span>
 
                         <span
-                            className="rounded-full px-2.5 py-1 text-xs font-semibold"
+                            className="rounded-full px-2 py-0.5 text-[11px] font-normal tracking-wide"
                             style={{
-                                backgroundColor: `${cor}20`,
+                                backgroundColor: `${cor}15`,
                                 color: cor,
                             }}
                         >

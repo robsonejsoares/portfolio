@@ -1,7 +1,7 @@
 export const dadosCurriculo = {
     personal: {
         name: "Robson Edvaldo Jose Soares",
-        role: "Desenvolvedor Full Stack Júnior",
+        role: "Desenvolvedor Full Stack",
         email: "robsoncsoares.1050@gmail.com",
         phone: "(61) 99501-5804",
         whatsappMessage: "Olá Robson,\n\nVi o seu portfólio e gostaria de entrar em contato.",
@@ -9,7 +9,7 @@ export const dadosCurriculo = {
         linkedin: "https://www.linkedin.com/in/robson-soares-b22513170/",
         github: "https://github.com/robsonejsoares",
     },
-    summary: "Desenvolvedor Full Stack Júnior. Experiência prática no Sebrae DF em desenvolvimento web, APIs REST, banco de dados e design de interfaces. Domínio do ecossistema JavaScript/TypeScript (ReactJS, Next.js, Node.js, NestJS, React Native) e prototipagem no Figma (UI/UX), aplicando boas práticas de engenharia de software e usabilidade.",
+    summary: "Desenvolvedor Full Stack. Experiência prática no Sebrae DF em desenvolvimento web, APIs REST, banco de dados e design de interfaces. Domínio do ecossistema JavaScript/TypeScript (ReactJS, Next.js, Node.js, NestJS, React Native) e prototipagem no Figma (UI/UX), aplicando boas práticas de engenharia de software e usabilidade.",
     experiences: [
         {
             company: "G4F",
@@ -46,12 +46,12 @@ export const dadosCurriculo = {
             status: "Concluída em 04/2026",
         },
         {
-            degree: "Pós Full Stack Cloud",
+            degree: "Pós-Graduação em Desenvolvimento Full Stack e Cloud Computing - Lato Sensu",
             institution: "Gran Faculdade",
             status: "Concluída em 01/2026",
         },
         {
-            degree: "Pós Linguagens e Paradigmas",
+            degree: "Pós-Graduação em Linguagens e Paradigmas de Programação - Lato Sensu",
             institution: "Gran Faculdade",
             status: "Concluída em 01/2026",
         },

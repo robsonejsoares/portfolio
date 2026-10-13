@@ -1,3 +1,4 @@
+
 "use client";
 
 import { useState, useEffect } from "react";
@@ -18,15 +19,12 @@ const skillCategories = [
         label: "Frontend",
         icon: Layout,
         iconColor: "text-emerald-400",
-        activeBorder: "border-emerald-500/80",
-        activeBg: "bg-emerald-500/15",
-        glowShadow: "shadow-[0_0_25px_rgba(16,185,129,0.4)]",
         skills: [
-            { name: "React.js", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg", shadow: "hover:shadow-[0_0_25px_rgba(6,182,212,0.4)]" },
-            { name: "Next.js", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg", shadow: "hover:shadow-[0_0_25px_rgba(255,255,255,0.2)]" },
-            { name: "TypeScript", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg", shadow: "hover:shadow-[0_0_25px_rgba(37,99,235,0.4)]" },
-            { name: "Tailwind CSS", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-original.svg", shadow: "hover:shadow-[0_0_25px_rgba(45,212,191,0.4)]" },
-            { name: "JavaScript", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg", shadow: "hover:shadow-[0_0_25px_rgba(250,204,21,0.4)]" },
+            { name: "React.js", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg", shadow: "hover:shadow-[0_0_15px_rgba(6,182,212,0.3)]" },
+            { name: "Next.js", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg", shadow: "hover:shadow-[0_0_15px_rgba(255,255,255,0.15)]" },
+            { name: "TypeScript", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg", shadow: "hover:shadow-[0_0_15px_rgba(37,99,235,0.3)]" },
+            { name: "Tailwind CSS", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-original.svg", shadow: "hover:shadow-[0_0_15px_rgba(45,212,191,0.3)]" },
+            { name: "JavaScript", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg", shadow: "hover:shadow-[0_0_15px_rgba(250,204,21,0.3)]" },
         ],
     },
     {
@@ -34,16 +32,13 @@ const skillCategories = [
         label: "Backend",
         icon: Server,
         iconColor: "text-blue-400",
-        activeBorder: "border-blue-500/80",
-        activeBg: "bg-blue-500/15",
-        glowShadow: "shadow-[0_0_25px_rgba(59,130,246,0.4)]",
         skills: [
-            { name: "Java", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg", shadow: "hover:shadow-[0_0_25px_rgba(239,68,68,0.4)]" },
-            { name: "Spring Boot", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/spring/spring-original.svg", shadow: "hover:shadow-[0_0_25px_rgba(13,148,136,0.4)]" },
-            { name: "Node.js", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg", shadow: "hover:shadow-[0_0_25px_rgba(16,185,129,0.4)]" },
-            { name: "NestJS", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nestjs/nestjs-original.svg", shadow: "hover:shadow-[0_0_25px_rgba(225,29,72,0.4)]" },
-            { name: "Python", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg", shadow: "hover:shadow-[0_0_25px_rgba(59,130,246,0.4)]" },
-            { name: "PHP", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/php/php-original.svg", shadow: "hover:shadow-[0_0_25px_rgba(147,51,234,0.4)]" },
+            { name: "Java", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg", shadow: "hover:shadow-[0_0_15px_rgba(239,68,68,0.3)]" },
+            { name: "Spring Boot", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/spring/spring-original.svg", shadow: "hover:shadow-[0_0_15px_rgba(13,148,136,0.3)]" },
+            { name: "Node.js", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg", shadow: "hover:shadow-[0_0_15px_rgba(16,185,129,0.3)]" },
+            { name: "NestJS", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nestjs/nestjs-original.svg", shadow: "hover:shadow-[0_0_15px_rgba(225,29,72,0.3)]" },
+            { name: "Python", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg", shadow: "hover:shadow-[0_0_15px_rgba(59,130,246,0.3)]" },
+            { name: "PHP", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/php/php-original.svg", shadow: "hover:shadow-[0_0_15px_rgba(147,51,234,0.3)]" },
         ],
     },
     {
@@ -51,16 +46,18 @@ const skillCategories = [
         label: "Database",
         icon: Database,
         iconColor: "text-cyan-400",
-        activeBorder: "border-cyan-500/80",
-        activeBg: "bg-cyan-500/15",
-        glowShadow: "shadow-[0_0_25px_rgba(6,182,212,0.4)]",
         skills: [
-            { name: "PostgreSQL", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg", shadow: "hover:shadow-[0_0_25px_rgba(59,130,246,0.4)]" },
-            { name: "MySQL", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg", shadow: "hover:shadow-[0_0_25px_rgba(14,165,233,0.4)]" },
-            { name: "SQL Server", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/microsoftsqlserver/microsoftsqlserver-plain.svg", shadow: "hover:shadow-[0_0_25px_rgba(239,68,68,0.4)]" },
-            { name: "MongoDB", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg", shadow: "hover:shadow-[0_0_25px_rgba(22,163,74,0.4)]" },
-            { name: "Firebase", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/firebase/firebase-plain.svg", shadow: "hover:shadow-[0_0_25px_rgba(245,158,11,0.4)]" },
-            { name: "Prisma ORM", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/prisma/prisma-original.svg", shadow: "hover:shadow-[0_0_25px_rgba(20,184,166,0.4)]", extraClass: "brightness-200 contrast-200 drop-shadow-[0_0_10px_rgba(45,212,191,0.6)]" },
+            { name: "PostgreSQL", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg", shadow: "hover:shadow-[0_0_15px_rgba(59,130,246,0.3)]" },
+            { name: "MySQL", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg", shadow: "hover:shadow-[0_0_15px_rgba(14,165,233,0.3)]" },
+            { name: "SQL Server", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/microsoftsqlserver/microsoftsqlserver-plain.svg", shadow: "hover:shadow-[0_0_15px_rgba(239,68,68,0.3)]" },
+            { name: "MongoDB", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg", shadow: "hover:shadow-[0_0_15px_rgba(22,163,74,0.3)]" },
+            { name: "Firebase", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/firebase/firebase-plain.svg", shadow: "hover:shadow-[0_0_15px_rgba(245,158,11,0.3)]" },
+            {
+                name: "Prisma ORM",
+                logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/prisma/prisma-original.svg",
+                shadow: "hover:shadow-[0_0_15px_rgba(20,184,166,0.3)]",
+                extraClass: "brightness-200 contrast-200 drop-shadow-[0_0_6px_rgba(45,212,191,0.5)]",
+            },
         ],
     },
     {
@@ -68,12 +65,14 @@ const skillCategories = [
         label: "Mobile",
         icon: Smartphone,
         iconColor: "text-violet-400",
-        activeBorder: "border-violet-500/80",
-        activeBg: "bg-violet-500/15",
-        glowShadow: "shadow-[0_0_25px_rgba(139,92,246,0.4)]",
         skills: [
-            { name: "React Native", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg", shadow: "hover:shadow-[0_0_25px_rgba(56,189,248,0.4)]" },
-            { name: "Expo & Router", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/expo/expo-original.svg", shadow: "hover:shadow-[0_0_25px_rgba(6,182,212,0.3)]", extraClass: "brightness-200 contrast-200 drop-shadow-[0_0_12px_rgba(255,255,255,0.9)]" },
+            { name: "React Native", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg", shadow: "hover:shadow-[0_0_15px_rgba(56,189,248,0.3)]" },
+            {
+                name: "Expo & Router",
+                logo: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/expo/expo-original.svg",
+                shadow: "hover:shadow-[0_0_15px_rgba(6,182,212,0.25)]",
+                extraClass: "brightness-200 contrast-200 drop-shadow-[0_0_6px_rgba(255,255,255,0.7)]",
+            },
         ],
     },
     {
@@ -81,12 +80,14 @@ const skillCategories = [
         label: "Automação",
         icon: Bot,
         iconColor: "text-amber-400",
-        activeBorder: "border-amber-500/80",
-        activeBg: "bg-amber-500/15",
-        glowShadow: "shadow-[0_0_25px_rgba(245,158,11,0.4)]",
         skills: [
-            { name: "Agentes IA", logo: "https://api.iconify.design/lucide:cpu.svg?color=%2338bdf8", shadow: "hover:shadow-[0_0_25px_rgba(56,189,248,0.4)]", extraClass: "drop-shadow-[0_0_10px_rgba(56,189,248,0.6)]" },
-            { name: "n8n", logo: "https://cdn.simpleicons.org/n8n/EA4B71", shadow: "hover:shadow-[0_0_25px_rgba(234,75,113,0.4)]" },
+            {
+                name: "Agentes IA",
+                logo: "",
+                shadow: "hover:shadow-[0_0_15px_rgba(56,189,248,0.25)]",
+                extraClass: "",
+            },
+            { name: "n8n", logo: "https://cdn.simpleicons.org/n8n/EA4B71", shadow: "hover:shadow-[0_0_15px_rgba(234,75,113,0.3)]" },
         ],
     },
     {
@@ -94,12 +95,9 @@ const skillCategories = [
         label: "DevOps",
         icon: GitBranch,
         iconColor: "text-orange-400",
-        activeBorder: "border-orange-500/80",
-        activeBg: "bg-orange-500/15",
-        glowShadow: "shadow-[0_0_25px_rgba(249,115,22,0.4)]",
         skills: [
-            { name: "Git & GitHub", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg", shadow: "hover:shadow-[0_0_25px_rgba(234,88,12,0.4)]" },
-            { name: "Docker", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg", shadow: "hover:shadow-[0_0_25px_rgba(14,165,233,0.4)]" },
+            { name: "Git & GitHub", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg", shadow: "hover:shadow-[0_0_15px_rgba(234,88,12,0.3)]" },
+            { name: "Docker", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg", shadow: "hover:shadow-[0_0_15px_rgba(14,165,233,0.3)]" },
         ],
     },
     {
@@ -107,14 +105,16 @@ const skillCategories = [
         label: "UI/UX Design",
         icon: Palette,
         iconColor: "text-pink-400",
-        activeBorder: "border-pink-500/80",
-        activeBg: "bg-pink-500/15",
-        glowShadow: "shadow-[0_0_25px_rgba(236,72,153,0.4)]",
         skills: [
-            { name: "Figma", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg", shadow: "hover:shadow-[0_0_25px_rgba(168,85,247,0.4)]" },
-            { name: "Adobe XD", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/xd/xd-plain.svg", shadow: "hover:shadow-[0_0_25px_rgba(236,72,153,0.4)]", extraClass: "brightness-200 contrast-200 drop-shadow-[0_0_10px_rgba(236,72,153,0.6)]" },
-            { name: "Sketch", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/sketch/sketch-original.svg", shadow: "hover:shadow-[0_0_25px_rgba(245,158,11,0.4)]" },
-            { name: "Framer", logo: "https://cdn.simpleicons.org/framer/0055FF", shadow: "hover:shadow-[0_0_25px_rgba(0,85,255,0.4)]" },
+            { name: "Figma", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg", shadow: "hover:shadow-[0_0_15px_rgba(168,85,247,0.3)]" },
+            {
+                name: "Adobe XD",
+                logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/xd/xd-plain.svg",
+                shadow: "hover:shadow-[0_0_15px_rgba(236,72,153,0.3)]",
+                extraClass: "brightness-200 contrast-200 drop-shadow-[0_0_6px_rgba(236,72,153,0.5)]",
+            },
+            { name: "Sketch", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/sketch/sketch-original.svg", shadow: "hover:shadow-[0_0_15px_rgba(245,158,11,0.3)]" },
+            { name: "Framer", logo: "https://cdn.simpleicons.org/framer/0055FF", shadow: "hover:shadow-[0_0_15px_rgba(0,85,255,0.3)]" },
         ],
     },
 ];
@@ -154,30 +154,30 @@ export function SectionHabilidades() {
     return (
         <section
             id="skills"
-            className="relative z-10 w-full min-w-0 py-6 sm:py-8"
+            className="relative z-10 w-full min-w-0 py-5 sm:py-6"
         >
             <div className="w-full min-w-0">
-                {/* Cabeçalho da seção */}
-                <header className="mb-8 w-full text-center">
+                {/* Cabeçalho */}
+                <header className="mb-6 w-full text-left">
                     <motion.div
-                        initial={{ opacity: 0, y: 20 }}
+                        initial={{ opacity: 0, y: 15 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
-                        transition={{ duration: 0.5 }}
+                        transition={{ duration: 0.4 }}
                     >
-                        <h2 className="mb-3 bg-gradient-to-r from-cyan-400 via-indigo-400 to-purple-500 bg-clip-text font-display text-4xl font-black text-transparent">
+                        <h2 className="mb-2 font-display text-2xl font-bold text-cyan-300/70">
                             Habilidades e Tecnologias
                         </h2>
 
-                        <p className="text-xs font-mono tracking-widest text-slate-400">
+                        <p className="font-mono text-xs tracking-wide text-slate-400">
                             Tecnologias e ferramentas que utilizo para desenvolver soluções.
                         </p>
                     </motion.div>
                 </header>
 
-                {/* Abas alinhadas */}
+                {/* Abas */}
                 <div
-                    className="relative mb-8 flex w-full flex-wrap items-center justify-center gap-2 rounded-xl border border-slate-800/80 bg-slate-950/70 p-1.5 shadow-2xl backdrop-blur-md lg:flex-nowrap"
+                    className="relative mb-6 flex w-full flex-wrap items-center justify-start gap-1.5 rounded-lg border border-white/10 bg-[#0b1020]/70 p-1"
                     onMouseEnter={() => setIsPaused(true)}
                     onMouseLeave={() => setIsPaused(false)}
                 >
@@ -190,29 +190,31 @@ export function SectionHabilidades() {
                                 key={category.id}
                                 type="button"
                                 onClick={() => handleTabClick(category.id)}
-                                whileHover={{ scale: 1.03 }}
                                 whileTap={{ scale: 0.97 }}
-                                className={`relative flex shrink-0 cursor-pointer select-none items-center justify-center gap-2 whitespace-nowrap rounded-md px-4 py-2.5 font-mono text-xs transition-colors duration-300 sm:text-sm ${
-                                    isActive
+                                aria-pressed={isActive}
+                                className={`relative flex shrink-0 cursor-pointer select-none items-center justify-center gap-1.5 whitespace-nowrap rounded-md px-3 py-1.5 font-sans text-xs font-medium transition-colors duration-200 ${isActive
                                         ? "font-semibold text-slate-300"
-                                        : "text-slate-400 hover:text-slate-300"
-                                }`}
+                                        : "text-slate-500 hover:text-slate-300"
+                                    }`}
                             >
                                 {isActive && (
                                     <motion.div
-                                        layoutId="activeTabIndicator"
-                                        className={`absolute inset-0 z-0 rounded-md border backdrop-blur-xl ${category.activeBorder} ${category.activeBg} ${category.glowShadow}`}
+                                        layoutId="active-skill-tab"
                                         transition={{
                                             type: "spring",
-                                            stiffness: 500,
-                                            damping: 35,
+                                            stiffness: 350,
+                                            damping: 30,
                                         }}
+                                        className="absolute inset-0 rounded-md border border-white/10 bg-slate-800/80"
                                     />
                                 )}
 
-                                <span className="relative z-10 flex items-center gap-2">
+                                <span className="relative z-10 flex items-center gap-1.5">
                                     <Icon
-                                        className={`h-4 w-4 shrink-0 transition-colors duration-300 ${category.iconColor}`}
+                                        className={`h-3.5 w-3.5 shrink-0 ${isActive
+                                                ? category.iconColor
+                                                : "text-slate-500"
+                                            }`}
                                     />
                                     <span>{category.label}</span>
                                 </span>
@@ -221,56 +223,69 @@ export function SectionHabilidades() {
                     })}
                 </div>
 
-                {/* Card principal envolvendo os cards de tecnologias */}
-                <div className="w-full min-w-0 rounded-xl border border-white/10 bg-[#0b1020]/70 p-4 shadow-lg backdrop-blur-sm sm:p-6 md:p-8">
-                    <AnimatePresence mode="wait">
-                        <motion.div
-                            key={activeTab}
-                            initial={{ opacity: 0, y: 12, scale: 0.99 }}
-                            animate={{ opacity: 1, y: 0, scale: 1 }}
-                            exit={{ opacity: 0, y: -12, scale: 0.99 }}
-                            transition={{ duration: 0.25, ease: "easeOut" }}
-                            className="flex w-full min-w-0 flex-wrap items-center justify-center gap-3.5"
-                        >
-                            {currentCategory.skills.map((skill, index) => (
+                {/* Somente os cards individuais das tecnologias */}
+                <AnimatePresence mode="wait">
+                    <motion.div
+                        key={activeTab}
+                        initial={{ opacity: 0, y: 6 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        exit={{ opacity: 0, y: -6 }}
+                        transition={{ duration: 0.2 }}
+                        className="flex w-full min-w-0 flex-wrap items-center justify-start gap-2"
+                    >
+                        {currentCategory.skills.map((skill, index) => (
+                            <motion.div
+                                key={skill.name}
+                                initial={{ opacity: 0, scale: 0.9 }}
+                                animate={{ opacity: 1, scale: 1 }}
+                                transition={{
+                                    duration: 0.2,
+                                    delay: index * 0.03,
+                                }}
+                                whileHover={{
+                                    scale: 1.06,
+                                    y: -2,
+                                }}
+                                className={`group relative flex h-17 w-17 cursor-default flex-col items-center justify-center rounded-lg border border-slate-700/60 bg-slate-900/70 p-1.5 transition-colors duration-200 hover:border-cyan-500/50 ${skill.shadow}`}
+                                title={skill.name}
+                            >
                                 <motion.div
-                                    key={skill.name}
-                                    initial={{ opacity: 0, scale: 0.9 }}
-                                    animate={{ opacity: 1, scale: 1 }}
-                                    transition={{
-                                        duration: 0.3,
-                                        delay: index * 0.04,
+                                    whileHover={{
+                                        scale: 1.1,
+                                        y: -1,
                                     }}
-                                    whileHover={{ scale: 1.05, y: -3 }}
-                                    className={`group relative flex h-34 w-32 flex-col items-center justify-center overflow-hidden rounded-xl border border-slate-700/70 bg-slate-900/90 p-3.5 shadow-xl backdrop-blur-md transition-all duration-300 hover:border-cyan-500/50 sm:w-36 ${skill.shadow}`}
+                                    transition={{
+                                        duration: 0.18,
+                                        ease: "easeOut",
+                                    }}
+                                    className="flex h-7 w-7 items-center justify-center"
                                 >
-                                    {/* Ícone flutuante da tecnologia */}
-                                    <motion.div
-                                        animate={{ y: [0, -4, 0] }}
-                                        transition={{
-                                            duration: 3,
-                                            repeat: Infinity,
-                                            ease: "easeInOut",
-                                            delay: index * 0.15,
-                                        }}
-                                        className="mb-2 flex h-14 w-14 items-center justify-center rounded-xl border border-slate-700/80 bg-slate-950/80 p-2.5 shadow-inner transition-colors duration-300 group-hover:border-cyan-500/40 sm:h-16 sm:w-16"
-                                    >
+                                    {skill.name === "Agentes IA" ? (
+                                        <Bot
+                                            className="h-6 w-6 text-sky-400"
+                                            strokeWidth={1.8}
+                                            aria-label="Agentes IA"
+                                        />
+                                    ) : (
                                         <img
                                             src={skill.logo}
                                             alt={skill.name}
                                             loading="lazy"
-                                            className={`h-full w-full object-contain drop-shadow-md ${skill.extraClass || ""}`}
+                                            className={`h-full w-full object-contain ${"extraClass" in skill
+                                                    ? skill.extraClass
+                                                    : ""
+                                                }`}
                                         />
-                                    </motion.div>
-
-                                    <span className="w-full truncate whitespace-nowrap text-center font-mono text-xs tracking-wide text-slate-500 transition-colors group-hover:text-slate-300 sm:text-sm">
-                                        {skill.name}
-                                    </span>
+                                    )}
                                 </motion.div>
-                            ))}
-                        </motion.div>
-                    </AnimatePresence>
-                </div>
+
+                                <span className="mt-1 w-full truncate text-center font-mono text-[9px] leading-tight text-slate-400 transition-colors group-hover:text-slate-200">
+                                    {skill.name}
+                                </span>
+                            </motion.div>
+                        ))}
+                    </motion.div>
+                </AnimatePresence>
             </div>
         </section>
     );

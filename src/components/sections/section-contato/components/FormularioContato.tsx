@@ -94,7 +94,7 @@ export function FormularioContato() {
             if (!resposta.ok) {
                 throw new Error(
                     resultado.error ||
-                        "Não foi possível enviar sua mensagem. Tente novamente.",
+                    "Não foi possível enviar sua mensagem. Tente novamente.",
                 );
             }
 
@@ -124,18 +124,12 @@ export function FormularioContato() {
 
     return (
         <div className="rounded-xl border border-white/10 bg-slate-900/60 p-5 shadow-2xl shadow-black/20 backdrop-blur-xl sm:p-8">
-            <div className="mb-7">
-                <h4 className="mt-2 text-xl font-bold text-slate-400 sm:text-2xl">
-                    Envie uma mensagem
-                </h4>
-            </div>
-
             <form onSubmit={handleSubmit} className="space-y-5">
                 <div className="grid grid-cols-1 gap-5 sm:grid-cols-2">
                     <div>
                         <label
                             htmlFor="contact-name"
-                            className="mb-2 block text-sm font-medium text-slate-400"
+                            className="mb-2 block text-sm font-normal text-slate-400"
                         >
                             Nome
                         </label>
@@ -158,7 +152,7 @@ export function FormularioContato() {
                     <div>
                         <label
                             htmlFor="contact-email"
-                            className="mb-2 block text-sm font-medium text-slate-400"
+                            className="mb-2 block text-sm font-normal text-slate-400"
                         >
                             E-mail
                         </label>
@@ -182,7 +176,7 @@ export function FormularioContato() {
                 <div>
                     <label
                         htmlFor="contact-subject"
-                        className="mb-2 block text-sm font-medium text-slate-400"
+                        className="mb-2 block text-sm font-normal text-slate-400"
                     >
                         Assunto
                     </label>
@@ -204,7 +198,7 @@ export function FormularioContato() {
                 <div>
                     <label
                         htmlFor="contact-message"
-                        className="mb-2 block text-sm font-medium text-slate-400"
+                        className="mb-2 block text-sm font-normal text-slate-400"
                     >
                         Mensagem
                     </label>
