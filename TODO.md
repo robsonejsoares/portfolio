@@ -74,12 +74,6 @@
 - [x] Apresentar informações de contato e links para redes sociais.
 - [x] Integrar o formulário a um serviço de envio de mensagens ou API.
 
-## 🆕 Etapa 11: Padronização das Seções em Cards
-
-- [ ] Padronizar o layout dos containers das seções.
-- [ ] Uniformizar bordas, fundos, espaçamentos e efeitos glassmorphism.
-- [ ] Garantir consistência visual e responsividade em todas as seções.
-
 ---
 
 ## 📌 Resumo do Progresso
@@ -88,12 +82,9 @@
 - [x] Etapa 002 — Barra de Navegação
 - [x] Etapa 003 — Hero e Avatar Interativo
 - [x] Etapa 004 — Sobre Mim
-- [ ] Etapa 005 — Formação Acadêmica
+- [x] Etapa 005 — Formação Acadêmica
 - [x] Etapa 006 — Habilidades e Tecnologias
 - [ ] Etapa 007 — Galeria de Projetos
 - [x] Etapa 008 — Experiência Profissional
 - [x] Etapa 009 — Serviços
 - [x] Etapa 010 — Contato
-- [ ] Etapa 011 — Padronização das Seções em Cards
-
----
