@@ -15,7 +15,7 @@ const codeLinesWithoutComment = [
     '    mobile: ["React Native"],',
     '    automation: ["Testes", "CI/CD & IAs"],',
     '    resolverDesafios: function() {',
-    '        return this.automation.map(item => `Otimizando com ${item}`);',
+    '        return this.automation.map(item => Otimizando com ${item});',
     '    }',
     '};'
 ];
@@ -246,16 +246,15 @@ export function SectionSobre() {
             id="about"
             className="relative z-10 flex w-full min-w-0 items-center justify-center pt-6 pb-16 sm:pt-8 sm:pb-20"
         >
-            {/* Conteúdo usando toda a largura disponível */}
             <div className="w-full min-w-0">
                 <div className="grid w-full min-w-0 grid-cols-1 items-center gap-12 lg:grid-cols-12">
-                    {/* Editor: segundo no mobile, primeiro no desktop */}
+                    {/* Editor: primeiro no mobile, segundo no desktop */}
                     <motion.div
                         initial={{ opacity: 0, x: -30 }}
                         whileInView={{ opacity: 1, x: 0 }}
                         viewport={{ once: true }}
                         transition={{ duration: 0.8 }}
-                        className="order-2 min-w-0 overflow-hidden rounded-xl border border-white/10 bg-slate-900/80 shadow-2xl backdrop-blur-xl lg:order-1 lg:col-span-6"
+                        className="order-1 min-w-0 overflow-hidden rounded-xl border border-white/10 bg-slate-900/80 shadow-2xl backdrop-blur-xl lg:order-2 lg:col-span-6"
                     >
                         {/* Barra superior do editor */}
                         <div className="flex items-center justify-between border-b border-white/10 bg-slate-950/80 px-4 py-3">
@@ -359,13 +358,13 @@ export function SectionSobre() {
                         </div>
                     </motion.div>
 
-                    {/* Sobre mim: primeiro no mobile, segundo no desktop */}
+                    {/* Sobre mim: segundo no mobile, primeiro no desktop */}
                     <motion.div
                         initial={{ opacity: 0, x: 30 }}
                         whileInView={{ opacity: 1, x: 0 }}
                         viewport={{ once: true }}
                         transition={{ duration: 0.8 }}
-                        className="order-1 flex min-w-0 flex-col justify-center lg:order-2 lg:col-span-6"
+                        className="order-2 flex min-w-0 flex-col justify-center lg:order-1 lg:col-span-6"
                     >
                         <div>
                             <h2 className="mb-3 bg-gradient-to-r from-cyan-400 via-indigo-400 to-purple-500 bg-clip-text font-display text-4xl font-black text-transparent">
@@ -423,4 +422,5 @@ export function SectionSobre() {
             </div>
         </section>
     );
+
 }

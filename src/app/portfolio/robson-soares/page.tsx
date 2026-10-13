@@ -5,10 +5,9 @@ import { AnimatePresence } from "framer-motion";
 import { Footer } from "@/components/layout/Footer";
 import { Navbar } from "@/components/layout/Navbar";
 import { Loading } from "@/components/common/Loading";
+import { SectionCard } from "@/components/common/SectionCard";
 import { EfeitosFundo } from "@/components/common/EfeitosFundo";
 import { WhatsAppFlutuante } from "@/components/common/WhatsAppFlutuante";
-import { SectionCard } from "@/components/common/SectionCard";
-
 import { SectionHero } from "@/components/sections/section-hero/SectionHero";
 import { SectionSobre } from "@/components/sections/section-sobre/SectionSobre";
 import { SectionContato } from "@/components/sections/section-contato/SectionContato";
@@ -16,6 +15,7 @@ import { SectionServicos } from "@/components/sections/section-servicos/SectionS
 import { SectionProjetos } from "@/components/sections/section-projetos/SectionProjetos";
 import { SectionHabilidades } from "@/components/sections/section-habilidades/SectionHabilidades";
 import { SectionExperiencia } from "@/components/sections/section-experiencia/SectionExperiencia";
+import { SectionFormacaoAcademica } from "@/components/sections/section-formacao-academica/SectionFormacaoAcademica";
 
 export default function HomePortfolio() {
     const [estaCarregando, setEstaCarregando] = useState(true);
@@ -41,6 +41,11 @@ export default function HomePortfolio() {
             {/* Seção Sobre */}
             <SectionCard>
                 <SectionSobre />
+            </SectionCard>
+
+            {/* Seção Formação Acadêmica */}
+            <SectionCard>
+                <SectionFormacaoAcademica />
             </SectionCard>
 
             {/* Seção Habilidades */}

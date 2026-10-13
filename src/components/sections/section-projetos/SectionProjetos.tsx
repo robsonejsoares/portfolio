@@ -21,54 +21,36 @@ const categories = [
         label: "Todos",
         icon: LayoutGrid,
         iconColor: "text-emerald-400",
-        activeBorder: "border-emerald-500/80",
-        activeBg: "bg-emerald-500/15",
-        glowShadow: "shadow-[0_0_25px_rgba(16,185,129,0.4)]",
     },
     {
         id: "Sistemas Web",
         label: "Sistemas Web",
         icon: Monitor,
         iconColor: "text-blue-400",
-        activeBorder: "border-blue-500/80",
-        activeBg: "bg-blue-500/15",
-        glowShadow: "shadow-[0_0_25px_rgba(59,130,246,0.4)]",
     },
     {
         id: "mobile",
         label: "Mobile",
         icon: Smartphone,
         iconColor: "text-violet-400",
-        activeBorder: "border-violet-500/80",
-        activeBg: "bg-violet-500/15",
-        glowShadow: "shadow-[0_0_25px_rgba(139,92,246,0.4)]",
     },
     {
         id: "automacao",
         label: "Automação",
         icon: Workflow,
         iconColor: "text-amber-400",
-        activeBorder: "border-amber-500/80",
-        activeBg: "bg-amber-500/15",
-        glowShadow: "shadow-[0_0_25px_rgba(245,158,11,0.4)]",
     },
     {
         id: "devops",
         label: "DevOps",
         icon: Server,
         iconColor: "text-cyan-400",
-        activeBorder: "border-cyan-500/80",
-        activeBg: "bg-cyan-500/15",
-        glowShadow: "shadow-[0_0_25px_rgba(6,182,212,0.4)]",
     },
     {
         id: "ui-ux",
         label: "UI/UX Designer",
         icon: Palette,
         iconColor: "text-pink-400",
-        activeBorder: "border-pink-500/80",
-        activeBg: "bg-pink-500/15",
-        glowShadow: "shadow-[0_0_25px_rgba(236,72,153,0.4)]",
     },
 ];
 
@@ -112,27 +94,27 @@ export function SectionProjetos() {
             className="relative z-10 w-full min-w-0 py-6 sm:py-8"
         >
             <div className="w-full min-w-0">
-                <header className="mb-8 w-full text-center">
+                {/* Cabeçalho da seção */}
+                <header className="mb-8 w-full text-left">
                     <motion.div
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                         transition={{ duration: 0.5 }}
-                        className="flex flex-col items-center"
                     >
-                        <h2 className="mb-3 bg-gradient-to-r from-cyan-400 via-indigo-400 to-purple-500 bg-clip-text font-display text-4xl font-black text-transparent">
+                        <h2 className="mb-3 bg-gradient-to-r from-cyan-400 via-indigo-400 to-purple-500 bg-clip-text text-left font-display text-4xl font-black text-transparent">
                             Projetos
                         </h2>
 
-                        <p className="font-mono text-xs tracking-widest text-slate-400">
+                        <p className="text-left font-mono text-xs tracking-widest text-slate-400">
                             Alguns dos projetos que desenvolvi e suas
                             soluções.
                         </p>
                     </motion.div>
                 </header>
 
-                {/* Filtros de categorias */}
-                <div className="relative mb-8 flex w-full flex-wrap items-center justify-center gap-2 rounded-xl border border-slate-800/80 bg-slate-950/70 p-1.5 shadow-2xl backdrop-blur-md">
+                {/* Filtros com o visual da Navbar, sem compartilhar layoutId */}
+                <div className="relative mb-8 flex w-full flex-wrap items-center justify-start gap-2 rounded-xl border border-white/10 bg-[#0b1020]/70 p-1.5 lg:flex-nowrap">
                     {categories.map((category) => {
                         const Icon = category.icon;
                         const isActive =
@@ -145,31 +127,34 @@ export function SectionProjetos() {
                                 onClick={() =>
                                     setSelectedCategory(category.id)
                                 }
-                                whileHover={{ scale: 1.03 }}
                                 whileTap={{ scale: 0.97 }}
                                 aria-pressed={isActive}
-                                className={`relative flex shrink-0 cursor-pointer select-none items-center justify-center gap-2 whitespace-nowrap rounded-md px-4 py-2.5 font-mono text-xs transition-colors duration-300 sm:text-sm ${
+                                className={`relative flex shrink-0 cursor-pointer select-none items-center justify-center gap-2 whitespace-nowrap rounded-md px-4 py-2 font-sans text-sm font-medium transition-colors duration-200 ${
                                     isActive
-                                        ? "font-semibold text-slate-300"
-                                        : "text-slate-400 hover:text-slate-300"
+                                        ? "font-semibold text-slate-400"
+                                        : "text-slate-500 hover:text-slate-400"
                                 }`}
                             >
-                                {isActive && (
-                                    <motion.div
-                                        layoutId="activeProjectCategoryIndicator"
-                                        className={`absolute inset-0 z-0 rounded-md border backdrop-blur-xl ${category.activeBorder} ${category.activeBg} ${category.glowShadow}`}
-                                        transition={{
-                                            type: "spring",
-                                            stiffness: 500,
-                                            damping: 35,
-                                        }}
-                                    />
-                                )}
+                                {/* Fundo animado localmente */}
+                                <AnimatePresence initial={false}>
+                                    {isActive && (
+                                        <motion.div
+                                            key="active-background"
+                                            initial={{ opacity: 0 }}
+                                            animate={{ opacity: 1 }}
+                                            exit={{ opacity: 0 }}
+                                            transition={{ duration: 0.2 }}
+                                            className="absolute inset-0 rounded-md border border-white/10 bg-slate-800/80"
+                                        />
+                                    )}
+                                </AnimatePresence>
 
+                                {/* Ícone e texto acima do fundo */}
                                 <span className="relative z-10 flex items-center gap-2">
                                     <Icon
-                                        className={`h-4 w-4 shrink-0 transition-colors duration-300 ${category.iconColor}`}
+                                        className={`h-4 w-4 shrink-0 transition-colors duration-200 ${category.iconColor}`}
                                     />
+
                                     <span>{category.label}</span>
                                 </span>
                             </motion.button>
@@ -177,7 +162,7 @@ export function SectionProjetos() {
                     })}
                 </div>
 
-                {/* Container externo com altura mínima constante */}
+                {/* Container principal dos projetos */}
                 <div className="min-h-[420px] w-full min-w-0 rounded-xl border border-white/10 bg-[#0b1020]/70 p-4 shadow-lg backdrop-blur-sm sm:p-6 md:p-8">
                     {projectsToDisplay.length > 0 ? (
                         <motion.div
@@ -205,6 +190,7 @@ export function SectionProjetos() {
                                             transition={{ duration: 0.25 }}
                                             className="group relative flex flex-col justify-between overflow-hidden rounded-xl border border-slate-800 bg-slate-900/80 shadow-xl backdrop-blur-md transition-all duration-300 hover:border-purple-500/50"
                                         >
+                                            {/* Imagem do projeto */}
                                             <div className="relative h-44 w-full overflow-hidden bg-slate-950">
                                                 <img
                                                     src={project.image}
@@ -220,6 +206,7 @@ export function SectionProjetos() {
                                                 </span>
                                             </div>
 
+                                            {/* Informações do projeto */}
                                             <div className="flex flex-grow flex-col justify-between p-5">
                                                 <div>
                                                     <h3 className="mb-2 text-lg font-bold text-white transition-colors group-hover:text-purple-400">
@@ -245,6 +232,7 @@ export function SectionProjetos() {
                                                     <span>
                                                         Detalhes do Projeto
                                                     </span>
+
                                                     <ArrowUpRight className="h-3.5 w-3.5" />
                                                 </Button>
                                             </div>
@@ -283,7 +271,7 @@ export function SectionProjetos() {
 
                             <p className="max-w-sm text-sm leading-relaxed text-slate-400">
                                 Ainda não há projetos cadastrados em{" "}
-                                <span className="font-bold text-slate-400">
+                                <span className="font-bold text-slate-300">
                                     {selectedCategoryLabel}
                                 </span>
                                 . Volte em breve para conferir as novidades!

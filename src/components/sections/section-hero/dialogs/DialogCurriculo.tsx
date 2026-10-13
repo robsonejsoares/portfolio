@@ -98,7 +98,7 @@ export function DialogCurriculo({
 
                                 <h3
                                     id="dialog-curriculo-titulo"
-                                    className="text-sm font-bold tracking-wide text-white sm:text-base"
+                                    className="text-sm font-bold tracking-wide text-slate-200 sm:text-base"
                                 >
                                     Currículo - {personal.name}
                                 </h3>
@@ -132,55 +132,60 @@ export function DialogCurriculo({
                         <div className="min-h-0 flex-1 space-y-8 overflow-y-auto overscroll-contain bg-[#0b101b] p-4 text-gray-200 sm:p-8">
                             {/* Cabeçalho pessoal */}
                             <div className="border-b border-cyan-500/25 pb-6">
-                                <h1 className="text-2xl font-black tracking-tight text-white sm:text-3xl">
+                                <h1 className="text-2xl font-black tracking-tight text-slate-300 sm:text-2xl">
                                     {personal.name}
                                 </h1>
 
-                                <p className="mt-1 font-mono text-sm font-semibold text-cyan-300">
+                                <p className="mt-1 font-mono text-sm font-semibold text-cyan-600">
                                     {personal.role}
                                 </p>
 
-                                <div className="mt-4 flex flex-wrap gap-4 text-xs text-gray-300 sm:text-sm">
+                                <div className="mt-4 flex flex-wrap gap-4 text-xs text-slate-500 sm:text-sm">
+                                    {/* LinkedIn */}
                                     <a
                                         href={personal.linkedin}
                                         target="_blank"
                                         rel="noreferrer"
-                                        className="flex items-center gap-1.5 transition-colors hover:text-cyan-300"
+                                        className="flex items-center gap-1.5 transition-colors duration-200 hover:text-[#0A66C2]"
                                     >
-                                        <LinkedinIcon className="h-4 w-4 text-cyan-400" />
+                                        <LinkedinIcon className="h-4 w-4 text-[#0A66C2] transition-colors duration-200" />
                                         <span>LinkedIn</span>
                                     </a>
 
+                                    {/* GitHub */}
                                     <a
                                         href={personal.github}
                                         target="_blank"
                                         rel="noreferrer"
-                                        className="flex items-center gap-1.5 transition-colors hover:text-cyan-300"
+                                        className="flex items-center gap-1.5 transition-colors duration-200 hover:text-slate-300"
                                     >
-                                        <GithubIcon className="h-4 w-4 text-cyan-400" />
+                                        <GithubIcon className="h-4 w-4 text-slate-300 transition-colors duration-200 group-hover:text-white" />
                                         <span>GitHub</span>
                                     </a>
 
+                                    {/* E-mail */}
                                     <a
                                         href={`mailto:${personal.email}`}
-                                        className="flex items-center gap-1.5 transition-colors hover:text-cyan-300"
+                                        className="flex items-center gap-1.5 transition-colors duration-200 hover:text-violet-700"
                                     >
-                                        <Mail className="h-4 w-4 text-cyan-400" />
+                                        <Mail className="h-4 w-4 text-violet-400 transition-colors duration-200" />
                                         <span>{personal.email}</span>
                                     </a>
 
+                                    {/* WhatsApp */}
                                     <a
                                         href={whatsappUrl}
                                         target="_blank"
                                         rel="noreferrer"
-                                        className="flex items-center gap-1.5 transition-colors hover:text-cyan-300"
+                                        className="flex items-center gap-1.5 transition-colors duration-200 hover:text-[#0d8439]"
                                     >
-                                        <Phone className="h-4 w-4 text-cyan-400" />
+                                        <Phone className="h-4 w-4 text-[#25D366] transition-colors duration-200" />
                                         <span>{personal.phone}</span>
                                     </a>
 
-                                    <div className="flex items-center gap-1.5 text-gray-300">
-                                        <MapPin className="h-4 w-4 text-cyan-400" />
+                                    {/* Localização */}
+                                    <div className="flex items-center gap-1.5 text-slate-400">
+                                        <MapPin className="h-3.5 w-3.5 animate-pulse text-red-500 drop-shadow-[0_0_8px_rgba(239,68,68,0.6)]" />
                                         <span>{personal.location}</span>
                                     </div>
                                 </div>
@@ -188,13 +193,13 @@ export function DialogCurriculo({
 
                             {/* Resumo profissional */}
                             <section>
-                                <h2 className="mb-4 flex items-center gap-2 font-mono text-sm font-semibold uppercase tracking-widest text-cyan-300">
+                                <h2 className="mb-4 flex items-center gap-2 font-mono text-sm font-semibold uppercase tracking-widest text-cyan-400">
                                     <User className="h-4 w-4 text-purple-400" />
                                     Resumo Profissional
                                 </h2>
 
                                 <div className="rounded-xl border border-cyan-500/20 bg-[#101726] p-5 shadow-md">
-                                    <p className="text-sm leading-relaxed text-gray-200 sm:text-base">
+                                    <p className="text-sm leading-relaxed text-slate-400 sm:text-base">
                                         {summary}
                                     </p>
                                 </div>
@@ -202,7 +207,7 @@ export function DialogCurriculo({
 
                             {/* Experiência profissional */}
                             <section>
-                                <h2 className="mb-4 flex items-center gap-2 font-mono text-sm font-semibold uppercase tracking-widest text-cyan-300">
+                                <h2 className="mb-4 flex items-center gap-2 font-mono text-sm font-semibold uppercase tracking-widest text-cyan-400">
                                     <Briefcase className="h-4 w-4 text-purple-400" />
                                     Experiência Profissional
                                 </h2>
@@ -214,25 +219,25 @@ export function DialogCurriculo({
                                             className="rounded-xl border border-cyan-500/20 bg-[#101726] p-5 shadow-md"
                                         >
                                             <div className="mb-2 flex flex-col justify-between gap-1 sm:flex-row sm:items-center">
-                                                <h3 className="text-base font-bold text-white">
+                                                <h3 className="text-base font-bold text-slate-300">
                                                     {exp.company}{" "}
                                                     {exp.subtitle && (
-                                                        <span className="font-normal text-cyan-300">
+                                                        <span className="font-normal text-slate-300">
                                                             {exp.subtitle}
                                                         </span>
                                                     )}
                                                 </h3>
 
-                                                <span className="w-fit rounded-md border border-cyan-500/30 bg-cyan-500/15 px-2.5 py-1 font-mono text-xs text-cyan-300">
+                                                <span className="w-fit rounded-md border border-cyan-500/30 bg-cyan-500/15 px-2.5 py-1 font-mono text-xs text-cyan-400">
                                                     {exp.period}
                                                 </span>
                                             </div>
 
-                                            <p className="mb-3 text-xs font-semibold text-gray-300">
+                                            <p className="mb-3 text-xs font-semibold text-slate-300">
                                                 {exp.role}
                                             </p>
 
-                                            <ul className="list-inside list-disc space-y-1.5 text-xs text-gray-200 marker:text-purple-400 sm:text-sm">
+                                            <ul className="list-inside list-disc space-y-1.5 text-xs text-slate-400 marker:text-purple-400 sm:text-sm">
                                                 {exp.highlights.map((item, i) => (
                                                     <li key={i}>{item}</li>
                                                 ))}
@@ -244,7 +249,7 @@ export function DialogCurriculo({
 
                             {/* Formação acadêmica */}
                             <section>
-                                <h2 className="mb-4 flex items-center gap-2 font-mono text-sm font-semibold uppercase tracking-widest text-cyan-300">
+                                <h2 className="mb-4 flex items-center gap-2 font-mono text-sm font-semibold uppercase tracking-widest text-cyan-400">
                                     <GraduationCap className="h-4 w-4 text-purple-400" />
                                     Formação Acadêmica
                                 </h2>
@@ -255,11 +260,9 @@ export function DialogCurriculo({
                                             key={`${edu.degree}-${edu.institution}-${index}`}
                                             className="flex items-center justify-between gap-3 rounded-xl border border-cyan-500/20 bg-[#101726] p-3.5 shadow-md"
                                         >
-                                            <div>
-                                                <strong className="block text-white">
-                                                    {edu.degree}
-                                                </strong>
-                                                <span className="text-xs text-gray-300">
+                                            <div className="block text-slate-300 font-medium">
+                                                <div>{edu.degree}</div>
+                                                <span className="text-xs text-slate-400">
                                                     {edu.institution}
                                                 </span>
                                             </div>
@@ -274,38 +277,38 @@ export function DialogCurriculo({
 
                             {/* Tecnologias e competências */}
                             <section>
-                                <h2 className="mb-3 flex items-center gap-2 font-mono text-sm font-semibold uppercase tracking-widest text-cyan-300">
+                                <h2 className="mb-3 flex items-center gap-2 font-mono text-sm font-semibold uppercase tracking-widest text-cyan-400">
                                     <Cpu className="h-4 w-4 text-purple-400" />
                                     Tecnologias & Competências
                                 </h2>
 
-                                <div className="space-y-2 rounded-xl border border-cyan-500/20 bg-[#101726] p-4 text-xs text-gray-200 shadow-md sm:text-sm">
+                                <div className="space-y-2 rounded-xl border border-cyan-500/20 bg-[#101726] p-4 text-xs text-slate-400 shadow-md sm:text-sm">
                                     <p>
-                                        <strong className="text-cyan-300">Backend:</strong>{" "}
+                                        <strong className="text-cyan-600">Backend:</strong>{" "}
                                         {technologies.backend}
                                     </p>
                                     <p>
-                                        <strong className="text-cyan-300">Frontend:</strong>{" "}
+                                        <strong className="text-cyan-600">Frontend:</strong>{" "}
                                         {technologies.frontend}
                                     </p>
                                     <p>
-                                        <strong className="text-cyan-300">Mobile:</strong>{" "}
+                                        <strong className="text-cyan-600">Mobile:</strong>{" "}
                                         {technologies.mobile}
                                     </p>
                                     <p>
-                                        <strong className="text-cyan-300">Design & Prototipagem:</strong>{" "}
+                                        <strong className="text-cyan-600">Design & Prototipagem:</strong>{" "}
                                         {technologies.design}
                                     </p>
                                     <p>
-                                        <strong className="text-cyan-300">Banco de Dados:</strong>{" "}
+                                        <strong className="text-cyan-600">Banco de Dados:</strong>{" "}
                                         {technologies.database}
                                     </p>
                                     <p>
-                                        <strong className="text-cyan-300">Ferramentas e DevOps:</strong>{" "}
+                                        <strong className="text-cyan-600">Ferramentas e DevOps:</strong>{" "}
                                         {technologies.devops}
                                     </p>
                                     <p>
-                                        <strong className="text-cyan-300">Outros:</strong>{" "}
+                                        <strong className="text-cyan-600">Outros:</strong>{" "}
                                         {technologies.others}
                                     </p>
                                 </div>
@@ -313,12 +316,12 @@ export function DialogCurriculo({
 
                             {/* Cursos e certificações */}
                             <section>
-                                <h2 className="mb-3 flex items-center gap-2 font-mono text-sm font-semibold uppercase tracking-widest text-cyan-300">
+                                <h2 className="mb-3 flex items-center gap-2 font-mono text-sm font-semibold uppercase tracking-widest text-cyan-400">
                                     <Award className="h-4 w-4 text-purple-400" />
                                     Cursos e Certificações
                                 </h2>
 
-                                <div className="space-y-2 rounded-xl border border-cyan-500/20 bg-[#101726] p-4 text-xs text-gray-200 shadow-md sm:text-sm">
+                                <div className="space-y-2 rounded-xl border border-cyan-500/20 bg-[#101726] p-4 text-xs text-slate-400 shadow-md sm:text-sm">
                                     {certifications.map((cert, index) => (
                                         <div
                                             key={`${cert}-${index}`}

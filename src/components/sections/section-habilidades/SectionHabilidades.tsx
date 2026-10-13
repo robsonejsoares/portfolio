@@ -18,9 +18,6 @@ const skillCategories = [
         label: "Frontend",
         icon: Layout,
         iconColor: "text-emerald-400",
-        activeBorder: "border-emerald-500/80",
-        activeBg: "bg-emerald-500/15",
-        glowShadow: "shadow-[0_0_25px_rgba(16,185,129,0.4)]",
         skills: [
             { name: "React.js", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg", shadow: "hover:shadow-[0_0_25px_rgba(6,182,212,0.4)]" },
             { name: "Next.js", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg", shadow: "hover:shadow-[0_0_25px_rgba(255,255,255,0.2)]" },
@@ -34,9 +31,6 @@ const skillCategories = [
         label: "Backend",
         icon: Server,
         iconColor: "text-blue-400",
-        activeBorder: "border-blue-500/80",
-        activeBg: "bg-blue-500/15",
-        glowShadow: "shadow-[0_0_25px_rgba(59,130,246,0.4)]",
         skills: [
             { name: "Java", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg", shadow: "hover:shadow-[0_0_25px_rgba(239,68,68,0.4)]" },
             { name: "Spring Boot", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/spring/spring-original.svg", shadow: "hover:shadow-[0_0_25px_rgba(13,148,136,0.4)]" },
@@ -51,16 +45,18 @@ const skillCategories = [
         label: "Database",
         icon: Database,
         iconColor: "text-cyan-400",
-        activeBorder: "border-cyan-500/80",
-        activeBg: "bg-cyan-500/15",
-        glowShadow: "shadow-[0_0_25px_rgba(6,182,212,0.4)]",
         skills: [
             { name: "PostgreSQL", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg", shadow: "hover:shadow-[0_0_25px_rgba(59,130,246,0.4)]" },
             { name: "MySQL", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg", shadow: "hover:shadow-[0_0_25px_rgba(14,165,233,0.4)]" },
             { name: "SQL Server", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/microsoftsqlserver/microsoftsqlserver-plain.svg", shadow: "hover:shadow-[0_0_25px_rgba(239,68,68,0.4)]" },
             { name: "MongoDB", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg", shadow: "hover:shadow-[0_0_25px_rgba(22,163,74,0.4)]" },
             { name: "Firebase", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/firebase/firebase-plain.svg", shadow: "hover:shadow-[0_0_25px_rgba(245,158,11,0.4)]" },
-            { name: "Prisma ORM", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/prisma/prisma-original.svg", shadow: "hover:shadow-[0_0_25px_rgba(20,184,166,0.4)]", extraClass: "brightness-200 contrast-200 drop-shadow-[0_0_10px_rgba(45,212,191,0.6)]" },
+            {
+                name: "Prisma ORM",
+                logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/prisma/prisma-original.svg",
+                shadow: "hover:shadow-[0_0_25px_rgba(20,184,166,0.4)]",
+                extraClass: "brightness-200 contrast-200 drop-shadow-[0_0_10px_rgba(45,212,191,0.6)]",
+            },
         ],
     },
     {
@@ -68,12 +64,14 @@ const skillCategories = [
         label: "Mobile",
         icon: Smartphone,
         iconColor: "text-violet-400",
-        activeBorder: "border-violet-500/80",
-        activeBg: "bg-violet-500/15",
-        glowShadow: "shadow-[0_0_25px_rgba(139,92,246,0.4)]",
         skills: [
             { name: "React Native", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg", shadow: "hover:shadow-[0_0_25px_rgba(56,189,248,0.4)]" },
-            { name: "Expo & Router", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/expo/expo-original.svg", shadow: "hover:shadow-[0_0_25px_rgba(6,182,212,0.3)]", extraClass: "brightness-200 contrast-200 drop-shadow-[0_0_12px_rgba(255,255,255,0.9)]" },
+            {
+                name: "Expo & Router",
+                logo: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/expo/expo-original.svg",
+                shadow: "hover:shadow-[0_0_25px_rgba(6,182,212,0.3)]",
+                extraClass: "brightness-200 contrast-200 drop-shadow-[0_0_12px_rgba(255,255,255,0.9)]",
+            },
         ],
     },
     {
@@ -81,11 +79,13 @@ const skillCategories = [
         label: "Automação",
         icon: Bot,
         iconColor: "text-amber-400",
-        activeBorder: "border-amber-500/80",
-        activeBg: "bg-amber-500/15",
-        glowShadow: "shadow-[0_0_25px_rgba(245,158,11,0.4)]",
         skills: [
-            { name: "Agentes IA", logo: "https://api.iconify.design/lucide:cpu.svg?color=%2338bdf8", shadow: "hover:shadow-[0_0_25px_rgba(56,189,248,0.4)]", extraClass: "drop-shadow-[0_0_10px_rgba(56,189,248,0.6)]" },
+            {
+                name: "Agentes IA",
+                logo: "https://api.iconify.design/lucide.svg?color=%2338bdf8",
+                shadow: "hover:shadow-[0_0_25px_rgba(56,189,248,0.4)]",
+                extraClass: "drop-shadow-[0_0_10px_rgba(56,189,248,0.6)]",
+            },
             { name: "n8n", logo: "https://cdn.simpleicons.org/n8n/EA4B71", shadow: "hover:shadow-[0_0_25px_rgba(234,75,113,0.4)]" },
         ],
     },
@@ -94,9 +94,6 @@ const skillCategories = [
         label: "DevOps",
         icon: GitBranch,
         iconColor: "text-orange-400",
-        activeBorder: "border-orange-500/80",
-        activeBg: "bg-orange-500/15",
-        glowShadow: "shadow-[0_0_25px_rgba(249,115,22,0.4)]",
         skills: [
             { name: "Git & GitHub", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg", shadow: "hover:shadow-[0_0_25px_rgba(234,88,12,0.4)]" },
             { name: "Docker", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg", shadow: "hover:shadow-[0_0_25px_rgba(14,165,233,0.4)]" },
@@ -107,12 +104,14 @@ const skillCategories = [
         label: "UI/UX Design",
         icon: Palette,
         iconColor: "text-pink-400",
-        activeBorder: "border-pink-500/80",
-        activeBg: "bg-pink-500/15",
-        glowShadow: "shadow-[0_0_25px_rgba(236,72,153,0.4)]",
         skills: [
             { name: "Figma", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg", shadow: "hover:shadow-[0_0_25px_rgba(168,85,247,0.4)]" },
-            { name: "Adobe XD", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/xd/xd-plain.svg", shadow: "hover:shadow-[0_0_25px_rgba(236,72,153,0.4)]", extraClass: "brightness-200 contrast-200 drop-shadow-[0_0_10px_rgba(236,72,153,0.6)]" },
+            {
+                name: "Adobe XD",
+                logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/xd/xd-plain.svg",
+                shadow: "hover:shadow-[0_0_25px_rgba(236,72,153,0.4)]",
+                extraClass: "brightness-200 contrast-200 drop-shadow-[0_0_10px_rgba(236,72,153,0.6)]",
+            },
             { name: "Sketch", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/sketch/sketch-original.svg", shadow: "hover:shadow-[0_0_25px_rgba(245,158,11,0.4)]" },
             { name: "Framer", logo: "https://cdn.simpleicons.org/framer/0055FF", shadow: "hover:shadow-[0_0_25px_rgba(0,85,255,0.4)]" },
         ],
@@ -157,27 +156,27 @@ export function SectionHabilidades() {
             className="relative z-10 w-full min-w-0 py-6 sm:py-8"
         >
             <div className="w-full min-w-0">
-                {/* Cabeçalho da seção */}
-                <header className="mb-8 w-full text-center">
+                {/* Cabeçalho */}
+                <header className="mb-8 w-full text-left">
                     <motion.div
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                         transition={{ duration: 0.5 }}
                     >
-                        <h2 className="mb-3 bg-gradient-to-r from-cyan-400 via-indigo-400 to-purple-500 bg-clip-text font-display text-4xl font-black text-transparent">
+                        <h2 className="mb-3 bg-gradient-to-r from-cyan-400 via-indigo-400 to-purple-500 bg-clip-text text-left font-display text-4xl font-black text-transparent">
                             Habilidades e Tecnologias
                         </h2>
 
-                        <p className="text-xs font-mono tracking-widest text-slate-400">
+                        <p className="text-left font-mono text-xs tracking-widest text-slate-400">
                             Tecnologias e ferramentas que utilizo para desenvolver soluções.
                         </p>
                     </motion.div>
                 </header>
 
-                {/* Abas alinhadas */}
+                {/* Abas com visual da Navbar e animação independente */}
                 <div
-                    className="relative mb-8 flex w-full flex-wrap items-center justify-center gap-2 rounded-xl border border-slate-800/80 bg-slate-950/70 p-1.5 shadow-2xl backdrop-blur-md lg:flex-nowrap"
+                    className="relative mb-8 flex w-full flex-wrap items-center justify-start gap-2 rounded-xl border border-white/10 bg-[#0b1020]/70 p-1.5 lg:flex-nowrap"
                     onMouseEnter={() => setIsPaused(true)}
                     onMouseLeave={() => setIsPaused(false)}
                 >
@@ -190,29 +189,30 @@ export function SectionHabilidades() {
                                 key={category.id}
                                 type="button"
                                 onClick={() => handleTabClick(category.id)}
-                                whileHover={{ scale: 1.03 }}
                                 whileTap={{ scale: 0.97 }}
-                                className={`relative flex shrink-0 cursor-pointer select-none items-center justify-center gap-2 whitespace-nowrap rounded-md px-4 py-2.5 font-mono text-xs transition-colors duration-300 sm:text-sm ${
+                                aria-pressed={isActive}
+                                className={`relative flex shrink-0 cursor-pointer select-none items-center justify-center gap-2 whitespace-nowrap rounded-md px-4 py-2 font-sans text-sm font-medium transition-colors duration-200 ${
                                     isActive
-                                        ? "font-semibold text-slate-300"
-                                        : "text-slate-400 hover:text-slate-300"
+                                        ? "font-semibold text-slate-400"
+                                        : "text-slate-500 hover:text-slate-400"
                                 }`}
                             >
-                                {isActive && (
-                                    <motion.div
-                                        layoutId="activeTabIndicator"
-                                        className={`absolute inset-0 z-0 rounded-md border backdrop-blur-xl ${category.activeBorder} ${category.activeBg} ${category.glowShadow}`}
-                                        transition={{
-                                            type: "spring",
-                                            stiffness: 500,
-                                            damping: 35,
-                                        }}
-                                    />
-                                )}
+                                <AnimatePresence initial={false}>
+                                    {isActive && (
+                                        <motion.div
+                                            key="active-background"
+                                            initial={{ opacity: 0 }}
+                                            animate={{ opacity: 1 }}
+                                            exit={{ opacity: 0 }}
+                                            transition={{ duration: 0.2 }}
+                                            className="absolute inset-0 rounded-md border border-white/10 bg-slate-800/80"
+                                        />
+                                    )}
+                                </AnimatePresence>
 
                                 <span className="relative z-10 flex items-center gap-2">
                                     <Icon
-                                        className={`h-4 w-4 shrink-0 transition-colors duration-300 ${category.iconColor}`}
+                                        className={`h-4 w-4 shrink-0 transition-colors duration-200 ${category.iconColor}`}
                                     />
                                     <span>{category.label}</span>
                                 </span>
@@ -221,7 +221,7 @@ export function SectionHabilidades() {
                     })}
                 </div>
 
-                {/* Card principal envolvendo os cards de tecnologias */}
+                {/* Card principal das tecnologias */}
                 <div className="w-full min-w-0 rounded-xl border border-white/10 bg-[#0b1020]/70 p-4 shadow-lg backdrop-blur-sm sm:p-6 md:p-8">
                     <AnimatePresence mode="wait">
                         <motion.div
@@ -229,8 +229,11 @@ export function SectionHabilidades() {
                             initial={{ opacity: 0, y: 12, scale: 0.99 }}
                             animate={{ opacity: 1, y: 0, scale: 1 }}
                             exit={{ opacity: 0, y: -12, scale: 0.99 }}
-                            transition={{ duration: 0.25, ease: "easeOut" }}
-                            className="flex w-full min-w-0 flex-wrap items-center justify-center gap-3.5"
+                            transition={{
+                                duration: 0.25,
+                                ease: "easeOut",
+                            }}
+                            className="flex w-full min-w-0 flex-wrap items-center justify-start gap-3.5"
                         >
                             {currentCategory.skills.map((skill, index) => (
                                 <motion.div
@@ -241,10 +244,12 @@ export function SectionHabilidades() {
                                         duration: 0.3,
                                         delay: index * 0.04,
                                     }}
-                                    whileHover={{ scale: 1.05, y: -3 }}
+                                    whileHover={{
+                                        scale: 1.05,
+                                        y: -3,
+                                    }}
                                     className={`group relative flex h-34 w-32 flex-col items-center justify-center overflow-hidden rounded-xl border border-slate-700/70 bg-slate-900/90 p-3.5 shadow-xl backdrop-blur-md transition-all duration-300 hover:border-cyan-500/50 sm:w-36 ${skill.shadow}`}
                                 >
-                                    {/* Ícone flutuante da tecnologia */}
                                     <motion.div
                                         animate={{ y: [0, -4, 0] }}
                                         transition={{
@@ -259,7 +264,7 @@ export function SectionHabilidades() {
                                             src={skill.logo}
                                             alt={skill.name}
                                             loading="lazy"
-                                            className={`h-full w-full object-contain drop-shadow-md ${skill.extraClass || ""}`}
+                                            className={`h-full w-full object-contain drop-shadow-md ${"extraClass" in skill ? skill.extraClass : ""}`}
                                         />
                                     </motion.div>
 

@@ -86,20 +86,19 @@ export function SectionExperiencia() {
             >
                 {/* Conteúdo usando toda a largura disponível */}
                 <div className="w-full min-w-0 space-y-10">
+                    {/* Cabeçalho padronizado da seção */}
                     <motion.header
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                         transition={{ duration: 0.5 }}
-                        className="space-y-3 text-center"
+                        className="mb-8 w-full text-left"
                     >
-                        <h2 className="mb-3 bg-gradient-to-r from-cyan-400 via-indigo-400 to-purple-500 bg-clip-text font-display text-4xl font-black text-transparent">
-                            <span className="text-gradient-cyan">
-                                Experiência
-                            </span>
+                        <h2 className="mb-3 bg-gradient-to-r from-cyan-400 via-indigo-400 to-purple-500 bg-clip-text text-left font-display text-4xl font-black text-transparent">
+                            Experiência
                         </h2>
 
-                        <p className="text-xs font-mono tracking-widest text-slate-400">
+                        <p className="text-left text-xs font-mono tracking-widest text-slate-400">
                             Minha trajetória profissional e experiências em desenvolvimento.
                         </p>
                     </motion.header>
@@ -181,4 +180,5 @@ export function SectionExperiencia() {
             />
         </>
     );
+
 }
