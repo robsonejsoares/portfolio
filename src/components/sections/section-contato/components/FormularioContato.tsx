@@ -1,15 +1,26 @@
 "use client";
 
 import { useEffect, useRef, useState, type FormEvent } from "react";
-import { Send, LoaderCircle, CheckCircle2 } from "lucide-react";
+import { LoaderCircle, Send } from "lucide-react";
+import {
+    FeedbackContato,
+    type TipoFeedback,
+} from "./FeedbackContato";
+
+type CampoContato = "nome" | "email" | "assunto" | "mensagem";
+
+const classesCampo =
+    "w-full rounded-lg border border-white/10 bg-slate-950/70 px-4 py-3 text-sm text-slate-200 outline-none transition-colors duration-200 placeholder focus/20 focus disabled disabled";
 
 export function FormularioContato() {
     const [nome, setNome] = useState("");
     const [email, setEmail] = useState("");
     const [assunto, setAssunto] = useState("");
     const [mensagem, setMensagem] = useState("");
-    const [erro, setErro] = useState("");
-    const [sucesso, setSucesso] = useState("");
+
+    const [feedbackTipo, setFeedbackTipo] =
+        useState<TipoFeedback | null>(null);
+    const [feedbackMensagem, setFeedbackMensagem] = useState("");
     const [enviando, setEnviando] = useState(false);
 
     const temporizadorSucesso =
@@ -23,17 +34,41 @@ export function FormularioContato() {
         };
     }, []);
 
-    async function handleSubmit(event: FormEvent<HTMLFormElement>) {
-        event.preventDefault();
-
-        setErro("");
-        setSucesso("");
-
+    function limparTemporizadorSucesso() {
         if (temporizadorSucesso.current) {
             clearTimeout(temporizadorSucesso.current);
             temporizadorSucesso.current = null;
         }
+    }
 
+    function exibirFeedback(tipo: TipoFeedback, texto: string) {
+        setFeedbackTipo(tipo);
+        setFeedbackMensagem(texto);
+    }
+
+    function limparAvisos() {
+        setFeedbackTipo(null);
+        setFeedbackMensagem("");
+        limparTemporizadorSucesso();
+    }
+
+    function atualizarCampo(campo: CampoContato, valor: string) {
+        const setters = {
+            nome: setNome,
+            email: setEmail,
+            assunto: setAssunto,
+            mensagem: setMensagem,
+        };
+
+        setters[campo](valor);
+
+        if (feedbackTipo === "erro" || feedbackTipo === "aviso") {
+            setFeedbackTipo(null);
+            setFeedbackMensagem("");
+        }
+    }
+
+    function validarCampos(): string | null {
         const nomeValido = nome.trim();
         const emailValido = email.trim();
         const assuntoValido = assunto.trim();
@@ -45,31 +80,54 @@ export function FormularioContato() {
             !assuntoValido ||
             !mensagemValida
         ) {
-            setErro("Preencha todos os campos antes de continuar.");
-            return;
+            return "Preencha todos os campos obrigatórios.";
         }
 
-        if (
-            nomeValido.length > 100 ||
-            emailValido.length > 254 ||
-            assuntoValido.length > 150 ||
-            mensagemValida.length > 5000
-        ) {
-            setErro("Um ou mais campos excedem o limite permitido.");
-            return;
+        if (nomeValido.length > 100) {
+            return "O nome deve ter no máximo 100 caracteres.";
+        }
+
+        if (emailValido.length > 254) {
+            return "O e-mail deve ter no máximo 254 caracteres.";
         }
 
         if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailValido)) {
-            setErro("Informe um endereço de e-mail válido.");
-            return;
+            return "Informe um endereço de e-mail válido.";
+        }
+
+        if (assuntoValido.length > 150) {
+            return "O assunto deve ter no máximo 150 caracteres.";
         }
 
         if (mensagemValida.length < 10) {
-            setErro("A mensagem deve conter pelo menos 10 caracteres.");
+            return "A mensagem deve ter pelo menos 10 caracteres.";
+        }
+
+        if (mensagemValida.length > 5000) {
+            return "A mensagem deve ter no máximo 5.000 caracteres.";
+        }
+
+        return null;
+    }
+
+    async function handleSubmit(event: FormEvent<HTMLFormElement>) {
+        event.preventDefault();
+
+        if (enviando) {
+            return;
+        }
+
+        limparAvisos();
+
+        const erroValidacao = validarCampos();
+
+        if (erroValidacao) {
+            exibirFeedback("erro", erroValidacao);
             return;
         }
 
         setEnviando(true);
+        exibirFeedback("processando", "Enviando mensagem...");
 
         try {
             const resposta = await fetch("/api/contact", {
@@ -78,10 +136,10 @@ export function FormularioContato() {
                     "Content-Type": "application/json",
                 },
                 body: JSON.stringify({
-                    nome: nomeValido,
-                    email: emailValido,
-                    assunto: assuntoValido,
-                    mensagem: mensagemValida,
+                    nome: nome.trim(),
+                    email: email.trim(),
+                    assunto: assunto.trim(),
+                    mensagem: mensagem.trim(),
                 }),
             });
 
@@ -91,15 +149,16 @@ export function FormularioContato() {
                 error?: string;
             } = await resposta.json();
 
-            if (!resposta.ok) {
+            if (!resposta.ok || resultado.success === false) {
                 throw new Error(
                     resultado.error ||
-                    "Não foi possível enviar sua mensagem. Tente novamente.",
+                    "Não foi possível enviar sua mensagem. Tente novamente."
                 );
             }
 
-            setSucesso(
-                resultado.message || "Mensagem enviada com sucesso!",
+            exibirFeedback(
+                "sucesso",
+                resultado.message || "Mensagem enviada com sucesso!"
             );
 
             setNome("");
@@ -107,15 +166,19 @@ export function FormularioContato() {
             setAssunto("");
             setMensagem("");
 
+            limparTemporizadorSucesso();
+
             temporizadorSucesso.current = setTimeout(() => {
-                setSucesso("");
+                setFeedbackTipo(null);
+                setFeedbackMensagem("");
                 temporizadorSucesso.current = null;
             }, 5000);
         } catch (error) {
-            setErro(
+            exibirFeedback(
+                "erro",
                 error instanceof Error
                     ? error.message
-                    : "Erro inesperado ao enviar a mensagem.",
+                    : "Ocorreu um erro inesperado. Tente novamente."
             );
         } finally {
             setEnviando(false);
@@ -124,37 +187,50 @@ export function FormularioContato() {
 
     return (
         <div className="rounded-xl border border-white/10 bg-slate-900/60 p-5 shadow-2xl shadow-black/20 backdrop-blur-xl sm:p-8">
-            <form onSubmit={handleSubmit} className="space-y-5">
+            <form
+                onSubmit={handleSubmit}
+                noValidate
+                aria-busy={enviando}
+                className="space-y-5"
+            >
                 <div className="grid grid-cols-1 gap-5 sm:grid-cols-2">
-                    <div>
+                    <div className="min-w-0">
                         <label
                             htmlFor="contact-name"
-                            className="mb-2 block text-sm font-normal text-slate-400"
+                            className="mb-2 block text-sm font-medium text-slate-300"
                         >
                             Nome
+                            <span className="ml-1 text-cyan-400" aria-hidden="true">
+                                *
+                            </span>
                         </label>
 
                         <input
                             id="contact-name"
-                            name="name"
+                            name="nome"
                             type="text"
                             autoComplete="name"
                             required
                             maxLength={100}
                             value={nome}
-                            onChange={(event) => setNome(event.target.value)}
+                            onChange={(event) =>
+                                atualizarCampo("nome", event.target.value)
+                            }
                             placeholder="Seu nome"
                             disabled={enviando}
-                            className="w-full rounded-md border border-white/10 bg-slate-950/70 px-4 py-3 text-sm text-slate-400 outline-none transition placeholder:text-slate-600 focus:border-cyan-400/60 focus:ring-2 focus:ring-cyan-400/10 disabled:opacity-60"
+                            className={classesCampo}
                         />
                     </div>
 
-                    <div>
+                    <div className="min-w-0">
                         <label
                             htmlFor="contact-email"
-                            className="mb-2 block text-sm font-normal text-slate-400"
+                            className="mb-2 block text-sm font-medium text-slate-300"
                         >
                             E-mail
+                            <span className="ml-1 text-cyan-400" aria-hidden="true">
+                                *
+                            </span>
                         </label>
 
                         <input
@@ -165,10 +241,12 @@ export function FormularioContato() {
                             required
                             maxLength={254}
                             value={email}
-                            onChange={(event) => setEmail(event.target.value)}
+                            onChange={(event) =>
+                                atualizarCampo("email", event.target.value)
+                            }
                             placeholder="voce@exemplo.com"
                             disabled={enviando}
-                            className="w-full rounded-md border border-white/10 bg-slate-950/70 px-4 py-3 text-sm text-slate-400 outline-none transition placeholder:text-slate-600 focus:border-cyan-400/60 focus:ring-2 focus:ring-cyan-400/10 disabled:opacity-60"
+                            className={classesCampo}
                         />
                     </div>
                 </div>
@@ -176,94 +254,104 @@ export function FormularioContato() {
                 <div>
                     <label
                         htmlFor="contact-subject"
-                        className="mb-2 block text-sm font-normal text-slate-400"
+                        className="mb-2 block text-sm font-medium text-slate-300"
                     >
                         Assunto
+                        <span className="ml-1 text-cyan-400" aria-hidden="true">
+                            *
+                        </span>
                     </label>
 
                     <input
                         id="contact-subject"
-                        name="subject"
+                        name="assunto"
                         type="text"
                         required
                         maxLength={150}
                         value={assunto}
-                        onChange={(event) => setAssunto(event.target.value)}
+                        onChange={(event) =>
+                            atualizarCampo("assunto", event.target.value)
+                        }
                         placeholder="Sobre o que vamos conversar?"
                         disabled={enviando}
-                        className="w-full rounded-md border border-white/10 bg-slate-950/70 px-4 py-3 text-sm text-slate-400 outline-none transition placeholder:text-slate-600 focus:border-cyan-400/60 focus:ring-2 focus:ring-cyan-400/10 disabled:opacity-60"
+                        className={classesCampo}
                     />
                 </div>
 
                 <div>
                     <label
                         htmlFor="contact-message"
-                        className="mb-2 block text-sm font-normal text-slate-400"
+                        className="mb-2 block text-sm font-medium text-slate-300"
                     >
                         Mensagem
+                        <span className="ml-1 text-cyan-400" aria-hidden="true">
+                            *
+                        </span>
                     </label>
 
                     <textarea
                         id="contact-message"
-                        name="message"
+                        name="mensagem"
                         required
                         minLength={10}
                         maxLength={5000}
                         rows={6}
                         value={mensagem}
-                        onChange={(event) => setMensagem(event.target.value)}
+                        onChange={(event) =>
+                            atualizarCampo("mensagem", event.target.value)
+                        }
                         placeholder="Conte um pouco sobre sua ideia, projeto ou oportunidade..."
                         disabled={enviando}
-                        className="w-full resize-y rounded-md border border-white/10 bg-slate-950/70 px-4 py-3 text-sm leading-6 text-slate-400 outline-none transition placeholder:text-slate-600 focus:border-cyan-400/60 focus:ring-2 focus:ring-cyan-400/10 disabled:opacity-60"
+                        className={`${classesCampo} resize-y leading-6`}
                     />
 
-                    <p className="mt-2 text-right text-xs text-slate-600">
-                        {mensagem.length}/5000 caracteres
-                    </p>
+                    <div className="mt-2 flex items-start justify-between gap-3">
+                        <p className="text-xs text-slate-500">
+                            Mínimo de 10 caracteres.
+                        </p>
+
+                        <p
+                            id="contact-message-count"
+                            className="shrink-0 text-right text-xs tabular-nums text-slate-500"
+                            aria-live="polite"
+                        >
+                            {mensagem.length}/5000
+                        </p>
+                    </div>
                 </div>
 
-                {erro && (
-                    <p
-                        role="alert"
-                        className="rounded-md border border-red-400/20 bg-red-400/5 px-4 py-3 text-sm text-red-300"
-                    >
-                        {erro}
-                    </p>
-                )}
+                <FeedbackContato
+                    tipo={feedbackTipo}
+                    mensagem={feedbackMensagem}
+                />
 
-                {sucesso && (
-                    <p
-                        role="status"
-                        aria-live="polite"
-                        className="flex items-center gap-2 text-sm text-emerald-400/90"
-                    >
-                        <CheckCircle2 className="h-4 w-4 shrink-0" />
-                        <span>{sucesso}</span>
-                    </p>
-                )}
-
-                {/* Botão centralizado, mantendo o tamanho original */}
-                <div className="flex justify-center">
+                <div className="flex justify-center pt-1">
                     <button
                         type="submit"
                         disabled={enviando}
-                        className="group relative flex cursor-pointer items-center justify-center gap-2 overflow-hidden rounded-md bg-gradient-to-r from-cyan-400 via-sky-400 to-blue-500 px-6 py-3.5 text-sm font-bold text-black shadow-lg shadow-cyan-500/25 transition-all duration-300 hover:scale-105 hover:brightness-110 hover:shadow-[0_0_35px_rgba(6,182,212,0.5)] active:scale-95 disabled:cursor-not-allowed disabled:opacity-60 disabled:hover:scale-100"
+                        className="group relative flex cursor-pointer items-center justify-center gap-2 overflow-hidden rounded-lg bg-gradient-to-r from-cyan-400 via-sky-400 to-blue-500 px-6 py-3.5 text-sm font-bold text-slate-950 shadow-lg shadow-cyan-500/20 transition-all duration-300 hover:brightness-110 hover:shadow-[0_0_28px_rgba(6,182,212,0.25)] active:scale-[0.98] disabled:cursor-not-allowed disabled:opacity-60 disabled:hover:shadow-lg"
                     >
                         <span
                             aria-hidden="true"
-                            className="pointer-events-none absolute inset-0 h-full w-full -translate-x-full bg-gradient-to-r from-transparent via-white/50 to-transparent transition-transform duration-700 ease-in-out group-hover:translate-x-full"
+                            className="pointer-events-none absolute inset-0 h-full w-full -translate-x-full bg-gradient-to-r from-transparent via-white/40 to-transparent transition-transform duration-700 ease-in-out group-hover:translate-x-full"
                         />
 
                         <span className="relative z-10 flex items-center justify-center gap-2">
                             {enviando ? (
                                 <>
                                     Enviando mensagem...
-                                    <LoaderCircle className="h-4 w-4 animate-spin" />
+                                    <LoaderCircle
+                                        className="h-4 w-4 animate-spin"
+                                        aria-hidden="true"
+                                    />
                                 </>
                             ) : (
                                 <>
                                     Enviar mensagem
-                                    <Send className="h-4 w-4 transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
+                                    <Send
+                                        className="h-4 w-4 transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
+                                        aria-hidden="true"
+                                    />
                                 </>
                             )}
                         </span>
@@ -272,4 +360,5 @@ export function FormularioContato() {
             </form>
         </div>
     );
+
 }
