@@ -1,22 +1,3 @@
-import {
-    Building2,
-    CodeXml,
-    Globe,
-    Hospital,
-    Monitor,
-    PanelsTopLeft,
-    Plug,
-    ShoppingCart,
-    UserRound,
-    Wrench,
-    Mail,
-    MessageCircle,
-    Sparkles,
-    Workflow,
-    Layers,
-    type LucideIcon,
-} from "lucide-react";
-
 export const coresServicos = {
     blue: {
         texto: "text-blue-400",
@@ -95,7 +76,7 @@ export type CorServico = keyof typeof coresServicos;
 export interface Servico {
     titulo: string;
     descricao: string;
-    icone: LucideIcon;
+    emoji: string;
     cor: CorServico;
 }
 
@@ -104,107 +85,105 @@ export const dadosServicos: Servico[] = [
         titulo: "Design de Websites",
         descricao:
             "Design de UI/UX moderno, com layouts responsivos, identidade visual consistente e foco na experiência do usuário.",
-        icone: Monitor,
+        emoji: "🎨",
         cor: "blue",
     },
     {
         titulo: "Desenvolvimento de Websites",
         descricao:
             "Sites personalizados, responsivos e de alto desempenho, desenvolvidos com React, Next.js e tecnologias modernas.",
-        icone: CodeXml,
+        emoji: "💻",
         cor: "purple",
     },
     {
         titulo: "Desenvolvimento de comércio eletrônico",
         descricao:
             "Lojas virtuais com catálogo de produtos, carrinho de compras e possibilidade de integração com pagamentos e estoque.",
-        icone: ShoppingCart,
+        emoji: "🛒",
         cor: "emerald",
     },
     {
         titulo: "Sistema de Gestão Hospitalar",
         descricao:
             "Soluções para apoiar a gestão de clínicas e hospitais, com funcionalidades como pacientes, agendamentos e organização de informações.",
-        icone: Hospital,
+        emoji: "🏥",
         cor: "red",
     },
     {
         titulo: "Desenvolvimento de Sites Empresariais",
         descricao:
             "Sites corporativos profissionais que fortalecem a presença digital da empresa e ajudam a apresentar seus serviços.",
-        icone: Building2,
+        emoji: "🏢",
         cor: "amber",
     },
     {
         titulo: "Design de Landing Page",
         descricao:
             "Páginas estratégicas para divulgar produtos e serviços, com design responsivo, chamadas para ação e foco em conversão.",
-        icone: PanelsTopLeft,
+        emoji: "📄",
         cor: "cyan",
     },
     {
         titulo: "Desenvolvimento WordPress",
         descricao:
             "Criação e personalização de sites WordPress, com temas e recursos adequados às necessidades do negócio.",
-        icone: Globe,
+        emoji: "🌐",
         cor: "violet",
     },
     {
         titulo: "Site do Portfólio",
         descricao:
             "Portfólios personalizados para profissionais e empresas apresentarem projetos, habilidades e serviços.",
-        icone: UserRound,
+        emoji: "👨‍💻",
         cor: "pink",
     },
     {
         titulo: "Manutenção do site",
         descricao:
             "Correções, melhorias, atualizações e ajustes de desempenho para manter sites funcionando adequadamente.",
-        icone: Wrench,
+        emoji: "🛠️",
         cor: "teal",
     },
     {
         titulo: "Integração de API",
         descricao:
             "Integração de aplicações com APIs e serviços externos para conectar sistemas e automatizar a troca de informações.",
-        icone: Plug,
+        emoji: "🔌",
         cor: "orange",
     },
-
-    // Novos serviços
     {
         titulo: "Desenvolvimento de APIs e Backend",
         descricao:
             "Desenvolvimento de endpoints, regras de negócio, validação de dados e integração entre aplicações.",
-        icone: Workflow,
+        emoji: "⚙️",
         cor: "blue",
     },
     {
         titulo: "Integração de Formulários e E-mails",
         descricao:
             "Formulários de contato com validação de dados, envio de mensagens por e-mail e tratamento de respostas e erros.",
-        icone: Mail,
+        emoji: "📧",
         cor: "emerald",
     },
     {
         titulo: "Animações e Microinterações Web",
         descricao:
             "Animações, transições e efeitos interativos que tornam a navegação mais fluida e a interface mais envolvente.",
-        icone: Sparkles,
+        emoji: "✨",
         cor: "purple",
     },
     {
         titulo: "Integração com WhatsApp",
         descricao:
             "Botões de contato, links diretos e mensagens personalizadas para facilitar a comunicação entre empresas e clientes.",
-        icone: MessageCircle,
+        emoji: "💬",
         cor: "teal",
     },
     {
         titulo: "Desenvolvimento de Interfaces Interativas",
         descricao:
             "Interfaces com filtros, abas dinâmicas, componentes reutilizáveis e interações adaptadas a diferentes dispositivos.",
-        icone: Layers,
+        emoji: "🧩",
         cor: "pink",
     },
 ];

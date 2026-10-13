@@ -15,7 +15,7 @@ const codeLinesWithoutComment = [
     '    mobile: ["React Native"],',
     '    automation: ["Testes", "CI/CD & IAs"],',
     '    resolverDesafios: function() {',
-    '        return this.automation.map(item => `Otimizando com ${item}`);',
+    '        return this.automation.map(item => Otimizando com ${item});',
     '    }',
     '};'
 ];
@@ -246,16 +246,15 @@ export function SectionSobre() {
             id="about"
             className="relative z-10 flex w-full min-w-0 items-center justify-center pt-6 pb-16 sm:pt-8 sm:pb-20"
         >
-            {/* Conteúdo usando toda a largura disponível */}
             <div className="w-full min-w-0">
                 <div className="grid w-full min-w-0 grid-cols-1 items-center gap-12 lg:grid-cols-12">
-                    {/* Editor: segundo no mobile, primeiro no desktop */}
+                    {/* Editor: primeiro no mobile, segundo no desktop */}
                     <motion.div
                         initial={{ opacity: 0, x: -30 }}
                         whileInView={{ opacity: 1, x: 0 }}
                         viewport={{ once: true }}
                         transition={{ duration: 0.8 }}
-                        className="order-2 min-w-0 overflow-hidden rounded-xl border border-white/10 bg-slate-900/80 shadow-2xl backdrop-blur-xl lg:order-1 lg:col-span-6"
+                        className="order-1 min-w-0 overflow-hidden rounded-xl border border-white/10 bg-slate-900/80 shadow-2xl backdrop-blur-xl lg:order-2 lg:col-span-6"
                     >
                         {/* Barra superior do editor */}
                         <div className="flex items-center justify-between border-b border-white/10 bg-slate-950/80 px-4 py-3">
@@ -319,7 +318,7 @@ export function SectionSobre() {
                         </div>
 
                         {/* Corpo do código */}
-                        <div className="flex h-[400px] flex-col justify-between overflow-hidden p-6 font-mono text-xs leading-relaxed text-gray-300 sm:text-sm">
+                        <div className="flex h-[400px] flex-col justify-between overflow-hidden p-5 font-mono text-xs leading-relaxed text-gray-300 sm:text-sm">
                             <div className="space-y-1">
                                 {displayedLines.map((line, index) => {
                                     const isCurrentLine =
@@ -359,16 +358,16 @@ export function SectionSobre() {
                         </div>
                     </motion.div>
 
-                    {/* Sobre mim: primeiro no mobile, segundo no desktop */}
+                    {/* Sobre mim: segundo no mobile, primeiro no desktop */}
                     <motion.div
                         initial={{ opacity: 0, x: 30 }}
                         whileInView={{ opacity: 1, x: 0 }}
                         viewport={{ once: true }}
                         transition={{ duration: 0.8 }}
-                        className="order-1 flex min-w-0 flex-col justify-center lg:order-2 lg:col-span-6"
+                        className="order-2 flex min-w-0 flex-col justify-center lg:order-1 lg:col-span-6"
                     >
                         <div>
-                            <h2 className="mb-3 bg-gradient-to-r from-cyan-400 via-indigo-400 to-purple-500 bg-clip-text font-display text-4xl font-black text-transparent">
+                            <h2 className="mb-3 font-display text-2xl font-bold text-cyan-300/70">
                                 Sobre mim
                             </h2>
 
@@ -379,7 +378,7 @@ export function SectionSobre() {
                             {/* Linha separadora */}
                             <div className="mb-5 h-px w-full bg-gradient-to-r from-cyan-400/50 via-white/10 to-transparent" />
 
-                            <p className="mb-4 text-base leading-relaxed text-slate-300">
+                            <p className="mb-3 text-base leading-relaxed text-slate-400">
                                 Sou{" "}
                                 <span className="font-medium">
                                     {personal.name}
@@ -391,7 +390,7 @@ export function SectionSobre() {
                                 digitais fluidas de ponta a ponta.
                             </p>
 
-                            <p className="mb-6 text-sm leading-relaxed text-slate-400">
+                            <p className="mb-4 text-sm leading-relaxed text-slate-400">
                                 Especialista no ecossistema de desenvolvimento
                                 moderno, com forte foco em automação, qualidade
                                 de código e escalabilidade para entregar
@@ -412,7 +411,7 @@ export function SectionSobre() {
                                     key={competencia}
                                     className="flex items-center gap-3 text-sm text-slate-500"
                                 >
-                                    <span className="h-1.5 w-1.5 shrink-0 rounded-full bg-[#00f5ff] shadow-[0_0_6px_rgba(0,245,255,0.6)]" />
+                                    <span className="h-1.5 w-1.5 shrink-0 rounded-full bg-[#00f7ff71] shadow-[0_0_6px_rgba(0,245,255,0.6)]" />
 
                                     <span>{competencia}</span>
                                 </div>
@@ -423,4 +422,5 @@ export function SectionSobre() {
             </div>
         </section>
     );
+
 }

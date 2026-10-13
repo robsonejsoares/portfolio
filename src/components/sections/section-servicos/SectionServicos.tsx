@@ -1,4 +1,3 @@
-
 "use client";
 
 import { useCallback, useState } from "react";
@@ -33,37 +32,38 @@ export function SectionServicos() {
         <>
             <LoadingDialog
                 isLoading={isLoading}
-                text="ACESSANDO SERVIÇOS..."
+                text="Acessando serviços..."
                 onFinished={finalizarLoadingServicos}
             />
 
             <section
                 id="services"
                 aria-labelledby="services-title"
-                className="relative z-10 py-6 sm:py-8"
+                className="relative z-10 w-full min-w-0 py-6 sm:py-8"
             >
-                <div className="space-y-10">
+                <div className="w-full min-w-0">
+                    {/* Cabeçalho padronizado da seção */}
                     <motion.header
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true, amount: 0.3 }}
                         transition={{ duration: 0.6 }}
-                        className="space-y-3 text-center"
+                        className="mb-8 w-full text-left"
                     >
                         <h2
                             id="services-title"
-                            className="mb-3 bg-gradient-to-r from-cyan-400 via-indigo-400 to-purple-500 bg-clip-text font-display text-4xl font-black text-transparent"
+                            className="mb-3 font-display text-2xl font-bold text-cyan-300/70"
                         >
                             Serviços
                         </h2>
 
-                        <p className="text-xs font-mono tracking-widest text-slate-400">
+                        <p className="text-left text-xs font-mono tracking-widest text-slate-400">
                             Desenvolvimento de sites e sistemas sob medida.
                         </p>
                     </motion.header>
 
-                    {/* Seus cards permanecem intactos */}
-                    <div className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-3 lg:grid-cols-2 xl:grid-cols-3">
+                    {/* Cards de serviços */}
+                    <div className="grid grid-cols-1 gap-3 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5">
                         {dadosServicos.slice(0, 10).map((servico, indice) => (
                             <CardServico
                                 key={servico.titulo}
@@ -73,7 +73,8 @@ export function SectionServicos() {
                         ))}
                     </div>
 
-                    <div className="flex justify-center">
+                    {/* Botão para visualizar todos os serviços */}
+                    <div className="mt-10 flex justify-center">
                         <button
                             type="button"
                             onClick={abrirDialog}
@@ -111,4 +112,5 @@ export function SectionServicos() {
             />
         </>
     );
+
 }

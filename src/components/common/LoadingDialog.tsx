@@ -1,4 +1,3 @@
-
 "use client";
 
 import { useEffect, useRef } from "react";
@@ -43,7 +42,7 @@ export function LoadingDialog({
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
                     exit={{ opacity: 0 }}
-                    className="fixed inset-0 z-[100] flex items-center justify-center bg-black/90 backdrop-blur-md"
+                    className="absolute inset-0 z-20 flex items-center justify-center overflow-hidden rounded-xl bg-black/70 backdrop-blur-sm"
                 >
                     <div className="flex flex-col items-center gap-4 rounded-xl border border-cyan-500/40 bg-[#070a12] p-6 shadow-[0_0_30px_rgba(6,182,212,0.3)]">
                         <div className="relative flex h-12 w-12 items-center justify-center">
