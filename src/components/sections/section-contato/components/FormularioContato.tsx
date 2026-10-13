@@ -129,7 +129,7 @@ export function FormularioContato() {
                     <div>
                         <label
                             htmlFor="contact-name"
-                            className="mb-2 block text-sm font-medium text-slate-400"
+                            className="mb-2 block text-sm font-normal text-slate-400"
                         >
                             Nome
                         </label>
@@ -152,7 +152,7 @@ export function FormularioContato() {
                     <div>
                         <label
                             htmlFor="contact-email"
-                            className="mb-2 block text-sm font-medium text-slate-400"
+                            className="mb-2 block text-sm font-normal text-slate-400"
                         >
                             E-mail
                         </label>
@@ -176,7 +176,7 @@ export function FormularioContato() {
                 <div>
                     <label
                         htmlFor="contact-subject"
-                        className="mb-2 block text-sm font-medium text-slate-400"
+                        className="mb-2 block text-sm font-normal text-slate-400"
                     >
                         Assunto
                     </label>
@@ -198,7 +198,7 @@ export function FormularioContato() {
                 <div>
                     <label
                         htmlFor="contact-message"
-                        className="mb-2 block text-sm font-medium text-slate-400"
+                        className="mb-2 block text-sm font-normal text-slate-400"
                     >
                         Mensagem
                     </label>

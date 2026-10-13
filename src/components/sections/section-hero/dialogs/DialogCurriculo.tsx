@@ -1,4 +1,3 @@
-
 "use client";
 
 import { motion, AnimatePresence } from "framer-motion";
@@ -20,7 +19,7 @@ import { dadosCurriculo } from "@/data/dadosCurriculo";
 function GithubIcon({ className = "w-4 h-4" }: { className?: string }) {
     return (
         <svg className={className} viewBox="0 0 24 24" fill="currentColor">
-            <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
+            <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221v4.609c0 5.624-2.807 5.921-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
         </svg>
     );
 }
@@ -68,26 +67,14 @@ export function DialogCurriculo({
                         className="absolute inset-0 h-full w-full cursor-default bg-black/85 backdrop-blur-md"
                     />
 
-                    {/* Janela com o mesmo tamanho da modal de experiências */}
+                    {/* Janela do currículo */}
                     <motion.div
                         role="dialog"
                         aria-modal="true"
                         aria-labelledby="dialog-curriculo-titulo"
-                        initial={{
-                            opacity: 0,
-                            scale: 0.96,
-                            y: 16,
-                        }}
-                        animate={{
-                            opacity: 1,
-                            scale: 1,
-                            y: 0,
-                        }}
-                        exit={{
-                            opacity: 0,
-                            scale: 0.96,
-                            y: 16,
-                        }}
+                        initial={{ opacity: 0, scale: 0.96, y: 16 }}
+                        animate={{ opacity: 1, scale: 1, y: 0 }}
+                        exit={{ opacity: 0, scale: 0.96, y: 16 }}
                         transition={{ duration: 0.2 }}
                         className="relative z-10 flex h-[85dvh] max-h-[900px] w-full max-w-4xl flex-col overflow-hidden rounded-xl border border-cyan-500/30 bg-[#090d16] shadow-2xl shadow-black/40"
                     >
@@ -105,7 +92,6 @@ export function DialogCurriculo({
                             </div>
 
                             <div className="flex shrink-0 items-center gap-2 sm:gap-3">
-                                {/* Botão para baixar PDF */}
                                 <a
                                     href="/curriculo.pdf"
                                     download="Curriculo_Robson_Soares.pdf"
@@ -128,11 +114,11 @@ export function DialogCurriculo({
                             </div>
                         </header>
 
-                        {/* Conteúdo com rolagem independente */}
+                        {/* Conteúdo com rolagem */}
                         <div className="min-h-0 flex-1 space-y-8 overflow-y-auto overscroll-contain bg-[#0b101b] p-4 text-gray-200 sm:p-8">
                             {/* Cabeçalho pessoal */}
                             <div className="border-b border-cyan-500/25 pb-6">
-                                <h1 className="text-2xl font-black tracking-tight text-slate-300 sm:text-2xl">
+                                <h1 className="text-2xl font-black tracking-tight text-slate-300">
                                     {personal.name}
                                 </h1>
 
@@ -141,49 +127,44 @@ export function DialogCurriculo({
                                 </p>
 
                                 <div className="mt-4 flex flex-wrap gap-4 text-xs text-slate-500 sm:text-sm">
-                                    {/* LinkedIn */}
                                     <a
                                         href={personal.linkedin}
                                         target="_blank"
                                         rel="noreferrer"
                                         className="flex items-center gap-1.5 transition-colors duration-200 hover:text-[#0A66C2]"
                                     >
-                                        <LinkedinIcon className="h-4 w-4 text-[#0A66C2] transition-colors duration-200" />
+                                        <LinkedinIcon className="h-4 w-4 text-[#0A66C2]" />
                                         <span>LinkedIn</span>
                                     </a>
 
-                                    {/* GitHub */}
                                     <a
                                         href={personal.github}
                                         target="_blank"
                                         rel="noreferrer"
                                         className="flex items-center gap-1.5 transition-colors duration-200 hover:text-slate-300"
                                     >
-                                        <GithubIcon className="h-4 w-4 text-slate-300 transition-colors duration-200 group-hover:text-white" />
+                                        <GithubIcon className="h-4 w-4 text-slate-300" />
                                         <span>GitHub</span>
                                     </a>
 
-                                    {/* E-mail */}
                                     <a
                                         href={`mailto:${personal.email}`}
-                                        className="flex items-center gap-1.5 transition-colors duration-200 hover:text-violet-700"
+                                        className="flex items-center gap-1.5 transition-colors duration-200 hover:text-violet-400"
                                     >
-                                        <Mail className="h-4 w-4 text-violet-400 transition-colors duration-200" />
+                                        <Mail className="h-4 w-4 text-violet-400" />
                                         <span>{personal.email}</span>
                                     </a>
 
-                                    {/* WhatsApp */}
                                     <a
                                         href={whatsappUrl}
                                         target="_blank"
                                         rel="noreferrer"
-                                        className="flex items-center gap-1.5 transition-colors duration-200 hover:text-[#0d8439]"
+                                        className="flex items-center gap-1.5 transition-colors duration-200 hover:text-[#25D366]"
                                     >
-                                        <Phone className="h-4 w-4 text-[#25D366] transition-colors duration-200" />
+                                        <Phone className="h-4 w-4 text-[#25D366]" />
                                         <span>{personal.phone}</span>
                                     </a>
 
-                                    {/* Localização */}
                                     <div className="flex items-center gap-1.5 text-slate-400">
                                         <MapPin className="h-3.5 w-3.5 animate-pulse text-red-500 drop-shadow-[0_0_8px_rgba(239,68,68,0.6)]" />
                                         <span>{personal.location}</span>
@@ -228,7 +209,8 @@ export function DialogCurriculo({
                                                     )}
                                                 </h3>
 
-                                                <span className="w-fit rounded-md border border-cyan-500/30 bg-cyan-500/15 px-2.5 py-1 font-mono text-xs text-cyan-400">
+                                                {/* Período arredondado */}
+                                                <span className="w-fit shrink-0 rounded-full border border-cyan-500/30 bg-cyan-500/10 px-2.5 py-0.5 font-mono text-[10px] font-normal text-cyan-400">
                                                     {exp.period}
                                                 </span>
                                             </div>
@@ -260,14 +242,15 @@ export function DialogCurriculo({
                                             key={`${edu.degree}-${edu.institution}-${index}`}
                                             className="flex items-center justify-between gap-3 rounded-xl border border-cyan-500/20 bg-[#101726] p-3.5 shadow-md"
                                         >
-                                            <div className="block text-slate-300 font-medium">
+                                            <div className="min-w-0 font-medium text-slate-300">
                                                 <div>{edu.degree}</div>
                                                 <span className="text-xs text-slate-400">
                                                     {edu.institution}
                                                 </span>
                                             </div>
 
-                                            <span className="w-fit shrink-0 rounded-md border border-emerald-500/30 bg-emerald-500/15 px-2.5 py-1 font-mono text-xs text-emerald-300">
+                                            {/* Status arredondado */}
+                                            <span className="w-fit shrink-0 rounded-full border border-emerald-500/30 bg-emerald-500/10 px-2.5 py-0.5 font-mono text-[10px] font-normal text-emerald-300">
                                                 {edu.status}
                                             </span>
                                         </article>
@@ -339,4 +322,5 @@ export function DialogCurriculo({
             )}
         </AnimatePresence>
     );
+
 }

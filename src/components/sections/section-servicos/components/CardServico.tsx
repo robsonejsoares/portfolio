@@ -9,7 +9,6 @@ interface CardServicoProps {
 }
 
 export function CardServico({ servico, indice }: CardServicoProps) {
-    const Icone = servico.icone;
     const estilo = coresServicos[servico.cor];
 
     return (
@@ -22,23 +21,20 @@ export function CardServico({ servico, indice }: CardServicoProps) {
                 delay: (indice % 3) * 0.07,
             }}
             whileHover={{ y: -8 }}
-            className={`glass-card group flex h-full flex-col rounded-xl border border-white/10 p-5 transition-all duration-300 hover:shadow-xl bg-slate-900/60 backdrop-blur-xl ${estilo.brilho} ${estilo.sombra}`}
+            className={`glass-card group flex h-full flex-col rounded-xl border border-white/10 bg-slate-900/60 p-3 backdrop-blur-xl transition-all duration-300 hover:shadow-xl ${estilo.brilho} ${estilo.sombra}`}
         >
             <div
-                className={`mb-5 flex h-12 w-12 shrink-0 items-center justify-center rounded-xl border ${estilo.fundo} ${estilo.borda} ${estilo.texto} transition-transform duration-300 group-hover:scale-110`}
+                aria-hidden="true"
+                className="mb-1 flex h-7 w-7 shrink-0 items-center justify-center rounded-xl text-lg leading-none transition-transform duration-300 group-hover:scale-110"
             >
-                <Icone
-                    aria-hidden="true"
-                    className="h-6 w-6"
-                    strokeWidth={1.8}
-                />
+                {servico.emoji}
             </div>
 
-            <h3 className="mb-2 text-sm font-semibold leading-snug text-slate-300 transition-colors duration-300">
+            <h3 className="mb-1 text-sm font-normal leading-snug text-[#A8B3C7] transition-colors duration-300">
                 {servico.titulo}
             </h3>
 
-            <p className="text-xs leading-relaxed text-slate-400">
+            <p className="text-xs leading-relaxed text-slate-500">
                 {servico.descricao}
             </p>
         </motion.article>

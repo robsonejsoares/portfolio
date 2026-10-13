@@ -367,7 +367,7 @@ export function SectionSobre() {
                         className="order-2 flex min-w-0 flex-col justify-center lg:order-1 lg:col-span-6"
                     >
                         <div>
-                            <h2 className="mb-3 bg-gradient-to-r from-cyan-400 via-indigo-400 to-purple-500 bg-clip-text font-display text-4xl font-black text-transparent">
+                            <h2 className="mb-3 font-display text-2xl font-bold text-cyan-300/70">
                                 Sobre mim
                             </h2>
 
@@ -378,7 +378,7 @@ export function SectionSobre() {
                             {/* Linha separadora */}
                             <div className="mb-5 h-px w-full bg-gradient-to-r from-cyan-400/50 via-white/10 to-transparent" />
 
-                            <p className="mb-4 text-base leading-relaxed text-slate-300">
+                            <p className="mb-3 text-base leading-relaxed text-slate-400">
                                 Sou{" "}
                                 <span className="font-medium">
                                     {personal.name}
@@ -390,7 +390,7 @@ export function SectionSobre() {
                                 digitais fluidas de ponta a ponta.
                             </p>
 
-                            <p className="mb-6 text-sm leading-relaxed text-slate-400">
+                            <p className="mb-4 text-sm leading-relaxed text-slate-400">
                                 Especialista no ecossistema de desenvolvimento
                                 moderno, com forte foco em automação, qualidade
                                 de código e escalabilidade para entregar
@@ -411,7 +411,7 @@ export function SectionSobre() {
                                     key={competencia}
                                     className="flex items-center gap-3 text-sm text-slate-500"
                                 >
-                                    <span className="h-1.5 w-1.5 shrink-0 rounded-full bg-[#00f5ff] shadow-[0_0_6px_rgba(0,245,255,0.6)]" />
+                                    <span className="h-1.5 w-1.5 shrink-0 rounded-full bg-[#00f7ff71] shadow-[0_0_6px_rgba(0,245,255,0.6)]" />
 
                                     <span>{competencia}</span>
                                 </div>

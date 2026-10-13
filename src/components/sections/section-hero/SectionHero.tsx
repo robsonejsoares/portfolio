@@ -370,7 +370,7 @@ export function SectionHero() {
                                 </span>
                             </div>
 
-                            <h1 className="text-4xl font-black tracking-tight text-white sm:text-5xl">
+                            <h1 className="text-3xl font-bold tracking-tight text-slate-400 sm:text-5xl">
                                 {personal.name.split(" ")[0]}{" "}
                                 <span className="text-gradient-cyan">
                                     {personal.name
@@ -381,7 +381,7 @@ export function SectionHero() {
                             </h1>
 
                             <div className="flex h-8 items-center">
-                                <span className="bg-gradient-to-r from-cyan-400 via-sky-300 to-purple-400 bg-clip-text font-mono text-xl font-bold tracking-wide text-transparent sm:text-2xl">
+                                <span className="bg-gradient-to-r from-cyan-500 via-sky-400 to-purple-500 bg-clip-text font-mono text-xl font-medium tracking-wide text-transparent sm:text-xl">
                                     {displayText}
                                 </span>
 
@@ -400,7 +400,7 @@ export function SectionHero() {
                                         whileHover={{ scale: 1.03 }}
                                         className="glass-card flex flex-col justify-center rounded-md border border-white/10 bg-slate-900/40 p-4 text-center transition-colors hover:border-cyan-500/40"
                                     >
-                                        <span className="bg-gradient-to-r from-cyan-400 to-teal-300 bg-clip-text text-lg font-black text-transparent sm:text-xl">
+                                        <span className="bg-slate-400 bg-clip-text text-lg font-bold text-transparent sm:text-xl">
                                             {stat.value}
                                         </span>
 
@@ -440,7 +440,7 @@ export function SectionHero() {
                                 <a
                                     href="#contact"
                                     onClick={handleScrollToContact}
-                                    className="group relative flex cursor-pointer items-center gap-2 overflow-hidden rounded-md border border-white/10 px-6 py-2.5 text-sm font-semibold text-slate-300 transition-all duration-300 glass-card hover:scale-105 hover:border-cyan-400 hover:bg-white/10 hover:shadow-[0_0_30px_rgba(6,182,212,0.4)] active:scale-95"
+                                    className="group relative flex cursor-pointer items-center gap-2 overflow-hidden rounded-md border border-white/10 px-6 py-2.5 text-sm font-medium text-slate-300 transition-all duration-300 glass-card hover:scale-105 hover:border-cyan-400 hover:bg-white/10 hover:shadow-[0_0_30px_rgba(6,182,212,0.4)] active:scale-95"
                                 >
                                     <span
                                         aria-hidden="true"

@@ -1,9 +1,8 @@
-
 "use client";
 
 import { useEffect } from "react";
 import { AnimatePresence, motion } from "framer-motion";
-import { BriefcaseBusiness, History } from "lucide-react";
+import { History } from "lucide-react";
 
 import { ButtonFechar } from "@/components/ui/ButtonFechar";
 import { CardExperiencia } from "../components/CardExperiencia";
@@ -85,7 +84,10 @@ export function DialogExperiencias({
                         <header className="flex shrink-0 items-center justify-between gap-4 border-b border-cyan-500/20 bg-[#070a12] p-4 sm:p-5">
                             <div className="flex min-w-0 items-center gap-3">
                                 <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl border border-cyan-400/20 bg-cyan-400/10 text-cyan-400">
-                                    <History size={20} />
+                                    <History
+                                        size={20}
+                                        aria-hidden="true"
+                                    />
                                 </div>
 
                                 <div className="min-w-0">
@@ -109,12 +111,13 @@ export function DialogExperiencias({
                         <div className="min-h-0 flex-1 overflow-y-auto overscroll-contain p-4 sm:p-6">
                             <div className="space-y-6">
                                 {experiencias.map((experiencia, indice) => {
-                                    const visual = configuracaoVisual[indice] ?? {
-                                        cor: "#22D3EE",
-                                        categoria: "Experiência",
-                                        descricao:
-                                            "Experiência profissional e evolução contínua de competências.",
-                                    };
+                                    const visual =
+                                        configuracaoVisual[indice] ?? {
+                                            cor: "#22D3EE",
+                                            categoria: "Experiência",
+                                            descricao:
+                                                "Experiência profissional e evolução contínua de competências.",
+                                        };
 
                                     return (
                                         <CardExperiencia
@@ -127,7 +130,6 @@ export function DialogExperiencias({
                                             descricao={visual.descricao}
                                             destaques={experiencia.highlights}
                                             cor={visual.cor}
-                                            icone={BriefcaseBusiness}
                                             indice={indice}
                                         />
                                     );
