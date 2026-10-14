@@ -64,7 +64,7 @@ export function SectionServicos() {
 
                     {/* Cards de serviços */}
                     <div className="grid grid-cols-1 gap-3 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5">
-                        {dadosServicos.slice(0, 10).map((servico, indice) => (
+                        {dadosServicos.slice(0, 5).map((servico, indice) => (
                             <CardServico
                                 key={servico.titulo}
                                 servico={servico}

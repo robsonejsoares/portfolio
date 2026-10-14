@@ -2,8 +2,10 @@
 
 import { useState, useEffect, useRef } from "react";
 import { motion } from "framer-motion";
+
 import { AlternarTema } from "@/components/common/AlternarTema";
 import { BrandLogo } from "@/components/common/BrandLogo";
+
 import { NavbarDesktopLinks } from "./navbar/NavbarDesktopLinks";
 import { NavbarMobileMenu } from "./navbar/NavbarMobileMenu";
 import { navLinks } from "./navbar/navLinks";
@@ -13,14 +15,15 @@ export function Navbar() {
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
     const [scrolled, setScrolled] = useState(false);
 
-    // Evita que o scroll sobrescreva a seleção durante a navegação suave.
+    // Evita que o scroll sobrescreva a seção selecionada
+    // durante a navegação suave.
     const targetSectionRef = useRef<string | null>(null);
 
     useEffect(() => {
         const handleScroll = () => {
             setScrolled(window.scrollY > 20);
 
-            // Aguarda a navegação suave terminar antes de recalcular a seção.
+            // Aguarda a navegação suave terminar.
             if (targetSectionRef.current !== null) {
                 return;
             }
@@ -31,7 +34,7 @@ export function Navbar() {
             const viewportBottom =
                 window.scrollY + window.innerHeight;
 
-            // No final da página, Contato deve ser a seção ativa.
+            // No final da página, Contato fica ativo.
             if (viewportBottom >= documentHeight - 30) {
                 const contact = document.getElementById("contact");
 
@@ -44,14 +47,14 @@ export function Navbar() {
             let currentSection = "hero";
             let closestTop = Number.NEGATIVE_INFINITY;
 
-            // Inclui Contato, que não faz parte de navLinks.
+            // Inclui Contato, que não está em navLinks.
             const sectionLinks = [
                 ...navLinks,
                 { name: "Contato", href: "#contact" },
             ];
 
             for (const link of sectionLinks) {
-                const sectionId = link.href.substring(1);
+                const sectionId = link.href.slice(1);
                 const element = document.getElementById(sectionId);
 
                 if (!element) continue;
@@ -77,7 +80,6 @@ export function Navbar() {
         };
 
         const handleScrollEnd = () => {
-            // Libera a detecção automática quando a animação de scroll termina.
             targetSectionRef.current = null;
             handleScroll();
         };
@@ -112,19 +114,22 @@ export function Navbar() {
             return;
         }
 
-        // Atualiza a seleção antes de começar a rolagem.
+        // Atualiza a seção ativa antes da rolagem.
         targetSectionRef.current = targetId;
         setActiveSection(targetId);
 
         const navOffset = 90;
+
         const elementPosition =
-            element.getBoundingClientRect().top + window.scrollY;
+            element.getBoundingClientRect().top +
+            window.scrollY;
+
         const targetPosition = Math.max(
             0,
             elementPosition - navOffset
         );
 
-        // Se já estiver no destino, não precisa aguardar outro scrollend.
+        // Evita aguardar scrollend quando já estamos no destino.
         if (Math.abs(window.scrollY - targetPosition) < 2) {
             targetSectionRef.current = null;
         }
@@ -142,8 +147,10 @@ export function Navbar() {
             {/* Fundo fixo da Navbar */}
             <div
                 aria-hidden="true"
-                className={`fixed top-0 left-0 right-0 h-17 z-[40] pointer-events-none transition-colors duration-300 ${
-                    scrolled ? "bg-slate-950" : "bg-transparent"
+                className={`fixed top-0 left-0 right-0 h-[68px] z-[40] pointer-events-none transition-colors duration-300 ${
+                    scrolled
+                        ? "bg-slate-950"
+                        : "bg-transparent"
                 }`}
             />
 
@@ -168,7 +175,9 @@ export function Navbar() {
                     <div className="relative z-10 flex items-center shrink-0">
                         <BrandLogo
                             tamanho="navbar"
-                            aoClicar={(e) => handleScrollTo(e, "#hero")}
+                            aoClicar={(e) =>
+                                handleScrollTo(e, "#hero")
+                            }
                         />
                     </div>
 
