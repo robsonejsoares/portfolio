@@ -48,7 +48,7 @@ export function Footer() {
                     </a>
                 </div>
 
-                {/* Centro: © Ano oProgramadorAutonomo com link */}
+                {/* Centro: © Ano xcodify com link */}
                 <div className="text-center">
                     <a
                         href="https://www.linkedin.com/in/robson-soares-b22513170/?isSelfProfile=true"
@@ -56,7 +56,7 @@ export function Footer() {
                         rel="noreferrer"
                         className="text-cyan-400 hover:text-cyan-300 font-semibold text-xs transition-colors"
                     >
-                        © {currentYear} oProgramadorAutonomo
+                        © {currentYear} xcodify
                     </a>
                 </div>
 

@@ -2,20 +2,22 @@
 
 import { useState } from "react";
 import { AnimatePresence } from "framer-motion";
+
 import { Footer } from "@/components/layout/Footer";
 import { Navbar } from "@/components/layout/Navbar";
 import { Loading } from "@/components/common/Loading";
 import { SectionCard } from "@/components/common/SectionCard";
 import { EfeitosFundo } from "@/components/common/EfeitosFundo";
 import { WhatsAppFlutuante } from "@/components/common/WhatsAppFlutuante";
+
 import { SectionHero } from "@/components/sections/section-hero/SectionHero";
 import { SectionSobre } from "@/components/sections/section-sobre/SectionSobre";
-import { SectionContato } from "@/components/sections/section-contato/SectionContato";
-import { SectionServicos } from "@/components/sections/section-servicos/SectionServicos";
-import { SectionProjetos } from "@/components/sections/section-projetos/SectionProjetos";
 import { SectionHabilidades } from "@/components/sections/section-habilidades/SectionHabilidades";
+import { SectionProjetos } from "@/components/sections/section-projetos/SectionProjetos";
+import { SectionServicos } from "@/components/sections/section-servicos/SectionServicos";
 import { SectionExperiencia } from "@/components/sections/section-experiencia/SectionExperiencia";
 import { SectionFormacaoAcademica } from "@/components/sections/section-formacao-academica/SectionFormacaoAcademica";
+import { SectionContato } from "@/components/sections/section-contato/SectionContato";
 
 export default function HomePortfolio() {
     const [estaCarregando, setEstaCarregando] = useState(true);
@@ -25,7 +27,9 @@ export default function HomePortfolio() {
             {/* Loading */}
             <AnimatePresence>
                 {estaCarregando && (
-                    <Loading onComplete={() => setEstaCarregando(false)} />
+                    <Loading
+                        onComplete={() => setEstaCarregando(false)}
+                    />
                 )}
             </AnimatePresence>
 
@@ -35,40 +39,40 @@ export default function HomePortfolio() {
             {/* Navbar */}
             <Navbar />
 
-            {/* Seção Hero */}
+            {/* 1. Hero */}
             <SectionHero />
 
-            {/* Seção Sobre */}
+            {/* 2. Sobre */}
             <SectionCard>
                 <SectionSobre />
             </SectionCard>
 
-            {/* Seção Formação Acadêmica */}
-            <SectionCard>
-                <SectionFormacaoAcademica />
-            </SectionCard>
-
-            {/* Seção Habilidades */}
+            {/* 3. Habilidades */}
             <SectionCard>
                 <SectionHabilidades />
             </SectionCard>
 
-            {/* Seção Projetos */}
+            {/* 4. Projetos */}
             <SectionCard>
                 <SectionProjetos />
             </SectionCard>
 
-            {/* Seção Experiência */}
-            <SectionCard>
-                <SectionExperiencia />
-            </SectionCard>
-
-            {/* Seção Serviços */}
+            {/* 5. Serviços */}
             <SectionCard>
                 <SectionServicos />
             </SectionCard>
 
-            {/* Seção Contato */}
+            {/* 6. Experiência */}
+            <SectionCard>
+                <SectionExperiencia />
+            </SectionCard>
+
+            {/* 7. Formação Acadêmica */}
+            <SectionCard>
+                <SectionFormacaoAcademica />
+            </SectionCard>
+
+            {/* Contato */}
             <SectionCard>
                 <SectionContato />
             </SectionCard>
@@ -76,7 +80,7 @@ export default function HomePortfolio() {
             {/* WhatsApp Flutuante */}
             <WhatsAppFlutuante />
 
-            {/* Footer fixo */}
+            {/* Footer */}
             <Footer />
         </main>
     );

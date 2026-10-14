@@ -58,7 +58,7 @@ export const dadosPortfolio = {
       "Inteligência Artificial",
       "UI/UX Design",
     ],
-    tagline: "Criando sistemas modernos e escaláveis com foco em alta performance.",
+    tagline: "Criando sistemas modernos e escaláveis.",
     location: "Brasília - DF, Brasil",
     status: "Disponível para trabalho",
     bio: "Desenvolvedor Full Stack apaixonado por criar aplicações web e mobile de alto desempenho. Especialista em ecossistemas React, Next.js, Node.js e Java/Spring Boot.",

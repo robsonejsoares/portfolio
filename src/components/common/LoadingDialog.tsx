@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef } from "react";
+import { createPortal } from "react-dom";
 import { Cpu } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
@@ -35,16 +36,35 @@ export function LoadingDialog({
         };
     }, [isLoading]);
 
-    return (
+    // Bloqueia a rolagem durante o carregamento.
+    useEffect(() => {
+        if (!isLoading) return;
+
+        const overflowAnterior = document.body.style.overflow;
+        document.body.style.overflow = "hidden";
+
+        return () => {
+            document.body.style.overflow = overflowAnterior;
+        };
+    }, [isLoading]);
+
+    if (typeof document === "undefined") return null;
+
+    return createPortal(
         <AnimatePresence>
             {isLoading && (
                 <motion.div
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
                     exit={{ opacity: 0 }}
-                    className="absolute inset-0 z-20 flex items-center justify-center overflow-hidden rounded-xl bg-black/70 backdrop-blur-sm"
+                    transition={{ duration: 0.2 }}
+                    role="status"
+                    aria-live="polite"
+                    aria-label={text}
+                    className="fixed inset-0 z-[99999] flex items-center justify-center overflow-hidden bg-black/70 backdrop-blur-sm"
                 >
-                    <div className="flex flex-col items-center gap-4 rounded-xl border border-cyan-500/40 bg-[#070a12] p-6 shadow-[0_0_30px_rgba(6,182,212,0.3)]">
+                    <div className="flex flex-col items-center gap-4 rounded-lg border border-white/5 bg-slate-900 p-6 shadow-2xl shadow-black/30">
+                        {/* Ícone */}
                         <div className="relative flex h-12 w-12 items-center justify-center">
                             <motion.div
                                 animate={{ rotate: 360 }}
@@ -53,18 +73,22 @@ export function LoadingDialog({
                                     repeat: Infinity,
                                     ease: "linear",
                                 }}
-                                className="absolute inset-0 rounded-full border-2 border-cyan-500/20 border-t-cyan-400 shadow-[0_0_15px_rgba(6,182,212,0.8)]"
+                                className="absolute inset-0 rounded-full border-2 border-slate-500/20 border-t-sky-400/80"
                             />
 
-                            <Cpu className="h-5 w-5 animate-pulse text-cyan-400" />
+                            <Cpu
+                                aria-hidden="true"
+                                className="h-5 w-5 text-sky-300"
+                            />
                         </div>
 
+                        {/* Mensagem e barra de progresso */}
                         <div className="text-center">
-                            <p className="animate-pulse font-mono text-xs uppercase tracking-widest text-cyan-300">
+                            <p className="font-mono text-xs uppercase tracking-widest text-slate-300">
                                 {text}
                             </p>
 
-                            <div className="mx-auto mt-2 h-1 w-32 overflow-hidden rounded-full bg-slate-800">
+                            <div className="mx-auto mt-3 h-1 w-32 overflow-hidden rounded-full bg-slate-800">
                                 <motion.div
                                     initial={{ x: "-100%" }}
                                     animate={{ x: "100%" }}
@@ -73,13 +97,14 @@ export function LoadingDialog({
                                         repeat: Infinity,
                                         ease: "easeInOut",
                                     }}
-                                    className="h-full w-full bg-gradient-to-r from-transparent via-cyan-400 to-transparent"
+                                    className="h-full w-full rounded-full bg-gradient-to-r from-slate-500 via-sky-400/80 to-slate-500"
                                 />
                             </div>
                         </div>
                     </div>
                 </motion.div>
             )}
-        </AnimatePresence>
+        </AnimatePresence>,
+        document.body,
     );
 }
