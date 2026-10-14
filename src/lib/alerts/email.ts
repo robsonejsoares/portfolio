@@ -321,7 +321,7 @@ export async function enviarAlertaFalhaContato(
         const resend = new Resend(apiKey);
 
         const { error } = await resend.emails.send({
-            from: "Alertas do Portfólio <contato@oprogramadorautonomo.com.br>",
+            from: "Alertas do Portfólio <contato@xcodify.com.br>",
             to: ["robsoncsoares.1050@gmail.com"],
             subject: "[ALERTA] Falha no formulário de contato",
             html,

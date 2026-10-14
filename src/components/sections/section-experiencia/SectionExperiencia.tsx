@@ -10,7 +10,7 @@ import { DialogExperiencias } from "./dialogs/DialogExperiencias";
 import { LoadingDialog } from "@/components/common/LoadingDialog";
 
 const experienciaFreelancer = {
-    company: "O Programador Autônomo",
+    company: "XCodify",
     subtitle: "",
     period: "07/2026 – Presente",
     role: "Desenvolvedor Full Stack Freelancer",

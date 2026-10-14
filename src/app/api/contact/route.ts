@@ -245,7 +245,7 @@ export async function POST(request: Request) {
         const resend = new Resend(apiKey);
 
         const { error } = await resend.emails.send({
-            from: "Portfólio <contato@oprogramadorautonomo.com.br>",
+            from: "Portfólio <contato@xcodify.com.br>",
             to: ["robsoncsoares.1050@gmail.com"],
             replyTo: email,
             subject: assunto,
