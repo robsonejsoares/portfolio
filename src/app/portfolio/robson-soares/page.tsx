@@ -11,7 +11,7 @@ import { EfeitosFundo } from "@/components/common/EfeitosFundo";
 import { WhatsAppFlutuante } from "@/components/common/WhatsAppFlutuante";
 
 import { SectionHero } from "@/components/sections/section-hero/SectionHero";
-import { SectionSobre } from "@/components/sections/section-sobre/SectionSobre";
+import { SectionSobreMim } from "@/components/sections/section-sobre-mim/SectionSobreMim";
 import { SectionHabilidades } from "@/components/sections/section-habilidades/SectionHabilidades";
 import { SectionProjetos } from "@/components/sections/section-projetos/SectionProjetos";
 import { SectionServicos } from "@/components/sections/section-servicos/SectionServicos";
@@ -42,9 +42,9 @@ export default function HomePortfolio() {
             {/* 1. Hero */}
             <SectionHero />
 
-            {/* 2. Sobre */}
+            {/* 2. Sobre mim */}
             <SectionCard>
-                <SectionSobre />
+                <SectionSobreMim />
             </SectionCard>
 
             {/* 3. Habilidades */}

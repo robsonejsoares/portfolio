@@ -15,15 +15,12 @@ export function Navbar() {
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
     const [scrolled, setScrolled] = useState(false);
 
-    // Evita que o scroll sobrescreva a seção selecionada
-    // durante a navegação suave.
     const targetSectionRef = useRef<string | null>(null);
 
     useEffect(() => {
         const handleScroll = () => {
             setScrolled(window.scrollY > 20);
 
-            // Aguarda a navegação suave terminar.
             if (targetSectionRef.current !== null) {
                 return;
             }
@@ -34,7 +31,6 @@ export function Navbar() {
             const viewportBottom =
                 window.scrollY + window.innerHeight;
 
-            // No final da página, Contato fica ativo.
             if (viewportBottom >= documentHeight - 30) {
                 const contact = document.getElementById("contact");
 
@@ -47,7 +43,6 @@ export function Navbar() {
             let currentSection = "hero";
             let closestTop = Number.NEGATIVE_INFINITY;
 
-            // Inclui Contato, que não está em navLinks.
             const sectionLinks = [
                 ...navLinks,
                 { name: "Contato", href: "#contact" },
@@ -98,25 +93,43 @@ export function Navbar() {
         };
     }, []);
 
+    // Fecha o menu mobile quando a página é rolada.
+    useEffect(() => {
+        if (!mobileMenuOpen) return;
+
+        const closeMenuOnScroll = () => {
+            setMobileMenuOpen(false);
+        };
+
+        window.addEventListener("scroll", closeMenuOnScroll, {
+            passive: true,
+        });
+
+        return () => {
+            window.removeEventListener("scroll", closeMenuOnScroll);
+        };
+    }, [mobileMenuOpen]);
+
     const handleScrollTo = (
         e: React.MouseEvent<HTMLAnchorElement>,
         href: string
     ) => {
         e.preventDefault();
 
-        const targetId = href.replace("#", "");
+        const targetId = href.slice(1);
         const element = document.getElementById(targetId);
 
         if (!element) {
             console.warn(
                 `A seção com id="${targetId}" não foi encontrada.`
             );
+            setMobileMenuOpen(false);
             return;
         }
 
-        // Atualiza a seção ativa antes da rolagem.
         targetSectionRef.current = targetId;
         setActiveSection(targetId);
+        setMobileMenuOpen(false);
 
         const navOffset = 90;
 
@@ -129,7 +142,6 @@ export function Navbar() {
             elementPosition - navOffset
         );
 
-        // Evita aguardar scrollend quando já estamos no destino.
         if (Math.abs(window.scrollY - targetPosition) < 2) {
             targetSectionRef.current = null;
         }
@@ -138,61 +150,59 @@ export function Navbar() {
             top: targetPosition,
             behavior: "smooth",
         });
-
-        setMobileMenuOpen(false);
     };
 
     return (
         <>
-            {/* Fundo fixo da Navbar */}
+            {/* Fundo fixo da navbar */}
             <div
                 aria-hidden="true"
-                className={`fixed top-0 left-0 right-0 h-[68px] z-[40] pointer-events-none transition-colors duration-300 ${
-                    scrolled
-                        ? "bg-slate-950"
-                        : "bg-transparent"
+                className={`pointer-events-none fixed inset-x-0 top-0 z-[40] h-[68px] transition-colors duration-300 ${
+                    scrolled ? "bg-slate-950" : "bg-transparent"
                 }`}
             />
 
-            <header className="fixed top-1 inset-x-4 z-50 flex justify-center pointer-events-none">
+            <header className="pointer-events-none fixed inset-x-4 top-1 z-50 flex justify-center">
                 <motion.nav
+                    aria-label="Navegação principal"
                     initial={{ y: -50, opacity: 0 }}
                     animate={{ y: 0, opacity: 1 }}
                     transition={{ duration: 0.5 }}
-                    className="relative w-full max-w-[95rem] h-16 px-3 sm:px-6 flex items-center justify-between gap-2 pointer-events-auto"
+                    className="pointer-events-auto relative flex h-16 w-full max-w-[95rem] items-center justify-between gap-2 px-3 sm:px-6"
                 >
                     {/* Fundo visual */}
                     <div
                         aria-hidden="true"
-                        className={`absolute left-0 right-0 top-1/2 -translate-y-1/2 h-12 rounded-md pointer-events-none transition-all duration-500 ease-in-out ${
+                        className={`pointer-events-none absolute left-0 right-0 top-1/2 h-12 -translate-y-1/2 rounded-md border transition-all duration-500 ease-in-out ${
                             scrolled
-                                ? "bg-slate-950/85 backdrop-blur-xl shadow-2xl shadow-cyan-950/30 border border-white/10"
-                                : "bg-transparent border border-transparent shadow-none"
+                                ? "border-white/10 bg-slate-950/85 shadow-2xl shadow-cyan-950/30 backdrop-blur-xl"
+                                : "border-transparent bg-transparent shadow-none"
                         }`}
                     />
 
-                    {/* Esquerda: Logótipo */}
-                    <div className="relative z-10 flex items-center shrink-0">
+                    {/* Logotipo */}
+                    <div className="relative z-10 flex shrink-0 items-center">
                         <BrandLogo
                             tamanho="navbar"
-                            aoClicar={(e) =>
-                                handleScrollTo(e, "#hero")
-                            }
+                            aoClicar={(e) => handleScrollTo(e, "#hero")}
                         />
                     </div>
 
-                    {/* Centro: Links desktop */}
+                    {/* Links desktop */}
                     <NavbarDesktopLinks
                         activeSection={activeSection}
                         onNavigate={handleScrollTo}
                     />
 
-                    {/* Direita: Status e tema no desktop */}
-                    <div className="relative z-10 hidden lg:flex items-center gap-3 shrink-0">
-                        <div className="hidden xl:flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-emerald-500/30 bg-emerald-500/[0.07]">
-                            <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
+                    {/* Status e tema desktop */}
+                    <div className="relative z-10 hidden shrink-0 items-center gap-3 lg:flex">
+                        <div className="hidden items-center gap-2 rounded-full border border-emerald-500/30 bg-emerald-500/[0.07] px-3.5 py-1.5 xl:flex">
+                            <span
+                                aria-hidden="true"
+                                className="h-1.5 w-1.5 animate-pulse rounded-full bg-emerald-400"
+                            />
 
-                            <span className="text-xs font-mono text-emerald-400 whitespace-nowrap">
+                            <span className="whitespace-nowrap font-mono text-xs text-emerald-400">
                                 Disponível para trabalho
                             </span>
                         </div>
@@ -200,8 +210,8 @@ export function Navbar() {
                         <AlternarTema />
                     </div>
 
-                    {/* Direita: Tema e menu mobile */}
-                    <div className="relative z-10 flex lg:hidden items-center gap-2 ml-auto">
+                    {/* Tema e menu mobile */}
+                    <div className="relative z-10 ml-auto flex shrink-0 items-center gap-2 lg:hidden">
                         <AlternarTema />
 
                         <NavbarMobileMenu
