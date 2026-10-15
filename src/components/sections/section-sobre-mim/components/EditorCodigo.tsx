@@ -1,4 +1,3 @@
-
 "use client";
 
 import { motion } from "framer-motion";
@@ -21,13 +20,13 @@ export function EditorCodigo({
     const renderColoredLine = (line: string) => {
         if (line.startsWith("const ")) {
             return (
-                <span>
+                <>
                     <span className="text-purple-400">const</span>{" "}
                     <span className="text-amber-300">robsonSoares</span>{" "}
                     <span className="text-white">
                         = <span className="text-yellow-400">{"{"}</span>
                     </span>
-                </span>
+                </>
             );
         }
 
@@ -41,19 +40,19 @@ export function EditorCodigo({
 
         if (line.includes("resolverDesafios")) {
             return (
-                <span>
+                <>
                     <span className="text-sky-300">resolverDesafios</span>
                     <span className="text-white">:</span>{" "}
                     <span className="text-purple-400">function</span>
                     <span className="text-white">()</span>{" "}
                     <span className="text-yellow-400">{"{"}</span>
-                </span>
+                </>
             );
         }
 
         if (line.includes("return")) {
             return (
-                <span className="text-white">
+                <>
                     <span className="text-purple-400">return</span>{" "}
                     <span className="text-amber-300">this</span>.
                     <span className="text-blue-300">automation</span>.
@@ -63,7 +62,7 @@ export function EditorCodigo({
                         {"`Otimizando com ${item}`"}
                     </span>
                     <span className="text-white">);</span>
-                </span>
+                </>
             );
         }
 
@@ -78,11 +77,16 @@ export function EditorCodigo({
             );
 
             return (
-                <span>
+                <>
                     <span className="text-sky-300">{keyPart}</span>
                     <span className="text-white">:</span>
-                    <span dangerouslySetInnerHTML={{ __html: coloredValue }} />
-                </span>
+                    <span
+                        className="whitespace-pre-wrap [overflow-wrap:anywhere]"
+                        dangerouslySetInnerHTML={{
+                            __html: coloredValue,
+                        }}
+                    />
+                </>
             );
         }
 
@@ -95,12 +99,11 @@ export function EditorCodigo({
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
-
-            className="order-2 min-w-0 overflow-hidden rounded-xl border border-white/10 bg-slate-900/80 shadow-2xl backdrop-blur-xl lg:order-2 lg:col-span-6"
+            className="order-2 w-full min-w-0 max-w-full overflow-hidden rounded-xl border border-white/10 bg-slate-900/80 shadow-2xl backdrop-blur-xl lg:order-2"
         >
-            {/* Barra superior do editor */}
-            <div className="flex items-center justify-between border-b border-white/10 bg-slate-950/80 px-4 py-3">
-                <div className="flex items-center gap-2.5">
+            {/* Cabeçalho */}
+            <div className="flex min-w-0 flex-wrap items-center justify-between gap-x-3 gap-y-2 overflow-hidden border-b border-white/10 bg-slate-950/80 px-3 py-3 sm:flex-nowrap sm:px-4">
+                <div className="flex shrink-0 items-center gap-2.5">
                     <motion.span
                         animate={{
                             scale: [1, 1.25, 1],
@@ -143,47 +146,55 @@ export function EditorCodigo({
                     />
                 </div>
 
-                <div className="flex items-center gap-1.5 font-mono text-xs text-gray-400">
-                    <Code className="h-3.5 w-3.5 text-cyan-400" />
+                <div className="ml-auto flex min-w-0 flex-1 items-center justify-end gap-1.5 font-mono text-[10px] text-gray-400 sm:text-xs">
+                    <Code className="h-3.5 w-3.5 shrink-0 text-cyan-400" />
 
-                    <span>
-                        Full Stack Developer{" "}
+                    <span className="min-w-0 text-right [overflow-wrap:anywhere]">
+                        Full Stack Developer
                         {isTyping && (
-                            <span className="animate-pulse font-semibold text-purple-400 [text-shadow:0_0_10px_rgba(168,85,247,0.8)]">
+                            <span className="ml-1 animate-pulse font-semibold text-purple-400 [text-shadow:0_0_10px_rgba(168,85,247,0.8)]">
                                 (Codando...)
                             </span>
                         )}
                     </span>
                 </div>
-
-                <div className="w-12" />
             </div>
 
-            {/* Corpo do código */}
+            {/* Código */}
+            <div className="flex h-[400px] w-full min-w-0 max-w-full flex-col overflow-hidden p-3 font-mono text-[10px] leading-relaxed text-gray-300 sm:p-5 sm:text-sm lg:h-[460px]">
+                <div className="min-h-0 min-w-0 flex-1 overflow-hidden py-1">
+                    <div className="min-w-0 max-w-full space-y-1">
+                        {displayedLines.map((line, index) => {
+                            const isCurrentLine =
+                                isTyping && index === currentLineIndex;
 
-            <div className="flex h-[400px] min-w-0 flex-col justify-between overflow-hidden p-3 font-mono text-[10px] leading-relaxed text-gray-300 sm:p-5 sm:text-sm">
-                <div className="space-y-1">
-                    {displayedLines.map((line, index) => {
-                        const isCurrentLine =
-                            isTyping && index === currentLineIndex;
+                            const indentation =
+                                line.match(/^\s*/)?.[0].length ?? 0;
 
-                        return (
-                            <div
-                                key={index}
-                                className="flex items-center whitespace-pre"
-                            >
-                                <span>{renderColoredLine(line)}</span>
+                            const content = line.trimStart();
 
-                                {isCurrentLine && (
-                                    <span className="ml-1 inline-block h-4 w-[2px] animate-pulse bg-white align-middle shadow-[0_0_6px_rgba(255,255,255,0.8)]" />
-                                )}
-                            </div>
-                        );
-                    })}
+                            return (
+                                <div
+                                    key={index}
+                                    className="min-w-0 max-w-full"
+                                    style={{
+                                        paddingLeft: `${indentation * 0.6}em`,
+                                    }}
+                                >
+                                    <span className="whitespace-pre-wrap [overflow-wrap:anywhere]">
+                                        {renderColoredLine(content)}
+                                        {isCurrentLine && (
+                                            <span className="ml-0.5 inline-block h-[1em] w-[2px] animate-pulse bg-white align-middle shadow-[0_0_6px_rgba(255,255,255,0.8)]" />
+                                        )}
+                                    </span>
+                                </div>
+                            );
+                        })}
+                    </div>
                 </div>
 
                 {/* Comentário final */}
-                <div className="flex h-8 items-center border-t border-white/5 pt-2">
+                <div className="flex h-8 min-h-8 min-w-0 max-w-full shrink-0 items-center overflow-hidden border-t border-white/5 pt-2">
                     {isFullyTyped && (
                         <motion.div
                             initial={{ opacity: 0, y: 4 }}
@@ -192,7 +203,7 @@ export function EditorCodigo({
                                 duration: 0.6,
                                 ease: "easeOut",
                             }}
-                            className="font-mono text-xs tracking-widest text-slate-500"
+                            className="max-w-full truncate font-mono text-[10px] tracking-wide text-slate-500 sm:text-xs sm:tracking-widest"
                         >
                             {finalComment}
                         </motion.div>

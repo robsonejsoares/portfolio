@@ -15,7 +15,7 @@ export const codeLinesWithoutComment = [
 ];
 
 export const finalComment =
-    "// Movido por código limpo, lógica e alta performance.";
+    "// Movido por código limpo e alta performance.";
 
 export const competencias = [
     "Desenvolvimento web e mobile moderno.",

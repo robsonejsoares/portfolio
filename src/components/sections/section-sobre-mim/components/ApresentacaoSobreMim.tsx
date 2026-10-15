@@ -23,7 +23,7 @@ export function ApresentacaoSobreMim() {
                 </h2>
 
                 <p className="mb-5 text-xs font-mono tracking-widest text-slate-400">
-                    Conheça minha trajetória e como transformo ideias em soluções.
+                    Conheça minha um pouco sobre mim.
                 </p>
 
                 {/* Linha separadora */}

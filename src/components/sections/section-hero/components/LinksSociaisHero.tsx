@@ -28,27 +28,23 @@ function LinkedinIcon({ className = "h-5 w-5" }: { className?: string }) {
 
 export function LinksSociaisHero() {
     return (
-        <div className="flex w-full min-w-0 flex-wrap items-center justify-center gap-2 border-t border-white/10 pt-4 sm:justify-start sm:gap-3 sm:pt-5">
+        <div className="flex w-full min-w-0 items-center justify-center gap-2 border-t border-white/10 pt-3 sm:gap-3 sm:pt-5 sm:justify-start">
             {/* GitHub */}
             <a
                 href="https://github.com/robsonejsoares"
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Visitar perfil no GitHub (abre em nova aba)"
-                className="group inline-flex min-h-11 min-w-0 flex-1 items-center justify-center gap-2 rounded-xl border border-white/10 bg-white/[0.03] px-2.5 py-2 text-gray-300 shadow-sm transition-all duration-300 hover:-translate-y-0.5 hover:border-cyan-400/40 hover:bg-cyan-400/[0.07] hover:text-white hover:shadow-lg hover:shadow-cyan-950/20 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950 active:translate-y-0 sm:flex-none sm:justify-start sm:gap-2.5 sm:px-4"
+                className="group inline-flex min-h-9 min-w-0 flex-1 items-center justify-center gap-1.5 rounded-md border border-white/10 bg-white/[0.03] px-2 py-1.5 text-gray-300 transition-colors duration-200 hover:border-white/25 hover:bg-white/[0.08] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-slate-400 active:scale-[0.98] sm:min-h-0 sm:flex-none sm:justify-start sm:gap-2 sm:rounded-none sm:border-0 sm:bg-transparent sm:px-0 sm:py-1 sm:hover:border-transparent sm:hover:bg-transparent sm:hover:text-white sm:active:scale-100"
             >
-                <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg border border-white/10 bg-white/[0.05] text-gray-300 transition-all duration-300 group-hover:border-cyan-400/30 group-hover:bg-cyan-400/10 group-hover:text-cyan-300">
-                    <GitIcon className="h-[18px] w-[18px]" />
-                </span>
+                <GitIcon className="h-3.5 w-3.5 shrink-0 sm:h-[17px] sm:w-[17px]" />
 
-                <span className="flex min-w-0 flex-col items-start gap-0.5">
-                    <span className="font-mono text-[10px] font-bold tracking-[0.1em] sm:text-[11px] sm:tracking-[0.14em]">
-                        GitHub
-                    </span>
+                <span className="text-[11px] font-normal tracking-wide sm:text-xs sm:tracking-normal">
+                    GitHub
                 </span>
 
                 <svg
-                    className="h-3.5 w-3.5 shrink-0 text-gray-500 transition-all duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-cyan-300"
+                    className="h-3 w-3 shrink-0 text-gray-500 transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 sm:h-3.5 sm:w-3.5"
                     viewBox="0 0 24 24"
                     fill="none"
                     stroke="currentColor"
@@ -69,20 +65,16 @@ export function LinksSociaisHero() {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Visitar perfil no LinkedIn (abre em nova aba)"
-                className="group inline-flex min-h-11 min-w-0 flex-1 items-center justify-center gap-2 rounded-xl border border-white/10 bg-white/[0.03] px-2.5 py-2 text-gray-300 shadow-sm transition-all duration-300 hover:-translate-y-0.5 hover:border-blue-400/40 hover:bg-blue-400/[0.07] hover:text-white hover:shadow-lg hover:shadow-blue-950/20 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-400 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950 active:translate-y-0 sm:flex-none sm:justify-start sm:gap-2.5 sm:px-4"
+                className="group inline-flex min-h-9 min-w-0 flex-1 items-center justify-center gap-1.5 rounded-md border border-white/10 bg-white/[0.03] px-2 py-1.5 text-gray-300 transition-colors duration-200 hover:border-white/25 hover:bg-white/[0.08] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-slate-400 active:scale-[0.98] sm:min-h-0 sm:flex-none sm:justify-start sm:gap-2 sm:rounded-none sm:border-0 sm:bg-transparent sm:px-0 sm:py-1 sm:hover:border-transparent sm:hover:bg-transparent sm:hover:text-white sm:active:scale-100"
             >
-                <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg border border-blue-400/15 bg-blue-400/[0.08] text-blue-400 transition-all duration-300 group-hover:border-blue-400/35 group-hover:bg-blue-400/15 group-hover:text-blue-300">
-                    <LinkedinIcon className="h-[18px] w-[18px]" />
-                </span>
+                <LinkedinIcon className="h-3.5 w-3.5 shrink-0 text-blue-400 sm:h-[17px] sm:w-[17px]" />
 
-                <span className="flex min-w-0 flex-col items-start gap-0.5">
-                    <span className="font-mono text-[10px] font-bold tracking-[0.1em] sm:text-[11px] sm:tracking-[0.14em]">
-                        LinkedIn
-                    </span>
+                <span className="text-[11px] font-normal tracking-wide sm:text-xs sm:tracking-normal">
+                    LinkedIn
                 </span>
 
                 <svg
-                    className="h-3.5 w-3.5 shrink-0 text-gray-500 transition-all duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-blue-300"
+                    className="h-3 w-3 shrink-0 text-gray-500 transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 sm:h-3.5 sm:w-3.5"
                     viewBox="0 0 24 24"
                     fill="none"
                     stroke="currentColor"
