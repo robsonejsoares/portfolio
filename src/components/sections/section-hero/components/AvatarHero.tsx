@@ -1,4 +1,3 @@
-
 "use client";
 
 import { motion } from "framer-motion";
@@ -13,11 +12,11 @@ export function AvatarHero() {
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8 }}
-            className="relative order-1 flex justify-center lg:justify-start"
+            className="relative order-1 flex min-w-0 justify-center lg:justify-start"
         >
-            <div className="relative my-2 flex h-[350px] w-[300px] items-center justify-center lg:my-0">
+            <div className="relative my-1 flex aspect-[6/7] w-full max-w-[300px] items-center justify-center sm:max-w-[320px] lg:my-0">
                 <div
-                    className="group relative z-20 h-[235px] w-[190px] cursor-pointer overflow-hidden rounded-3xl border border-white/20 bg-slate-900 shadow-2xl transition-transform duration-500 hover:-translate-y-2 hover:scale-105"
+                    className="group relative z-20 h-[min(52vw,190px)] max-h-[190px] w-[min(44vw,160px)] max-w-[160px] cursor-pointer overflow-hidden rounded-3xl border border-white/20 bg-slate-900 shadow-2xl transition-transform duration-500 hover:-translate-y-2 hover:scale-105 sm:h-[235px] sm:w-[190px]"
                     style={{
                         transformStyle: "preserve-3d",
                         perspective: "600px",

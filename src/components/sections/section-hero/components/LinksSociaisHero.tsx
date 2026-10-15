@@ -1,9 +1,6 @@
-
 "use client";
 
-import { Mail } from "lucide-react";
-
-function GitIcon({ className = "w-4 h-4" }: { className?: string }) {
+function GitIcon({ className = "h-5 w-5" }: { className?: string }) {
     return (
         <svg
             className={className}
@@ -16,7 +13,7 @@ function GitIcon({ className = "w-4 h-4" }: { className?: string }) {
     );
 }
 
-function LinkedinIcon({ className = "w-4 h-4" }: { className?: string }) {
+function LinkedinIcon({ className = "h-5 w-5" }: { className?: string }) {
     return (
         <svg
             className={className}
@@ -31,33 +28,73 @@ function LinkedinIcon({ className = "w-4 h-4" }: { className?: string }) {
 
 export function LinksSociaisHero() {
     return (
-        <div className="flex flex-wrap items-center gap-6 border-t border-white/10 pt-4 font-mono text-xs font-semibold tracking-widest text-gray-400">
+        <div className="flex w-full min-w-0 flex-wrap items-center justify-center gap-2 border-t border-white/10 pt-4 sm:justify-start sm:gap-3 sm:pt-5">
+            {/* GitHub */}
             <a
                 href="https://github.com/robsonejsoares"
                 target="_blank"
-                rel="noreferrer"
-                className="group flex items-center gap-1.5 text-gray-400 transition-colors hover:text-white"
+                rel="noopener noreferrer"
+                aria-label="Visitar perfil no GitHub (abre em nova aba)"
+                className="group inline-flex min-h-11 min-w-0 flex-1 items-center justify-center gap-2 rounded-xl border border-white/10 bg-white/[0.03] px-2.5 py-2 text-gray-300 shadow-sm transition-all duration-300 hover:-translate-y-0.5 hover:border-cyan-400/40 hover:bg-cyan-400/[0.07] hover:text-white hover:shadow-lg hover:shadow-cyan-950/20 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950 active:translate-y-0 sm:flex-none sm:justify-start sm:gap-2.5 sm:px-4"
             >
-                <GitIcon className="h-4 w-4 text-gray-200 transition-colors group-hover:text-cyan-400" />
-                <span>GITHUB</span>
+                <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg border border-white/10 bg-white/[0.05] text-gray-300 transition-all duration-300 group-hover:border-cyan-400/30 group-hover:bg-cyan-400/10 group-hover:text-cyan-300">
+                    <GitIcon className="h-[18px] w-[18px]" />
+                </span>
+
+                <span className="flex min-w-0 flex-col items-start gap-0.5">
+                    <span className="font-mono text-[10px] font-bold tracking-[0.1em] sm:text-[11px] sm:tracking-[0.14em]">
+                        GitHub
+                    </span>
+                </span>
+
+                <svg
+                    className="h-3.5 w-3.5 shrink-0 text-gray-500 transition-all duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-cyan-300"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="1.8"
+                    aria-hidden="true"
+                >
+                    <path
+                        d="M7 17 17 7M8 7h9v9"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                    />
+                </svg>
             </a>
 
+            {/* LinkedIn */}
             <a
-                href="https://www.linkedin.com/in/robson-soares-b22513170/?isSelfProfile=true"
+                href="https://www.linkedin.com/in/robson-soares-b22513170/"
                 target="_blank"
-                rel="noreferrer"
-                className="group flex items-center gap-1.5 text-gray-400 transition-colors hover:text-blue-400"
+                rel="noopener noreferrer"
+                aria-label="Visitar perfil no LinkedIn (abre em nova aba)"
+                className="group inline-flex min-h-11 min-w-0 flex-1 items-center justify-center gap-2 rounded-xl border border-white/10 bg-white/[0.03] px-2.5 py-2 text-gray-300 shadow-sm transition-all duration-300 hover:-translate-y-0.5 hover:border-blue-400/40 hover:bg-blue-400/[0.07] hover:text-white hover:shadow-lg hover:shadow-blue-950/20 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-400 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950 active:translate-y-0 sm:flex-none sm:justify-start sm:gap-2.5 sm:px-4"
             >
-                <LinkedinIcon className="h-4 w-4 text-blue-400 transition-colors group-hover:text-blue-300" />
-                <span>LINKEDIN</span>
-            </a>
+                <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg border border-blue-400/15 bg-blue-400/[0.08] text-blue-400 transition-all duration-300 group-hover:border-blue-400/35 group-hover:bg-blue-400/15 group-hover:text-blue-300">
+                    <LinkedinIcon className="h-[18px] w-[18px]" />
+                </span>
 
-            <a
-                href="mailto:robsoncsoares.1050@gmail.com"
-                className="group flex items-center gap-1.5 text-gray-400 transition-colors hover:text-purple-400"
-            >
-                <Mail className="h-4 w-4 text-purple-400 transition-colors group-hover:text-purple-300" />
-                <span>E-MAIL</span>
+                <span className="flex min-w-0 flex-col items-start gap-0.5">
+                    <span className="font-mono text-[10px] font-bold tracking-[0.1em] sm:text-[11px] sm:tracking-[0.14em]">
+                        LinkedIn
+                    </span>
+                </span>
+
+                <svg
+                    className="h-3.5 w-3.5 shrink-0 text-gray-500 transition-all duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-blue-300"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="1.8"
+                    aria-hidden="true"
+                >
+                    <path
+                        d="M7 17 17 7M8 7h9v9"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                    />
+                </svg>
             </a>
         </div>
     );

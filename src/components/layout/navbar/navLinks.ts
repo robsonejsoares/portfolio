@@ -11,7 +11,7 @@ import {
 
 export const navLinks = [
     { name: "Início", href: "#hero", icon: Home },
-    { name: "Sobre", href: "#about", icon: User },
+    { name: "Sobre mim", href: "#sobre-mim", icon: User },
     { name: "Habilidades", href: "#skills", icon: Cpu },
     { name: "Projetos", href: "#projects", icon: FolderGit2 },
     { name: "Serviços", href: "#services", icon: Layers },
