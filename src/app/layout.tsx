@@ -42,7 +42,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           }}
         />
       </head>
-      <body className="min-h-full flex flex-col bg-slate-950 text-white selection:bg-cyan-500 selection:text-black">
+      <body className="flex min-h-screen flex-col bg-slate-950 text-white selection:bg-cyan-500 selection:text-black">
         {children}
       </body>
     </html>

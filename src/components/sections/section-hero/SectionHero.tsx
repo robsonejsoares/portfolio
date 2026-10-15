@@ -15,10 +15,8 @@ export function SectionHero() {
     const [isResumeOpen, setIsResumeOpen] = useState(false);
     const [isLoading, setIsLoading] = useState(false);
 
-    // Abre o currículo com carregamento animado.
     const handleOpenResume = useCallback(() => {
         if (isLoading || isResumeOpen) return;
-
         setIsLoading(true);
     }, [isLoading, isResumeOpen]);
 
@@ -27,19 +25,20 @@ export function SectionHero() {
         setIsResumeOpen(true);
     }, []);
 
-    // Rola suavemente até a seção de contato.
     const handleScrollToContact = useCallback(
         (event: MouseEvent<HTMLAnchorElement>) => {
             event.preventDefault();
-
-            const contactElement = document.getElementById("contact");
-
-            contactElement?.scrollIntoView({
+            document.getElementById("contact")?.scrollIntoView({
                 behavior: "smooth",
+                block: "start",
             });
         },
         [],
     );
+
+    const handleCloseResume = useCallback(() => {
+        setIsResumeOpen(false);
+    }, []);
 
     return (
         <>
@@ -51,17 +50,14 @@ export function SectionHero() {
 
             <section
                 id="hero"
-                className="relative z-10 flex min-h-[85vh] items-center justify-center overflow-hidden pt-20 pb-4"
+                className="relative z-10 flex min-h-[85svh] items-center justify-center overflow-hidden px-0 pb-10 pt-24 sm:pb-12 sm:pt-28 lg:min-h-[85vh] lg:py-20"
             >
-               <div className="relative z-10 mx-auto w-full max-w-4xl px-4 py-0">
-                    <div className="grid grid-cols-1 items-center gap-8 lg:grid-cols-2 lg:gap-14">
-                        {/* Lado esquerdo: avatar e órbitas */}
+                <div className="relative z-10 mx-auto w-full max-w-6xl px-4 sm:px-6">
+                    <div className="grid min-w-0 grid-cols-1 items-center gap-8 sm:gap-10 lg:grid-cols-2 lg:gap-14">
                         <AvatarHero />
 
-                        {/* Lado direito: apresentação e ações */}
-                        <div className="order-2 flex flex-col gap-6">
+                        <div className="order-2 flex min-w-0 flex-col gap-5 sm:gap-6">
                             <ApresentacaoHero />
-
                             <EstatisticasHero />
 
                             <AcoesHero
@@ -79,7 +75,7 @@ export function SectionHero() {
 
             <DialogCurriculo
                 isOpen={isResumeOpen}
-                onClose={() => setIsResumeOpen(false)}
+                onClose={handleCloseResume}
             />
         </>
     );

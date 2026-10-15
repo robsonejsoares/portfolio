@@ -1,230 +1,523 @@
-# 🚀 Plano de Desenvolvimento — Portfólio Interativo
+﻿# 🚀 Plano de Desenvolvimento
 
-## ✅ Etapa 1: Design System, Fundo Futurista e Dados
-
-- [x] Configurar cores e variáveis em `src/app/globals.css` (tema escuro, neon e glassmorphism).
-- [x] Criar a estrutura do plano de fundo (grid sutil e efeitos neon).
-- [x] Criar o arquivo `src/data/dadosPortfolio.ts` (perfil, habilidades, projetos, experiências e serviços).
-
-## ✅ Etapa 2: Barra de Navegação Flutuante (Header)
-
-- [x] Criar o componente `src/components/layout/BarraNavegacao.tsx`.
-- [x] Aplicar estilização glassmorphism (blur e bordas translúcidas).
-- [x] Implementar links de ancoragem com navegação suave (`#hero`, `#about`, `#education`, `#skills`, `#projects`, `#experience`, `#services` e `#contact`).
-- [x] Criar o botão de status ("Disponível para trabalho") e a chamada para ação (CTA) "Contrate-me".
-
-## ✅ Etapa 3: Seção Hero e Avatar Interativo
-
-- [x] Criar o componente `src/components/sections/SectionHero.tsx`.
-- [x] Implementar título principal com gradiente animado e badges informativos.
-- [x] Criar card de avatar com tecnologias flutuantes e animações usando Framer Motion.
-- [x] Criar grid de estatísticas e botões de ação ("Ver currículo" e "Entre em contato").
-
-## ✅ Etapa 4: Sobre Mim (About Me)
-
-- [x] Criar o componente `src/components/sections/SectionSobre.tsx`.
-- [x] Desenvolver o card que simula um editor de código com syntax highlighting.
-- [x] Implementar texto descritivo e marcadores com efeitos neon.
-
-## 🆕 Etapa 5: Formação Acadêmica (Education)
-
-- [x] Criar o componente `src/components/sections/SectionFormacaoAcademica.tsx`.
-- [x] Apresentar formação acadêmica, instituições de ensino e cursos relevantes.
-- [x] Exibir períodos, situação (concluído ou em andamento) e informações complementares.
-- [x] Criar cards para cada formação, seguindo o Design System do portfólio.
-- [x] Integrar a seção à página principal e à barra de navegação.
-- [x] Garantir responsividade e consistência visual.
-
-## ✅ Etapa 6: Matriz de Habilidades (Skills Matrix)
-
-- [x] Criar o componente `src/components/sections/SectionHabilidades.tsx`.
-- [x] Implementar grid de ícones e badges de tecnologias (Java, Spring Boot, Node.js, React Native, Next.js etc.).
-- [x] Adicionar animações de entrada, efeitos de hover magnético e brilho.
-
-## ✅ Etapa 7: Galeria de Projetos e Modal Expansível
-
-- [x] Criar ou finalizar o componente `src/components/sections/SectionProjetos.tsx`.
-- [x] Implementar filtros por categoria (Todos, Web, Mobile, Automação/IA etc.).
-- [x] Criar cards interativos para apresentação dos projetos.
-- [x] Implementar modal expansível com Framer Motion (`layoutId`).
-- [x] Exibir detalhes de cada projeto (descrição, tecnologias, imagens e links para demonstração e repositório).
-- [x] Garantir responsividade e consistência visual dos cards.
-
-## ✅ Etapa 8: Linha do Tempo de Experiência Profissional
-
-- [x] Criar o componente `src/components/sections/SectionExperiencia.tsx`.
-- [x] Desenvolver timeline vertical conectada por linha em gradiente neon.
-- [x] Criar cards do histórico profissional com ícones por categoria.
-- [x] Apresentar cargos, empresas, períodos, responsabilidades e principais realizações.
-
-## ✅ Etapa 9: Seção de Serviços
-
-- [x] Criar o componente `src/components/sections/SectionServicos.tsx`.
-- [x] Desenvolver grid de cards para os serviços oferecidos.
-- [x] Apresentar descrição, benefícios e tecnologias relacionadas a cada serviço.
-- [x] Adicionar animações e efeitos de interação nos cards.
-- [x] Implementar chamadas para ação direcionadas à seção de contato.
-
-## ✅ Etapa 10: Seção de Contato
-
-- [x] Criar o componente `src/components/sections/SectionContato.tsx`.
-- [x] Desenvolver formulário de contato interativo.
-- [x] Implementar campos para nome, e-mail, assunto e mensagem.
-- [x] Adicionar validação dos campos e feedback de envio.
-- [x] Apresentar informações de contato e links para redes sociais.
-- [x] Integrar o formulário a um serviço de envio de mensagens ou API.
+**Projeto:** XCODIFY Portfolio Robson Soares
+**Branch:** `feature/mobile-config`  
+**Stack atual:** Next.js, React, TypeScript e CSS  
+**Objetivo:** manter o histórico de implementação, concluir a responsividade, revisar a arquitetura e validar a qualidade do frontend antes de avançar para o backend Java.
 
 ---
 
+## 📌 Etapa 1 — Estrutura inicial e configuração do projeto
+
+- [x] Criar e configurar o projeto Next.js.
+- [x] Configurar React e TypeScript.
+- [x] Organizar a estrutura inicial de diretórios.
+- [x] Configurar os scripts de desenvolvimento e produção.
+- [x] Preparar a estrutura básica da aplicação.
+
+**Status:** concluída.
+
+## 🎨 Etapa 2 — Identidade visual e estilos globais
+
+- [x] Criar os estilos globais em `src/app/globals.css`.
+- [x] Definir a identidade visual do portfólio.
+- [x] Estabelecer cores, tipografia e espaçamentos.
+- [x] Implementar o suporte aos temas claro e escuro.
+- [x] Preparar estilos reutilizáveis para as seções.
+
+**Status:** concluída.
+
+## 🧭 Etapa 3 — Layout e navegação
+
+- [x] Configurar o layout principal em `src/app/layout.tsx`.
+- [x] Implementar a navegação em `src/components/layout/Navbar.tsx`.
+- [x] Criar os links da navegação.
+- [x] Separar os componentes da navegação desktop e mobile.
+- [x] Implementar o footer.
+- [x] Criar a estrutura da página do portfólio em `src/app/portfolio/robson-soares/page.tsx`.
+
+**Status:** implementação concluída; responsividade será revalidada na Etapa 11.
+
+## 👨‍💻 Etapa 4 — Seção Hero
+
+- [x] Criar a seção principal do portfólio.
+- [x] Implementar a apresentação pessoal.
+- [x] Adicionar avatar e elementos visuais.
+- [x] Implementar estatísticas e links sociais.
+- [x] Criar os botões de ação.
+- [x] Implementar os efeitos visuais e de digitação.
+- [x] Criar o diálogo do currículo.
+- [x] Organizar os componentes da seção em arquivos separados.
+
+**Diretório:** `src/components/sections/section-hero/`
+
+**Status:** implementação concluída; responsividade será revalidada na Etapa 11.
+
+## 👤 Etapa 5 — Seção Sobre
+
+- [x] Criar a seção de apresentação pessoal.
+- [x] Organizar as informações e os textos.
+- [x] Aplicar a identidade visual da seção.
+- [x] Integrar a seção à página principal.
+
+**Status:** implementação concluída.
+
+## 🎓 Etapa 6 — Formação acadêmica
+
+- [x] Criar a seção de formação acadêmica.
+- [x] Organizar os dados de formação.
+- [x] Implementar a apresentação das informações.
+- [x] Criar os componentes necessários para exibição dos dados.
+- [x] Implementar a ordenação das formações.
+- [x] Integrar a seção à página principal.
+
+**Status:** implementação concluída.
+
+## 🛠️ Etapa 7 — Habilidades
+
+- [x] Criar a seção de habilidades.
+- [x] Organizar as informações de tecnologias e competências.
+- [x] Implementar a apresentação visual dos itens.
+- [x] Integrar a seção à página principal.
+
+**Status:** implementação concluída.
+
+## 🚀 Etapa 8 — Projetos
+
+- [x] Criar a seção de projetos.
+- [x] Organizar os dados dos projetos.
+- [x] Implementar os componentes de apresentação.
+- [x] Adicionar links e ações relacionados aos projetos.
+- [x] Integrar a seção à página principal.
+
+**Status:** implementação concluída.
+
+## 💼 Etapa 9 — Experiência profissional e serviços
+
+- [x] Criar a seção de experiência profissional.
+- [x] Organizar os dados das experiências.
+- [x] Criar a seção de serviços.
+- [x] Organizar os dados dos serviços.
+- [x] Implementar os componentes de apresentação.
+- [x] Integrar as seções à página principal.
+
+**Status:** implementação concluída.
+
+## ✉️ Etapa 10 — Contato e APIs
+
+- [x] Criar a seção de contato.
+- [x] Implementar o formulário de contato.
+- [x] Criar a API de contato em `src/app/api/contact/route.ts`.
+- [x] Criar a API de verificação em `src/app/api/health/contact/route.ts`.
+- [x] Organizar a lógica de envio de e-mail.
+- [x] Criar os componentes de carregamento e feedback.
+- [x] Integrar o formulário à aplicação.
+
+**Arquivos relacionados:**
+
+- `src/app/api/contact/route.ts`
+- `src/app/api/health/contact/route.ts`
+- `src/lib/alerts/email.ts`
+- `src/config/loading.ts`
+- `src/components/common/Loading.tsx`
+- `src/components/common/LoadingDialog.tsx`
+
+**Status:** implementação concluída; os fluxos serão revalidados na Etapa 13.
+
 ---
 
-**## 🆕 Etapa 11: Auditoria de Arquitetura, Clean Code e Refatoração**
+## 📱 Etapa 11 — Responsividade mobile, tablet e desktop
 
-**Objetivo:** revisar toda a estrutura de `src`, identificar arquivos fora do lugar, eliminar duplicações desnecessárias e alinhar o projeto às boas práticas de Next.js, React e TypeScript, sem quebrar funcionalidades existentes.
+**Objetivo:** garantir uma experiência consistente em diferentes resoluções, sem overflow horizontal, sobreposições ou perda de funcionalidade.
 
-### 🔍 Fase 1: Auditoria da Estrutura de Pastas
+### 11.1 — Diagnóstico inicial
 
-- [ ] Analisar toda a estrutura de diretórios de `src/`.
-- [ ] Verificar se cada arquivo está na pasta adequada à sua responsabilidade.
-- [ ] Revisar a organização de `app/`, `components/`, `data/`, `lib/`, `config/` e `utils/`.
-- [ ] Avaliar a organização de `components/common/`, `components/layout/`, `components/ui/` e `components/sections/`.
-- [ ] Identificar componentes compartilhados que estão dentro de seções específicas.
-- [ ] Identificar componentes específicos de uma seção que estão indevidamente em `common/`.
-- [ ] Identificar pastas vazias e arquivos `.gitkeep` que não sejam mais necessários.
-- [ ] Definir a estrutura final de diretórios antes de executar movimentações em massa.
+- [ ] Executar o projeto localmente com `npm run dev`.
+- [ ] Verificar erros no console do navegador.
+- [ ] Inspecionar todas as seções da página.
+- [ ] Identificar elementos com largura ou altura fixa inadequada.
+- [ ] Identificar textos, imagens, cards e botões que ultrapassam seus containers.
+- [ ] Registrar os problemas antes de realizar as correções.
+- [ ] Conferir o comportamento nos temas claro e escuro.
 
-### 🧱 Fase 2: Auditoria da Seção Hero
+### 11.2 — Layout global
 
-- [ ] Revisar `src/components/sections/section-hero/SectionHero.tsx`.
-- [ ] Avaliar se `SectionHero.tsx` está responsável apenas pela composição da seção e pela coordenação de seu estado.
-- [ ] Revisar os componentes `AcoesHero.tsx`, `ApresentacaoHero.tsx`, `AvatarHero.tsx`, `EstatisticasHero.tsx`, `LinksSociaisHero.tsx` e `OrbitasTecnologias.tsx`.
-- [ ] Confirmar se cada componente está na pasta correta.
-- [ ] Revisar `dialogs/DialogCurriculo.tsx`.
-- [ ] Revisar `hooks/useEfeitoDigitacao.ts`.
-- [ ] Verificar se o hook de digitação é exclusivo do Hero ou se deveria ser compartilhado.
-- [ ] Identificar responsabilidades duplicadas e oportunidades de simplificação.
-- [ ] Revisar as propriedades, os tipos TypeScript e os nomes das funções.
-- [ ] Verificar se as propriedades dos componentes estão sendo utilizadas corretamente, incluindo o raio das órbitas tecnológicas.
-- [ ] Corrigir os problemas identificados sem alterar o comportamento visual esperado.
+**Arquivos:** `src/app/globals.css`, `src/app/layout.tsx` e `src/components/common/SectionCard.tsx`.
 
-### 🧩 Fase 3: Componentes Compartilhados e Design System
+- [ ] Conferir o viewport e os estilos globais.
+- [ ] Garantir que não exista rolagem horizontal indesejada.
+- [ ] Ajustar margens, paddings e espaçamentos.
+- [ ] Verificar se os containers respeitam a largura disponível.
+- [ ] Validar a legibilidade dos textos em telas pequenas.
+- [ ] Conferir o comportamento dos grids e das colunas.
+- [ ] Verificar o conteúdo em orientação retrato e paisagem.
+- [ ] Evitar correções globais que prejudiquem componentes não relacionados.
 
-- [ ] Revisar todos os arquivos de `src/components/common/`.
-- [ ] Revisar todos os arquivos de `src/components/ui/`.
-- [ ] Revisar todos os arquivos de `src/components/layout/`.
-- [ ] Confirmar se cada componente compartilhado possui mais de um consumidor ou uma justificativa clara para existir.
-- [ ] Identificar componentes duplicados entre as seções.
-- [ ] Avaliar a possibilidade de padronizar diálogos, carregamentos, botões, cards e feedbacks.
-- [ ] Verificar se os componentes genéricos possuem propriedades configuráveis suficientes.
-- [ ] Evitar abstrações desnecessárias e componentes criados sem necessidade comprovada.
-- [ ] Revisar a consistência visual e comportamental dos componentes reutilizáveis.
+### 11.3 — Navegação
 
-### ⏳ Fase 4: Padronização dos Componentes de Carregamento
+**Arquivos:** `src/components/layout/Navbar.tsx` e `src/components/layout/navbar/`.
 
-- [ ] Revisar `src/components/common/Loading.tsx`.
-- [ ] Revisar `src/components/common/LoadingDialog.tsx`.
-- [ ] Revisar `src/config/loading.ts`.
-- [ ] Revisar os carregamentos implementados diretamente nas seções.
-- [ ] Identificar duplicações de animação, temporizadores e estados de carregamento.
-- [ ] Avaliar a reutilização de `LoadingDialog` na seção de Formação Acadêmica.
-- [ ] Verificar se a duração dos carregamentos está centralizada quando apropriado.
-- [ ] Preservar o posicionamento, a aparência e o comportamento de cada carregamento.
-- [ ] Garantir a limpeza dos temporizadores e dos efeitos quando os componentes forem desmontados.
-- [ ] Testar a abertura e o fechamento dos diálogos após as refatorações.
+- [ ] Validar os links da navegação desktop.
+- [ ] Validar a abertura e o fechamento do menu mobile.
+- [ ] Conferir o posicionamento do menu em telas estreitas.
+- [ ] Garantir que o menu não ultrapasse os limites da tela.
+- [ ] Verificar se os links navegam para as seções corretas.
+- [ ] Validar o fechamento do menu após a seleção de um link, quando aplicável.
+- [ ] Conferir se o menu não cobre indevidamente o conteúdo.
+- [ ] Testar o uso por teclado e o foco visível.
 
-### 📚 Fase 5: Organização das Regras de Negócio e dos Dados
+### 11.4 — Seção Hero
 
-- [ ] Revisar os arquivos de `src/data/`.
-- [ ] Revisar `src/utils/ordenarFormacoes.ts`.
-- [ ] Confirmar todos os locais que utilizam `ordenarFormacoes`.
-- [ ] Se for exclusiva da seção acadêmica, mover a função para `section-formacao-academica/utils/ordenarFormacoes.ts`.
-- [ ] Atualizar os imports após a movimentação.
-- [ ] Revisar as interfaces e os tipos utilizados pelos dados do currículo, portfólio e serviços.
-- [ ] Separar dados estáticos, regras de negócio e componentes de apresentação quando necessário.
-- [ ] Evitar duplicar informações que já estejam centralizadas nos arquivos de dados.
-- [ ] Revisar a organização de `src/config/`, `src/lib/` e `src/utils/`.
-- [ ] Manter utilitários compartilhados em locais apropriados e regras específicas próximas às funcionalidades que as utilizam.
+**Diretório:** `src/components/sections/section-hero/`.
 
-### 🧹 Fase 6: Remoção de Código Não Utilizado
+- [ ] Ajustar títulos, descrições e quebras de linha.
+- [ ] Conferir o tamanho e o posicionamento do avatar.
+- [ ] Validar as órbitas e os ícones de tecnologia.
+- [ ] Garantir que animações não provoquem overflow.
+- [ ] Ajustar o posicionamento das estatísticas.
+- [ ] Conferir os botões de ação.
+- [ ] Validar os links sociais.
+- [ ] Verificar o efeito de digitação.
+- [ ] Validar o diálogo do currículo em telas pequenas.
+- [ ] Eliminar sobreposições entre os elementos.
 
-- [ ] Pesquisar componentes, funções, interfaces, tipos e constantes sem uso.
-- [ ] Verificar referências em todo o projeto antes de remover qualquer arquivo.
-- [ ] Confirmar se `SectionCardHeader` está realmente sem uso e removê-lo se não houver dependências.
-- [ ] Verificar se `src/lib/utils.ts` possui consumidores ou uma finalidade necessária.
-- [ ] Investigar imports e dependências relacionados a `cn` antes de qualquer alteração.
-- [ ] Identificar imports não utilizados e código redundante.
-- [ ] Identificar comentários desatualizados e código morto.
-- [ ] Remover arquivos e abstrações somente após confirmar que são dispensáveis.
-- [ ] Evitar remover arquivos de configuração, arquivos gerados ou recursos utilizados indiretamente sem verificar suas dependências.
+### 11.5 — Seção Sobre
 
-### 🏗️ Fase 7: Arquitetura Next.js e React
+- [ ] Conferir o espaçamento dos textos.
+- [ ] Validar o alinhamento dos elementos.
+- [ ] Garantir que o conteúdo respeite a largura disponível.
+- [ ] Conferir a legibilidade em dispositivos móveis.
 
-- [ ] Revisar `src/app/layout.tsx`.
-- [ ] Revisar `src/app/portfolio/robson-soares/page.tsx`.
-- [ ] Avaliar o uso de `"use client"` em cada componente.
-- [ ] Investigar a possibilidade de manter `page.tsx` como Server Component.
-- [ ] Isolar estados e animações em componentes clientes quando isso trouxer benefícios reais.
-- [ ] Revisar o uso de `useState`, `useEffect`, `useCallback` e `useRef`.
-- [ ] Verificar dependências dos efeitos e limpeza de recursos.
-- [ ] Revisar o uso de `framer-motion` e identificar animações desnecessárias ou duplicadas.
-- [ ] Verificar a utilização de imagens e avaliar o uso de `next/image`.
-- [ ] Revisar acessibilidade, elementos semânticos, atributos ARIA e navegação por teclado.
-- [ ] Preservar metadados, rotas, navegação e funcionalidades existentes.
+### 11.6 — Seção Habilidades
 
-### 🧑‍💻 Fase 8: Clean Code e TypeScript
+- [ ] Ajustar grids e disposição dos itens.
+- [ ] Conferir o alinhamento de ícones, nomes e descrições.
+- [ ] Validar quebras de linha.
+- [ ] Evitar sobreposições e cards excessivamente estreitos.
 
-- [ ] Padronizar nomes de arquivos, componentes, funções, constantes e propriedades.
-- [ ] Utilizar nomes que expressem claramente a responsabilidade de cada elemento.
-- [ ] Reduzir duplicações de código.
-- [ ] Evitar funções excessivamente longas e componentes com responsabilidades demais.
-- [ ] Revisar interfaces, tipos genéricos e propriedades dos componentes.
-- [ ] Evitar o uso desnecessário de `any` e coerções de tipos sem justificativa.
-- [ ] Revisar imports absolutos e relativos de acordo com a organização definida.
-- [ ] Manter consistência de formatação e estilo de código.
-- [ ] Remover comentários redundantes e preservar os que explicam decisões importantes.
-- [ ] Priorizar simplicidade, legibilidade, coesão e baixo acoplamento.
+### 11.7 — Seção Projetos
 
-### 🔌 Fase 9: APIs, Integrações e Configurações
+- [ ] Ajustar os grids e os cards.
+- [ ] Conferir imagens, descrições e links.
+- [ ] Validar botões e áreas clicáveis.
+- [ ] Verificar o comportamento em telas pequenas.
+- [ ] Garantir que títulos longos não quebrem o layout.
+
+### 11.8 — Seção Serviços
+
+- [ ] Ajustar a disposição dos cards.
+- [ ] Validar títulos e descrições.
+- [ ] Conferir os botões e as ações disponíveis.
+- [ ] Testar os diálogos de detalhes.
+- [ ] Garantir que os diálogos caibam na tela.
+
+### 11.9 — Seção Experiência profissional
+
+- [ ] Conferir o layout dos cards.
+- [ ] Ajustar datas, títulos e descrições.
+- [ ] Validar textos longos.
+- [ ] Testar os diálogos relacionados às experiências.
+
+### 11.10 — Seção Formação acadêmica
+
+- [ ] Conferir o layout dos cards de formação.
+- [ ] Validar nomes de cursos e instituições.
+- [ ] Conferir datas e descrições.
+- [ ] Testar os diálogos de formação acadêmica.
+- [ ] Garantir que a ordenação dos dados continue correta.
+
+### 11.11 — Seção Contato
+
+- [ ] Ajustar os campos do formulário.
+- [ ] Validar inputs e área de mensagem.
+- [ ] Conferir os botões de envio.
+- [ ] Testar mensagens de carregamento, sucesso e erro.
+- [ ] Verificar a usabilidade com o teclado virtual.
+- [ ] Garantir que o formulário não ultrapasse a largura da tela.
+
+### 11.12 — Footer e elementos compartilhados
+
+- [ ] Ajustar o layout do footer.
+- [ ] Conferir os links sociais.
+- [ ] Validar o botão flutuante do WhatsApp.
+- [ ] Conferir o alternador de tema.
+- [ ] Garantir que elementos fixos não cubram conteúdo importante.
+- [ ] Validar áreas de toque e espaçamento entre controles.
+- [ ] Verificar o comportamento em telas estreitas.
+
+### 11.13 — Acessibilidade e interação
+
+- [ ] Conferir a navegação por teclado.
+- [ ] Garantir foco visível nos controles interativos.
+- [ ] Verificar nomes acessíveis de botões e links.
+- [ ] Validar contraste de textos e componentes.
+- [ ] Testar zoom de 200%.
+- [ ] Conferir abertura, fechamento e rolagem dos diálogos.
+- [ ] Verificar o gerenciamento de foco nos diálogos.
+- [ ] Garantir retorno do foco ao elemento que abriu o diálogo.
+- [ ] Respeitar a preferência por redução de movimento quando aplicável.
+- [ ] Conferir as áreas de toque dos controles mobile.
+
+### 11.14 — Resoluções de teste
+
+**Mobile**
+
+- [ ] 320 × 568
+- [ ] 360 × 640
+- [ ] 375 × 667
+- [ ] 390 × 844
+- [ ] 414 × 896
+- [ ] 430 × 932
+
+**Tablet**
+
+- [ ] 768 × 1024
+- [ ] 820 × 1180
+- [ ] 1024 × 768
+
+**Desktop**
+
+- [ ] 1280 × 720
+- [ ] 1366 × 768
+- [ ] 1440 × 900
+- [ ] 1920 × 1080
+
+- [ ] Testar orientações retrato e paisagem.
+- [ ] Conferir os pontos de quebra entre mobile, tablet e desktop.
+- [ ] Garantir ausência de overflow horizontal.
+- [ ] Confirmar que as alterações mobile não prejudicaram o desktop.
+
+**Documento de apoio:** `docs/checklist-responsividade-mobile.md`
+
+**Documento complementar:** `docs/checklist-responsividade-desktop.md`
+
+**Critério de conclusão:** todas as resoluções relevantes devem ser verificadas; os problemas encontrados devem ser corrigidos e testados novamente.
+
+---
+
+## 🧹 Etapa 12 — Auditoria de arquitetura e Clean Code
+
+**Objetivo:** revisar a organização do projeto, reduzir duplicações e melhorar a manutenção sem alterar funcionalidades desnecessariamente.
+
+### 12.1 — Organização dos componentes
+
+- [ ] Revisar a separação entre páginas, seções, componentes e utilitários.
+- [ ] Conferir se os componentes têm responsabilidades claras.
+- [ ] Identificar componentes grandes que possam ser divididos.
+- [ ] Evitar fragmentação excessiva em componentes sem benefício real.
+- [ ] Verificar consistência na nomenclatura dos arquivos e componentes.
+- [ ] Conferir a organização dos diretórios.
+- [ ] Identificar duplicações de lógica e de apresentação.
+- [ ] Reutilizar componentes existentes quando fizer sentido.
+
+### 12.2 — Dados e configuração
+
+- [ ] Revisar `src/data/dadosCurriculo.ts`.
+- [ ] Revisar `src/data/dadosPortfolio.ts`.
+- [ ] Revisar `src/data/dadosServicos.ts`.
+- [ ] Conferir `src/config/loading.ts`.
+- [ ] Revisar a separação entre dados, configuração e apresentação.
+- [ ] Eliminar duplicações desnecessárias.
+- [ ] Conferir a consistência dos tipos TypeScript.
+- [ ] Evitar valores fixos espalhados quando uma configuração centralizada for apropriada.
+
+### 12.3 — Componentes compartilhados e interface
+
+- [ ] Revisar os componentes em `src/components/common/`.
+- [ ] Revisar os componentes em `src/components/ui/`.
+- [ ] Conferir os componentes de layout e footer.
+- [ ] Verificar se os componentes de carregamento apresentam estados consistentes.
+- [ ] Validar os estados de carregamento, sucesso e erro.
+- [ ] Conferir se propriedades e interfaces são claras.
+- [ ] Remover abstrações desnecessárias.
+- [ ] Revisar a semântica HTML.
+- [ ] Conferir nomes acessíveis e atributos ARIA quando necessários.
+
+### 12.4 — Next.js, React e TypeScript
+
+- [ ] Conferir a estrutura de App Router.
+- [ ] Validar os caminhos de importação.
+- [ ] Revisar o uso de componentes de servidor e de cliente.
+- [ ] Verificar o uso de `'use client'` nos componentes que realmente precisam dele.
+- [ ] Revisar hooks, efeitos e dependências.
+- [ ] Conferir tipagem de props e dados.
+- [ ] Evitar o uso desnecessário de `any`.
+- [ ] Identificar imports, variáveis e componentes não utilizados.
+- [ ] Remover código morto após confirmar que não é necessário.
+- [ ] Conferir a utilização adequada de recursos do Next.js.
+
+### 12.5 — APIs e integrações
 
 - [ ] Revisar `src/app/api/contact/route.ts`.
 - [ ] Revisar `src/app/api/health/contact/route.ts`.
-- [ ] Revisar `src/lib/alerts/email.ts`.
-- [ ] Verificar tratamento de erros e respostas das APIs.
-- [ ] Verificar validação dos dados recebidos e proteção contra entradas inválidas.
-- [ ] Confirmar que segredos e credenciais não estejam expostos no código do cliente.
-- [ ] Revisar as dependências e os aliases configurados em `tsconfig.json`.
-- [ ] Verificar se as dependências declaradas no `package.json` são utilizadas.
-- [ ] Não remover dependências antes de verificar seus usos, scripts e integrações.
+- [ ] Conferir validação dos dados recebidos.
+- [ ] Validar tratamento de erros.
+- [ ] Verificar códigos HTTP e respostas das rotas.
+- [ ] Conferir a configuração do envio de e-mail em `src/lib/alerts/email.ts`.
+- [ ] Garantir que segredos não estejam expostos no código do frontend.
+- [ ] Revisar a utilização de variáveis de ambiente.
+- [ ] Conferir CORS e proteções aplicáveis aos endpoints.
+- [ ] Testar o comportamento quando um serviço externo falhar.
 
-### 🧪 Fase 10: Validação e Testes
+### 12.6 — Acessibilidade e qualidade
 
-- [ ] Executar `npm run lint` antes das alterações.
-- [ ] Executar `npm run build` antes das alterações.
-- [ ] Registrar os erros e avisos preexistentes.
-- [ ] Realizar as refatorações em grupos pequenos e controlados.
-- [ ] Atualizar todos os imports após movimentações de arquivos.
-- [ ] Executar `npm run lint` após cada grupo de alterações.
-- [ ] Executar `npm run build` após cada etapa relevante.
-- [ ] Corrigir erros de TypeScript, ESLint e build introduzidos pelas alterações.
-- [ ] Testar o carregamento inicial, a navegação e a responsividade.
-- [ ] Testar todos os diálogos, botões, formulários e chamadas para ação.
-- [ ] Confirmar que as funcionalidades e o design continuam funcionando.
-- [ ] Revisar o diff do Git antes de concluir cada grupo de alterações.
-- [ ] Registrar o resultado final da auditoria e as decisões arquiteturais adotadas.
+- [ ] Revisar a semântica dos elementos HTML.
+- [ ] Conferir a hierarquia de títulos.
+- [ ] Validar rótulos dos campos de formulário.
+- [ ] Revisar acessibilidade de diálogos e menus.
+- [ ] Conferir o contraste dos temas.
+- [ ] Verificar mensagens de erro compreensíveis.
+- [ ] Garantir que estados relevantes não sejam comunicados apenas por cor.
+- [ ] Conferir preferência por redução de movimento.
+- [ ] Validar foco visível e ordem de navegação.
+
+### 12.7 — Documentação
+
+- [ ] Conferir se os caminhos citados na documentação existem.
+- [ ] Atualizar instruções que não correspondam mais ao código.
+- [ ] Revisar `TODO.md`.
+- [ ] Revisar `docs/checklist-responsividade-mobile.md`.
+- [ ] Revisar `docs/checklist-responsividade-desktop.md`.
+- [ ] Manter `docs/checklist-backend-java.md` como roteiro independente para a futura implementação do backend.
+- [ ] Registrar decisões técnicas relevantes.
+- [ ] Evitar marcar tarefas como concluídas sem verificação real.
+
+**Critério de conclusão:** código organizado, tipado, sem duplicações desnecessárias e com documentação coerente com a implementação atual.
 
 ---
 
-**## 📌 Resumo do Progresso — Auditoria e Refatoração**
+## 🧪 Etapa 13 — Qualidade, testes e validação final
 
-- [ ] Fase 001 — Auditoria da Estrutura de Pastas
-- [ ] Fase 002 — Auditoria da Seção Hero
-- [ ] Fase 003 — Componentes Compartilhados e Design System
-- [ ] Fase 004 — Padronização dos Componentes de Carregamento
-- [ ] Fase 005 — Organização das Regras de Negócio e dos Dados
-- [ ] Fase 006 — Remoção de Código Não Utilizado
-- [ ] Fase 007 — Arquitetura Next.js e React
-- [ ] Fase 008 — Clean Code e TypeScript
-- [ ] Fase 009 — APIs, Integrações e Configurações
-- [ ] Fase 010 — Validação e Testes
+**Objetivo:** confirmar que o projeto funciona corretamente após as alterações de responsividade e arquitetura.
 
-**Regra de execução:** concluir e validar uma fase antes de avançar para a próxima. Antes de mover, excluir ou renomear arquivos, verificar seus usos e dependências. Manter o histórico de alterações no Git e atualizar este checklist conforme o progresso real.
+### 13.1 — Lint e TypeScript
+
+- [ ] Executar `npm run lint`.
+- [ ] Corrigir os erros identificados.
+- [ ] Revisar avisos relevantes.
+- [ ] Executar `npx tsc --noEmit`.
+- [ ] Corrigir erros de tipagem.
+- [ ] Repetir as verificações após as correções.
+- [ ] Registrar os resultados reais.
+
+### 13.2 — Build de produção
+
+- [ ] Executar `npm run build`.
+- [ ] Corrigir erros de compilação.
+- [ ] Conferir avisos relevantes do Next.js.
+- [ ] Reexecutar o build após as correções.
+- [ ] Registrar o resultado final.
+
+### 13.3 — Testes funcionais
+
+- [ ] Validar a navegação desktop.
+- [ ] Validar o menu mobile.
+- [ ] Testar o alternador de tema.
+- [ ] Testar os botões e links da seção Hero.
+- [ ] Testar a abertura e o fechamento dos diálogos.
+- [ ] Validar links sociais.
+- [ ] Testar o botão flutuante do WhatsApp.
+- [ ] Validar o formulário de contato.
+- [ ] Verificar estados de carregamento, sucesso e erro.
+- [ ] Testar os endpoints de contato e health check.
+- [ ] Conferir o console do navegador.
+
+### 13.4 — Testes de responsividade
+
+- [ ] Executar o checklist mobile.
+- [ ] Executar o checklist desktop.
+- [ ] Validar as resoluções prioritárias.
+- [ ] Testar orientação retrato e paisagem.
+- [ ] Conferir ausência de overflow horizontal.
+- [ ] Verificar se nenhuma seção ficou quebrada.
+- [ ] Confirmar que o desktop continua funcionando.
+- [ ] Registrar as resoluções efetivamente testadas.
+
+### 13.5 — Revisão final do código
+
+- [ ] Revisar `git status`.
+- [ ] Revisar `git diff`.
+- [ ] Conferir se não há arquivos temporários desnecessários.
+- [ ] Verificar se não há segredos ou credenciais no diff.
+- [ ] Conferir se as mudanças estão relacionadas ao objetivo da branch.
+- [ ] Verificar se a documentação acompanha as alterações.
+- [ ] Garantir que nenhum item foi marcado como concluído sem validação.
+
+### 13.6 — Registro dos resultados
+
+**Data da validação:** preencher após executar os testes.
+
+| Verificação | Resultado |
+|---|---|
+| `npm run lint` | Pendente |
+| `npx tsc --noEmit` | Pendente |
+| `npm run build` | Pendente |
+| Testes funcionais | Pendente |
+| Checklist mobile | Pendente |
+| Checklist desktop | Pendente |
+| Revisão do `git diff` | Pendente |
+
+**Critério de conclusão:** todas as verificações devem ter sido executadas, os erros relevantes corrigidos e os resultados registrados. Atualize a tabela com os resultados reais, sem presumir sucesso.
+
+---
+
+## ☕ Etapa futura — Backend Java com Spring Boot
+
+O backend Java será planejado e acompanhado separadamente, depois da estabilização do frontend.
+
+**Documento de referência:** `docs/checklist-backend-java.md`
+
+- [ ] Revisar os pré-requisitos de Java e Maven.
+- [ ] Estudar os fundamentos de Java e orientação a objetos.
+- [ ] Preparar o ambiente com JDK, Maven e PostgreSQL.
+- [ ] Criar a aplicação Spring Boot.
+- [ ] Definir a arquitetura da API.
+- [ ] Implementar persistência com PostgreSQL e JPA/Hibernate.
+- [ ] Planejar os recursos de projetos, serviços, experiências, formação, habilidades e perfil.
+- [ ] Implementar validação e tratamento de erros.
+- [ ] Planejar autenticação e autorização.
+- [ ] Integrar a API ao frontend Next.js.
+- [ ] Implementar testes automatizados.
+- [ ] Preparar documentação e estratégia de implantação.
+
+**Observação:** seguir a sequência detalhada em `docs/checklist-backend-java.md`. Os itens desta seção não significam que o backend já foi implementado.
+
+---
+
+## ✅ Critério geral de conclusão
+
+O projeto estará pronto para a próxima fase quando:
+
+- [ ] A responsividade mobile, tablet e desktop estiver validada.
+- [ ] A navegação e os componentes interativos estiverem funcionando.
+- [ ] A auditoria de arquitetura estiver concluída.
+- [ ] O lint estiver validado.
+- [ ] O TypeScript estiver validado.
+- [ ] O build de produção estiver validado.
+- [ ] Os fluxos de contato estiverem testados.
+- [ ] A documentação estiver atualizada.
+- [ ] O `git diff` tiver sido revisado.
+- [ ] Os resultados dos testes estiverem registrados.
+
+## 📊 Resumo do progresso
+
+| Etapa | Descrição | Status |
+|---|---|---|
+| 1 | Estrutura inicial e configuração | Concluída |
+| 2 | Identidade visual e estilos globais | Concluída |
+| 3 | Layout e navegação | Implementação concluída |
+| 4 | Seção Hero | Implementação concluída |
+| 5 | Seção Sobre | Implementação concluída |
+| 6 | Formação acadêmica | Implementação concluída |
+| 7 | Habilidades | Implementação concluída |
+| 8 | Projetos | Implementação concluída |
+| 9 | Experiência e serviços | Implementação concluída |
+| 10 | Contato e APIs | Implementação concluída |
+| 11 | Responsividade mobile, tablet e desktop | Pendente de validação |
+| 12 | Auditoria de arquitetura e Clean Code | Pendente |
+| 13 | Testes e validação final | Pendente |
+| Futura | Backend Java com Spring Boot | Planejamento separado |
+
+**Próxima prioridade:** concluir a Etapa 11, depois executar a auditoria da Etapa 12 e finalizar a validação da Etapa 13.
+
+**Regra de manutenção:** atualizar este arquivo conforme o trabalho real for concluído, preservando o histórico e sem marcar testes como aprovados antes de executá-los.
