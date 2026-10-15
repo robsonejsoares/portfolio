@@ -1,7 +1,7 @@
 "use client";
 
-import { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { useCallback, useMemo, useState } from "react";
+import { AnimatePresence, motion } from "framer-motion";
 import {
     LayoutGrid,
     Monitor,
@@ -10,6 +10,11 @@ import {
     Server,
     Palette,
 } from "lucide-react";
+
+import { dadosPortfolio } from "@/data/dadosPortfolio";
+import type { Project } from "@/data/dadosPortfolio";
+import { CardProjetos } from "./components/CardProjetos";
+import { DialogProjetos } from "./dialogs/DialogProjetos";
 
 const categories = [
     {
@@ -25,25 +30,25 @@ const categories = [
         iconColor: "text-blue-400",
     },
     {
-        id: "mobile",
+        id: "Mobile",
         label: "Mobile",
         icon: Smartphone,
         iconColor: "text-violet-400",
     },
     {
-        id: "automacao",
+        id: "Automação",
         label: "Automação",
         icon: Workflow,
         iconColor: "text-amber-400",
     },
     {
-        id: "devops",
+        id: "DevOps",
         label: "DevOps",
         icon: Server,
         iconColor: "text-cyan-400",
     },
     {
-        id: "ui-ux",
+        id: "UI/UX Designer",
         label: "UI/UX Designer",
         icon: Palette,
         iconColor: "text-pink-400",
@@ -52,15 +57,33 @@ const categories = [
 
 export function SectionProjetos() {
     const [selectedCategory, setSelectedCategory] = useState("all");
+    const [selectedProject, setSelectedProject] = useState<Project | null>(
+        null,
+    );
 
     const selectedCategoryData =
-        categories.find(
-            (category) => category.id === selectedCategory,
-        ) ?? categories[0];
+        categories.find((category) => category.id === selectedCategory) ??
+        categories[0];
 
     const selectedCategoryLabel = selectedCategoryData.label;
     const SelectedIcon = selectedCategoryData.icon;
     const selectedIconColor = selectedCategoryData.iconColor;
+
+    const projects = dadosPortfolio.projects;
+
+    const filteredProjects = useMemo(() => {
+        if (selectedCategory === "all") {
+            return projects;
+        }
+
+        return projects.filter(
+            (project) => project.category === selectedCategory,
+        );
+    }, [projects, selectedCategory]);
+
+    const closeDialog = useCallback(() => {
+        setSelectedProject(null);
+    }, []);
 
     return (
         <section
@@ -103,8 +126,8 @@ export function SectionProjetos() {
                                 whileTap={{ scale: 0.97 }}
                                 aria-pressed={isActive}
                                 className={`relative flex shrink-0 cursor-pointer select-none items-center justify-center gap-1.5 whitespace-nowrap rounded-md px-3 py-1.5 font-sans text-xs font-medium transition-colors duration-200 ${isActive
-                                    ? "font-semibold text-slate-300"
-                                    : "text-slate-500 hover:text-slate-300"
+                                        ? "font-semibold text-slate-300"
+                                        : "text-slate-500 hover:text-slate-300"
                                     }`}
                             >
                                 {isActive && (
@@ -122,9 +145,10 @@ export function SectionProjetos() {
                                 <span className="relative z-10 flex items-center gap-1.5">
                                     <Icon
                                         className={`h-3.5 w-3.5 shrink-0 transition-colors duration-200 ${isActive
-                                            ? category.iconColor
-                                            : "text-slate-500"
+                                                ? category.iconColor
+                                                : "text-slate-500"
                                             }`}
+                                        aria-hidden="true"
                                     />
 
                                     <span>{category.label}</span>
@@ -134,7 +158,7 @@ export function SectionProjetos() {
                     })}
                 </div>
 
-                {/* Aviso sem card externo */}
+                {/* Cards dos projetos */}
                 <AnimatePresence mode="wait">
                     <motion.div
                         key={selectedCategory}
@@ -145,27 +169,48 @@ export function SectionProjetos() {
                             duration: 0.25,
                             ease: "easeOut",
                         }}
-                        className="flex min-h-[320px] w-full flex-col items-center justify-center px-4 py-12 text-center"
                     >
-                        {/* Ícone colorido conforme a categoria selecionada */}
-                        <div className="mb-4 flex h-14 w-14 items-center justify-center rounded-xl border border-white/10 bg-slate-900/80">
-                            <SelectedIcon
-                                className={`h-6 w-6 ${selectedIconColor}`}
-                                strokeWidth={1.8}
-                                aria-hidden="true"
-                            />
-                        </div>
+                        {filteredProjects.length > 0 ? (
+                            <div className="grid min-w-0 grid-cols-1 gap-4 sm:grid-cols-2 xl:grid-cols-3">
+                                {filteredProjects.map((projeto, index) => (
+                                    <CardProjetos
+                                        key={projeto.id}
+                                        projeto={projeto}
+                                        index={index}
+                                        onView={setSelectedProject}
+                                    />
+                                ))}
+                            </div>
+                        ) : (
+                            <div className="flex min-h-[280px] w-full flex-col items-center justify-center px-4 py-12 text-center">
+                                <div className="mb-4 flex h-14 w-14 items-center justify-center rounded-xl border border-white/10 bg-slate-900/80">
+                                    <SelectedIcon
+                                        className={`h-6 w-6 ${selectedIconColor}`}
+                                        strokeWidth={1.8}
+                                        aria-hidden="true"
+                                    />
+                                </div>
 
-                        <p className="max-w-sm text-sm leading-relaxed text-slate-500">
-                            Ainda não há projetos cadastrados em{" "}
-                            <span className="font-medium text-slate-400">
-                                {selectedCategoryLabel}
-                            </span>
-                            . Volte em breve para conferir as novidades!
-                        </p>
+                                <p className="max-w-sm text-sm leading-relaxed text-slate-500">
+                                    Ainda não há projetos cadastrados em{" "}
+                                    <span className="font-medium text-slate-400">
+                                        {selectedCategoryLabel}
+                                    </span>
+                                    . Volte em breve para conferir as novidades!
+                                </p>
+                            </div>
+                        )}
                     </motion.div>
                 </AnimatePresence>
             </div>
+
+            {/* Diálogo de detalhes */}
+            <DialogProjetos
+                projeto={selectedProject}
+                isOpen={selectedProject !== null}
+                onClose={closeDialog}
+            />
         </section>
     );
+
 }
