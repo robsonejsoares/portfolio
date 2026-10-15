@@ -16,7 +16,7 @@ export function HeaderHabilidades() {
                 </h2>
 
                 <p className="font-mono text-xs tracking-wide text-slate-400">
-                    Tecnologias e ferramentas que utilizo para desenvolver soluções.
+                    Ecossistema usado para construir aplicações.
                 </p>
             </motion.div>
         </header>
