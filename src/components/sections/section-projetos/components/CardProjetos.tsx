@@ -162,7 +162,7 @@ export function CardProjetos({
                                 role="tooltip"
                                 className="pointer-events-none absolute bottom-full right-0 z-20 mb-1.5 w-max max-w-52 rounded-md border border-white/10 bg-slate-800 px-2.5 py-1.5 text-center font-mono text-[10px] text-white opacity-0 shadow-lg transition-opacity duration-200 group-hover/tooltip:opacity-100 group-focus-within/tooltip:opacity-100"
                             >
-                                Abrir site completo em uma nova guia
+                                Abrir página do projeto
                             </span>
                         </div>
                     )}

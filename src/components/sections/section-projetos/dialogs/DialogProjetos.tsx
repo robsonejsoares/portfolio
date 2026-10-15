@@ -3,7 +3,7 @@
 import { useEffect } from "react";
 import { createPortal } from "react-dom";
 import { AnimatePresence, motion } from "framer-motion";
-import { ExternalLink, Globe, Layers3 } from "lucide-react";
+import { ExternalLink, Globe, GitBranch } from "lucide-react";
 import { ButtonFechar } from "@/components/ui/ButtonFechar";
 import type { Project } from "@/data/dadosPortfolio";
 
@@ -19,6 +19,18 @@ export function DialogProjetos({
     onClose,
 }: DialogProjetosProps) {
     const concluido = projeto?.status === "Concluído";
+
+    const statusStyles = concluido
+        ? {
+            badge: "border-emerald-500/20 bg-emerald-500/[0.05]",
+            dot: "bg-emerald-400",
+            text: "text-emerald-400",
+        }
+        : {
+            badge: "border-red-500/20 bg-red-500/[0.05]",
+            dot: "bg-red-400",
+            text: "text-red-400",
+        };
 
     useEffect(() => {
         if (!isOpen) return;
@@ -73,58 +85,59 @@ export function DialogProjetos({
                         exit={{ opacity: 0, y: 12, scale: 0.98 }}
                         transition={{ duration: 0.2 }}
                     >
-                        {/* Cabeçalho fixo */}
+                        {/* Cabeçalho do projeto */}
                         <header className="flex shrink-0 items-center justify-between gap-3 border-b border-white/10 px-4 py-3 sm:px-6">
-                            <div className="flex min-w-0 items-center gap-3">
-                                <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg border border-cyan-400/20 bg-cyan-400/10">
-                                    <Layers3
-                                        className="h-4 w-4 text-cyan-300"
+                            <div className="flex min-w-0 items-center gap-2">
+                                {projeto.liveUrl && (
+                                    <Globe
+                                        className="h-4 w-4 shrink-0 text-emerald-400"
                                         aria-hidden="true"
                                     />
-                                </div>
+                                )}
 
-                                <div className="min-w-0">
-                                    {/* Categoria e situação */}
-                                    <div className="flex flex-wrap items-center gap-2">
-                                        <p className="font-mono text-[10px] uppercase tracking-wider text-slate-500">
-                                            {projeto.category}
-                                        </p>
-
-                                        <span
-                                            className={`inline-flex shrink-0 items-center gap-1.5 rounded-full border px-2 py-0.5 text-[10px] ${concluido
-                                                    ? "border-emerald-500/30 bg-emerald-500/10 text-emerald-300"
-                                                    : "border-red-500/30 bg-red-500/10 text-red-300"
-                                                }`}
-                                        >
-                                            <span className="relative flex h-1.5 w-1.5 shrink-0">
-                                                <span
-                                                    className={`absolute inline-flex h-full w-full animate-ping rounded-full opacity-75 ${concluido
-                                                            ? "bg-emerald-400"
-                                                            : "bg-red-400"
-                                                        }`}
-                                                />
-                                                <span
-                                                    className={`relative inline-flex h-1.5 w-1.5 rounded-full ${concluido
-                                                            ? "bg-emerald-400"
-                                                            : "bg-red-400"
-                                                        }`}
-                                                />
-                                            </span>
-
-                                            {projeto.status}
-                                        </span>
-                                    </div>
-
-                                    <h2
-                                        id="dialog-projeto-titulo"
-                                        className="truncate text-sm font-semibold text-slate-100 sm:text-base"
-                                    >
-                                        {projeto.title}
-                                    </h2>
-                                </div>
+                                <h2
+                                    id="dialog-projeto-titulo"
+                                    className="min-w-0 truncate text-sm font-semibold text-slate-100 sm:text-base"
+                                >
+                                    {projeto.title}
+                                </h2>
                             </div>
 
-                            <ButtonFechar onClick={onClose} />
+                            {/* Botão de acesso e botão fechar */}
+                            <div className="flex shrink-0 items-center gap-2">
+                                {projeto.liveUrl && (
+                                    <a
+                                        href={projeto.liveUrl}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        aria-label={`Abrir ${projeto.title} em uma nova aba`}
+                                        className="group/button relative inline-flex min-h-8 cursor-pointer items-center justify-center gap-1.5 overflow-hidden rounded-md bg-gradient-to-r from-cyan-400 via-sky-400 to-blue-500 px-2.5 py-1.5 text-[10px] font-semibold text-slate-950 transition-all duration-200 hover:brightness-110 active:scale-[0.98] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cyan-400 sm:px-3 sm:text-xs"
+                                    >
+                                        {/* Efeito de brilho */}
+                                        <span
+                                            aria-hidden="true"
+                                            className="pointer-events-none absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/35 to-transparent transition-transform duration-500 group-hover/button:translate-x-full"
+                                        />
+
+                                        <span className="relative z-10 inline-flex items-center gap-1.5">
+                                            <span className="hidden sm:inline">
+                                                Abrir em nova aba
+                                            </span>
+
+                                            <span className="sm:hidden">
+                                                Abrir site
+                                            </span>
+
+                                            <ExternalLink
+                                                className="h-3.5 w-3.5"
+                                                aria-hidden="true"
+                                            />
+                                        </span>
+                                    </a>
+                                )}
+
+                                <ButtonFechar onClick={onClose} />
+                            </div>
                         </header>
 
                         {/* Conteúdo rolável */}
@@ -132,29 +145,6 @@ export function DialogProjetos({
                             {/* Site publicado */}
                             {projeto.liveUrl && (
                                 <div className="border-b border-white/10 bg-slate-950/40">
-                                    <div className="flex flex-wrap items-center justify-between gap-3 px-4 py-3 sm:px-6">
-                                        <div className="flex items-center gap-2 text-xs text-slate-400">
-                                            <Globe
-                                                className="h-4 w-4 text-emerald-400"
-                                                aria-hidden="true"
-                                            />
-                                            <span>Versão publicada</span>
-                                        </div>
-
-                                        <a
-                                            href={projeto.liveUrl}
-                                            target="_blank"
-                                            rel="noopener noreferrer"
-                                            className="inline-flex items-center gap-2 rounded-md border border-cyan-400/20 bg-cyan-400/10 px-3 py-2 text-xs font-medium text-cyan-300 transition-colors hover:bg-cyan-400/20"
-                                        >
-                                            Abrir em nova aba
-                                            <ExternalLink
-                                                className="h-3.5 w-3.5"
-                                                aria-hidden="true"
-                                            />
-                                        </a>
-                                    </div>
-
                                     <div className="relative h-[45dvh] min-h-[260px] max-h-[520px] w-full bg-slate-950 sm:h-[55dvh]">
                                         <iframe
                                             src={projeto.liveUrl}
@@ -165,27 +155,41 @@ export function DialogProjetos({
                                             allow="fullscreen"
                                         />
                                     </div>
-
-                                    <p className="px-4 py-2 text-[11px] leading-relaxed text-slate-500 sm:px-6">
-                                        Se o site não aparecer aqui, ele pode
-                                        bloquear a exibição em iframe. Use
-                                        “Abrir em nova aba” para acessá-lo.
-                                    </p>
                                 </div>
                             )}
 
                             {/* Descrição e tecnologias */}
                             <div className="space-y-6 p-4 sm:p-6">
+                                {/* Sobre o projeto e status */}
                                 <section>
-                                    <h3 className="mb-2 text-sm font-semibold text-slate-200">
-                                        Sobre o projeto
-                                    </h3>
+                                    <div className="mb-2 flex items-center justify-between gap-3">
+                                        <h3 className="text-sm font-semibold text-slate-200">
+                                            Sobre o projeto
+                                        </h3>
+
+                                        {/* Status com o mesmo padrão visual do card */}
+                                        <div
+                                            className={`inline-flex shrink-0 items-center gap-1.5 rounded-full border px-2 py-[3px] ${statusStyles.badge}`}
+                                        >
+                                            <span
+                                                aria-hidden="true"
+                                                className={`size-1.5 shrink-0 rounded-full ${statusStyles.dot}`}
+                                            />
+
+                                            <span
+                                                className={`whitespace-nowrap font-mono text-[10px] leading-tight ${statusStyles.text}`}
+                                            >
+                                                {projeto.status}
+                                            </span>
+                                        </div>
+                                    </div>
 
                                     <p className="text-sm leading-relaxed text-slate-400">
                                         {projeto.fullDescription}
                                     </p>
                                 </section>
 
+                                {/* Principais destaques */}
                                 {projeto.highlights &&
                                     projeto.highlights.length > 0 && (
                                         <section>
@@ -200,7 +204,11 @@ export function DialogProjetos({
                                                             key={destaque}
                                                             className="flex items-start gap-2 text-sm leading-relaxed text-slate-400"
                                                         >
-                                                            <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-cyan-400" />
+                                                            <span
+                                                                className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-cyan-400"
+                                                                aria-hidden="true"
+                                                            />
+
                                                             {destaque}
                                                         </li>
                                                     ),
@@ -209,6 +217,7 @@ export function DialogProjetos({
                                         </section>
                                     )}
 
+                                {/* Tecnologias utilizadas */}
                                 <section>
                                     <h3 className="mb-3 text-sm font-semibold text-slate-200">
                                         Tecnologias utilizadas
@@ -228,18 +237,21 @@ export function DialogProjetos({
                                     </div>
                                 </section>
 
+                                {/* Link para o código-fonte */}
                                 {projeto.githubUrl && (
                                     <a
                                         href={projeto.githubUrl}
                                         target="_blank"
                                         rel="noopener noreferrer"
-                                        className="inline-flex items-center gap-2 rounded-md border border-white/10 px-4 py-2.5 text-sm text-slate-300 transition-colors hover:border-white/20 hover:bg-white/5"
+                                        className="inline-flex items-center gap-2 rounded-md border border-white/10 px-4 py-2.5 text-sm text-slate-300 transition-colors hover:border-white/20 hover:bg-white/5 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cyan-400"
                                     >
-                                        <Github
+                                        <GitBranch
                                             className="h-4 w-4"
                                             aria-hidden="true"
                                         />
+
                                         Ver código-fonte
+
                                         <ExternalLink
                                             className="h-3.5 w-3.5"
                                             aria-hidden="true"
@@ -254,5 +266,4 @@ export function DialogProjetos({
         </AnimatePresence>,
         document.body,
     );
-
 }
