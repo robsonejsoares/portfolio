@@ -1,4 +1,3 @@
-
 "use client";
 
 import { useEffect } from "react";
@@ -46,7 +45,7 @@ export function DialogServicos({
     return createPortal(
         <AnimatePresence>
             {isOpen && (
-                <div className="fixed inset-0 z-[9999] flex items-center justify-center overflow-y-auto p-3 sm:p-6">
+                <div className="fixed inset-0 z-[9999] flex items-center justify-center overflow-y-auto overscroll-contain p-3 sm:p-6">
                     {/* Fundo da tela */}
                     <motion.button
                         type="button"
@@ -58,7 +57,7 @@ export function DialogServicos({
                         className="absolute inset-0 h-full w-full cursor-default bg-black/70 backdrop-blur-sm"
                     />
 
-                    {/* Janela com altura dinâmica */}
+                    {/* Janela responsiva */}
                     <motion.div
                         role="dialog"
                         aria-modal="true"
@@ -79,27 +78,27 @@ export function DialogServicos({
                             y: 16,
                         }}
                         transition={{ duration: 0.2 }}
-                        className="relative z-10 my-auto flex max-h-[85dvh] w-full max-w-4xl shrink-0 flex-col overflow-hidden rounded-md border border-white/5 bg-slate-900 shadow-2xl shadow-black/30"
+                        className="relative z-10 my-auto flex max-h-[calc(100dvh-1.5rem)] w-full min-w-0 max-w-4xl shrink-0 flex-col overflow-hidden rounded-md border border-white/5 bg-slate-900 shadow-2xl shadow-black/30 sm:max-h-[85dvh]"
                     >
                         {/* Cabeçalho fixo */}
-                        <header className="flex shrink-0 items-center justify-between gap-4 border-b border-white/5 bg-slate-800/50 p-4 sm:p-5">
-                            <div className="flex min-w-0 items-center gap-3">
-                                <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-md border border-sky-400/15 bg-sky-400/5 text-sky-300">
+                        <header className="flex shrink-0 items-center justify-between gap-2 border-b border-white/5 bg-slate-800/50 p-3 sm:gap-4 sm:p-5">
+                            <div className="flex min-w-0 flex-1 items-center gap-2 sm:gap-3">
+                                <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-md border border-sky-400/15 bg-sky-400/5 text-sky-300 sm:h-10 sm:w-10">
                                     <Layers3
                                         size={20}
                                         aria-hidden="true"
                                     />
                                 </div>
 
-                                <div className="min-w-0">
+                                <div className="min-w-0 flex-1">
                                     <h2
                                         id="dialog-servicos-titulo"
-                                        className="text-base font-semibold leading-6 text-slate-300 sm:text-lg"
+                                        className="break-words text-sm font-semibold leading-5 text-slate-300 sm:text-lg sm:leading-6"
                                     >
                                         Todos os serviços
                                     </h2>
 
-                                    <p className="mt-0.5 font-mono text-[13px] text-slate-400">
+                                    <p className="mt-0.5 break-words font-mono text-xs text-slate-400 sm:text-[13px]">
                                         {dadosServicos.length}{" "}
                                         {dadosServicos.length === 1
                                             ? "serviço disponível"
@@ -108,12 +107,14 @@ export function DialogServicos({
                                 </div>
                             </div>
 
-                            <ButtonFechar onClick={onClose} />
+                            <div className="shrink-0">
+                                <ButtonFechar onClick={onClose} />
+                            </div>
                         </header>
 
-                        {/* Conteúdo: cresce até o limite e depois rola */}
-                        <div className="min-h-0 overflow-y-auto overscroll-contain p-4 sm:p-6">
-                            <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
+                        {/* Conteúdo com rolagem interna */}
+                        <div className="min-h-0 overflow-x-hidden overflow-y-auto overscroll-contain p-3 sm:p-6">
+                            <div className="grid min-w-0 grid-cols-1 gap-3 sm:grid-cols-2 sm:gap-4 lg:grid-cols-3">
                                 {dadosServicos.map((servico, indice) => (
                                     <CardServico
                                         key={servico.titulo}
