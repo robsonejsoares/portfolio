@@ -75,18 +75,19 @@ export function FeedbackContato({
                         duration: 0.15,
                         ease: "easeOut",
                     }}
-                    className="flex max-w-full items-start gap-2 text-xs"
+                    className="flex w-full min-w-0 max-w-full items-start gap-2 text-xs"
                 >
                     <Icone
                         size={14}
                         strokeWidth={1.7}
-                        className={`mt-0.5 shrink-0 ${estilo.cor} ${tipo === "processando" ? "animate-spin" : ""
-                            }`}
+                        className={`mt-0.5 h-3.5 w-3.5 shrink-0 ${estilo.cor} ${
+                            tipo === "processando" ? "animate-spin" : ""
+                        }`}
                         aria-hidden="true"
                     />
 
                     <p
-                        className={`min-w-0 break-words leading-5 ${estilo.cor}`}
+                        className={`min-w-0 flex-1 break-words [overflow-wrap:anywhere] leading-5 ${estilo.cor}`}
                     >
                         {mensagem}
                     </p>
@@ -94,5 +95,4 @@ export function FeedbackContato({
             )}
         </AnimatePresence>
     );
-
 }
