@@ -19,15 +19,15 @@ export function CardProjetos({
 
     const statusStyles = concluido
         ? {
-              badge: "border-emerald-500/20 bg-emerald-500/[0.05]",
-              dot: "bg-emerald-400",
-              text: "text-emerald-400",
-          }
+            badge: "border-emerald-500/20 bg-emerald-500/[0.05]",
+            dot: "bg-emerald-400",
+            text: "text-emerald-400",
+        }
         : {
-              badge: "border-red-500/20 bg-red-500/[0.05]",
-              dot: "bg-red-400",
-              text: "text-red-400",
-          };
+            badge: "border-red-500/20 bg-red-500/[0.05]",
+            dot: "bg-red-400",
+            text: "text-red-400",
+        };
 
     return (
         <motion.article
@@ -42,7 +42,7 @@ export function CardProjetos({
             whileHover={{ y: -2 }}
             className="group flex min-w-0 flex-col overflow-hidden rounded-xl transition-shadow duration-300 hover:shadow-md hover:shadow-cyan-950/10"
         >
-            {/* Imagem do projeto com fundo branco */}
+            {/* Imagem do projeto */}
             <div className="relative flex aspect-[16/9] w-full items-center justify-center overflow-hidden rounded-t-xl border-b border-slate-200 bg-white p-6">
                 {projeto.image ? (
                     <img
@@ -83,7 +83,7 @@ export function CardProjetos({
             <div className="glass-card flex flex-1 flex-col rounded-b-xl p-2.5 transition-all duration-300 hover:border-white/20">
                 {/* Título e status */}
                 <div className="mb-2 flex min-w-0 items-center justify-between gap-2 border-b border-white/[0.07] pb-2">
-                    <h3 className="min-w-0 truncate text-[13px] font-semibold tracking-tight text-[#A8B3C7] transition-colors duration-200 group-hover:text-cyan-300">
+                    <h3 className="min-w-0 truncate text-[13px] font-semibold tracking-tight text-[#A8B3C7]">
                         {projeto.title}
                     </h3>
 
@@ -170,4 +170,5 @@ export function CardProjetos({
             </div>
         </motion.article>
     );
+
 }
