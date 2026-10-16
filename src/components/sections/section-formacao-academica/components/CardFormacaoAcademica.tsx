@@ -1,4 +1,4 @@
-
+﻿
 "use client";
 
 import { motion } from "framer-motion";
@@ -10,15 +10,15 @@ interface Formacao {
     date?: string;
 }
 
-interface CardFormacaoProps {
+interface CardCardFormacaoAcademicaProps {
     formacao: Formacao;
     indice: number;
 }
 
-export function CardFormacao({
+export function CardFormacaoAcademica({
     formacao,
     indice,
-}: CardFormacaoProps) {
+}: CardCardFormacaoAcademicaProps) {
     const concluida = formacao.status.toLowerCase().includes("conclu");
 
     const statusCompleto = formacao.date
@@ -70,3 +70,5 @@ export function CardFormacao({
         </motion.article>
     );
 }
+
+

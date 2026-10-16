@@ -8,7 +8,7 @@ import { dadosCurriculo } from "@/data/dadosCurriculo";
 import { ordenarFormacoes } from "@/utils/ordenarFormacoes";
 import { LoadingDialog } from "@/components/common/LoadingDialog";
 
-import { CardFormacao } from "./components/CardFormacao";
+import { CardFormacaoAcademica } from "./components/CardFormacaoAcademica";
 import { DialogFormacoAcademica } from "./dialogs/DialogFormacoAcademica";
 
 const LIMITE_FORMACOES_MOBILE = 1;
@@ -106,7 +106,7 @@ export function SectionFormacaoAcademica() {
                                     </span>
 
                                     <span className="hidden sm:inline">
-                                        Ver todas as formações
+                                        Ver todas
                                     </span>
 
                                     <span className="shrink-0 rounded-full bg-black/10 px-2 py-0.5 text-xs font-bold">
@@ -126,7 +126,7 @@ export function SectionFormacaoAcademica() {
                     {/* Mobile: exibe somente uma formação */}
                     <div className="flex w-full min-w-0 flex-col gap-4 sm:hidden">
                         {formacoesMobile.map((formacao, indice) => (
-                            <CardFormacao
+                            <CardFormacaoAcademica
                                 key={`${formacao.institution}-${formacao.degree}`}
                                 formacao={formacao}
                                 indice={indice}
@@ -137,7 +137,7 @@ export function SectionFormacaoAcademica() {
                     {/* Desktop: exibe até duas formações */}
                     <div className="hidden w-full min-w-0 flex-col gap-4 sm:flex">
                         {formacoesDesktop.map((formacao, indice) => (
-                            <CardFormacao
+                            <CardFormacaoAcademica
                                 key={`${formacao.institution}-${formacao.degree}`}
                                 formacao={formacao}
                                 indice={indice}
