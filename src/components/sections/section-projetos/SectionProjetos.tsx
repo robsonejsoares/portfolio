@@ -1,66 +1,67 @@
 "use client";
 
-import { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { useCallback, useMemo, useState } from "react";
+import { AnimatePresence, motion } from "framer-motion";
 import {
-    LayoutGrid,
-    Monitor,
-    Smartphone,
-    Workflow,
-    Server,
-    Palette,
+    ChevronLeft,
+    ChevronRight,
 } from "lucide-react";
 
-const categories = [
-    {
-        id: "all",
-        label: "Todos",
-        icon: LayoutGrid,
-        iconColor: "text-emerald-400",
-    },
-    {
-        id: "Sistemas Web",
-        label: "Sistemas Web",
-        icon: Monitor,
-        iconColor: "text-blue-400",
-    },
-    {
-        id: "mobile",
-        label: "Mobile",
-        icon: Smartphone,
-        iconColor: "text-violet-400",
-    },
-    {
-        id: "automacao",
-        label: "Automação",
-        icon: Workflow,
-        iconColor: "text-amber-400",
-    },
-    {
-        id: "devops",
-        label: "DevOps",
-        icon: Server,
-        iconColor: "text-cyan-400",
-    },
-    {
-        id: "ui-ux",
-        label: "UI/UX Designer",
-        icon: Palette,
-        iconColor: "text-pink-400",
-    },
-];
+import { dadosPortfolio } from "@/data/dadosPortfolio";
+import type { Project } from "@/data/dadosPortfolio";
+
+import { CategoriasProjetos } from "./components/CategoriasProjetos";
+import { CardProjetos } from "./components/CardProjetos";
+import { DialogProjetos } from "./dialogs/DialogProjetos";
+import { usePaginationProjetos } from "./hooks/usePaginationProjetos";
 
 export function SectionProjetos() {
     const [selectedCategory, setSelectedCategory] = useState("all");
 
-    const selectedCategoryData =
-        categories.find(
-            (category) => category.id === selectedCategory,
-        ) ?? categories[0];
+    const [selectedProject, setSelectedProject] =
+        useState<Project | null>(null);
 
-    const selectedCategoryLabel = selectedCategoryData.label;
-    const SelectedIcon = selectedCategoryData.icon;
-    const selectedIconColor = selectedCategoryData.iconColor;
+    const projects = dadosPortfolio.projects;
+
+    // Filtra os projetos conforme a categoria selecionada.
+    const filteredProjects = useMemo(() => {
+        if (selectedCategory === "all") {
+            return projects;
+        }
+
+        return projects.filter(
+            (project) => project.category === selectedCategory,
+        );
+    }, [projects, selectedCategory]);
+
+    // Gerencia a paginação por meio de um hook personalizado.
+    const {
+        visibleItems: visibleProjects,
+        startIndex,
+        currentPage: safeCurrentPage,
+        pageSize,
+        totalPages,
+        displayedPage,
+        goToPreviousPage,
+        goToNextPage,
+        resetPage,
+    } = usePaginationProjetos({
+        items: filteredProjects,
+    });
+
+    // Atualiza a categoria e retorna à primeira página.
+    const handleCategoryChange = useCallback(
+        (categoryId: string) => {
+            setSelectedCategory(categoryId);
+            resetPage();
+        },
+        [resetPage],
+    );
+
+    // Fecha o diálogo de detalhes.
+    const closeDialog = useCallback(() => {
+        setSelectedProject(null);
+    }, []);
 
     return (
         <section
@@ -86,58 +87,16 @@ export function SectionProjetos() {
                     </motion.div>
                 </header>
 
-                {/* Abas de categorias */}
-                <div className="relative mb-6 flex w-full flex-wrap items-center justify-start gap-1.5 rounded-lg border border-white/10 bg-[#0b1020]/70 p-1 lg:flex-nowrap">
-                    {categories.map((category) => {
-                        const Icon = category.icon;
-                        const isActive =
-                            selectedCategory === category.id;
+                {/* Categorias dos projetos */}
+                <CategoriasProjetos
+                    selectedCategory={selectedCategory}
+                    onCategoryChange={handleCategoryChange}
+                />
 
-                        return (
-                            <motion.button
-                                key={category.id}
-                                type="button"
-                                onClick={() =>
-                                    setSelectedCategory(category.id)
-                                }
-                                whileTap={{ scale: 0.97 }}
-                                aria-pressed={isActive}
-                                className={`relative flex shrink-0 cursor-pointer select-none items-center justify-center gap-1.5 whitespace-nowrap rounded-md px-3 py-1.5 font-sans text-xs font-medium transition-colors duration-200 ${isActive
-                                    ? "font-semibold text-slate-300"
-                                    : "text-slate-500 hover:text-slate-300"
-                                    }`}
-                            >
-                                {isActive && (
-                                    <motion.div
-                                        layoutId="active-project-tab"
-                                        transition={{
-                                            type: "spring",
-                                            stiffness: 350,
-                                            damping: 30,
-                                        }}
-                                        className="absolute inset-0 rounded-md border border-white/10 bg-slate-800/80"
-                                    />
-                                )}
-
-                                <span className="relative z-10 flex items-center gap-1.5">
-                                    <Icon
-                                        className={`h-3.5 w-3.5 shrink-0 transition-colors duration-200 ${isActive
-                                            ? category.iconColor
-                                            : "text-slate-500"
-                                            }`}
-                                    />
-
-                                    <span>{category.label}</span>
-                                </span>
-                            </motion.button>
-                        );
-                    })}
-                </div>
-
-                {/* Aviso sem card externo */}
+                {/* Cards dos projetos */}
                 <AnimatePresence mode="wait">
                     <motion.div
-                        key={selectedCategory}
+                        key={`${selectedCategory}-${safeCurrentPage}-${pageSize}`}
                         initial={{ opacity: 0, y: 12 }}
                         animate={{ opacity: 1, y: 0 }}
                         exit={{ opacity: 0, y: -12 }}
@@ -145,27 +104,86 @@ export function SectionProjetos() {
                             duration: 0.25,
                             ease: "easeOut",
                         }}
-                        className="flex min-h-[320px] w-full flex-col items-center justify-center px-4 py-12 text-center"
                     >
-                        {/* Ícone colorido conforme a categoria selecionada */}
-                        <div className="mb-4 flex h-14 w-14 items-center justify-center rounded-xl border border-white/10 bg-slate-900/80">
-                            <SelectedIcon
-                                className={`h-6 w-6 ${selectedIconColor}`}
-                                strokeWidth={1.8}
-                                aria-hidden="true"
-                            />
-                        </div>
-
-                        <p className="max-w-sm text-sm leading-relaxed text-slate-500">
-                            Ainda não há projetos cadastrados em{" "}
-                            <span className="font-medium text-slate-400">
-                                {selectedCategoryLabel}
-                            </span>
-                            . Volte em breve para conferir as novidades!
-                        </p>
+                        {filteredProjects.length > 0 ? (
+                            <div className="grid min-w-0 grid-cols-1 gap-4 sm:grid-cols-2 xl:grid-cols-3">
+                                {visibleProjects.map((projeto, index) => (
+                                    <CardProjetos
+                                        key={projeto.id}
+                                        projeto={projeto}
+                                        index={startIndex + index}
+                                        onView={setSelectedProject}
+                                    />
+                                ))}
+                            </div>
+                        ) : (
+                            <div className="flex min-h-[280px] w-full flex-col items-center justify-center px-4 py-12 text-center">
+                                <p className="max-w-sm text-sm leading-relaxed text-slate-500">
+                                    Ainda não há projetos cadastrados nesta
+                                    categoria. Volte em breve para conferir as
+                                    novidades!
+                                </p>
+                            </div>
+                        )}
                     </motion.div>
                 </AnimatePresence>
+
+                {/* Paginação minimalista */}
+                <nav
+                    aria-label="Paginação dos projetos"
+                    className="mt-5 flex w-full justify-end"
+                >
+                    <div className="flex items-center gap-1">
+                        <button
+                            type="button"
+                            onClick={goToPreviousPage}
+                            disabled={
+                                totalPages === 0 || safeCurrentPage === 0
+                            }
+                            aria-label="Página anterior"
+                            className="inline-flex h-[30px] w-[30px] cursor-pointer items-center justify-center rounded-md border border-white/[0.08] text-slate-400 transition-colors duration-200 hover:bg-white/[0.05] hover:text-slate-200 active:scale-95 disabled:cursor-not-allowed disabled:opacity-30 disabled:hover:bg-transparent disabled:hover:text-slate-400"
+                        >
+                            <ChevronLeft
+                                size={15}
+                                aria-hidden="true"
+                            />
+                        </button>
+
+                        <span
+                            aria-label={`Página ${displayedPage} de ${totalPages}`}
+                            aria-live="polite"
+                            className="min-w-[48px] text-center font-mono text-xs tabular-nums text-slate-400"
+                        >
+                            {String(displayedPage).padStart(2, "0")}
+                            <span className="mx-1 text-slate-600">/</span>
+                            {String(totalPages).padStart(2, "0")}
+                        </span>
+
+                        <button
+                            type="button"
+                            onClick={goToNextPage}
+                            disabled={
+                                totalPages === 0 ||
+                                safeCurrentPage >= totalPages - 1
+                            }
+                            aria-label="Próxima página"
+                            className="inline-flex h-[30px] w-[30px] cursor-pointer items-center justify-center rounded-md border border-white/[0.08] text-slate-400 transition-colors duration-200 hover:bg-white/[0.05] hover:text-slate-200 active:scale-95 disabled:cursor-not-allowed disabled:hover:bg-transparent disabled:hover:text-slate-400 disabled:opacity-30"
+                        >
+                            <ChevronRight
+                                size={15}
+                                aria-hidden="true"
+                            />
+                        </button>
+                    </div>
+                </nav>
             </div>
+
+            {/* Diálogo de detalhes */}
+            <DialogProjetos
+                projeto={selectedProject}
+                isOpen={selectedProject !== null}
+                onClose={closeDialog}
+            />
         </section>
     );
 }

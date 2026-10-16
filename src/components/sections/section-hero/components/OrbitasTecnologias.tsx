@@ -78,98 +78,99 @@ function OrbitaTecnologias({
             ))}
         </>
     );
+
 }
 
 export function OrbitasTecnologias() {
     return (
         <>
             <style jsx global>{`
-                @keyframes rotate-ring {
-                    from {
-                        transform: rotate(0deg);
-                    }
-                    to {
-                        transform: rotate(360deg);
-                    }
+@keyframes rotate-ring {
+from {
+transform: rotate(0deg);
+}
+to {
+transform: rotate(360deg);
+}
+}
+
+            @keyframes rotate-ring-rev {
+                from {
+                    transform: rotate(0deg);
+                }
+                to {
+                    transform: rotate(-360deg);
+                }
+            }
+
+            @keyframes orbit-r1 {
+                from {
+                    transform: rotate(0deg)
+                        translateX(var(--raio-orbita)) rotate(0deg);
+                }
+                to {
+                    transform: rotate(360deg)
+                        translateX(var(--raio-orbita)) rotate(-360deg);
+                }
+            }
+
+            @keyframes orbit-r2 {
+                from {
+                    transform: rotate(0deg)
+                        translateX(var(--raio-orbita)) rotate(0deg);
+                }
+                to {
+                    transform: rotate(-360deg)
+                        translateX(var(--raio-orbita)) rotate(360deg);
+                }
+            }
+
+            /* Mobile: órbitas ajustadas sem alterar o desktop */
+            @media (max-width: 639px) {
+                .orbit-item.orbit-frontend {
+                    --raio-orbita: 105px !important;
                 }
 
-                @keyframes rotate-ring-rev {
-                    from {
-                        transform: rotate(0deg);
-                    }
-                    to {
-                        transform: rotate(-360deg);
-                    }
+                .orbit-item.orbit-backend {
+                    --raio-orbita: 145px !important;
                 }
 
-                @keyframes orbit-r1 {
-                    from {
-                        transform: rotate(0deg)
-                            translateX(var(--raio-orbita)) rotate(0deg);
-                    }
-                    to {
-                        transform: rotate(360deg)
-                            translateX(var(--raio-orbita)) rotate(-360deg);
-                    }
+                .orbit-badge {
+                    gap: 3px;
+                    padding: 3px 6px;
+                    font-size: 8px;
+                }
+            }
+
+            /* Celulares estreitos */
+            @media (max-width: 359px) {
+                .orbit-item.orbit-frontend {
+                    --raio-orbita: 85px !important;
                 }
 
-                @keyframes orbit-r2 {
-                    from {
-                        transform: rotate(0deg)
-                            translateX(var(--raio-orbita)) rotate(0deg);
-                    }
-                    to {
-                        transform: rotate(-360deg)
-                            translateX(var(--raio-orbita)) rotate(360deg);
-                    }
+                .orbit-item.orbit-backend {
+                    --raio-orbita: 122px !important;
                 }
 
-                /* Mobile: raios independentes para cada órbita */
-                @media (max-width: 639px) {
-                    .orbit-item.orbit-frontend {
-                        --raio-orbita: 92px !important;
-                    }
-
-                    .orbit-item.orbit-backend {
-                        --raio-orbita: 137px !important;
-                    }
-
-                    .orbit-badge {
-                        gap: 3px;
-                        padding: 3px 6px;
-                        font-size: 8px;
-                    }
+                .orbit-label {
+                    display: none;
                 }
 
-                /* Celulares estreitos */
-                @media (max-width: 359px) {
-                    .orbit-item.orbit-frontend {
-                        --raio-orbita: 78px !important;
-                    }
-
-                    .orbit-item.orbit-backend {
-                        --raio-orbita: 112px !important;
-                    }
-
-                    .orbit-label {
-                        display: none;
-                    }
-
-                    .orbit-badge {
-                        min-width: 28px;
-                        min-height: 28px;
-                        justify-content: center;
-                        padding: 4px;
-                        font-size: 12px;
-                    }
+                .orbit-badge {
+                    min-width: 28px;
+                    min-height: 28px;
+                    justify-content: center;
+                    padding: 4px;
+                    font-size: 12px;
                 }
+            }
 
-                @media (prefers-reduced-motion: reduce) {
-                    .orbit-item {
-                        animation-play-state: paused !important;
-                    }
+            @media (prefers-reduced-motion: reduce) {
+                .orbit-item {
+                    animation-play-state: paused !important;
                 }
-            `}</style>
+            }
+        `}</style>
 
             <div className="pointer-events-none absolute inset-0 z-40 flex items-center justify-center">
                 {/* Órbita visual interna */}
@@ -210,4 +211,5 @@ export function OrbitasTecnologias() {
             </div>
         </>
     );
+
 }

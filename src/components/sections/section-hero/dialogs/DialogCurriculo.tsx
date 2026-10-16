@@ -114,12 +114,12 @@ export function DialogCurriculo({
                         animate={{ opacity: 1, scale: 1, y: 0 }}
                         exit={{ opacity: 0, scale: 0.98, y: 12 }}
                         transition={{ duration: 0.2 }}
-                        className="relative z-10 my-auto flex max-h-[calc(100dvh-1rem)] min-h-0 w-full max-w-4xl shrink-0 flex-col overflow-hidden rounded-xl border border-white/10 bg-slate-900 shadow-2xl shadow-black/30 sm:max-h-[calc(100dvh-2rem)] sm:rounded-2xl"
+                        className="relative z-10 my-auto flex max-h-[calc(100dvh-1rem)] min-h-0 w-full max-w-4xl shrink-0 flex-col overflow-hidden rounded-md border border-white/10 bg-slate-900 shadow-2xl shadow-black/30 sm:max-h-[calc(100dvh-2rem)] sm:rounded-md"
                     >
                         {/* Cabeçalho */}
                         <header className="flex shrink-0 items-center justify-between gap-2 border-b border-white/10 bg-slate-800/50 p-3 sm:gap-4 sm:p-5">
                             <div className="flex min-w-0 items-center gap-2 sm:gap-3">
-                                <div className="hidden h-10 w-10 shrink-0 items-center justify-center rounded-lg border border-sky-400/15 bg-sky-400/5 text-sky-300 min-[380px]:flex">
+                                <div className="hidden h-10 w-10 shrink-0 items-center justify-center rounded-md border border-sky-400/15 bg-sky-400/5 text-sky-300 min-[380px]:flex">
                                     <FileText size={20} aria-hidden="true" />
                                 </div>
 
@@ -232,7 +232,7 @@ export function DialogCurriculo({
                                         Resumo Profissional
                                     </h2>
 
-                                    <div className="rounded-xl border border-white/5 bg-slate-800/40 p-4 sm:p-5">
+                                    <div className="rounded-md border border-white/5 bg-slate-800/40 p-4 sm:p-5">
                                         <p className="text-sm leading-relaxed text-slate-400 sm:text-base">
                                             {summary}
                                         </p>
@@ -250,7 +250,7 @@ export function DialogCurriculo({
                                         {experiences.map((exp, index) => (
                                             <article
                                                 key={`${exp.company}-${exp.period}-${index}`}
-                                                className="min-w-0 rounded-xl border border-white/5 bg-slate-800/40 p-4 transition-colors duration-300 hover:border-white/10 hover:bg-slate-800/60 sm:p-5"
+                                                className="min-w-0 rounded-md border border-white/5 bg-slate-800/40 p-4 transition-colors duration-300 hover:border-white/10 hover:bg-slate-800/60 sm:p-5"
                                             >
                                                 <div className="mb-2 flex min-w-0 flex-col justify-between gap-2 sm:flex-row sm:items-center">
                                                     <h3 className="min-w-0 break-words text-sm font-semibold text-slate-300 sm:text-base">
@@ -294,7 +294,7 @@ export function DialogCurriculo({
                                         {education.map((edu, index) => (
                                             <article
                                                 key={`${edu.degree}-${edu.institution}-${index}`}
-                                                className="flex min-w-0 flex-col justify-between gap-2 rounded-xl border border-white/5 bg-slate-800/40 p-3.5 transition-colors duration-300 hover:border-white/10 hover:bg-slate-800/60 min-[420px]:flex-row min-[420px]:items-center"
+                                                className="flex min-w-0 flex-col justify-between gap-2 rounded-md border border-white/5 bg-slate-800/40 p-3.5 transition-colors duration-300 hover:border-white/10 hover:bg-slate-800/60 min-[420px]:flex-row min-[420px]:items-center"
                                             >
                                                 <div className="min-w-0 break-words font-medium text-slate-300">
                                                     <div>{edu.degree}</div>
@@ -318,7 +318,7 @@ export function DialogCurriculo({
                                         Tecnologias & Competências
                                     </h2>
 
-                                    <div className="space-y-2 rounded-xl border border-white/5 bg-slate-800/40 p-4 text-xs leading-relaxed text-slate-400 sm:text-sm">
+                                    <div className="space-y-2 rounded-md border border-white/5 bg-slate-800/40 p-4 text-xs leading-relaxed text-slate-400 sm:text-sm">
                                         <p>
                                             <strong className="text-sky-300">Backend:</strong>{" "}
                                             {technologies.backend}
@@ -357,7 +357,7 @@ export function DialogCurriculo({
                                         Cursos e Certificações
                                     </h2>
 
-                                    <div className="space-y-2 rounded-xl border border-white/5 bg-slate-800/40 p-4 text-xs leading-relaxed text-slate-400 sm:text-sm">
+                                    <div className="space-y-2 rounded-md border border-white/5 bg-slate-800/40 p-4 text-xs leading-relaxed text-slate-400 sm:text-sm">
                                         {certifications.map((cert, index) => (
                                             <div
                                                 key={`${cert}-${index}`}

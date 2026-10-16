@@ -39,7 +39,7 @@ export function AlternarTema() {
             </button>
 
             {/* Tooltip Cyberpunk */}
-            <span className="absolute -bottom-9 left-1/2 -translate-x-1/2 px-2.5 py-1 rounded-xl text-[10px] font-mono font-bold text-cyan-300 bg-slate-950/95 border border-cyan-500/30 opacity-0 group-hover:opacity-100 transition-all duration-200 pointer-events-none whitespace-nowrap shadow-xl shadow-cyan-950/80 backdrop-blur-md z-50">
+            <span className="absolute -bottom-9 left-1/2 -translate-x-1/2 px-2.5 py-1 rounded-md text-[10px] font-mono font-bold text-cyan-300 bg-slate-950/95 border border-cyan-500/30 opacity-0 group-hover:opacity-100 transition-all duration-200 pointer-events-none whitespace-nowrap shadow-xl shadow-cyan-950/80 backdrop-blur-md z-50">
                 {isDark ? "Modo Claro" : "Modo Escuro"}
             </span>
         </div>

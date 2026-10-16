@@ -15,7 +15,7 @@ import { SectionSobreMim } from "@/components/sections/section-sobre-mim/Section
 import { SectionHabilidades } from "@/components/sections/section-habilidades/SectionHabilidades";
 import { SectionProjetos } from "@/components/sections/section-projetos/SectionProjetos";
 import { SectionServicos } from "@/components/sections/section-servicos/SectionServicos";
-import { SectionExperiencia } from "@/components/sections/section-experiencia/SectionExperiencia";
+import { SectionExperienciaProfissional } from "@/components/sections/section-experiencia-profissional/SectionExperienciaProfissional";
 import { SectionFormacaoAcademica } from "@/components/sections/section-formacao-academica/SectionFormacaoAcademica";
 import { SectionContato } from "@/components/sections/section-contato/SectionContato";
 
@@ -62,9 +62,9 @@ export default function HomePortfolio() {
                 <SectionServicos />
             </SectionCard>
 
-            {/* 6. Experiência */}
+            {/* 6. Experiência Profissional */}
             <SectionCard>
-                <SectionExperiencia />
+                <SectionExperienciaProfissional />
             </SectionCard>
 
             {/* 7. Formação Acadêmica */}

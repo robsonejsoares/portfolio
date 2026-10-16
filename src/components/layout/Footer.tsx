@@ -33,7 +33,7 @@ export function Footer() {
                         href="#hero"
                         className="flex items-center gap-2 text-sm font-extrabold tracking-wider text-white group"
                     >
-                        <div className="w-7 h-7 rounded-lg overflow-hidden flex items-center justify-center group-hover:scale-105 transition-transform bg-slate-900 border border-white/10 shadow-lg">
+                        <div className="w-7 h-7 rounded-md overflow-hidden flex items-center justify-center group-hover:scale-105 transition-transform bg-slate-900 border border-white/10 shadow-lg">
                             <Image
                                 src="/favicon.svg"
                                 alt="Logótipo Robson"

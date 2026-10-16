@@ -3,7 +3,7 @@
 import { motion } from "framer-motion";
 import { CalendarDays } from "lucide-react";
 
-interface CardExperienciaProps {
+interface CardExperienciaProfissionalProps {
     cargo: string;
     empresa: string;
     subtitulo?: string;
@@ -15,7 +15,7 @@ interface CardExperienciaProps {
     indice: number;
 }
 
-export function CardExperiencia({
+export function CardExperienciaProfissional({
     cargo,
     empresa,
     subtitulo,
@@ -25,40 +25,43 @@ export function CardExperiencia({
     destaques,
     cor,
     indice,
-}: CardExperienciaProps) {
+}: CardExperienciaProfissionalProps) {
     return (
         <motion.article
             initial={{ opacity: 0, y: 24 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.15 }}
             transition={{ duration: 0.55, delay: indice * 0.12 }}
-            className="relative"
+            className="relative w-full min-w-0"
         >
-            <div className="glass-card rounded-xl p-5 transition-all duration-300 hover:-translate-y-1 hover:border-white/20">
+            <div className="glass-card min-w-0 rounded-md p-4 transition-all duration-300 hover:border-white/20 sm:p-5 sm:hover:-translate-y-1">
                 {/* Cargo, empresa e período */}
-                <div className="mb-2 flex flex-wrap items-start justify-between gap-3">
-                    <div className="min-w-0 flex-1">
-                        <h3 className="text-base font-semibold tracking-tight text-[#A8B3C7]">
+                <div className="mb-4 flex min-w-0 flex-col items-start gap-3 sm:flex-row sm:justify-between">
+                    <div className="w-full min-w-0 sm:flex-1">
+                        <h3 className="break-words text-base font-semibold leading-snug tracking-tight text-[#A8B3C7]">
                             {cargo}
                         </h3>
 
-                        <p className="mt-0.5 font-display text-xs font-normal text-slate-400">
+                        <p className="mt-1 break-words font-display text-xs font-normal leading-relaxed text-slate-400">
                             {empresa}
                             {subtitulo && ` - ${subtitulo}`}
                         </p>
                     </div>
 
-                    <div className="flex flex-col items-start gap-2 sm:items-end">
-                        <span className="flex items-center gap-1.5 text-xs text-slate-400">
+                    <div className="flex w-full min-w-0 flex-wrap items-center gap-2 sm:w-auto sm:shrink-0 sm:flex-col sm:items-end">
+                        <span className="inline-flex min-w-0 items-center gap-1.5 text-xs leading-relaxed text-slate-400">
                             <CalendarDays
                                 size={12}
                                 aria-hidden="true"
+                                className="shrink-0"
                             />
-                            {periodo}
+                            <span className="break-words">
+                                {periodo}
+                            </span>
                         </span>
 
                         <span
-                            className="rounded-full px-2 py-0.5 text-[11px] font-normal tracking-wide"
+                            className="max-w-full break-words rounded-full px-2 py-1 text-[11px] font-normal tracking-wide"
                             style={{
                                 backgroundColor: `${cor}15`,
                                 color: cor,
@@ -70,16 +73,16 @@ export function CardExperiencia({
                 </div>
 
                 {/* Descrição */}
-                <p className="mb-4 text-sm leading-relaxed text-slate-500">
+                <p className="mb-4 break-words text-sm leading-relaxed text-slate-500">
                     {descricao}
                 </p>
 
                 {/* Responsabilidades e realizações */}
-                <ul className="space-y-1.5">
+                <ul className="space-y-2">
                     {destaques.map((destaque, i) => (
                         <li
                             key={`${indice}-${i}`}
-                            className="flex items-start gap-2 text-sm"
+                            className="flex min-w-0 items-start gap-2 text-sm"
                         >
                             <span
                                 className="mt-[7px] h-1.5 w-1.5 shrink-0 rounded-full"
@@ -87,7 +90,7 @@ export function CardExperiencia({
                                 aria-hidden="true"
                             />
 
-                            <span className="leading-relaxed text-slate-500">
+                            <span className="min-w-0 break-words leading-relaxed text-slate-500">
                                 {destaque}
                             </span>
                         </li>

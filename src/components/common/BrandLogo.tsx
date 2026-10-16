@@ -23,8 +23,8 @@ export function BrandLogo({
         >
             <div
                 className={`flex items-center justify-center overflow-hidden border border-white/10 bg-slate-900 shadow-lg transition-transform group-hover:scale-105 ${isNavbar
-                        ? "h-9 w-9 rounded-xl"
-                        : "h-7 w-7 rounded-lg"
+                        ? "h-9 w-9 rounded-md"
+                        : "h-7 w-7 rounded-md"
                     }`}
             >
                 <Image

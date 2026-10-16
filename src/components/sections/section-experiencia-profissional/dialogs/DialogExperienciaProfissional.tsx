@@ -1,4 +1,3 @@
-
 "use client";
 
 import { useEffect } from "react";
@@ -7,7 +6,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import { BriefcaseBusiness } from "lucide-react";
 
 import { ButtonFechar } from "@/components/ui/ButtonFechar";
-import { CardExperiencia } from "../components/CardExperiencia";
+import { CardExperienciaProfissional } from "../components/CardExperienciaProfissional";
 
 interface Experiencia {
     company: string;
@@ -23,7 +22,7 @@ interface ConfiguracaoVisual {
     descricao: string;
 }
 
-interface DialogExperienciasProps {
+interface DialogExperienciaProfissionalProps {
     isOpen: boolean;
     onClose: () => void;
     experiencias: Experiencia[];
@@ -37,12 +36,12 @@ const visualPadrao: ConfiguracaoVisual = {
         "Experiência profissional com foco no desenvolvimento de competências, na qualidade das entregas e na evolução contínua.",
 };
 
-export function DialogExperiencias({
+export function DialogExperienciaProfissional({
     isOpen,
     onClose,
     experiencias,
     configuracaoVisual,
-}: DialogExperienciasProps) {
+}: DialogExperienciaProfissionalProps) {
     // Bloqueia a rolagem do fundo e permite fechar com Escape.
     useEffect(() => {
         if (!isOpen) return;
@@ -70,7 +69,7 @@ export function DialogExperiencias({
     return createPortal(
         <AnimatePresence>
             {isOpen && (
-                <div className="fixed inset-0 z-[9999] flex items-center justify-center overflow-y-auto p-3 sm:p-6">
+                <div className="fixed inset-0 z-[9999] flex items-center justify-center overflow-y-auto overscroll-contain p-3 sm:p-6">
                     {/* Fundo da tela */}
                     <motion.button
                         type="button"
@@ -82,7 +81,7 @@ export function DialogExperiencias({
                         className="absolute inset-0 h-full w-full cursor-default bg-black/70 backdrop-blur-sm"
                     />
 
-                    {/* Janela com altura dinâmica */}
+                    {/* Janela responsiva */}
                     <motion.div
                         role="dialog"
                         aria-modal="true"
@@ -103,57 +102,65 @@ export function DialogExperiencias({
                             y: 16,
                         }}
                         transition={{ duration: 0.2 }}
-                        className="relative z-10 my-auto flex max-h-[85dvh] w-full max-w-4xl shrink-0 flex-col overflow-hidden rounded-xl border border-white/5 bg-slate-900 shadow-2xl shadow-black/30"
+                        className="relative z-10 my-auto flex max-h-[calc(100dvh-1.5rem)] w-full min-w-0 max-w-4xl shrink-0 flex-col overflow-hidden rounded-md border border-white/5 bg-slate-900 shadow-2xl shadow-black/30 sm:max-h-[85dvh]"
                     >
                         {/* Cabeçalho fixo */}
-                        <header className="flex shrink-0 items-center justify-between gap-4 border-b border-white/5 bg-slate-800/50 p-4 sm:p-5">
-                            <div className="flex min-w-0 items-center gap-3">
-
-                                <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg border border-sky-400/15 bg-sky-400/5 text-sky-300">
-                                    <BriefcaseBusiness size={20} aria-hidden="true" />
+                        <header className="flex shrink-0 items-center justify-between gap-2 border-b border-white/5 bg-slate-800/50 p-3 sm:gap-4 sm:p-5">
+                            <div className="flex min-w-0 items-center gap-2 sm:gap-3">
+                                <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-md border border-sky-400/15 bg-sky-400/5 text-sky-300 sm:h-10 sm:w-10">
+                                    <BriefcaseBusiness
+                                        size={18}
+                                        aria-hidden="true"
+                                    />
                                 </div>
-
 
                                 <div className="min-w-0">
                                     <h2
                                         id="dialog-experiencias-titulo"
-                                        className="text-base font-semibold leading-6 text-slate-300 sm:text-lg"
+                                        className="break-words text-sm font-semibold leading-snug text-slate-300 sm:text-lg sm:leading-6"
                                     >
-                                        Todas as experiências
+                                        Experiência Profissional
                                     </h2>
 
-                                    <p className="mt-0.5 font-mono text-[13px] text-slate-400">
-                                        {experiencias.length} experiências profissionais
+                                    <p className="mt-1 break-words font-mono text-[11px] leading-relaxed text-slate-400 sm:text-[13px]">
+                                        {experiencias.length}{" "}
+                                        {experiencias.length === 1
+                                            ? "experiência profissional"
+                                            : "experiências profissionais"}
                                     </p>
                                 </div>
                             </div>
 
-                            <ButtonFechar onClick={onClose} />
+                            <div className="shrink-0">
+                                <ButtonFechar onClick={onClose} />
+                            </div>
                         </header>
 
-                        {/* Conteúdo: cresce até o limite e depois rola */}
-                        <div className="min-h-0 overflow-y-auto overscroll-contain p-4 sm:p-6">
-                            <div className="space-y-6">
-                                {experiencias.map((experiencia, indice) => {
-                                    const visual =
-                                        configuracaoVisual[indice] ??
-                                        visualPadrao;
+                        {/* Conteúdo rolável */}
+                        <div className="min-h-0 min-w-0 overflow-y-auto overscroll-contain p-3 sm:p-6">
+                            <div className="space-y-4 sm:space-y-6">
+                                {experiencias.map(
+                                    (experiencia, indice) => {
+                                        const visual =
+                                            configuracaoVisual[indice] ??
+                                            visualPadrao;
 
-                                    return (
-                                        <CardExperiencia
-                                            key={`${experiencia.company}-${experiencia.period}`}
-                                            cargo={experiencia.role}
-                                            empresa={experiencia.company}
-                                            subtitulo={experiencia.subtitle}
-                                            periodo={experiencia.period}
-                                            categoria={visual.categoria}
-                                            descricao={visual.descricao}
-                                            destaques={experiencia.highlights}
-                                            cor={visual.cor}
-                                            indice={indice}
-                                        />
-                                    );
-                                })}
+                                        return (
+                                            <CardExperienciaProfissional
+                                                key={`${experiencia.company}-${experiencia.period}`}
+                                                cargo={experiencia.role}
+                                                empresa={experiencia.company}
+                                                subtitulo={experiencia.subtitle}
+                                                periodo={experiencia.period}
+                                                categoria={visual.categoria}
+                                                descricao={visual.descricao}
+                                                destaques={experiencia.highlights}
+                                                cor={visual.cor}
+                                                indice={indice}
+                                            />
+                                        );
+                                    },
+                                )}
                             </div>
                         </div>
                     </motion.div>
