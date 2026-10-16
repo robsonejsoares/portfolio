@@ -2,15 +2,15 @@
 
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { ArrowRight } from "lucide-react";
+import { GraduationCap } from "lucide-react";
 
-import { Button } from "@/components/ui/Button";
+import { ButtonAbrirDialog } from "@/components/ui/ButtonAbrirDialog";
 import { LoadingDialog } from "@/components/common/LoadingDialog";
 import { dadosCurriculo } from "@/data/dadosCurriculo";
 import { ordenarFormacoes } from "@/utils/ordenarFormacoes";
 
 import { CardFormacaoAcademica } from "./components/CardFormacaoAcademica";
-import { DialogFormacoAcademica } from "./dialogs/DialogFormacoAcademica";
+import { DialogFormacaoAcademica } from "./dialogs/DialogFormacaoAcademica";
 
 const LIMITE_FORMACOES_MOBILE = 1;
 const LIMITE_FORMACOES_DESKTOP = 2;
@@ -81,7 +81,7 @@ export function SectionFormacaoAcademica() {
                         </div>
 
                         {existemMaisFormacoes && (
-                            <Button
+                            <ButtonAbrirDialog
                                 type="button"
                                 variant="default"
                                 size="default"
@@ -94,24 +94,21 @@ export function SectionFormacaoAcademica() {
                                 <span className="inline-flex min-w-0 items-center justify-center gap-2">
                                     <span className="whitespace-nowrap">
                                         <span className="sm:hidden">
-                                            Ver todas
+                                            Ver formações
                                         </span>
 
                                         <span className="hidden sm:inline">
-                                            Ver todas Formações
+                                            Ver formações
                                         </span>
                                     </span>
 
-                                    <span className="shrink-0 rounded-full bg-black/10 px-2 py-0.5 text-xs font-bold">
-                                        {formacoes.length}
-                                    </span>
-
-                                    <ArrowRight
+                                    <GraduationCap
+                                        size={16}
                                         aria-hidden="true"
-                                        className="shrink-0 transition-transform duration-300 group-hover/button:translate-x-1"
+                                        className="shrink-0 transition-transform duration-200 group-hover/button:scale-110 motion-reduce:transition-none"
                                     />
                                 </span>
-                            </Button>
+                            </ButtonAbrirDialog>
                         )}
                     </motion.header>
 
@@ -141,7 +138,7 @@ export function SectionFormacaoAcademica() {
 
             {/* Diálogo com todas as formações */}
             {dialogAberto && (
-                <DialogFormacoAcademica
+                <DialogFormacaoAcademica
                     formacoes={formacoes}
                     onClose={handleFecharDialog}
                 />

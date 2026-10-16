@@ -2,9 +2,9 @@
 
 import { useCallback, useState } from "react";
 import { motion } from "framer-motion";
-import { ArrowRight } from "lucide-react";
+import { BriefcaseBusiness } from "lucide-react";
 
-import { Button } from "@/components/ui/Button";
+import { ButtonAbrirDialog } from "@/components/ui/ButtonAbrirDialog";
 import { LoadingDialog } from "@/components/common/LoadingDialog";
 import { dadosServicos } from "@/data/dadosServicos";
 
@@ -60,8 +60,8 @@ export function SectionServicos() {
                             </h2>
                         </div>
 
-                        {/* Botão padronizado pelo componente compartilhado */}
-                        <Button
+                        {/* Botão padronizado para abrir o diálogo */}
+                        <ButtonAbrirDialog
                             type="button"
                             variant="default"
                             size="default"
@@ -71,27 +71,24 @@ export function SectionServicos() {
                             aria-expanded={dialogAberto}
                             className="max-w-[55%] shrink-0 cursor-pointer disabled:cursor-wait sm:max-w-none"
                         >
-                            <span className="inline-flex min-w-0 items-center justify-center gap-2">
+                            <span className="inline-flex min-w-0 items-center justify-center gap-1.5 sm:gap-2">
                                 <span className="min-w-0 text-center whitespace-nowrap">
                                     <span className="sm:hidden">
-                                        Ver todos
+                                        Ver serviços
                                     </span>
 
                                     <span className="hidden sm:inline">
-                                        Ver todos serviços
+                                        Ver serviços
                                     </span>
                                 </span>
 
-                                <span className="shrink-0 rounded-full bg-black/10 px-2 py-0.5 text-xs font-bold">
-                                    {dadosServicos.length}
-                                </span>
-
-                                <ArrowRight
+                                <BriefcaseBusiness
+                                    size={16}
                                     aria-hidden="true"
-                                    className="shrink-0 transition-transform duration-200 group-hover/button:translate-x-1"
+                                    className="shrink-0 transition-transform duration-200 group-hover/button:scale-110 motion-reduce:transition-none"
                                 />
                             </span>
-                        </Button>
+                        </ButtonAbrirDialog>
                     </motion.header>
 
                     {/* Serviços apresentados na seção */}

@@ -99,28 +99,22 @@ export function DialogProjetos({
                                         target="_blank"
                                         rel="noopener noreferrer"
                                         aria-label={`Abrir ${projeto.title} em uma nova aba`}
-                                        className="group/button relative inline-flex min-h-8 cursor-pointer items-center justify-center gap-1.5 overflow-hidden rounded-md bg-gradient-to-r from-cyan-400 via-sky-400 to-blue-500 px-2.5 py-1.5 text-[10px] font-semibold text-slate-950 transition-all duration-200 hover:brightness-110 active:scale-[0.98] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cyan-400 sm:px-3 sm:text-xs"
+                                        className="group/button relative inline-flex min-h-8 cursor-pointer items-center justify-center gap-1.5 rounded-md border border-[#1B2B42] bg-[#17263D] px-2.5 py-1.5 text-[10px] font-semibold text-[#B8C7DB] transition-colors duration-200 ease-out hover:border-[#243247] hover:bg-[#121E30] hover:text-[#D0DAE8] active:scale-[0.98] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#607A9D] focus-visible:ring-offset-2 focus-visible:ring-offset-[#0B1220] motion-reduce:transition-none sm:px-3 sm:text-xs"
                                     >
-                                        {/* Efeito de brilho */}
-                                        <span
-                                            aria-hidden="true"
-                                            className="pointer-events-none absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/35 to-transparent transition-transform duration-500 group-hover/button:translate-x-full"
-                                        />
-
-                                        <span className="relative z-10 inline-flex items-center gap-1.5">
+                                        <span className="whitespace-nowrap">
                                             <span className="hidden sm:inline">
-                                                Abrir em nova aba
+                                                Abrir página do projeto
                                             </span>
 
                                             <span className="sm:hidden">
                                                 Abrir site
                                             </span>
-
-                                            <ExternalLink
-                                                className="h-3.5 w-3.5"
-                                                aria-hidden="true"
-                                            />
                                         </span>
+
+                                        <ExternalLink
+                                            className="h-3.5 w-3.5 shrink-0 transition-transform duration-200 group-hover/button:scale-110 motion-reduce:transition-none"
+                                            aria-hidden="true"
+                                        />
                                     </a>
                                 )}
 

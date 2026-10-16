@@ -22,10 +22,10 @@ const buttonVariants = cva(
             variant: {
                 // Azul denim: ações padrão, incluindo Ver todos.
                 default: [
-                    "bg-[#354F8A]",
-                    "text-[#CFDAEC]",
-                    "hover:bg-[#4160A0]",
-                    "hover:text-[#E5EBF6]",
+                    "bg-[#312E81]",
+                    "text-[#C2C0E2]",
+                    "hover:bg-[#403C96]",
+                    "hover:text-[#D8D6F0]",
                 ].join(" "),
 
                 // Slate refinado: Ver projeto e Entrar em contato.
@@ -79,14 +79,14 @@ const buttonVariants = cva(
             },
 
             size: {
-                default: "h-10 gap-2 px-3.5 py-1.5 text-xs",
+                default: "h-8 gap-1.5 px-3 py-1 text-[11px] sm:h-10 sm:gap-2 sm:px-3.5 sm:py-1.5 sm:text-xs",
                 xs: "h-6 gap-1 px-2 text-xs",
-                sm: "h-8 gap-1.5 px-3 text-xs",
-                lg: "h-11 gap-2 px-4 text-sm",
-                icon: "size-10",
+                sm: "h-7 gap-1 px-2.5 text-[11px] sm:h-8 sm:gap-1.5 sm:px-3 sm:text-xs",
+                lg: "h-9 gap-2 px-3.5 text-xs sm:h-11 sm:px-4 sm:text-sm",
+                icon: "size-9 sm:size-10",
                 "icon-xs": "size-6",
-                "icon-sm": "size-8",
-                "icon-lg": "size-11",
+                "icon-sm": "size-7 sm:size-8",
+                "icon-lg": "size-9 sm:size-11",
             },
 
             brilho: {
@@ -118,7 +118,7 @@ function Button({
         <ButtonPrimitive
             data-slot="button"
             className={cn(
-                buttonVariants({ variant, size }),
+                buttonVariants({ variant, size, brilho }),
                 className,
             )}
             {...props}

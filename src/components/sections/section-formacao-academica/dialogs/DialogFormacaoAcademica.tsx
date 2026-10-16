@@ -21,7 +21,7 @@ interface Formacao {
     date?: string;
 }
 
-interface DialogFormacoAcademicaProps {
+interface DialogFormacaoAcademicaProps {
     formacoes: Formacao[];
     onClose: () => void;
 }
@@ -35,10 +35,10 @@ const SELETORES_FOCAVEIS = [
     '[tabindex]:not([tabindex="-1"])',
 ].join(",");
 
-export function DialogFormacoAcademica({
+export function DialogFormacaoAcademica({
     formacoes,
     onClose,
-}: DialogFormacoAcademicaProps) {
+}: DialogFormacaoAcademicaProps) {
     const dialogRef = useRef<HTMLDivElement>(null);
     const elementoAnteriorRef = useRef<HTMLElement | null>(null);
     const fecharRef = useRef(onClose);
