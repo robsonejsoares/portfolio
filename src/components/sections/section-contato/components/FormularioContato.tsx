@@ -10,7 +10,7 @@ import {
 type CampoContato = "nome" | "email" | "assunto" | "mensagem";
 
 const classesCampo =
-    "w-full rounded-md border border-white/10 bg-slate-950/70 px-4 py-3 text-sm text-slate-200 outline-none transition-colors duration-200 placeholder focus/20 focus disabled disabled";
+    "w-full min-w-0 rounded-md border border-white/10 bg-slate-950/70 px-3 py-3 text-sm text-slate-200 outline-none transition-colors duration-200 placeholder:text-slate-500 focus-visible:border-cyan-400/50 focus-visible:ring-2 focus-visible:ring-cyan-400/20 disabled:cursor-not-allowed disabled:opacity-60 sm:px-4";
 
 export function FormularioContato() {
     const [nome, setNome] = useState("");
@@ -152,13 +152,13 @@ export function FormularioContato() {
             if (!resposta.ok || resultado.success === false) {
                 throw new Error(
                     resultado.error ||
-                    "Não foi possível enviar sua mensagem. Tente novamente."
+                        "Não foi possível enviar sua mensagem. Tente novamente.",
                 );
             }
 
             exibirFeedback(
                 "sucesso",
-                resultado.message || "Mensagem enviada com sucesso!"
+                resultado.message || "Mensagem enviada com sucesso!",
             );
 
             setNome("");
@@ -178,7 +178,7 @@ export function FormularioContato() {
                 "erro",
                 error instanceof Error
                     ? error.message
-                    : "Ocorreu um erro inesperado. Tente novamente."
+                    : "Ocorreu um erro inesperado. Tente novamente.",
             );
         } finally {
             setEnviando(false);
@@ -186,13 +186,14 @@ export function FormularioContato() {
     }
 
     return (
-        <div className="rounded-md border border-white/10 bg-slate-900/60 p-5 shadow-2xl shadow-black/20 backdrop-blur-xl sm:p-8">
+        <div className="w-full min-w-0 rounded-md border border-white/10 bg-slate-900/60 p-4 shadow-2xl shadow-black/20 backdrop-blur-xl sm:p-6 md:p-8">
             <form
                 onSubmit={handleSubmit}
                 noValidate
                 aria-busy={enviando}
                 className="space-y-5"
             >
+                {/* Nome e e-mail */}
                 <div className="grid grid-cols-1 gap-5 sm:grid-cols-2">
                     <div className="min-w-0">
                         <label
@@ -200,7 +201,10 @@ export function FormularioContato() {
                             className="mb-2 block text-sm font-medium text-slate-300"
                         >
                             Nome
-                            <span className="ml-1 text-cyan-400" aria-hidden="true">
+                            <span
+                                className="ml-1 text-cyan-400"
+                                aria-hidden="true"
+                            >
                                 *
                             </span>
                         </label>
@@ -228,7 +232,10 @@ export function FormularioContato() {
                             className="mb-2 block text-sm font-medium text-slate-300"
                         >
                             E-mail
-                            <span className="ml-1 text-cyan-400" aria-hidden="true">
+                            <span
+                                className="ml-1 text-cyan-400"
+                                aria-hidden="true"
+                            >
                                 *
                             </span>
                         </label>
@@ -251,13 +258,17 @@ export function FormularioContato() {
                     </div>
                 </div>
 
-                <div>
+                {/* Assunto */}
+                <div className="min-w-0">
                     <label
                         htmlFor="contact-subject"
                         className="mb-2 block text-sm font-medium text-slate-300"
                     >
                         Assunto
-                        <span className="ml-1 text-cyan-400" aria-hidden="true">
+                        <span
+                            className="ml-1 text-cyan-400"
+                            aria-hidden="true"
+                        >
                             *
                         </span>
                     </label>
@@ -278,13 +289,17 @@ export function FormularioContato() {
                     />
                 </div>
 
-                <div>
+                {/* Mensagem */}
+                <div className="min-w-0">
                     <label
                         htmlFor="contact-message"
                         className="mb-2 block text-sm font-medium text-slate-300"
                     >
                         Mensagem
-                        <span className="ml-1 text-cyan-400" aria-hidden="true">
+                        <span
+                            className="ml-1 text-cyan-400"
+                            aria-hidden="true"
+                        >
                             *
                         </span>
                     </label>
@@ -305,10 +320,20 @@ export function FormularioContato() {
                         className={`${classesCampo} resize-y leading-6`}
                     />
 
-                    <div className="mt-2 flex items-start justify-between gap-3">
-                        <p className="text-xs text-slate-500">
-                            Mínimo de 10 caracteres.
-                        </p>
+                    {/* Orientação ou feedback + contador: mobile e desktop */}
+                    <div className="mt-2 flex min-w-0 items-start justify-between gap-3">
+                        <div className="min-w-0 flex-1">
+                            {feedbackTipo && feedbackMensagem ? (
+                                <FeedbackContato
+                                    tipo={feedbackTipo}
+                                    mensagem={feedbackMensagem}
+                                />
+                            ) : (
+                                <p className="text-xs leading-5 text-slate-500">
+                                    Mínimo de 10 caracteres.
+                                </p>
+                            )}
+                        </div>
 
                         <p
                             id="contact-message-count"
@@ -320,36 +345,32 @@ export function FormularioContato() {
                     </div>
                 </div>
 
-                <FeedbackContato
-                    tipo={feedbackTipo}
-                    mensagem={feedbackMensagem}
-                />
-
+                {/* Botão centralizado: permanece em sua própria linha */}
                 <div className="flex justify-center pt-1">
                     <button
                         type="submit"
                         disabled={enviando}
-                        className="group relative flex cursor-pointer items-center justify-center gap-2 overflow-hidden rounded-md bg-gradient-to-r from-cyan-400 via-sky-400 to-blue-500 px-6 py-3.5 text-sm font-bold text-slate-950 shadow-lg shadow-cyan-500/20 transition-all duration-300 hover:brightness-110 hover:shadow-[0_0_28px_rgba(6,182,212,0.25)] active:scale-[0.98] disabled:cursor-not-allowed disabled:opacity-60 disabled:hover:shadow-lg"
+                        className="group relative flex min-h-12 w-full max-w-full cursor-pointer items-center justify-center gap-2 overflow-hidden rounded-md bg-gradient-to-r from-cyan-400 via-sky-400 to-blue-500 px-4 py-3 text-center text-sm font-bold text-slate-950 shadow-lg shadow-cyan-500/20 transition-all duration-300 hover:brightness-110 hover:shadow-[0_0_28px_rgba(6,182,212,0.25)] active:scale-[0.98] disabled:cursor-not-allowed disabled:opacity-60 disabled:hover:shadow-lg sm:w-auto sm:min-w-56 sm:px-6 sm:py-3.5"
                     >
                         <span
                             aria-hidden="true"
                             className="pointer-events-none absolute inset-0 h-full w-full -translate-x-full bg-gradient-to-r from-transparent via-white/40 to-transparent transition-transform duration-700 ease-in-out group-hover:translate-x-full"
                         />
 
-                        <span className="relative z-10 flex items-center justify-center gap-2">
+                        <span className="relative z-10 flex min-w-0 items-center justify-center gap-2">
                             {enviando ? (
                                 <>
-                                    Enviando mensagem...
+                                    <span>Enviando mensagem...</span>
                                     <LoaderCircle
-                                        className="h-4 w-4 animate-spin"
+                                        className="h-4 w-4 shrink-0 animate-spin"
                                         aria-hidden="true"
                                     />
                                 </>
                             ) : (
                                 <>
-                                    Enviar mensagem
+                                    <span>Enviar mensagem</span>
                                     <Send
-                                        className="h-4 w-4 transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
+                                        className="h-4 w-4 shrink-0 transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
                                         aria-hidden="true"
                                     />
                                 </>
@@ -360,5 +381,4 @@ export function FormularioContato() {
             </form>
         </div>
     );
-
 }
