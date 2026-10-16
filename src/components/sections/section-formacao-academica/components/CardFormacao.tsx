@@ -13,7 +13,6 @@ interface Formacao {
 interface CardFormacaoProps {
     formacao: Formacao;
     indice: number;
-    ultima?: boolean;
 }
 
 export function CardFormacao({
@@ -21,6 +20,14 @@ export function CardFormacao({
     indice,
 }: CardFormacaoProps) {
     const concluida = formacao.status.toLowerCase().includes("conclu");
+
+    const statusCompleto = formacao.date
+        ? `${formacao.status} em ${formacao.date}`
+        : formacao.status;
+
+    const coresStatus = concluida
+        ? "border-emerald-500/20 bg-emerald-500/[0.04] text-emerald-300"
+        : "border-cyan-400/15 bg-cyan-400/[0.03] text-cyan-300";
 
     return (
         <motion.article
@@ -32,29 +39,34 @@ export function CardFormacao({
                 delay: indice * 0.1,
                 ease: "easeOut",
             }}
-            whileHover={{ y: -8 }}
-            className="glass-card group relative min-w-0 w-full overflow-hidden rounded-md border border-white/10 p-4 transition-all duration-300 hover:border-cyan-400/30 hover:bg-white/[0.03] sm:p-5"
+            whileHover={{ y: 0 }}
+            className="glass-card group relative w-full min-w-0 rounded-md border border-white/10 p-4 transition-colors duration-300 hover:border-cyan-400/30 hover:bg-white/[0.03] sm:p-5 sm:transition-all sm:hover:-translate-y-1"
         >
             <div className="flex min-w-0 flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
-                <h3 className="text-base font-medium tracking-tight text-slate-400">
+                <h3 className="min-w-0 break-words text-sm font-medium leading-relaxed tracking-tight text-slate-300 sm:text-base">
                     {formacao.degree}
                 </h3>
 
+                {/* Status para desktop */}
                 <span
-                    className={`inline-flex w-fit shrink-0 items-center rounded-full border px-3 py-0.5 text-[10px] font-normal ${
-                        concluida
-                            ? "border-emerald-500/30 bg-emerald-500/10 text-emerald-300"
-                            : "border-cyan-400/20 bg-cyan-400/[0.06] text-cyan-300"
-                    }`}
+                    className={`hidden max-w-full min-w-0 flex-wrap items-center self-start break-words rounded-full border px-2 py-0.5 text-[9px] font-normal leading-tight sm:inline-flex sm:px-2.5 sm:py-1 sm:text-[10px] sm:leading-relaxed ${coresStatus}`}
                 >
-                    {formacao.status}
-                    {formacao.date ? ` em ${formacao.date}` : ""}
+                    {statusCompleto}
                 </span>
             </div>
 
-            <p className="mt-0 text-xs leading-relaxed text-slate-500">
-                {formacao.institution}
-            </p>
+            <div className="mt-2 flex w-full min-w-0 items-center justify-between gap-2">
+                <p className="min-w-0 flex-1 break-words text-xs leading-relaxed text-slate-400">
+                    {formacao.institution}
+                </p>
+
+                {/* Status para mobile: mais compacto */}
+                <span
+                    className={`inline-flex max-w-[60%] min-w-0 shrink-0 flex-wrap items-center justify-center break-words rounded-full border px-1.5 py-0.5 text-center text-[9px] font-normal leading-tight sm:hidden ${coresStatus}`}
+                >
+                    {statusCompleto}
+                </span>
+            </div>
         </motion.article>
     );
 }
