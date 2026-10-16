@@ -63,7 +63,7 @@ export function LoadingDialog({
                     aria-label={text}
                     className="fixed inset-0 z-[99999] flex items-center justify-center overflow-hidden bg-black/70 backdrop-blur-sm"
                 >
-                    <div className="flex flex-col items-center gap-4 rounded-lg border border-white/5 bg-slate-900 p-6 shadow-2xl shadow-black/30">
+                    <div className="flex flex-col items-center gap-4 rounded-md border border-white/5 bg-slate-900 p-6 shadow-2xl shadow-black/30">
                         {/* Ícone */}
                         <div className="relative flex h-12 w-12 items-center justify-center">
                             <motion.div

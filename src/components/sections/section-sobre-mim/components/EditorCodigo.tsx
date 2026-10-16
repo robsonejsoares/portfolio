@@ -99,7 +99,7 @@ export function EditorCodigo({
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
-            className="order-2 w-full min-w-0 max-w-full overflow-hidden rounded-xl border border-white/10 bg-slate-900/80 shadow-2xl backdrop-blur-xl lg:order-2"
+            className="order-2 w-full min-w-0 max-w-full overflow-hidden rounded-md border border-white/10 bg-slate-900/80 shadow-2xl backdrop-blur-xl lg:order-2"
         >
             {/* Cabeçalho */}
             <div className="flex min-w-0 flex-wrap items-center justify-between gap-x-3 gap-y-2 overflow-hidden border-b border-white/10 bg-slate-950/80 px-3 py-3 sm:flex-nowrap sm:px-4">

@@ -81,12 +81,12 @@ export function DialogFormacoAcademica({
                         y: 16,
                     }}
                     transition={{ duration: 0.2 }}
-                    className="relative z-10 my-auto flex max-h-[85dvh] w-full max-w-4xl shrink-0 flex-col overflow-hidden rounded-xl border border-white/5 bg-slate-900 shadow-2xl shadow-black/30"
+                    className="relative z-10 my-auto flex max-h-[85dvh] w-full max-w-4xl shrink-0 flex-col overflow-hidden rounded-md border border-white/5 bg-slate-900 shadow-2xl shadow-black/30"
                 >
                     {/* Cabeçalho fixo */}
                     <header className="flex shrink-0 items-center justify-between gap-4 border-b border-white/5 bg-slate-800/50 p-4 sm:p-5">
                         <div className="flex min-w-0 items-center gap-3">
-                            <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg border border-sky-400/15 bg-sky-400/5 text-sky-300">
+                            <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-md border border-sky-400/15 bg-sky-400/5 text-sky-300">
                                 <GraduationCap
                                     size={20}
                                     aria-hidden="true"

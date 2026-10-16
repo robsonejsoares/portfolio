@@ -34,7 +34,7 @@ export function CardExperiencia({
             transition={{ duration: 0.55, delay: indice * 0.12 }}
             className="relative"
         >
-            <div className="glass-card rounded-xl p-5 transition-all duration-300 hover:-translate-y-1 hover:border-white/20">
+            <div className="glass-card rounded-md p-5 transition-all duration-300 hover:-translate-y-1 hover:border-white/20">
                 {/* Cargo, empresa e período */}
                 <div className="mb-2 flex flex-wrap items-start justify-between gap-3">
                     <div className="min-w-0 flex-1">

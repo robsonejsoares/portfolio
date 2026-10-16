@@ -67,7 +67,7 @@ export function NavbarMobileMenu({
                 ref={toggleButtonRef}
                 type="button"
                 onClick={onToggle}
-                className="flex min-h-11 min-w-11 cursor-pointer items-center justify-center rounded-lg text-slate-300 transition-colors hover:bg-white/5 hover:text-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cyan-400"
+                className="flex min-h-11 min-w-11 cursor-pointer items-center justify-center rounded-md text-slate-300 transition-colors hover:bg-white/5 hover:text-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cyan-400"
                 aria-label={isOpen ? "Fechar menu" : "Abrir menu"}
                 aria-expanded={isOpen}
                 aria-controls="mobile-navigation"
@@ -94,7 +94,7 @@ export function NavbarMobileMenu({
                         animate={{ opacity: 1, y: 0 }}
                         exit={{ opacity: 0, y: -8 }}
                         transition={{ duration: 0.18 }}
-                        className="glass-card fixed right-4 top-[5.25rem] z-[60] flex w-[min(20rem,calc(100vw-2rem))] max-w-full flex-col gap-2 overflow-y-auto overscroll-contain rounded-xl border border-cyan-500/30 bg-slate-950/95 p-3 shadow-2xl shadow-cyan-950/80 backdrop-blur-xl lg:hidden sm:p-4"
+                        className="glass-card fixed right-4 top-[5.25rem] z-[60] flex w-[min(20rem,calc(100vw-2rem))] max-w-full flex-col gap-2 overflow-y-auto overscroll-contain rounded-md border border-cyan-500/30 bg-slate-950/95 p-3 shadow-2xl shadow-cyan-950/80 backdrop-blur-xl lg:hidden sm:p-4"
                         style={{
                             maxHeight: "calc(100dvh - 6.25rem)",
                         }}
@@ -118,7 +118,7 @@ export function NavbarMobileMenu({
                                                     ? "location"
                                                     : undefined
                                             }
-                                            className={`flex min-h-11 min-w-0 items-center gap-3 rounded-lg border px-3 py-3 text-sm font-medium transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cyan-400 sm:px-4 ${
+                                            className={`flex min-h-11 min-w-0 items-center gap-3 rounded-md border px-3 py-3 text-sm font-medium transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cyan-400 sm:px-4 ${
                                                 isActive
                                                     ? "border-white/10 bg-slate-800/80 font-semibold text-cyan-300"
                                                     : "border-transparent text-gray-300 hover:bg-white/5 hover:text-white"

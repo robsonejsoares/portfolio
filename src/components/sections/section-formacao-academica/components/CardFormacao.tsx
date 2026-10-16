@@ -33,7 +33,7 @@ export function CardFormacao({
                 ease: "easeOut",
             }}
             whileHover={{ y: -8 }}
-            className="glass-card group relative min-w-0 w-full overflow-hidden rounded-xl border border-white/10 p-4 transition-all duration-300 hover:border-cyan-400/30 hover:bg-white/[0.03] sm:p-5"
+            className="glass-card group relative min-w-0 w-full overflow-hidden rounded-md border border-white/10 p-4 transition-all duration-300 hover:border-cyan-400/30 hover:bg-white/[0.03] sm:p-5"
         >
             <div className="flex min-w-0 flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
                 <h3 className="text-base font-medium tracking-tight text-slate-400">
