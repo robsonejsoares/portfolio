@@ -12,7 +12,7 @@ import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import { GraduationCap } from "lucide-react";
 
 import { ButtonFechar } from "@/components/ui/ButtonFechar";
-import { CardFormacao } from "../components/CardFormacao";
+import { CardFormacaoAcademica } from "../components/CardFormacaoAcademica";
 
 interface Formacao {
     degree: string;
@@ -245,7 +245,7 @@ export function DialogFormacoAcademica({
                         <div className="min-h-0 min-w-0 flex-1 space-y-4 overflow-x-hidden overflow-y-auto overscroll-contain p-3 sm:p-6">
                             {formacoes.length > 0 ? (
                                 formacoes.map((formacao, indice) => (
-                                    <CardFormacao
+                                    <CardFormacaoAcademica
                                         key={`${formacao.institution}-${formacao.degree}-${indice}`}
                                         formacao={formacao}
                                         indice={indice}

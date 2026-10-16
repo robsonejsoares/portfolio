@@ -84,7 +84,7 @@ export function SectionServicos() {
                                     </span>
 
                                     <span className="hidden sm:inline">
-                                        Ver todos os serviços
+                                        Ver todos
                                     </span>
                                 </span>
 

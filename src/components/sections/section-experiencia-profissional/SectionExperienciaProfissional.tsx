@@ -131,7 +131,7 @@ export function SectionExperienciaProfissional() {
                                     </span>
 
                                     <span className="hidden sm:inline">
-                                        Ver todas as experiências
+                                        Ver todas
                                     </span>
 
                                     <span className="shrink-0 rounded-full bg-black/10 px-2 py-0.5 text-xs font-bold">
