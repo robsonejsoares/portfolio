@@ -1,4 +1,4 @@
-﻿
+
 "use client";
 
 import { motion, AnimatePresence } from "framer-motion";
@@ -37,7 +37,7 @@ export function GridHabilidades({
                             scale: 1.06,
                             y: -2,
                         }}
-                        className={`group relative flex h-17 w-17 shrink-0 cursor-default flex-col items-center justify-center rounded-lg border border-slate-700/60 bg-slate-900/70 p-1.5 transition-colors duration-200 hover:border-cyan-500/50 ${"shadow" in skill ? skill.shadow : ""
+                        className={`group relative flex h-17 w-17 shrink-0 cursor-default flex-col items-center justify-center rounded-md border border-slate-700/60 bg-slate-900/70 p-1.5 transition-colors duration-200 hover:border-cyan-500/50 ${"shadow" in skill ? skill.shadow : ""
                             }`}
                         title={skill.name}
                     >

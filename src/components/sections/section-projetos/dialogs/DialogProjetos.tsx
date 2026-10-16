@@ -4,8 +4,10 @@ import { useEffect } from "react";
 import { createPortal } from "react-dom";
 import { AnimatePresence, motion } from "framer-motion";
 import { ExternalLink, Globe, GitBranch } from "lucide-react";
+
 import { ButtonFechar } from "@/components/ui/ButtonFechar";
 import type { Project } from "@/data/dadosPortfolio";
+import { StatusProjeto } from "../components/StatusProjeto";
 
 interface DialogProjetosProps {
     projeto: Project | null;
@@ -18,20 +20,6 @@ export function DialogProjetos({
     isOpen,
     onClose,
 }: DialogProjetosProps) {
-    const concluido = projeto?.status === "Concluído";
-
-    const statusStyles = concluido
-        ? {
-            badge: "border-emerald-500/20 bg-emerald-500/[0.05]",
-            dot: "bg-emerald-400",
-            text: "text-emerald-400",
-        }
-        : {
-            badge: "border-red-500/20 bg-red-500/[0.05]",
-            dot: "bg-red-400",
-            text: "text-red-400",
-        };
-
     useEffect(() => {
         if (!isOpen) return;
 
@@ -79,7 +67,7 @@ export function DialogProjetos({
                         role="dialog"
                         aria-modal="true"
                         aria-labelledby="dialog-projeto-titulo"
-                        className="relative z-10 flex max-h-[92dvh] w-full max-w-5xl flex-col overflow-hidden rounded-xl border border-white/10 bg-[#0b1020] shadow-2xl shadow-black/40"
+                        className="relative z-10 flex max-h-[92dvh] w-full max-w-5xl flex-col overflow-hidden rounded-md border border-white/10 bg-[#0b1020] shadow-2xl shadow-black/40"
                         initial={{ opacity: 0, y: 20, scale: 0.98 }}
                         animate={{ opacity: 1, y: 0, scale: 1 }}
                         exit={{ opacity: 0, y: 12, scale: 0.98 }}
@@ -167,21 +155,9 @@ export function DialogProjetos({
                                             Sobre o projeto
                                         </h3>
 
-                                        {/* Status com o mesmo padrão visual do card */}
-                                        <div
-                                            className={`inline-flex shrink-0 items-center gap-1.5 rounded-full border px-2 py-[3px] ${statusStyles.badge}`}
-                                        >
-                                            <span
-                                                aria-hidden="true"
-                                                className={`size-1.5 shrink-0 rounded-full ${statusStyles.dot}`}
-                                            />
-
-                                            <span
-                                                className={`whitespace-nowrap font-mono text-[10px] leading-tight ${statusStyles.text}`}
-                                            >
-                                                {projeto.status}
-                                            </span>
-                                        </div>
+                                        <StatusProjeto
+                                            status={projeto.status}
+                                        />
                                     </div>
 
                                     <p className="text-sm leading-relaxed text-slate-400">

@@ -3,19 +3,19 @@
 import { motion } from "framer-motion";
 import { skillCategories } from "../dadosHabilidades";
 
-interface TabsHabilidadesProps {
+interface CategoriasHabilidadesProps {
     activeTab: string;
     onTabClick: (id: string) => void;
     onMouseEnter: () => void;
     onMouseLeave: () => void;
 }
 
-export function TabsHabilidades({
+export function CategoriasHabilidades({
     activeTab,
     onTabClick,
     onMouseEnter,
     onMouseLeave,
-}: TabsHabilidadesProps) {
+}: CategoriasHabilidadesProps) {
     return (
         <div
             className="relative mb-6 flex w-full flex-wrap items-center justify-start gap-1 rounded-lg border border-white/10 bg-[#0b1020]/70 p-1 sm:gap-1.5"
@@ -67,3 +67,4 @@ export function TabsHabilidades({
     );
 
 }
+

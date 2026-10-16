@@ -2,7 +2,7 @@
 
 import { useRotacaoAutomaticaHabilidades } from "./hooks/useRotacaoAutomaticaHabilidades";
 import { HeaderHabilidades } from "./components/HeaderHabilidades";
-import { TabsHabilidades } from "./components/TabsHabilidades";
+import { CategoriasHabilidades } from "./components/CategoriasHabilidades";
 import { GridHabilidades } from "./components/GridHabilidades";
 
 export function SectionHabilidades() {
@@ -22,7 +22,7 @@ export function SectionHabilidades() {
             <div className="w-full min-w-0">
                 <HeaderHabilidades />
 
-                <TabsHabilidades
+                <CategoriasHabilidades
                     activeTab={activeTab}
                     onTabClick={handleTabClick}
                     onMouseEnter={handleMouseEnter}
@@ -35,4 +35,5 @@ export function SectionHabilidades() {
     );
 
 }
+
 

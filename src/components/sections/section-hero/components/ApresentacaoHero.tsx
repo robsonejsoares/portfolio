@@ -69,7 +69,7 @@ export function ApresentacaoHero() {
 
                 <span
                     aria-hidden="true"
-                    className="ml-1.5 h-5 w-px shrink-0 animate-pulse rounded-xl bg-slate-500"
+                    className="ml-1.5 h-5 w-px shrink-0 animate-pulse rounded-md bg-slate-500"
                 />
             </div>
 

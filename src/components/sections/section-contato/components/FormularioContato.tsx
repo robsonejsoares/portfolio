@@ -10,7 +10,7 @@ import {
 type CampoContato = "nome" | "email" | "assunto" | "mensagem";
 
 const classesCampo =
-    "w-full rounded-lg border border-white/10 bg-slate-950/70 px-4 py-3 text-sm text-slate-200 outline-none transition-colors duration-200 placeholder focus/20 focus disabled disabled";
+    "w-full rounded-md border border-white/10 bg-slate-950/70 px-4 py-3 text-sm text-slate-200 outline-none transition-colors duration-200 placeholder focus/20 focus disabled disabled";
 
 export function FormularioContato() {
     const [nome, setNome] = useState("");
@@ -186,7 +186,7 @@ export function FormularioContato() {
     }
 
     return (
-        <div className="rounded-xl border border-white/10 bg-slate-900/60 p-5 shadow-2xl shadow-black/20 backdrop-blur-xl sm:p-8">
+        <div className="rounded-md border border-white/10 bg-slate-900/60 p-5 shadow-2xl shadow-black/20 backdrop-blur-xl sm:p-8">
             <form
                 onSubmit={handleSubmit}
                 noValidate
@@ -329,7 +329,7 @@ export function FormularioContato() {
                     <button
                         type="submit"
                         disabled={enviando}
-                        className="group relative flex cursor-pointer items-center justify-center gap-2 overflow-hidden rounded-lg bg-gradient-to-r from-cyan-400 via-sky-400 to-blue-500 px-6 py-3.5 text-sm font-bold text-slate-950 shadow-lg shadow-cyan-500/20 transition-all duration-300 hover:brightness-110 hover:shadow-[0_0_28px_rgba(6,182,212,0.25)] active:scale-[0.98] disabled:cursor-not-allowed disabled:opacity-60 disabled:hover:shadow-lg"
+                        className="group relative flex cursor-pointer items-center justify-center gap-2 overflow-hidden rounded-md bg-gradient-to-r from-cyan-400 via-sky-400 to-blue-500 px-6 py-3.5 text-sm font-bold text-slate-950 shadow-lg shadow-cyan-500/20 transition-all duration-300 hover:brightness-110 hover:shadow-[0_0_28px_rgba(6,182,212,0.25)] active:scale-[0.98] disabled:cursor-not-allowed disabled:opacity-60 disabled:hover:shadow-lg"
                     >
                         <span
                             aria-hidden="true"
