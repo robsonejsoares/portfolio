@@ -3,7 +3,7 @@
 import { useEffect, useRef, useState, type FormEvent } from "react";
 import { LoaderCircle, Send } from "lucide-react";
 
-import { Button } from "@/components/ui/Button";
+import { ButtonEnviarMensagem } from "@/components/ui/ButtonEnviarMensagem";
 
 import {
     FeedbackContato,
@@ -346,18 +346,13 @@ export function FormularioContato() {
                     </div>
                 </div>
 
-                {/* Botão de envio padronizado */}
+                {/* Botão de envio */}
                 <div className="flex justify-center pt-1">
-                    <Button
-                        type="submit"
-                        variant="default"
-                        size="default"
-                        disabled={enviando}
-                        className="w-full max-w-full cursor-pointer disabled:cursor-not-allowed sm:w-auto sm:min-w-56"
-                    >
+                    <ButtonEnviarMensagem enviando={enviando}>
                         {enviando ? (
                             <>
                                 <span>Enviando mensagem...</span>
+
                                 <LoaderCircle
                                     className="animate-spin"
                                     aria-hidden="true"
@@ -366,13 +361,14 @@ export function FormularioContato() {
                         ) : (
                             <>
                                 <span>Enviar mensagem</span>
+
                                 <Send
-                                    className="transition-transform duration-300 group-hover/button:-translate-y-0.5 group-hover/button:translate-x-0.5"
+                                    className="transition-transform duration-300 group-hover/button:-translate-y-0.5 group-hover/button:translate-x-0.5 motion-reduce:transition-none"
                                     aria-hidden="true"
                                 />
                             </>
                         )}
-                    </Button>
+                    </ButtonEnviarMensagem>
                 </div>
             </form>
         </div>

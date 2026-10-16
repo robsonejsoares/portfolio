@@ -15,6 +15,7 @@ import {
 } from "lucide-react";
 
 import { ButtonFechar } from "@/components/ui/ButtonFechar";
+import { ButtonDownload } from "@/components/ui/ButtonDownload";
 import { dadosCurriculo } from "@/data/dadosCurriculo";
 
 function GithubIcon({ className = "h-4 w-4" }: { className?: string }) {
@@ -137,28 +138,14 @@ export function DialogCurriculo({
                                 </div>
                             </div>
 
+                            {/* Ações do cabeçalho */}
                             <div className="flex shrink-0 items-center gap-2">
-                                <a
+                                <ButtonDownload
                                     href="/curriculo.pdf"
-                                    download="Curriculo_Robson_Soares.pdf"
-                                    aria-label="Baixar currículo em PDF"
-                                    className="group relative flex min-h-11 shrink-0 cursor-pointer items-center justify-center gap-1.5 overflow-hidden rounded-md bg-gradient-to-r from-cyan-400 via-sky-400 to-purple-500 px-3 py-2 text-xs font-extrabold text-black shadow-md shadow-cyan-500/20 transition-all duration-300 hover:brightness-110 active:scale-95 sm:px-4"
-                                >
-                                    <span
-                                        aria-hidden="true"
-                                        className="pointer-events-none absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/40 to-transparent transition-transform duration-700 group-hover:translate-x-full"
-                                    />
-
-                                    <span className="relative z-10 flex items-center gap-1.5">
-                                        <span className="hidden sm:inline">
-                                            Baixar PDF
-                                        </span>
-                                        <span className="sm:hidden">PDF</span>
-                                        <span aria-hidden="true" className="text-sm font-bold">
-                                            →
-                                        </span>
-                                    </span>
-                                </a>
+                                    fileName="Curriculo_Robson_Soares.pdf"
+                                    label="Baixar Currículo"
+                                    mobileLabel="PDF"
+                                />
 
                                 <div className="shrink-0">
                                     <ButtonFechar onClick={onClose} />

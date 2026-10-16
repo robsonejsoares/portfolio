@@ -1,9 +1,9 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ExternalLink, Eye, Monitor } from "lucide-react";
+import { Monitor } from "lucide-react";
 
-import { Button } from "@/components/ui/Button";
+import { ButtonCardProjeto } from "@/components/ui/ButtonCardProjeto";
 import type { Project } from "@/data/dadosPortfolio";
 import { StatusProjeto } from "./StatusProjeto";
 
@@ -98,35 +98,24 @@ export function CardProjetos({
 
                 {/* Ações */}
                 <div className="mt-auto flex items-center gap-1.5 border-t border-white/[0.07] pt-2.5">
-                    <Button
-                        type="button"
-                        variant="secondary"
+                    <ButtonCardProjeto
+                        variant="details"
                         onClick={() => onView(projeto)}
-                        size="sm"
-                        className="flex-1 cursor-pointer"
+                        label={`Ver detalhes do projeto ${projeto.title}`}
+                        className="flex-1"
                     >
-                        <Eye aria-hidden="true" />
                         Ver projeto
-                    </Button>
+                    </ButtonCardProjeto>
 
                     {projeto.liveUrl && (
                         <div className="group/tooltip relative">
-                            <a
+                            <ButtonCardProjeto
+                                variant="external"
                                 href={projeto.liveUrl}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                aria-label={`Abrir ${projeto.title} em uma nova guia`}
-                                aria-describedby={`tooltip-projeto-${index}`}
-                                className="inline-flex size-7 shrink-0 cursor-pointer items-center justify-center rounded-md border border-[#2A3C56] bg-[#17263D] font-medium transition-colors duration-200 hover:bg-[#20334D] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#607A9D]"
-                            >
-                                <ExternalLink
-                                    className="h-3 w-3 text-[#B8C7DB]"
-                                    aria-hidden="true"
-                                />
-                            </a>
+                                label={`Abrir ${projeto.title} em uma nova guia`}
+                            />
 
                             <span
-                                id={`tooltip-projeto-${index}`}
                                 role="tooltip"
                                 className="pointer-events-none absolute bottom-full right-0 z-20 mb-1.5 w-max max-w-52 rounded-md border border-[#2A3C56] bg-[#17263D] px-2.5 py-1.5 text-center font-mono text-[10px] text-[#E7EDF5] opacity-0 shadow-lg transition-opacity duration-200 group-hover/tooltip:opacity-100 group-focus-within/tooltip:opacity-100"
                             >
