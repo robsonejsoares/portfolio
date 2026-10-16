@@ -4,10 +4,12 @@ import { useCallback, useState } from "react";
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 
+import { Button } from "@/components/ui/Button";
+import { LoadingDialog } from "@/components/common/LoadingDialog";
 import { dadosCurriculo } from "@/data/dadosCurriculo";
+
 import { CardExperienciaProfissional } from "./components/CardExperienciaProfissional";
 import { DialogExperienciaProfissional } from "./dialogs/DialogExperienciaProfissional";
-import { LoadingDialog } from "@/components/common/LoadingDialog";
 
 const experienciaFreelancer = {
     company: "XCodify",
@@ -90,48 +92,43 @@ export function SectionExperienciaProfissional() {
                 className="relative z-10 w-full min-w-0 py-6 sm:py-8"
             >
                 <div className="w-full min-w-0 space-y-8 sm:space-y-10">
-                    {/* Cabeçalho responsivo */}
+                    {/* Cabeçalho padronizado */}
                     <motion.header
-                        initial={{ opacity: 0, y: 20 }}
+                        initial={{ opacity: 0, y: 15 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
-                        transition={{ duration: 0.5 }}
-                        className="flex w-full min-w-0 items-start justify-between gap-3 text-left"
+                        transition={{ duration: 0.4 }}
+                        className="mb-3 flex w-full min-w-0 items-start justify-between gap-3 text-left"
                     >
                         <div className="min-w-0 flex-1">
                             <h2
                                 id="experience-title"
-                                className="mb-3 font-display text-2xl font-bold text-cyan-300/70"
+                                className="font-display text-xl font-bold text-[#8FA8C8] sm:text-2xl"
                             >
                                 Experiência Profissional
                             </h2>
-
-                            <p className="break-words text-left font-mono text-xs leading-relaxed tracking-widest text-slate-400">
-                                Minha trajetória profissional.
-                            </p>
                         </div>
 
                         {experiencias.length > 2 && (
-                            <button
+                            <Button
                                 type="button"
+                                variant="default"
+                                size="default"
                                 onClick={handleOpenExperiences}
                                 disabled={isLoading || dialogAberto}
                                 aria-haspopup="dialog"
                                 aria-expanded={dialogAberto}
-                                className="group relative inline-flex max-w-[48%] shrink-0 cursor-pointer items-center justify-center gap-2 overflow-hidden rounded-md bg-gradient-to-r from-cyan-400 via-sky-400 to-blue-500 px-3 py-2 text-xs font-semibold text-black shadow-lg shadow-cyan-500/25 transition-all duration-300 hover:brightness-110 hover:shadow-[0_0_35px_rgba(6,182,212,0.5)] active:scale-95 disabled:cursor-wait disabled:opacity-70 sm:max-w-none sm:gap-3 sm:px-6 sm:py-2.5 sm:text-sm"
+                                className="max-w-[48%] shrink-0 cursor-pointer disabled:cursor-wait sm:max-w-none"
                             >
-                                <span
-                                    aria-hidden="true"
-                                    className="pointer-events-none absolute inset-0 h-full w-full -translate-x-full bg-gradient-to-r from-transparent via-white/50 to-transparent transition-transform duration-700 ease-in-out group-hover:translate-x-full"
-                                />
+                                <span className="inline-flex min-w-0 items-center justify-center gap-2">
+                                    <span className="whitespace-nowrap">
+                                        <span className="sm:hidden">
+                                            Ver todas
+                                        </span>
 
-                                <span className="relative z-10 inline-flex min-w-0 items-center justify-center gap-2 sm:gap-3">
-                                    <span className="sm:hidden">
-                                        Ver todas
-                                    </span>
-
-                                    <span className="hidden sm:inline">
-                                        Ver todas
+                                        <span className="hidden sm:inline">
+                                            Ver todas experiências
+                                        </span>
                                     </span>
 
                                     <span className="shrink-0 rounded-full bg-black/10 px-2 py-0.5 text-xs font-bold">
@@ -139,12 +136,11 @@ export function SectionExperienciaProfissional() {
                                     </span>
 
                                     <ArrowRight
-                                        size={17}
                                         aria-hidden="true"
-                                        className="shrink-0 transition-transform duration-300 group-hover:translate-x-1"
+                                        className="shrink-0 transition-transform duration-300 group-hover/button:translate-x-1"
                                     />
                                 </span>
-                            </button>
+                            </Button>
                         )}
                     </motion.header>
 

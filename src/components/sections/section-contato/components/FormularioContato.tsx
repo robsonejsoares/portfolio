@@ -2,6 +2,9 @@
 
 import { useEffect, useRef, useState, type FormEvent } from "react";
 import { LoaderCircle, Send } from "lucide-react";
+
+import { Button } from "@/components/ui/Button";
+
 import {
     FeedbackContato,
     type TipoFeedback,
@@ -10,7 +13,7 @@ import {
 type CampoContato = "nome" | "email" | "assunto" | "mensagem";
 
 const classesCampo =
-    "w-full min-w-0 rounded-md border border-white/10 bg-slate-950/70 px-3 py-3 text-sm text-slate-200 outline-none transition-colors duration-200 placeholder:text-slate-500 focus-visible:border-cyan-400/50 focus-visible:ring-2 focus-visible:ring-cyan-400/20 disabled:cursor-not-allowed disabled:opacity-60 sm:px-4";
+    "w-full min-w-0 rounded-md border border-white/10 bg-slate-950/70 px-3 py-3 text-sm text-slate-200 outline-none transition-colors duration-200 placeholder:text-slate-500 focus-visible:border-[#607A9D] focus-visible:ring-2 focus-visible:ring-[#607A9D]/20 disabled:cursor-not-allowed disabled:opacity-60 sm:px-4";
 
 export function FormularioContato() {
     const [nome, setNome] = useState("");
@@ -113,9 +116,7 @@ export function FormularioContato() {
     async function handleSubmit(event: FormEvent<HTMLFormElement>) {
         event.preventDefault();
 
-        if (enviando) {
-            return;
-        }
+        if (enviando) return;
 
         limparAvisos();
 
@@ -202,7 +203,7 @@ export function FormularioContato() {
                         >
                             Nome
                             <span
-                                className="ml-1 text-cyan-400"
+                                className="ml-1 text-[#8FA6C4]"
                                 aria-hidden="true"
                             >
                                 *
@@ -233,7 +234,7 @@ export function FormularioContato() {
                         >
                             E-mail
                             <span
-                                className="ml-1 text-cyan-400"
+                                className="ml-1 text-[#8FA6C4]"
                                 aria-hidden="true"
                             >
                                 *
@@ -266,7 +267,7 @@ export function FormularioContato() {
                     >
                         Assunto
                         <span
-                            className="ml-1 text-cyan-400"
+                            className="ml-1 text-[#8FA6C4]"
                             aria-hidden="true"
                         >
                             *
@@ -297,7 +298,7 @@ export function FormularioContato() {
                     >
                         Mensagem
                         <span
-                            className="ml-1 text-cyan-400"
+                            className="ml-1 text-[#8FA6C4]"
                             aria-hidden="true"
                         >
                             *
@@ -320,7 +321,7 @@ export function FormularioContato() {
                         className={`${classesCampo} resize-y leading-6`}
                     />
 
-                    {/* Orientação ou feedback + contador: mobile e desktop */}
+                    {/* Feedback e contador */}
                     <div className="mt-2 flex min-w-0 items-start justify-between gap-3">
                         <div className="min-w-0 flex-1">
                             {feedbackTipo && feedbackMensagem ? (
@@ -345,38 +346,33 @@ export function FormularioContato() {
                     </div>
                 </div>
 
-                {/* Botão centralizado: permanece em sua própria linha */}
+                {/* Botão de envio padronizado */}
                 <div className="flex justify-center pt-1">
-                    <button
+                    <Button
                         type="submit"
+                        variant="default"
+                        size="default"
                         disabled={enviando}
-                        className="group relative flex min-h-12 w-full max-w-full cursor-pointer items-center justify-center gap-2 overflow-hidden rounded-md bg-gradient-to-r from-cyan-400 via-sky-400 to-blue-500 px-4 py-3 text-center text-sm font-bold text-slate-950 shadow-lg shadow-cyan-500/20 transition-all duration-300 hover:brightness-110 hover:shadow-[0_0_28px_rgba(6,182,212,0.25)] active:scale-[0.98] disabled:cursor-not-allowed disabled:opacity-60 disabled:hover:shadow-lg sm:w-auto sm:min-w-56 sm:px-6 sm:py-3.5"
+                        className="w-full max-w-full cursor-pointer disabled:cursor-not-allowed sm:w-auto sm:min-w-56"
                     >
-                        <span
-                            aria-hidden="true"
-                            className="pointer-events-none absolute inset-0 h-full w-full -translate-x-full bg-gradient-to-r from-transparent via-white/40 to-transparent transition-transform duration-700 ease-in-out group-hover:translate-x-full"
-                        />
-
-                        <span className="relative z-10 flex min-w-0 items-center justify-center gap-2">
-                            {enviando ? (
-                                <>
-                                    <span>Enviando mensagem...</span>
-                                    <LoaderCircle
-                                        className="h-4 w-4 shrink-0 animate-spin"
-                                        aria-hidden="true"
-                                    />
-                                </>
-                            ) : (
-                                <>
-                                    <span>Enviar mensagem</span>
-                                    <Send
-                                        className="h-4 w-4 shrink-0 transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
-                                        aria-hidden="true"
-                                    />
-                                </>
-                            )}
-                        </span>
-                    </button>
+                        {enviando ? (
+                            <>
+                                <span>Enviando mensagem...</span>
+                                <LoaderCircle
+                                    className="animate-spin"
+                                    aria-hidden="true"
+                                />
+                            </>
+                        ) : (
+                            <>
+                                <span>Enviar mensagem</span>
+                                <Send
+                                    className="transition-transform duration-300 group-hover/button:-translate-y-0.5 group-hover/button:translate-x-0.5"
+                                    aria-hidden="true"
+                                />
+                            </>
+                        )}
+                    </Button>
                 </div>
             </form>
         </div>

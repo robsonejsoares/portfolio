@@ -12,24 +12,20 @@ export function SectionContato() {
             className="relative z-10 w-full min-w-0 max-w-full overflow-x-clip py-6 sm:py-8"
         >
             <div className="w-full min-w-0 max-w-full">
-                {/* Cabeçalho da seção */}
+                {/* Cabeçalho padronizado */}
                 <motion.header
-                    initial={{ opacity: 0, y: 24 }}
+                    initial={{ opacity: 0, y: 15 }}
                     whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true, amount: 0.2 }}
-                    transition={{ duration: 0.6 }}
-                    className="mb-6 w-full min-w-0 text-left sm:mb-8"
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.4 }}
+                    className="mb-3 w-full min-w-0 text-left"
                 >
                     <h2
                         id="contact-title"
-                        className="mb-3 break-words font-display text-2xl font-bold text-cyan-300/70 sm:text-3xl"
+                        className="break-words font-display text-xl font-bold text-[#8FA8C8] sm:text-2xl"
                     >
                         Contato
                     </h2>
-
-                    <p className="max-w-full break-words text-left font-mono text-xs tracking-widest text-slate-400 sm:text-sm">
-                        Vamos conversar sobre o seu próximo projeto?
-                    </p>
                 </motion.header>
 
                 {/* Formulário responsivo */}

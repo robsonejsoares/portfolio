@@ -2,6 +2,8 @@
 
 import { motion } from "framer-motion";
 import { ExternalLink, Eye, Monitor } from "lucide-react";
+
+import { Button } from "@/components/ui/Button";
 import type { Project } from "@/data/dadosPortfolio";
 import { StatusProjeto } from "./StatusProjeto";
 
@@ -27,7 +29,7 @@ export function CardProjetos({
                 ease: "easeOut",
             }}
             whileHover={{ y: -2 }}
-            className="group flex min-w-0 flex-col overflow-hidden rounded-md transition-shadow duration-300 hover:shadow-md hover:shadow-cyan-950/10"
+            className="group flex min-w-0 flex-col overflow-hidden rounded-md transition-shadow duration-300 hover:shadow-md hover:shadow-slate-950/10"
         >
             {/* Imagem do projeto */}
             <div className="relative flex aspect-[16/9] w-full items-center justify-center overflow-hidden rounded-t-md border-b border-slate-200 bg-white p-6">
@@ -96,24 +98,16 @@ export function CardProjetos({
 
                 {/* Ações */}
                 <div className="mt-auto flex items-center gap-1.5 border-t border-white/[0.07] pt-2.5">
-                    <button
+                    <Button
                         type="button"
+                        variant="secondary"
                         onClick={() => onView(projeto)}
-                        className="group/button relative inline-flex min-h-7 flex-1 cursor-pointer items-center justify-center gap-1.5 overflow-hidden rounded-md bg-gradient-to-r from-cyan-400 via-sky-400 to-blue-500 px-2 py-1 text-[10px] font-semibold text-slate-950 transition-all duration-200 hover:brightness-110 active:scale-[0.98] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cyan-400"
+                        size="sm"
+                        className="flex-1 cursor-pointer"
                     >
-                        <span
-                            aria-hidden="true"
-                            className="pointer-events-none absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/35 to-transparent transition-transform duration-500 group-hover/button:translate-x-full"
-                        />
-
-                        <span className="relative z-10 inline-flex items-center gap-1.5">
-                            <Eye
-                                className="h-3 w-3"
-                                aria-hidden="true"
-                            />
-                            Ver projeto
-                        </span>
-                    </button>
+                        <Eye aria-hidden="true" />
+                        Ver projeto
+                    </Button>
 
                     {projeto.liveUrl && (
                         <div className="group/tooltip relative">
@@ -123,10 +117,10 @@ export function CardProjetos({
                                 rel="noopener noreferrer"
                                 aria-label={`Abrir ${projeto.title} em uma nova guia`}
                                 aria-describedby={`tooltip-projeto-${index}`}
-                                className="inline-flex size-7 cursor-pointer items-center justify-center rounded-md border border-white/[0.08] bg-slate-800/30 transition-colors duration-200 hover:bg-white/[0.06] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cyan-400"
+                                className="inline-flex size-7 shrink-0 cursor-pointer items-center justify-center rounded-md border border-[#2A3C56] bg-[#17263D] font-medium transition-colors duration-200 hover:bg-[#20334D] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#607A9D]"
                             >
                                 <ExternalLink
-                                    className="h-3 w-3 text-slate-400"
+                                    className="h-3 w-3 text-[#B8C7DB]"
                                     aria-hidden="true"
                                 />
                             </a>
@@ -134,7 +128,7 @@ export function CardProjetos({
                             <span
                                 id={`tooltip-projeto-${index}`}
                                 role="tooltip"
-                                className="pointer-events-none absolute bottom-full right-0 z-20 mb-1.5 w-max max-w-52 rounded-md border border-white/10 bg-slate-800 px-2.5 py-1.5 text-center font-mono text-[10px] text-white opacity-0 shadow-lg transition-opacity duration-200 group-hover/tooltip:opacity-100 group-focus-within/tooltip:opacity-100"
+                                className="pointer-events-none absolute bottom-full right-0 z-20 mb-1.5 w-max max-w-52 rounded-md border border-[#2A3C56] bg-[#17263D] px-2.5 py-1.5 text-center font-mono text-[10px] text-[#E7EDF5] opacity-0 shadow-lg transition-opacity duration-200 group-hover/tooltip:opacity-100 group-focus-within/tooltip:opacity-100"
                             >
                                 Abrir página do projeto
                             </span>

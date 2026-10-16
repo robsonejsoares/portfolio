@@ -1,4 +1,3 @@
-
 "use client";
 
 import { motion } from "framer-motion";
@@ -14,17 +13,12 @@ export function ApresentacaoSobreMim() {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
-
             className="order-1 flex min-w-0 flex-col justify-center lg:order-1 lg:col-span-6"
         >
             <div>
-                <h2 className="mb-3 font-display text-2xl font-bold text-cyan-300/70">
+                <h2 className="mb-3 font-display text-xl font-bold text-[#8FA8C8] sm:text-2xl">
                     Sobre mim
                 </h2>
-
-                <p className="mb-5 text-xs font-mono tracking-widest text-slate-400">
-                    Conheça minha um pouco sobre mim.
-                </p>
 
                 {/* Linha separadora */}
                 <div className="mb-5 h-px w-full bg-gradient-to-r from-cyan-400/50 via-white/10 to-transparent" />
