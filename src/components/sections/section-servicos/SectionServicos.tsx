@@ -4,10 +4,12 @@ import { useCallback, useState } from "react";
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 
+import { Button } from "@/components/ui/Button";
+import { LoadingDialog } from "@/components/common/LoadingDialog";
 import { dadosServicos } from "@/data/dadosServicos";
+
 import { CardServico } from "./components/CardServico";
 import { DialogServicos } from "./dialogs/DialogServicos";
-import { LoadingDialog } from "@/components/common/LoadingDialog";
 
 export function SectionServicos() {
     const [dialogAberto, setDialogAberto] = useState(false);
@@ -42,49 +44,41 @@ export function SectionServicos() {
                 className="relative z-10 w-full min-w-0 py-6 sm:py-8"
             >
                 <div className="w-full min-w-0">
-                    {/* Cabeçalho responsivo */}
                     <motion.header
-                        initial={{ opacity: 0, y: 20 }}
+                        initial={{ opacity: 0, y: 15 }}
                         whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true, amount: 0.3 }}
-                        transition={{ duration: 0.6 }}
-                        className="mb-8 flex w-full min-w-0 items-start justify-between gap-3 text-left"
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.4 }}
+                        className="mb-3 flex w-full min-w-0 items-start justify-between gap-3 text-left"
                     >
                         <div className="min-w-0 flex-1">
                             <h2
                                 id="services-title"
-                                className="mb-3 font-display text-2xl font-bold text-cyan-300/70"
+                                className="font-display text-xl font-bold text-[#8FA8C8] sm:text-2xl"
                             >
                                 Serviços
                             </h2>
-
-                            <p className="max-w-full break-words text-left font-mono text-xs tracking-widest text-slate-400">
-                                Desenvolvimento de sites e sistemas sob medida.
-                            </p>
                         </div>
 
-                        {/* Botão alinhado à direita */}
-                        <button
+                        {/* Botão padronizado pelo componente compartilhado */}
+                        <Button
                             type="button"
+                            variant="default"
+                            size="default"
                             onClick={abrirDialog}
                             disabled={isLoading || dialogAberto}
                             aria-haspopup="dialog"
                             aria-expanded={dialogAberto}
-                            className="group relative inline-flex max-w-[55%] shrink-0 cursor-pointer items-center justify-center gap-2 overflow-hidden rounded-md bg-gradient-to-r from-cyan-400 via-sky-400 to-blue-500 px-3 py-2 text-xs font-semibold text-black shadow-lg shadow-cyan-500/25 transition-all duration-300 hover:brightness-110 hover:shadow-[0_0_35px_rgba(6,182,212,0.5)] active:scale-95 disabled:cursor-wait disabled:opacity-70 sm:max-w-none sm:gap-3 sm:px-6 sm:py-3 sm:text-sm"
+                            className="max-w-[55%] shrink-0 cursor-pointer disabled:cursor-wait sm:max-w-none"
                         >
-                            <span
-                                aria-hidden="true"
-                                className="pointer-events-none absolute inset-0 h-full w-full -translate-x-full bg-gradient-to-r from-transparent via-white/50 to-transparent transition-transform duration-700 ease-in-out group-hover:translate-x-full"
-                            />
-
-                            <span className="relative z-10 inline-flex min-w-0 items-center justify-center gap-2 sm:gap-3">
-                                <span className="min-w-0 text-center">
+                            <span className="inline-flex min-w-0 items-center justify-center gap-2">
+                                <span className="min-w-0 text-center whitespace-nowrap">
                                     <span className="sm:hidden">
                                         Ver todos
                                     </span>
 
                                     <span className="hidden sm:inline">
-                                        Ver todos
+                                        Ver todos serviços
                                     </span>
                                 </span>
 
@@ -93,22 +87,21 @@ export function SectionServicos() {
                                 </span>
 
                                 <ArrowRight
-                                    size={17}
                                     aria-hidden="true"
-                                    className="shrink-0 transition-transform duration-300 group-hover:translate-x-1"
+                                    className="shrink-0 transition-transform duration-200 group-hover/button:translate-x-1"
                                 />
                             </span>
-                        </button>
+                        </Button>
                     </motion.header>
 
-                    {/* 2 serviços no mobile e até 5 a partir de 640 px */}
+                    {/* Serviços apresentados na seção */}
                     <div className="grid min-w-0 grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5">
                         {dadosServicos.slice(0, 5).map((servico, indice) => (
                             <div
                                 key={servico.titulo}
                                 className={
                                     indice >= 2
-                                        ? "hidden sm:block min-w-0"
+                                        ? "hidden min-w-0 sm:block"
                                         : "min-w-0"
                                 }
                             >
@@ -122,7 +115,7 @@ export function SectionServicos() {
                 </div>
             </section>
 
-            {/* O diálogo continua exibindo todos os serviços */}
+            {/* Diálogo com todos os serviços */}
             <DialogServicos
                 isOpen={dialogAberto}
                 onClose={fecharDialog}
