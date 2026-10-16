@@ -2,9 +2,9 @@
 
 import { useCallback, useState } from "react";
 import { motion } from "framer-motion";
-import { ArrowRight } from "lucide-react";
+import { ClipboardList } from "lucide-react";
 
-import { Button } from "@/components/ui/Button";
+import { ButtonAbrirDialog } from "@/components/ui/ButtonAbrirDialog";
 import { LoadingDialog } from "@/components/common/LoadingDialog";
 import { dadosCurriculo } from "@/data/dadosCurriculo";
 
@@ -92,7 +92,7 @@ export function SectionExperienciaProfissional() {
                 className="relative z-10 w-full min-w-0 py-6 sm:py-8"
             >
                 <div className="w-full min-w-0 space-y-8 sm:space-y-10">
-                    {/* Cabeçalho padronizado */}
+                    {/* Cabeçalho */}
                     <motion.header
                         initial={{ opacity: 0, y: 15 }}
                         whileInView={{ opacity: 1, y: 0 }}
@@ -110,7 +110,7 @@ export function SectionExperienciaProfissional() {
                         </div>
 
                         {experiencias.length > 2 && (
-                            <Button
+                            <ButtonAbrirDialog
                                 type="button"
                                 variant="default"
                                 size="default"
@@ -120,27 +120,24 @@ export function SectionExperienciaProfissional() {
                                 aria-expanded={dialogAberto}
                                 className="max-w-[48%] shrink-0 cursor-pointer disabled:cursor-wait sm:max-w-none"
                             >
-                                <span className="inline-flex min-w-0 items-center justify-center gap-2">
+                                <span className="inline-flex min-w-0 items-center justify-center gap-1.5 sm:gap-2">
                                     <span className="whitespace-nowrap">
                                         <span className="sm:hidden">
-                                            Ver todas
+                                            Ver experiências
                                         </span>
 
                                         <span className="hidden sm:inline">
-                                            Ver todas experiências
+                                            Ver experiências
                                         </span>
                                     </span>
 
-                                    <span className="shrink-0 rounded-full bg-black/10 px-2 py-0.5 text-xs font-bold">
-                                        {experiencias.length}
-                                    </span>
-
-                                    <ArrowRight
+                                    <ClipboardList
+                                        size={16}
                                         aria-hidden="true"
-                                        className="shrink-0 transition-transform duration-300 group-hover/button:translate-x-1"
+                                        className="shrink-0 transition-transform duration-200 group-hover/button:scale-110 motion-reduce:transition-none"
                                     />
                                 </span>
-                            </Button>
+                            </ButtonAbrirDialog>
                         )}
                     </motion.header>
 
@@ -180,6 +177,7 @@ export function SectionExperienciaProfissional() {
                 </div>
             </section>
 
+            {/* Diálogo com todas as experiências */}
             <DialogExperienciaProfissional
                 isOpen={dialogAberto}
                 onClose={handleCloseDialog}
