@@ -1,0 +1,73 @@
+name: Auto Promote Feature to Develop and Main
+
+on:
+  push:
+    branches:
+      - 'feature/**'
+      - develop
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  feature-to-develop:
+    if: startsWith(github.ref, 'refs/heads/feature/')
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Create PR and enable automatic merge
+        env:
+          GH_TOKEN: ${{ secrets.AUTOMATION_TOKEN }}
+          BRANCH_NAME: ${{ github.ref_name }}
+        run: |
+          set -euo pipefail
+
+          PR_URL="$(gh pr list \
+            --repo "$GITHUB_REPOSITORY" \
+            --base develop \
+            --head "$BRANCH_NAME" \
+            --state open \
+            --json url \
+            --jq '.[0].url')"
+
+          if [ -z "$PR_URL" ]; then
+            PR_URL="$(gh pr create \
+              --repo "$GITHUB_REPOSITORY" \
+              --base develop \
+              --head "$BRANCH_NAME" \
+              --title "feat: integrar $BRANCH_NAME em develop" \
+              --body "PR criada automaticamente após push na branch $BRANCH_NAME.")"
+          fi
+
+          gh pr merge "$PR_URL" --auto --squash
+
+  develop-to-main:
+    if: github.ref == 'refs/heads/develop'
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Create promotion PR and enable automatic merge
+        env:
+          GH_TOKEN: ${{ secrets.AUTOMATION_TOKEN }}
+        run: |
+          set -euo pipefail
+
+          PR_URL="$(gh pr list \
+            --repo "$GITHUB_REPOSITORY" \
+            --base main \
+            --head develop \
+            --state open \
+            --json url \
+            --jq '.[0].url')"
+
+          if [ -z "$PR_URL" ]; then
+            PR_URL="$(gh pr create \
+              --repo "$GITHUB_REPOSITORY" \
+              --base main \
+              --head develop \
+              --title "chore(release): promover develop para main" \
+              --body "PR criada automaticamente após atualização da develop.")"
+          fi
+
+          gh pr merge "$PR_URL" --auto --squash
