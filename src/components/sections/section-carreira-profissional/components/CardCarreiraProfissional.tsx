@@ -3,7 +3,7 @@
 import { motion } from "framer-motion";
 import { CalendarDays } from "lucide-react";
 
-interface CardExperienciaProfissionalProps {
+interface CardCarreiraProfissionalProps {
     cargo: string;
     empresa: string;
     subtitulo?: string;
@@ -15,7 +15,7 @@ interface CardExperienciaProfissionalProps {
     indice: number;
 }
 
-export function CardExperienciaProfissional({
+export function CardCarreiraProfissional({
     cargo,
     empresa,
     subtitulo,
@@ -25,7 +25,7 @@ export function CardExperienciaProfissional({
     destaques,
     cor,
     indice,
-}: CardExperienciaProfissionalProps) {
+}: CardCarreiraProfissionalProps) {
     return (
         <motion.article
             initial={{ opacity: 0, y: 24 }}

@@ -12,7 +12,7 @@ import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import { GraduationCap } from "lucide-react";
 
 import { ButtonFechar } from "@/components/ui/ButtonFechar";
-import { CardFormacaoAcademica } from "../components/CardFormacaoAcademica";
+import { CardQualificacaoAcademica } from "../components/CardQualificacaoAcademica";
 
 interface Formacao {
     degree: string;
@@ -21,7 +21,7 @@ interface Formacao {
     date?: string;
 }
 
-interface DialogFormacaoAcademicaProps {
+interface DialogQualificacaoAcademicaProps {
     formacoes: Formacao[];
     onClose: () => void;
 }
@@ -35,10 +35,10 @@ const SELETORES_FOCAVEIS = [
     '[tabindex]:not([tabindex="-1"])',
 ].join(",");
 
-export function DialogFormacaoAcademica({
+export function DialogQualificacaoAcademica({
     formacoes,
     onClose,
-}: DialogFormacaoAcademicaProps) {
+}: DialogQualificacaoAcademicaProps) {
     const dialogRef = useRef<HTMLDivElement>(null);
     const elementoAnteriorRef = useRef<HTMLElement | null>(null);
     const fecharRef = useRef(onClose);
@@ -220,7 +220,7 @@ export function DialogFormacaoAcademica({
                                         id="dialog-formacao-title"
                                         className="break-words text-sm font-semibold leading-snug text-slate-200 sm:text-lg sm:leading-6"
                                     >
-                                        Formação Acadêmica
+                                        Qualificações Acadêmicas
                                     </h2>
 
                                     <p
@@ -245,7 +245,7 @@ export function DialogFormacaoAcademica({
                         <div className="min-h-0 min-w-0 flex-1 space-y-4 overflow-x-hidden overflow-y-auto overscroll-contain p-3 sm:p-6">
                             {formacoes.length > 0 ? (
                                 formacoes.map((formacao, indice) => (
-                                    <CardFormacaoAcademica
+                                    <CardQualificacaoAcademica
                                         key={`${formacao.institution}-${formacao.degree}-${indice}`}
                                         formacao={formacao}
                                         indice={indice}

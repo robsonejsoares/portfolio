@@ -9,13 +9,13 @@ import { LoadingDialog } from "@/components/common/LoadingDialog";
 import { dadosCurriculo } from "@/data/dadosCurriculo";
 import { ordenarFormacoes } from "@/utils/ordenarFormacoes";
 
-import { CardFormacaoAcademica } from "./components/CardFormacaoAcademica";
-import { DialogFormacaoAcademica } from "./dialogs/DialogFormacaoAcademica";
+import { CardQualificacaoAcademica } from "./components/CardQualificacaoAcademica";
+import { DialogQualificacaoAcademica } from "./dialogs/DialogQualificacaoAcademica";
 
 const LIMITE_FORMACOES_MOBILE = 1;
 const LIMITE_FORMACOES_DESKTOP = 2;
 
-export function SectionFormacaoAcademica() {
+export function SectionQualificacaoAcademica() {
     const [dialogAberto, setDialogAberto] = useState(false);
     const [carregando, setCarregando] = useState(false);
 
@@ -54,12 +54,12 @@ export function SectionFormacaoAcademica() {
             <LoadingDialog
                 isLoading={carregando}
                 onFinished={handleCarregamentoFinalizado}
-                text="Acessando formações acadêmicas..."
+                text="Acessando qualificações acadêmicas..."
             />
 
             <section
-                id="education"
-                aria-labelledby="education-title"
+                id="qualifications"
+                aria-labelledby="qualifications-title"
                 className="relative z-10 w-full min-w-0 py-6 sm:py-8"
             >
                 <div className="w-full min-w-0 space-y-8 sm:space-y-10">
@@ -73,10 +73,10 @@ export function SectionFormacaoAcademica() {
                     >
                         <div className="min-w-0 flex-1">
                             <h2
-                                id="education-title"
+                                id="qualifications-title"
                                 className="font-display text-xl font-bold text-[#8FA8C8] sm:text-2xl"
                             >
-                                Formação Acadêmica
+                                Qualificações
                             </h2>
                         </div>
 
@@ -94,11 +94,11 @@ export function SectionFormacaoAcademica() {
                                 <span className="inline-flex min-w-0 items-center justify-center gap-2">
                                     <span className="whitespace-nowrap">
                                         <span className="sm:hidden">
-                                            Ver formações
+                                            Ver qualificações
                                         </span>
 
                                         <span className="hidden sm:inline">
-                                            Ver formações
+                                            Ver qualificações
                                         </span>
                                     </span>
 
@@ -115,7 +115,7 @@ export function SectionFormacaoAcademica() {
                     {/* Mobile: exibe somente uma formação */}
                     <div className="flex w-full min-w-0 flex-col gap-4 sm:hidden">
                         {formacoesMobile.map((formacao, indice) => (
-                            <CardFormacaoAcademica
+                            <CardQualificacaoAcademica
                                 key={`${formacao.institution}-${formacao.degree}`}
                                 formacao={formacao}
                                 indice={indice}
@@ -126,7 +126,7 @@ export function SectionFormacaoAcademica() {
                     {/* Desktop: exibe até duas formações */}
                     <div className="hidden w-full min-w-0 flex-col gap-4 sm:flex">
                         {formacoesDesktop.map((formacao, indice) => (
-                            <CardFormacaoAcademica
+                            <CardQualificacaoAcademica
                                 key={`${formacao.institution}-${formacao.degree}`}
                                 formacao={formacao}
                                 indice={indice}
@@ -138,7 +138,7 @@ export function SectionFormacaoAcademica() {
 
             {/* Diálogo com todas as formações */}
             {dialogAberto && (
-                <DialogFormacaoAcademica
+                <DialogQualificacaoAcademica
                     formacoes={formacoes}
                     onClose={handleFecharDialog}
                 />

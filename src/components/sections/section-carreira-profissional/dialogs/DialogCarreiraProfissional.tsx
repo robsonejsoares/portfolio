@@ -6,7 +6,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import { BriefcaseBusiness } from "lucide-react";
 
 import { ButtonFechar } from "@/components/ui/ButtonFechar";
-import { CardExperienciaProfissional } from "../components/CardExperienciaProfissional";
+import { CardCarreiraProfissional } from "../components/CardCarreiraProfissional";
 
 interface Experiencia {
     company: string;
@@ -22,7 +22,7 @@ interface ConfiguracaoVisual {
     descricao: string;
 }
 
-interface DialogExperienciaProfissionalProps {
+interface DialogCarreiraProfissionalProps {
     isOpen: boolean;
     onClose: () => void;
     experiencias: Experiencia[];
@@ -31,17 +31,17 @@ interface DialogExperienciaProfissionalProps {
 
 const visualPadrao: ConfiguracaoVisual = {
     cor: "#22D3EE",
-    categoria: "Experiência",
+    categoria: "Carreira Profissional",
     descricao:
         "Experiência profissional com foco no desenvolvimento de competências, na qualidade das entregas e na evolução contínua.",
 };
 
-export function DialogExperienciaProfissional({
+export function DialogCarreiraProfissional({
     isOpen,
     onClose,
     experiencias,
     configuracaoVisual,
-}: DialogExperienciaProfissionalProps) {
+}: DialogCarreiraProfissionalProps) {
     // Bloqueia a rolagem do fundo e permite fechar com Escape.
     useEffect(() => {
         if (!isOpen) return;
@@ -119,7 +119,7 @@ export function DialogExperienciaProfissional({
                                         id="dialog-experiencias-titulo"
                                         className="break-words text-sm font-semibold leading-snug text-slate-300 sm:text-lg sm:leading-6"
                                     >
-                                        Experiência Profissional
+                                        Carreira Profissional
                                     </h2>
 
                                     <p className="mt-1 break-words font-mono text-[11px] leading-relaxed text-slate-400 sm:text-[13px]">
@@ -146,7 +146,7 @@ export function DialogExperienciaProfissional({
                                             visualPadrao;
 
                                         return (
-                                            <CardExperienciaProfissional
+                                            <CardCarreiraProfissional
                                                 key={`${experiencia.company}-${experiencia.period}`}
                                                 cargo={experiencia.role}
                                                 empresa={experiencia.company}

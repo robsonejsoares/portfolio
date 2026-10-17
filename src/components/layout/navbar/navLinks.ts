@@ -15,8 +15,8 @@ export const navLinks = [
     { name: "Habilidades", href: "#skills", icon: Cpu },
     { name: "Projetos", href: "#projects", icon: FolderGit2 },
     { name: "Serviços", href: "#services", icon: Layers },
-    { name: "Experiência", href: "#experience", icon: Briefcase },
-    { name: "Formação", href: "#education", icon: GraduationCap },
+    { name: "Carreira Profissional", href: "#professional-career", icon: Briefcase },
+    { name: "Formação", href: "#qualifications", icon: GraduationCap },
 ];
 
 export const mobileNavLinks = [

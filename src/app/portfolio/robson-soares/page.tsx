@@ -15,8 +15,8 @@ import { SectionSobreMim } from "@/components/sections/section-sobre-mim/Section
 import { SectionHabilidades } from "@/components/sections/section-habilidades/SectionHabilidades";
 import { SectionProjetos } from "@/components/sections/section-projetos/SectionProjetos";
 import { SectionServicos } from "@/components/sections/section-servicos/SectionServicos";
-import { SectionExperienciaProfissional } from "@/components/sections/section-experiencia-profissional/SectionExperienciaProfissional";
-import { SectionFormacaoAcademica } from "@/components/sections/section-formacao-academica/SectionFormacaoAcademica";
+import { SectionCarreiraProfissional } from "@/components/sections/section-carreira-profissional/SectionCarreiraProfissional";
+import { SectionQualificacaoAcademica } from "@/components/sections/section-qualificacao-academica/SectionQualificacaoAcademica";
 import { SectionContato } from "@/components/sections/section-contato/SectionContato";
 
 export default function HomePortfolio() {
@@ -62,14 +62,14 @@ export default function HomePortfolio() {
                 <SectionServicos />
             </SectionCard>
 
-            {/* 6. Experiência Profissional */}
+            {/* 6. Carreira Profissional */}
             <SectionCard>
-                <SectionExperienciaProfissional />
+                <SectionCarreiraProfissional />
             </SectionCard>
 
-            {/* 7. Formação Acadêmica */}
+            {/* 7. Qualificações Acadêmica */}
             <SectionCard>
-                <SectionFormacaoAcademica />
+                <SectionQualificacaoAcademica />
             </SectionCard>
 
             {/* Contato */}

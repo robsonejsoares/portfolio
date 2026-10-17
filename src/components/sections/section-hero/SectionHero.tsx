@@ -1,14 +1,15 @@
+
 "use client";
 
 import { useCallback, useState } from "react";
 import type { MouseEvent } from "react";
 
 import { LoadingDialog } from "@/components/common/LoadingDialog";
+import { RedesSociais } from "@/components/redes-sociais/RedesSociais";
 import { AcoesHero } from "@/components/sections/section-hero/components/AcoesHero";
 import { ApresentacaoHero } from "@/components/sections/section-hero/components/ApresentacaoHero";
 import { AvatarHero } from "@/components/sections/section-hero/components/AvatarHero";
 import { EstatisticasHero } from "@/components/sections/section-hero/components/EstatisticasHero";
-import { LinksSociaisHero } from "@/components/sections/section-hero/components/LinksSociaisHero";
 import { DialogCurriculo } from "@/components/sections/section-hero/dialogs/DialogCurriculo";
 
 export function SectionHero() {
@@ -28,6 +29,7 @@ export function SectionHero() {
     const handleScrollToContact = useCallback(
         (event: MouseEvent<HTMLAnchorElement>) => {
             event.preventDefault();
+
             document.getElementById("contact")?.scrollIntoView({
                 behavior: "smooth",
                 block: "start",
@@ -58,6 +60,7 @@ export function SectionHero() {
 
                         <div className="order-2 flex min-w-0 flex-col gap-5 sm:gap-6">
                             <ApresentacaoHero />
+
                             <EstatisticasHero />
 
                             <AcoesHero
@@ -67,7 +70,20 @@ export function SectionHero() {
                                 aoEntrarEmContato={handleScrollToContact}
                             />
 
-                            <LinksSociaisHero />
+                            <div className="w-full min-w-0 border-t-0 pt-1 sm:border-t sm:border-white/10 sm:pt-5">
+                                <RedesSociais
+                                    redes={[
+                                        "github",
+                                        "linkedin",
+                                        "whatsapp",
+                                        "discord",
+                                        "telegram",
+                                    ]}
+                                    mostrarTexto
+                                    varianteMobile="simples"
+                                    className="justify-center sm:justify-start"
+                                />
+                            </div>
                         </div>
                     </div>
                 </div>
