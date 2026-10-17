@@ -1,4 +1,4 @@
-import { Resend } from "resend";
+﻿import { Resend } from "resend";
 
 interface AlertaFalhaContato {
     nome: string;
@@ -321,7 +321,7 @@ export async function enviarAlertaFalhaContato(
         const resend = new Resend(apiKey);
 
         const { error } = await resend.emails.send({
-            from: "Alertas do Portfólio <contato@xcodify.com.br>",
+            from: "Alertas do Portfólio <contato@zayroncode.com.br>",
             to: ["robsoncsoares.1050@gmail.com"],
             subject: "[ALERTA] Falha no formulário de contato",
             html,

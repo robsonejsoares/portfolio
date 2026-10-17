@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+﻿import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 
@@ -13,13 +13,13 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://xcodify.com.br"),
+  metadataBase: new URL("https://zayroncode.com.br"),
   title: "Robson Soares | Full Stack Developer",
   description: "Portfólio cyberpunk e de alta performance de Robson Soares",
   openGraph: {
     title: "Robson Soares | Full Stack Developer",
     description: "Portfólio cyberpunk e de alta performance de Robson Soares",
-    url: "https://xcodify.com.br/portfolio/robson-soares",
+    url: "https://zayroncode.com.br/portfolio/robson-soares",
     siteName: "Robson Soares - Programador Autônomo",
     locale: "pt_BR",
     type: "website",
@@ -48,3 +48,4 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     </html>
   );
 }
+

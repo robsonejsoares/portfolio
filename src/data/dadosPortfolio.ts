@@ -172,22 +172,22 @@ export const dadosPortfolio = {
       ],
     },
     {
-      id: "xcodify-portfolio",
+      id: "zayroncode-portfolio",
       title: "Portfólio - Robson Soares",
       category: "Portfólio Web",
       status: "Concluído",
       shortDescription:
-        "Portfólio profissional desenvolvido e publicado na plataforma Xcodify.",
+        "Portfólio profissional desenvolvido e publicado na plataforma ZayronCode Technologies.",
       fullDescription:
-        "Projeto de portfólio de Robson Soares publicado na Xcodify para apresentar seus projetos, suas habilidades e sua atuação como desenvolvedor.",
-      image: "https://www.xcodify.com.br/favicon.svg",
+        "Projeto de portfólio de Robson Soares publicado na ZayronCode Technologies para apresentar seus projetos, suas habilidades e sua atuação como desenvolvedor.",
+      image: "https://zayroncode.com.br/favicon.svg",
       technologies: [
         "Next.js",
         "React",
         "TypeScript",
         "Tailwind CSS",
       ],
-      liveUrl: "https://www.xcodify.com.br/portfolio/robson-soares",
+      liveUrl: "https://zayroncode.com.br/portfolio/robson-soares",
       highlights: [
         "Portfólio profissional publicado online",
         "Apresentação de projetos e habilidades",

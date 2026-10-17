@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import Image from "next/image";
 
@@ -41,7 +41,7 @@ export function Footer() {
                         rel="noopener noreferrer"
                         className="whitespace-nowrap text-[9px] font-semibold text-cyan-400 transition-colors hover:text-cyan-300 sm:text-xs"
                     >
-                        © {currentYear} xcodify
+                        © {currentYear} ZayronCode Technologies
                     </a>
                 </div>
 

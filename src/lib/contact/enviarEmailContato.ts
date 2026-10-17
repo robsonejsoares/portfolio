@@ -1,4 +1,4 @@
-import { Resend } from "resend";
+﻿import { Resend } from "resend";
 
 import type { DadosContato } from "@/lib/contact/validarDadosContato";
 
@@ -162,7 +162,7 @@ export async function enviarEmailContato(
         const resend = new Resend(apiKey);
 
         const { error } = await resend.emails.send({
-            from: "Portfólio <contato@xcodify.com.br>",
+            from: "Portfólio <contato@zayroncode.com.br>",
             to: ["robsoncsoares.1050@gmail.com"],
             replyTo: dados.email,
             subject: dados.assunto,
