@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useCallback, useState } from "react";
 import { motion } from "framer-motion";
@@ -12,7 +12,7 @@ import { CardCarreiraProfissional } from "./components/CardCarreiraProfissional"
 import { DialogCarreiraProfissional } from "./dialogs/DialogCarreiraProfissional";
 
 const experienciaFreelancer = {
-    company: "XCodify",
+    company: "ZayronCode Technologies",
     subtitle: "",
     period: "07/2026 – Presente",
     role: "Desenvolvedor Full Stack Freelancer",
