@@ -1,4 +1,3 @@
-
 "use client";
 
 import {
@@ -28,11 +27,11 @@ interface DialogQualificacaoAcademicaProps {
 
 const SELETORES_FOCAVEIS = [
     'a[href]',
-    'button:not(:disabled)',
-    'input:not(:disabled)',
-    'select:not(:disabled)',
-    'textarea:not(:disabled)',
-    '[tabindex]:not([tabindex="-1"])',
+    'button()',
+    'input()',
+    'select()',
+    'textarea()',
+    '[tabindex]([tabindex="-1"])',
 ].join(",");
 
 export function DialogQualificacaoAcademica({
@@ -263,4 +262,5 @@ export function DialogQualificacaoAcademica({
         </AnimatePresence>,
         document.body,
     );
+
 }
