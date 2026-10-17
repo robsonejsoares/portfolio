@@ -24,10 +24,10 @@ const buttonCurriculoVariants = cva(
         variants: {
             variant: {
                 default: [
-                    "bg-[#312E81]",
-                    "text-[#C2C0E2]",
-                    "hover:bg-[#403C96]",
-                    "hover:text-[#D8D6F0]",
+                    "bg-[#075985]",
+                    "text-[#F0F9FF]",
+                    "hover:bg-[#0369A1]",
+                    "hover:text-white",
                 ].join(" "),
             },
 

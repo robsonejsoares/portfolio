@@ -23,31 +23,19 @@ export function ApresentacaoHero() {
 
     return (
         <div className="flex min-w-0 flex-col gap-4">
-            <div className="flex min-w-0 flex-wrap items-center gap-2">
+            <div className="flex min-w-0 flex-wrap items-center gap-1.5">
                 <div
                     aria-label="Tecnologias"
-                    className="flex shrink-0 items-center gap-2.5 rounded-full border border-white/10 bg-white/5 px-3.5 py-1.5"
+                    className="flex h-4 shrink-0 items-center gap-1 rounded-full border border-white/10 bg-white/5 px-1.5 sm:h-5 sm:gap-1.5 sm:px-2"
                 >
-                    <Database
-                        aria-label="Database"
-                        className="h-3.5 w-3.5 text-emerald-400"
-                    />
-                    <Server
-                        aria-label="Server"
-                        className="h-3.5 w-3.5 text-amber-400"
-                    />
-                    <Code2
-                        aria-label="Code"
-                        className="h-3.5 w-3.5 text-purple-400"
-                    />
-                    <Layers
-                        aria-label="Layers"
-                        className="h-3.5 w-3.5 text-cyan-400"
-                    />
+                    <Database className="h-2.5 w-2.5 text-emerald-400 sm:h-3 sm:w-3" />
+                    <Server className="h-2.5 w-2.5 text-amber-400 sm:h-3 sm:w-3" />
+                    <Code2 className="h-2.5 w-2.5 text-purple-400 sm:h-3 sm:w-3" />
+                    <Layers className="h-2.5 w-2.5 text-cyan-400 sm:h-3 sm:w-3" />
                 </div>
 
-                <span className="flex min-w-0 max-w-full items-center gap-2 rounded-full border border-white/10 bg-white/5 px-3 py-1.5 font-mono text-[10px] tracking-wide text-slate-400 min-[420px]:px-3.5 min-[420px]:text-xs min-[420px]:tracking-widest">
-                    <MapPin className="h-3.5 w-3.5 shrink-0 animate-pulse text-red-500 drop-shadow-[0_0_8px_rgba(239,68,68,0.6)]" />
+                <span className="flex h-4 min-w-0 max-w-full items-center gap-1 rounded-full border border-white/10 bg-white/5 px-1.5 font-mono text-[8px] leading-none tracking-wide text-slate-400 sm:h-5 sm:px-2 sm:text-[9px]">
+                    <MapPin className="h-2.5 w-2.5 shrink-0 animate-pulse text-red-500 drop-shadow-[0_0_6px_rgba(239,68,68,0.5)] sm:h-3 sm:w-3" />
                     <span className="break-words">{personal.location}</span>
                 </span>
             </div>
@@ -72,10 +60,6 @@ export function ApresentacaoHero() {
                     className="ml-1.5 h-5 w-px shrink-0 animate-pulse rounded-md bg-slate-500"
                 />
             </div>
-
-            <p className="break-words font-mono text-[10px] leading-relaxed tracking-wider text-slate-500 min-[420px]:text-xs min-[420px]:tracking-widest">
-                {personal.tagline}
-            </p>
         </div>
     );
 }

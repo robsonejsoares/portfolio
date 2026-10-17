@@ -8,8 +8,8 @@ import { ButtonAbrirDialog } from "@/components/ui/ButtonAbrirDialog";
 import { LoadingDialog } from "@/components/common/LoadingDialog";
 import { dadosCurriculo } from "@/data/dadosCurriculo";
 
-import { CardExperienciaProfissional } from "./components/CardExperienciaProfissional";
-import { DialogExperienciaProfissional } from "./dialogs/DialogExperienciaProfissional";
+import { CardCarreiraProfissional } from "./components/CardCarreiraProfissional";
+import { DialogCarreiraProfissional } from "./dialogs/DialogCarreiraProfissional";
 
 const experienciaFreelancer = {
     company: "XCodify",
@@ -52,7 +52,7 @@ const visualPadrao = {
         "Experiência profissional com foco no desenvolvimento de competências, na qualidade das entregas e na evolução contínua.",
 };
 
-export function SectionExperienciaProfissional() {
+export function SectionCarreiraProfissional() {
     const [dialogAberto, setDialogAberto] = useState(false);
     const [isLoading, setIsLoading] = useState(false);
 
@@ -87,8 +87,8 @@ export function SectionExperienciaProfissional() {
             />
 
             <section
-                id="experience"
-                aria-labelledby="experience-title"
+                id="professional-career"
+                aria-labelledby="professional-career-title"
                 className="relative z-10 w-full min-w-0 py-6 sm:py-8"
             >
                 <div className="w-full min-w-0 space-y-8 sm:space-y-10">
@@ -102,10 +102,10 @@ export function SectionExperienciaProfissional() {
                     >
                         <div className="min-w-0 flex-1">
                             <h2
-                                id="experience-title"
+                                id="professional-career-title"
                                 className="font-display text-xl font-bold text-[#8FA8C8] sm:text-2xl"
                             >
-                                Experiência Profissional
+                                Carreira Profissional
                             </h2>
                         </div>
 
@@ -123,11 +123,11 @@ export function SectionExperienciaProfissional() {
                                 <span className="inline-flex min-w-0 items-center justify-center gap-1.5 sm:gap-2">
                                     <span className="whitespace-nowrap">
                                         <span className="sm:hidden">
-                                            Ver experiências
+                                            Ver carreira
                                         </span>
 
                                         <span className="hidden sm:inline">
-                                            Ver experiências
+                                            Ver carreira
                                         </span>
                                     </span>
 
@@ -158,7 +158,7 @@ export function SectionExperienciaProfissional() {
                                                 : "block"
                                         }
                                     >
-                                        <CardExperienciaProfissional
+                                        <CardCarreiraProfissional
                                             cargo={experiencia.role}
                                             empresa={experiencia.company}
                                             subtitulo={experiencia.subtitle}
@@ -178,7 +178,7 @@ export function SectionExperienciaProfissional() {
             </section>
 
             {/* Diálogo com todas as experiências */}
-            <DialogExperienciaProfissional
+            <DialogCarreiraProfissional
                 isOpen={dialogAberto}
                 onClose={handleCloseDialog}
                 experiencias={experiencias}

@@ -203,7 +203,7 @@ export function Navbar() {
                             />
 
                             <span className="whitespace-nowrap font-mono text-xs text-emerald-400">
-                                Disponível para trabalho
+                                Disponível
                             </span>
                         </div>
 
