@@ -1,30 +1,9 @@
-name: Auto Promote Changes to Develop and Main
+
+name: Auto Promote Develop to Main
 
 on:
   push:
     branches:
-      - 'feat/**'
-      - 'fix/**'
-      - 'docs/**'
-      - 'style/**'
-      - 'refactor/**'
-      - 'perf/**'
-      - 'test/**'
-      - 'build/**'
-      - 'ci/**'
-      - 'chore/**'
-      - 'revert/**'
-      - 'deps/**'
-      - 'security/**'
-      - 'types/**'
-      - 'i18n/**'
-      - 'a11y/**'
-      - 'assets/**'
-      - 'config/**'
-      - 'release/**'
-      - 'wip/**'
-      - 'cleanup/**'
-      - 'hotfix/**'
       - develop
 
 permissions:
@@ -32,37 +11,6 @@ permissions:
   pull-requests: write
 
 jobs:
-  changes-to-develop:
-    if: github.ref != 'refs/heads/develop'
-    runs-on: ubuntu-latest
-
-    steps:
-      - name: Create PR and enable automatic merge
-        env:
-          GH_TOKEN: ${{ secrets.AUTOMATION_TOKEN }}
-          BRANCH_NAME: ${{ github.ref_name }}
-        run: |
-          set -euo pipefail
-
-          PR_URL="$(gh pr list \
-            --repo "$GITHUB_REPOSITORY" \
-            --base develop \
-            --head "$BRANCH_NAME" \
-            --state open \
-            --json url \
-            --jq '.[0].url')"
-
-          if [ -z "$PR_URL" ]; then
-            PR_URL="$(gh pr create \
-              --repo "$GITHUB_REPOSITORY" \
-              --base develop \
-              --head "$BRANCH_NAME" \
-              --title "ci: integrar $BRANCH_NAME em develop" \
-              --body "Pull request criada automaticamente após push em $BRANCH_NAME.")"
-          fi
-
-          gh pr merge "$PR_URL" --auto --squash
-
   develop-to-main:
     if: github.ref == 'refs/heads/develop'
     runs-on: ubuntu-latest
