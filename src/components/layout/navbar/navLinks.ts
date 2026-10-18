@@ -1,3 +1,4 @@
+
 import {
     Home,
     User,
@@ -10,12 +11,36 @@ import {
 } from "lucide-react";
 
 export const navLinks = [
-    { name: "Início", href: "#hero", icon: Home },
-    { name: "Sobre mim", href: "#sobre-mim", icon: User },
-    { name: "Habilidades", href: "#skills", icon: Cpu },
-    { name: "Projetos", href: "#projects", icon: FolderGit2 },
-    { name: "Qualificações", href: "#qualifications", icon: GraduationCap },
-    { name: "Serviços", href: "#services", icon: Layers },
+    {
+        name: "Início",
+        href: "#hero",
+        icon: Home,
+    },
+    {
+        name: "Sobre mim",
+        href: "#sobre-mim",
+        icon: User,
+    },
+    {
+        name: "Habilidades",
+        href: "#skills",
+        icon: Cpu,
+    },
+    {
+        name: "Projetos",
+        href: "#projects",
+        icon: FolderGit2,
+    },
+    {
+        name: "Qualificações",
+        href: "#qualifications",
+        icon: GraduationCap,
+    },
+    {
+        name: "Serviços",
+        href: "#services",
+        icon: Layers,
+    },
     {
         name: "Carreira Profissional",
         href: "#professional-career",
@@ -25,5 +50,9 @@ export const navLinks = [
 
 export const mobileNavLinks = [
     ...navLinks,
-    { name: "Contato", href: "#contact", icon: Mail },
+    {
+        name: "Contato",
+        href: "#contact",
+        icon: Mail,
+    },
 ];

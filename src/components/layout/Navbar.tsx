@@ -1,9 +1,9 @@
+
 "use client";
 
 import { useState, useEffect, useRef } from "react";
 import { motion } from "framer-motion";
 
-import { AlternarTema } from "@/components/common/AlternarTema";
 import { BrandLogo } from "@/components/common/BrandLogo";
 
 import { NavbarDesktopLinks } from "./navbar/NavbarDesktopLinks";
@@ -123,6 +123,7 @@ export function Navbar() {
             console.warn(
                 `A seção com id="${targetId}" não foi encontrada.`
             );
+
             setMobileMenuOpen(false);
             return;
         }
@@ -157,8 +158,9 @@ export function Navbar() {
             {/* Fundo fixo da navbar */}
             <div
                 aria-hidden="true"
-                className={`pointer-events-none fixed inset-x-0 top-0 z-[40] h-[68px] transition-colors duration-300 ${scrolled ? "bg-slate-950" : "bg-transparent"
-                    }`}
+                className={`pointer-events-none fixed inset-x-0 top-0 z-[40] h-[68px] transition-colors duration-300 ${
+                    scrolled ? "bg-slate-950" : "bg-transparent"
+                }`}
             />
 
             <header className="pointer-events-none fixed inset-x-4 top-1 z-50 flex justify-center">
@@ -172,17 +174,20 @@ export function Navbar() {
                     {/* Fundo visual */}
                     <div
                         aria-hidden="true"
-                        className={`pointer-events-none absolute left-0 right-0 top-1/2 h-12 -translate-y-1/2 rounded-md border transition-all duration-500 ease-in-out ${scrolled
+                        className={`pointer-events-none absolute left-0 right-0 top-1/2 h-12 -translate-y-1/2 rounded-md border transition-all duration-500 ease-in-out ${
+                            scrolled
                                 ? "border-white/10 bg-slate-950/85 shadow-2xl shadow-cyan-950/30 backdrop-blur-xl"
                                 : "border-transparent bg-transparent shadow-none"
-                            }`}
+                        }`}
                     />
 
                     {/* Logotipo */}
                     <div className="relative z-10 flex shrink-0 items-center">
                         <BrandLogo
                             tamanho="navbar"
-                            aoClicar={(e) => handleScrollTo(e, "#hero")}
+                            aoClicar={(e) =>
+                                handleScrollTo(e, "#hero")
+                            }
                         />
                     </div>
 
@@ -192,7 +197,17 @@ export function Navbar() {
                         onNavigate={handleScrollTo}
                     />
 
-                    {/* Status e tema desktop */}
+                    {/* Menu hambúrguer mobile */}
+                    <NavbarMobileMenu
+                        activeSection={activeSection}
+                        isOpen={mobileMenuOpen}
+                        onToggle={() =>
+                            setMobileMenuOpen((previous) => !previous)
+                        }
+                        onNavigate={handleScrollTo}
+                    />
+
+                    {/* Status de disponibilidade: desktop */}
                     <div className="relative z-10 hidden shrink-0 items-center gap-3 lg:flex">
                         <motion.div
                             initial="recolhido"
@@ -219,7 +234,7 @@ export function Navbar() {
                                 <span className="relative h-2 w-2 rounded-full bg-emerald-400" />
                             </span>
 
-                            {/* Texto exibido ao passar o mouse */}
+                            {/* Texto ao passar o mouse */}
                             <motion.span
                                 variants={{
                                     recolhido: {
@@ -237,10 +252,7 @@ export function Navbar() {
                                 Disponível
                             </motion.span>
                         </motion.div>
-
-                        {/* <AlternarTema /> */}
                     </div>
-
                 </motion.nav>
             </header>
         </>

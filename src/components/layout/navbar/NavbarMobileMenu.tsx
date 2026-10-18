@@ -1,3 +1,4 @@
+
 "use client";
 
 import { useEffect, useRef } from "react";
@@ -48,7 +49,11 @@ export function NavbarMobileMenu({
             }
         };
 
-        document.addEventListener("pointerdown", handlePointerDown);
+        document.addEventListener(
+            "pointerdown",
+            handlePointerDown
+        );
+
         document.addEventListener("keydown", handleKeyDown);
 
         return () => {
@@ -56,12 +61,19 @@ export function NavbarMobileMenu({
                 "pointerdown",
                 handlePointerDown
             );
-            document.removeEventListener("keydown", handleKeyDown);
+
+            document.removeEventListener(
+                "keydown",
+                handleKeyDown
+            );
         };
     }, [isOpen, onToggle]);
 
     return (
-        <div ref={containerRef} className="relative flex items-center">
+        <div
+            ref={containerRef}
+            className="relative z-10 flex shrink-0 items-center lg:hidden"
+        >
             {/* Botão de abrir e fechar */}
             <button
                 ref={toggleButtonRef}
@@ -80,7 +92,7 @@ export function NavbarMobileMenu({
                 ) : (
                     <Menu
                         aria-hidden="true"
-                        className="h-5 w-5"
+                        className="h-6 w-6"
                     />
                 )}
             </button>
@@ -90,11 +102,22 @@ export function NavbarMobileMenu({
                 {isOpen && (
                     <motion.div
                         id="mobile-navigation"
-                        initial={{ opacity: 0, y: -8 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        exit={{ opacity: 0, y: -8 }}
-                        transition={{ duration: 0.18 }}
-                        className="glass-card fixed right-4 top-[5.25rem] z-[60] flex w-[min(20rem,calc(100vw-2rem))] max-w-full flex-col gap-2 overflow-y-auto overscroll-contain rounded-md border border-cyan-500/30 bg-slate-950/95 p-3 shadow-2xl shadow-cyan-950/80 backdrop-blur-xl lg:hidden sm:p-4"
+                        initial={{
+                            opacity: 0,
+                            y: -8,
+                        }}
+                        animate={{
+                            opacity: 1,
+                            y: 0,
+                        }}
+                        exit={{
+                            opacity: 0,
+                            y: -8,
+                        }}
+                        transition={{
+                            duration: 0.18,
+                        }}
+                        className="glass-card fixed right-4 top-[5.25rem] z-[60] flex w-[min(20rem,calc(100vw-2rem))] max-w-full flex-col gap-2 overflow-y-auto overscroll-contain rounded-md border border-cyan-500/30 bg-slate-950/95 p-3 shadow-2xl shadow-cyan-950/80 backdrop-blur-xl sm:p-4"
                         style={{
                             maxHeight: "calc(100dvh - 6.25rem)",
                         }}
@@ -102,16 +125,23 @@ export function NavbarMobileMenu({
                         <ul className="flex min-w-0 flex-col gap-1.5">
                             {mobileNavLinks.map((link) => {
                                 const isActive =
-                                    activeSection === link.href.slice(1);
+                                    activeSection ===
+                                    link.href.slice(1);
 
                                 const Icon = link.icon;
 
                                 return (
-                                    <li key={link.href} className="min-w-0">
+                                    <li
+                                        key={link.href}
+                                        className="min-w-0"
+                                    >
                                         <a
                                             href={link.href}
                                             onClick={(event) =>
-                                                onNavigate(event, link.href)
+                                                onNavigate(
+                                                    event,
+                                                    link.href
+                                                )
                                             }
                                             aria-current={
                                                 isActive
