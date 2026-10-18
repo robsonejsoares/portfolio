@@ -33,15 +33,13 @@ export function AcoesHero({
                 aria-haspopup="dialog"
                 className="min-w-0 flex-1"
             >
-                <span className="inline-flex min-w-0 items-center justify-center gap-1.5 sm:gap-2">
-                    <span className="whitespace-nowrap">
-                        Currículo
-                    </span>
+                <FileText
+                    aria-hidden="true"
+                    className="transition-transform duration-200 group-hover/button:scale-110 motion-reduce:transition-none"
+                />
 
-                    <FileText
-                        aria-hidden="true"
-                        className="transition-transform duration-200 group-hover/button:scale-110 motion-reduce:transition-none"
-                    />
+                <span className="whitespace-nowrap">
+                    Currículo
                 </span>
             </ButtonCurriculo>
 
@@ -69,16 +67,14 @@ export function AcoesHero({
                     ].join(" "),
                 )}
             >
-                <span className="flex min-w-0 items-center justify-center gap-1.5 sm:gap-2">
-                    <span className="whitespace-nowrap">
-                        Entrar em contato
-                    </span>
+                <MessageCircle
+                    size={16}
+                    aria-hidden="true"
+                    className="shrink-0 transition-transform duration-200 group-hover/button:scale-110 motion-reduce:transition-none"
+                />
 
-                    <MessageCircle
-                        size={16}
-                        aria-hidden="true"
-                        className="shrink-0 transition-transform duration-200 group-hover/button:scale-110 motion-reduce:transition-none"
-                    />
+                <span className="whitespace-nowrap">
+                    Entrar em contato
                 </span>
             </a>
         </div>

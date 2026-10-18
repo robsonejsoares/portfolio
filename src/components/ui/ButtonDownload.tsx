@@ -42,9 +42,6 @@ export function ButtonDownload({
             ].join(" ")}
         >
             <span className="inline-flex items-center justify-center gap-1.5 sm:gap-2">
-                <span className="hidden sm:inline">{label}</span>
-                <span className="sm:hidden">{mobileLabel}</span>
-
                 <Download
                     size={16}
                     aria-hidden="true"
@@ -54,6 +51,9 @@ export function ButtonDownload({
                         "motion-reduce:transition-none",
                     ].join(" ")}
                 />
+
+                <span className="hidden sm:inline">{label}</span>
+                <span className="sm:hidden">{mobileLabel}</span>
             </span>
         </a>
     );

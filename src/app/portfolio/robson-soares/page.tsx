@@ -16,7 +16,7 @@ import { SectionHabilidades } from "@/components/sections/section-habilidades/Se
 import { SectionProjetos } from "@/components/sections/section-projetos/SectionProjetos";
 import { SectionServicos } from "@/components/sections/section-servicos/SectionServicos";
 import { SectionCarreiraProfissional } from "@/components/sections/section-carreira-profissional/SectionCarreiraProfissional";
-import { SectionQualificacaoAcademica } from "@/components/sections/section-qualificacao-academica/SectionQualificacaoAcademica";
+import { SectionQualificacoes } from "@/components/sections/section-qualificacoes/SectionQualificacoes";
 import { SectionContato } from "@/components/sections/section-contato/SectionContato";
 
 export default function HomePortfolio() {
@@ -39,37 +39,37 @@ export default function HomePortfolio() {
             {/* Navbar */}
             <Navbar />
 
-            {/* 1. Hero */}
+            {/* Hero */}
             <SectionHero />
 
-            {/* 2. Sobre mim */}
+            {/* Sobre mim */}
             <SectionCard>
                 <SectionSobreMim />
             </SectionCard>
 
-            {/* 3. Habilidades */}
+            {/* Habilidades */}
             <SectionCard>
                 <SectionHabilidades />
             </SectionCard>
 
-            {/* 4. Projetos */}
+            {/* Projetos */}
             <SectionCard>
                 <SectionProjetos />
             </SectionCard>
 
-            {/* 5. Serviços */}
+            {/* Qualificações */}
+            <SectionCard>
+                <SectionQualificacoes />
+            </SectionCard>
+
+            {/* Serviços */}
             <SectionCard>
                 <SectionServicos />
             </SectionCard>
 
-            {/* 6. Carreira Profissional */}
+            {/* Carreira Profissional */}
             <SectionCard>
                 <SectionCarreiraProfissional />
-            </SectionCard>
-
-            {/* 7. Qualificações Acadêmica */}
-            <SectionCard>
-                <SectionQualificacaoAcademica />
             </SectionCard>
 
             {/* Contato */}

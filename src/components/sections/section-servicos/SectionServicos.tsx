@@ -72,6 +72,12 @@ export function SectionServicos() {
                             className="max-w-[55%] shrink-0 cursor-pointer disabled:cursor-wait sm:max-w-none"
                         >
                             <span className="inline-flex min-w-0 items-center justify-center gap-1.5 sm:gap-2">
+                                <BriefcaseBusiness
+                                    size={16}
+                                    aria-hidden="true"
+                                    className="shrink-0 transition-transform duration-200 group-hover/button:scale-110 motion-reduce:transition-none"
+                                />
+
                                 <span className="min-w-0 text-center whitespace-nowrap">
                                     <span className="sm:hidden">
                                         Ver serviços
@@ -81,12 +87,6 @@ export function SectionServicos() {
                                         Ver serviços
                                     </span>
                                 </span>
-
-                                <BriefcaseBusiness
-                                    size={16}
-                                    aria-hidden="true"
-                                    className="shrink-0 transition-transform duration-200 group-hover/button:scale-110 motion-reduce:transition-none"
-                                />
                             </span>
                         </ButtonAbrirDialog>
                     </motion.header>

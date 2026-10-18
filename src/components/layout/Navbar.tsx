@@ -157,9 +157,8 @@ export function Navbar() {
             {/* Fundo fixo da navbar */}
             <div
                 aria-hidden="true"
-                className={`pointer-events-none fixed inset-x-0 top-0 z-[40] h-[68px] transition-colors duration-300 ${
-                    scrolled ? "bg-slate-950" : "bg-transparent"
-                }`}
+                className={`pointer-events-none fixed inset-x-0 top-0 z-[40] h-[68px] transition-colors duration-300 ${scrolled ? "bg-slate-950" : "bg-transparent"
+                    }`}
             />
 
             <header className="pointer-events-none fixed inset-x-4 top-1 z-50 flex justify-center">
@@ -173,11 +172,10 @@ export function Navbar() {
                     {/* Fundo visual */}
                     <div
                         aria-hidden="true"
-                        className={`pointer-events-none absolute left-0 right-0 top-1/2 h-12 -translate-y-1/2 rounded-md border transition-all duration-500 ease-in-out ${
-                            scrolled
+                        className={`pointer-events-none absolute left-0 right-0 top-1/2 h-12 -translate-y-1/2 rounded-md border transition-all duration-500 ease-in-out ${scrolled
                                 ? "border-white/10 bg-slate-950/85 shadow-2xl shadow-cyan-950/30 backdrop-blur-xl"
                                 : "border-transparent bg-transparent shadow-none"
-                        }`}
+                            }`}
                     />
 
                     {/* Logotipo */}
@@ -196,33 +194,53 @@ export function Navbar() {
 
                     {/* Status e tema desktop */}
                     <div className="relative z-10 hidden shrink-0 items-center gap-3 lg:flex">
-                        <div className="hidden items-center gap-2 rounded-full border border-emerald-500/30 bg-emerald-500/[0.07] px-3.5 py-1.5 xl:flex">
-                            <span
-                                aria-hidden="true"
-                                className="h-1.5 w-1.5 animate-pulse rounded-full bg-emerald-400"
-                            />
-
-                            <span className="whitespace-nowrap font-mono text-xs text-emerald-400">
-                                Disponível
+                        <motion.div
+                            initial="recolhido"
+                            whileHover="expandido"
+                            className="flex items-center gap-2"
+                            variants={{
+                                recolhido: {
+                                    width: 12,
+                                },
+                                expandido: {
+                                    width: 105,
+                                },
+                            }}
+                            transition={{
+                                duration: 0.25,
+                                ease: "easeInOut",
+                            }}
+                            role="status"
+                            aria-label="Disponível"
+                        >
+                            {/* Bolinha verde */}
+                            <span className="relative flex h-2.5 w-2.5 shrink-0 items-center justify-center">
+                                <span className="absolute h-full w-full animate-ping rounded-full bg-emerald-400/60 motion-reduce:animate-none" />
+                                <span className="relative h-2 w-2 rounded-full bg-emerald-400" />
                             </span>
-                        </div>
 
-                        <AlternarTema />
+                            {/* Texto exibido ao passar o mouse */}
+                            <motion.span
+                                variants={{
+                                    recolhido: {
+                                        opacity: 0,
+                                    },
+                                    expandido: {
+                                        opacity: 1,
+                                    },
+                                }}
+                                transition={{
+                                    duration: 0.2,
+                                }}
+                                className="whitespace-nowrap font-mono text-xs text-emerald-400"
+                            >
+                                Disponível
+                            </motion.span>
+                        </motion.div>
+
+                        {/* <AlternarTema /> */}
                     </div>
 
-                    {/* Tema e menu mobile */}
-                    <div className="relative z-10 ml-auto flex shrink-0 items-center gap-2 lg:hidden">
-                        <AlternarTema />
-
-                        <NavbarMobileMenu
-                            activeSection={activeSection}
-                            isOpen={mobileMenuOpen}
-                            onToggle={() =>
-                                setMobileMenuOpen((previous) => !previous)
-                            }
-                            onNavigate={handleScrollTo}
-                        />
-                    </div>
                 </motion.nav>
             </header>
         </>
