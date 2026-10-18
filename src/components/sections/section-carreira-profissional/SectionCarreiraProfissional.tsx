@@ -121,6 +121,12 @@ export function SectionCarreiraProfissional() {
                                 className="max-w-[48%] shrink-0 cursor-pointer disabled:cursor-wait sm:max-w-none"
                             >
                                 <span className="inline-flex min-w-0 items-center justify-center gap-1.5 sm:gap-2">
+                                    <ClipboardList
+                                        size={16}
+                                        aria-hidden="true"
+                                        className="shrink-0 transition-transform duration-200 group-hover/button:scale-110 motion-reduce:transition-none"
+                                    />
+
                                     <span className="whitespace-nowrap">
                                         <span className="sm:hidden">
                                             Ver carreira
@@ -130,12 +136,6 @@ export function SectionCarreiraProfissional() {
                                             Ver carreira
                                         </span>
                                     </span>
-
-                                    <ClipboardList
-                                        size={16}
-                                        aria-hidden="true"
-                                        className="shrink-0 transition-transform duration-200 group-hover/button:scale-110 motion-reduce:transition-none"
-                                    />
                                 </span>
                             </ButtonAbrirDialog>
                         )}
