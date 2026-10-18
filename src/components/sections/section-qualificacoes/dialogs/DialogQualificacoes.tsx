@@ -234,7 +234,7 @@ export function DialogQualificacoes({
                                                 )}
                                             </ul>
                                         </section>
-                                    )}P
+                                    )}
                             </div>
                         </div>
                     </motion.div>
