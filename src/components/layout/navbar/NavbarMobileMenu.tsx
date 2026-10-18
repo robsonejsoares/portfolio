@@ -1,10 +1,7 @@
-
 "use client";
-
 import { useEffect, useRef } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { Menu, X } from "lucide-react";
-
 import { mobileNavLinks } from "./navLinks";
 
 interface NavbarMobileMenuProps {
@@ -28,10 +25,8 @@ export function NavbarMobileMenu({
 
     useEffect(() => {
         if (!isOpen) return;
-
         const handlePointerDown = (event: PointerEvent) => {
             const target = event.target;
-
             if (
                 target instanceof Node &&
                 !containerRef.current?.contains(target)
@@ -40,7 +35,6 @@ export function NavbarMobileMenu({
                 onToggle();
             }
         };
-
         const handleKeyDown = (event: KeyboardEvent) => {
             if (event.key === "Escape") {
                 event.preventDefault();
@@ -48,20 +42,16 @@ export function NavbarMobileMenu({
                 onToggle();
             }
         };
-
         document.addEventListener(
             "pointerdown",
             handlePointerDown
         );
-
         document.addEventListener("keydown", handleKeyDown);
-
         return () => {
             document.removeEventListener(
                 "pointerdown",
                 handlePointerDown
             );
-
             document.removeEventListener(
                 "keydown",
                 handleKeyDown
@@ -79,7 +69,7 @@ export function NavbarMobileMenu({
                 ref={toggleButtonRef}
                 type="button"
                 onClick={onToggle}
-                className="flex min-h-11 min-w-11 cursor-pointer items-center justify-center rounded-md text-slate-300 transition-colors hover:bg-white/5 hover:text-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cyan-400"
+                className="flex min-h-11 min-w-11 cursor-pointer items-center justify-center rounded-md text-white transition-colors hover:bg-white/10 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cyan-400"
                 aria-label={isOpen ? "Fechar menu" : "Abrir menu"}
                 aria-expanded={isOpen}
                 aria-controls="mobile-navigation"
@@ -87,12 +77,12 @@ export function NavbarMobileMenu({
                 {isOpen ? (
                     <X
                         aria-hidden="true"
-                        className="h-5 w-5 text-cyan-400"
+                        className="h-6 w-6 text-cyan-400"
                     />
                 ) : (
                     <Menu
                         aria-hidden="true"
-                        className="h-6 w-6"
+                        className="h-6 w-6 text-white"
                     />
                 )}
             </button>
@@ -117,7 +107,7 @@ export function NavbarMobileMenu({
                         transition={{
                             duration: 0.18,
                         }}
-                        className="glass-card fixed right-4 top-[5.25rem] z-[60] flex w-[min(20rem,calc(100vw-2rem))] max-w-full flex-col gap-2 overflow-y-auto overscroll-contain rounded-md border border-cyan-500/30 bg-slate-950/95 p-3 shadow-2xl shadow-cyan-950/80 backdrop-blur-xl sm:p-4"
+                        className="fixed right-4 top-[5.25rem] z-[60] flex w-[min(20rem,calc(100vw-2rem))] max-w-full flex-col gap-2 overflow-y-auto overscroll-contain rounded-md border border-cyan-500/30 bg-slate-950/95 p-3 shadow-2xl shadow-cyan-950/80 backdrop-blur-xl sm:p-4"
                         style={{
                             maxHeight: "calc(100dvh - 6.25rem)",
                         }}
@@ -127,9 +117,7 @@ export function NavbarMobileMenu({
                                 const isActive =
                                     activeSection ===
                                     link.href.slice(1);
-
                                 const Icon = link.icon;
-
                                 return (
                                     <li
                                         key={link.href}
@@ -162,7 +150,6 @@ export function NavbarMobileMenu({
                                                         : "text-gray-400"
                                                 }`}
                                             />
-
                                             <span className="min-w-0 break-words">
                                                 {link.name}
                                             </span>

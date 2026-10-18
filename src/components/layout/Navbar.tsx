@@ -1,11 +1,7 @@
-
 "use client";
-
 import { useState, useEffect, useRef } from "react";
 import { motion } from "framer-motion";
-
 import { BrandLogo } from "@/components/common/BrandLogo";
-
 import { NavbarDesktopLinks } from "./navbar/NavbarDesktopLinks";
 import { NavbarMobileMenu } from "./navbar/NavbarMobileMenu";
 import { navLinks } from "./navbar/navLinks";
@@ -14,50 +10,39 @@ export function Navbar() {
     const [activeSection, setActiveSection] = useState("hero");
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
     const [scrolled, setScrolled] = useState(false);
-
     const targetSectionRef = useRef<string | null>(null);
 
     useEffect(() => {
         const handleScroll = () => {
             setScrolled(window.scrollY > 20);
-
             if (targetSectionRef.current !== null) {
                 return;
             }
-
             const scrollPosition = window.scrollY + 150;
             const documentHeight =
                 document.documentElement.scrollHeight;
             const viewportBottom =
                 window.scrollY + window.innerHeight;
-
             if (viewportBottom >= documentHeight - 30) {
                 const contact = document.getElementById("contact");
-
                 if (contact) {
                     setActiveSection("contact");
                     return;
                 }
             }
-
             let currentSection = "hero";
             let closestTop = Number.NEGATIVE_INFINITY;
-
             const sectionLinks = [
                 ...navLinks,
                 { name: "Contato", href: "#contact" },
             ];
-
             for (const link of sectionLinks) {
                 const sectionId = link.href.slice(1);
                 const element = document.getElementById(sectionId);
-
                 if (!element) continue;
-
                 const sectionTop =
                     element.getBoundingClientRect().top +
                     window.scrollY;
-
                 if (
                     sectionTop <= scrollPosition &&
                     sectionTop > closestTop
@@ -66,87 +51,55 @@ export function Navbar() {
                     currentSection = sectionId;
                 }
             }
-
             setActiveSection((previousSection) =>
                 previousSection === currentSection
                     ? previousSection
                     : currentSection
             );
         };
-
         const handleScrollEnd = () => {
             targetSectionRef.current = null;
             handleScroll();
         };
-
         window.addEventListener("scroll", handleScroll, {
             passive: true,
         });
-
         window.addEventListener("scrollend", handleScrollEnd);
-
         handleScroll();
-
         return () => {
             window.removeEventListener("scroll", handleScroll);
             window.removeEventListener("scrollend", handleScrollEnd);
         };
     }, []);
 
-    // Fecha o menu mobile quando a página é rolada.
-    useEffect(() => {
-        if (!mobileMenuOpen) return;
-
-        const closeMenuOnScroll = () => {
-            setMobileMenuOpen(false);
-        };
-
-        window.addEventListener("scroll", closeMenuOnScroll, {
-            passive: true,
-        });
-
-        return () => {
-            window.removeEventListener("scroll", closeMenuOnScroll);
-        };
-    }, [mobileMenuOpen]);
-
     const handleScrollTo = (
         e: React.MouseEvent<HTMLAnchorElement>,
         href: string
     ) => {
         e.preventDefault();
-
         const targetId = href.slice(1);
         const element = document.getElementById(targetId);
-
         if (!element) {
             console.warn(
                 `A seção com id="${targetId}" não foi encontrada.`
             );
-
             setMobileMenuOpen(false);
             return;
         }
-
         targetSectionRef.current = targetId;
         setActiveSection(targetId);
         setMobileMenuOpen(false);
-
         const navOffset = 90;
-
         const elementPosition =
             element.getBoundingClientRect().top +
             window.scrollY;
-
         const targetPosition = Math.max(
             0,
             elementPosition - navOffset
         );
-
         if (Math.abs(window.scrollY - targetPosition) < 2) {
             targetSectionRef.current = null;
         }
-
         window.scrollTo({
             top: targetPosition,
             behavior: "smooth",
@@ -162,7 +115,6 @@ export function Navbar() {
                     scrolled ? "bg-slate-950" : "bg-transparent"
                 }`}
             />
-
             <header className="pointer-events-none fixed inset-x-4 top-1 z-50 flex justify-center">
                 <motion.nav
                     aria-label="Navegação principal"
@@ -180,7 +132,6 @@ export function Navbar() {
                                 : "border-transparent bg-transparent shadow-none"
                         }`}
                     />
-
                     {/* Logotipo */}
                     <div className="relative z-10 flex shrink-0 items-center">
                         <BrandLogo
@@ -190,13 +141,11 @@ export function Navbar() {
                             }
                         />
                     </div>
-
                     {/* Links desktop */}
                     <NavbarDesktopLinks
                         activeSection={activeSection}
                         onNavigate={handleScrollTo}
                     />
-
                     {/* Menu hambúrguer mobile */}
                     <NavbarMobileMenu
                         activeSection={activeSection}
@@ -206,7 +155,6 @@ export function Navbar() {
                         }
                         onNavigate={handleScrollTo}
                     />
-
                     {/* Status de disponibilidade: desktop */}
                     <div className="relative z-10 hidden shrink-0 items-center gap-3 lg:flex">
                         <motion.div
@@ -233,7 +181,6 @@ export function Navbar() {
                                 <span className="absolute h-full w-full animate-ping rounded-full bg-emerald-400/60 motion-reduce:animate-none" />
                                 <span className="relative h-2 w-2 rounded-full bg-emerald-400" />
                             </span>
-
                             {/* Texto ao passar o mouse */}
                             <motion.span
                                 variants={{
