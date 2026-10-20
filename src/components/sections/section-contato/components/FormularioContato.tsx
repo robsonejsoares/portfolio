@@ -131,7 +131,11 @@ export function FormularioContato() {
         exibirFeedback("processando", "Enviando mensagem...");
 
         try {
-            const resposta = await fetch("/api/contact", {
+            const apiUrl = process.env.NEXT_PUBLIC_API_URL;
+            const endpoint = apiUrl
+                ? `${apiUrl.replace(/\/$/, "")}/api/mensagens-contato`
+                : "/api/contact";
+            const resposta = await fetch(endpoint, {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",

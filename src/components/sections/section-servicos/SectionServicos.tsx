@@ -6,7 +6,7 @@ import { BriefcaseBusiness } from "lucide-react";
 
 import { ButtonAbrirDialog } from "@/components/ui/ButtonAbrirDialog";
 import { LoadingDialog } from "@/components/common/LoadingDialog";
-import { dadosServicos } from "@/data/dadosServicos";
+import { useServicosApi } from "@/lib/portfolio/useServicosApi";
 
 import { CardServico } from "./components/CardServico";
 import { DialogServicos } from "./dialogs/DialogServicos";
@@ -14,6 +14,7 @@ import { DialogServicos } from "./dialogs/DialogServicos";
 export function SectionServicos() {
     const [dialogAberto, setDialogAberto] = useState(false);
     const [isLoading, setIsLoading] = useState(false);
+    const { servicos } = useServicosApi();
 
     const abrirDialog = useCallback(() => {
         if (isLoading || dialogAberto) return;
@@ -93,7 +94,7 @@ export function SectionServicos() {
 
                     {/* Serviços apresentados na seção */}
                     <div className="grid min-w-0 grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5">
-                        {dadosServicos.slice(0, 5).map((servico, indice) => (
+                        {servicos.slice(0, 5).map((servico, indice) => (
                             <div
                                 key={servico.titulo}
                                 className={
