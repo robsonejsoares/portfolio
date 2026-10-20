@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { AnimatePresence } from "framer-motion";
 
 import { Footer } from "@/components/layout/Footer";
@@ -18,6 +18,7 @@ import { SectionServicos } from "@/components/sections/section-servicos/SectionS
 import { SectionCarreiraProfissional } from "@/components/sections/section-carreira-profissional/SectionCarreiraProfissional";
 import { SectionQualificacoes } from "@/components/sections/section-qualificacoes/SectionQualificacoes";
 import { SectionContato } from "@/components/sections/section-contato/SectionContato";
+import { ThemeToggle } from "@/components/common/ThemeToggle";
 
 export default function HomePortfolio() {
     const [estaCarregando, setEstaCarregando] = useState(true);
@@ -35,6 +36,8 @@ export default function HomePortfolio() {
 
             {/* Efeitos de Fundo */}
             <EfeitosFundo />
+
+            <div className="fixed right-4 top-4 z-50"><ThemeToggle className="rounded-lg border border-slate-700 bg-slate-900/90 px-3 py-2 text-xs text-white shadow-lg backdrop-blur hover:border-cyan-400" /></div>
 
             {/* Navbar */}
             <Navbar />
