@@ -13,5 +13,6 @@ public class MensagemContato {
   @Column(length=160) private String projeto;
   @Column(columnDefinition="TEXT") private String mensagem;
   @Column(nullable=false) private OffsetDateTime dataEnvio;
+  @Column(nullable=false) private boolean lida = false;
   @PrePersist void prePersist(){ if(dataEnvio == null) dataEnvio = OffsetDateTime.now(); }
 }

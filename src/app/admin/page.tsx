@@ -8,6 +8,7 @@ import { AdminServicos } from "@/components/admin/AdminServicos";
 import { AdminHabilidades } from "@/components/admin/AdminHabilidades";
 import { AdminQualificacoes } from "@/components/admin/AdminQualificacoes";
 import { AdminCarreira } from "@/components/admin/AdminCarreira";
+import { AdminMensagens } from "@/components/admin/AdminMensagens";
 
 export default function AdminPage() {
     const router = useRouter();
@@ -36,9 +37,7 @@ export default function AdminPage() {
                 <AdminHabilidades />
                 <AdminQualificacoes />
                 <AdminCarreira />
-                <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-                    {["Mensagens"].map((item) => <section key={item} className="rounded-xl border border-slate-800 bg-slate-900 p-5"><h2 className="font-semibold">{item}</h2><p className="mt-2 text-sm text-slate-400">Disponível pela API Spring Boot.</p></section>)}
-                </div>
+                <AdminMensagens />
             </div>
         </main>
     );

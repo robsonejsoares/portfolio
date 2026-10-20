@@ -133,7 +133,7 @@ export function FormularioContato() {
         try {
             const apiUrl = process.env.NEXT_PUBLIC_API_URL;
             const endpoint = apiUrl
-                ? `${apiUrl.replace(/\/$/, "")}/api/mensagens-contato`
+                ? `${apiUrl.replace(/\/$/, "")}/api/contato`
                 : "/api/contact";
             const resposta = await fetch(endpoint, {
                 method: "POST",

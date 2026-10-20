@@ -12,5 +12,11 @@ public class MensagemContatoController {
   public MensagemContatoController(MensagemContatoRepository repository){this.repository=repository;}
   @PostMapping @ResponseStatus(HttpStatus.CREATED) public MensagemContato create(@Valid @RequestBody MensagemContato item){return repository.save(item);}
   @GetMapping @PreAuthorize("hasRole('ADMIN')") public List<MensagemContato> findAll(){return repository.findAll();}
+  @PatchMapping("/{id}") @PreAuthorize("hasRole('ADMIN')") public MensagemContato updateStatus(@PathVariable Long id, @RequestBody StatusRequest request){
+    MensagemContato item = repository.findById(id).orElseThrow();
+    item.setLida(request.lida());
+    return repository.save(item);
+  }
   @DeleteMapping("/{id}") @PreAuthorize("hasRole('ADMIN')") @ResponseStatus(HttpStatus.NO_CONTENT) public void delete(@PathVariable Long id){repository.deleteById(id);}
+  public record StatusRequest(boolean lida) {}
 }
