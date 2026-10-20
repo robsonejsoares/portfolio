@@ -6,10 +6,10 @@ import { AnimatePresence, motion } from "framer-motion";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 
 import {
-    dadosQualificacoes,
     type CategoriaQualificacao,
     type Qualificacao,
 } from "@/data/dadosQualificacoes";
+import { useQualificacoesApi } from "@/lib/portfolio/useQualificacoesApi";
 
 import { CategoriasQualificacoes } from "./components/CategoriasQualificacoes";
 import { CardQualificacoes } from "./components/CardQualificacoes";
@@ -25,7 +25,7 @@ export function SectionQualificacoes() {
     const [selectedQualificacao, setSelectedQualificacao] =
         useState<Qualificacao | null>(null);
 
-    const qualificacoes = dadosQualificacoes;
+    const { qualificacoes } = useQualificacoesApi();
 
     const filteredQualificacoes = useMemo(() => {
         if (selectedCategory === "all") {
