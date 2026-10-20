@@ -31,6 +31,7 @@ public class RateLimitFilter extends OncePerRequestFilter {
                 return;
             }
         }
+        if (windows.size() > 10_000) windows.entrySet().removeIf(entry -> entry.getValue().expired());
         chain.doFilter(request, response);
     }
 
