@@ -24,7 +24,7 @@ export default function AdminPage() {
         router.replace("/admin/login");
     }
 
-    if (!nome) return <main className="min-h-screen bg-slate-950" />;
+    if (!nome) return <main className="flex min-h-screen items-center justify-center bg-slate-950 text-slate-300" aria-busy="true"><p>Carregando painel...</p></main>;
 
     return (
         <main className="min-h-screen bg-slate-950 px-6 py-12 text-slate-100">

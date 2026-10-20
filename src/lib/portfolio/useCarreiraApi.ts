@@ -2,12 +2,14 @@
 
 import useSWR from "swr";
 import { dadosCurriculo } from "@/data/dadosCurriculo";
+import { fetchPortfolioJson } from "./apiClient";
 
-const url = `${process.env.NEXT_PUBLIC_API_URL ?? ""}/api/carreiras`;
-const fetcher = (input: string) => fetch(input).then((r) => (r.ok ? r.json() : Promise.reject(new Error("API indisponível"))));
+type CarreiraApi = { id: number; cargo: string; empresa: string; periodo: string; tipo?: string; descricao?: string; conquistas: string };
+
+const fetcher = (): Promise<CarreiraApi[]> => fetchPortfolioJson<CarreiraApi[]>("/api/carreiras");
 
 export function useCarreiraApi() {
-  const { data } = useSWR<Array<{ id: number; cargo: string; empresa: string; periodo: string; tipo?: string; descricao?: string; conquistas: string }>>(url, fetcher, { revalidateOnFocus: false });
+  const { data } = useSWR<CarreiraApi[]>("carreiras", fetcher, { revalidateOnFocus: false });
   const fallback = dadosCurriculo.experiences.map((item, id) => ({ id, cargo: item.role, empresa: item.company, periodo: item.period, tipo: "Experiência", descricao: item.subtitle, conquistas: item.highlights.join("\n") }));
   return { carreiras: data ?? fallback };
 }

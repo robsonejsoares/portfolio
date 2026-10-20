@@ -3,6 +3,7 @@
 import useSWR from "swr";
 
 import { dadosServicos, type Servico } from "@/data/dadosServicos";
+import { fetchPortfolioJson } from "./apiClient";
 
 interface ApiServico {
     titulo: string;
@@ -11,11 +12,7 @@ interface ApiServico {
     cor?: Servico["cor"];
 }
 
-const fetcher = async (url: string): Promise<ApiServico[]> => {
-    const response = await fetch(url);
-    if (!response.ok) throw new Error("Não foi possível carregar os serviços.");
-    return response.json();
-};
+const fetcher = async (): Promise<ApiServico[]> => fetchPortfolioJson<ApiServico[]>("/api/servicos");
 
 export function useServicosApi() {
     const apiUrl = process.env.NEXT_PUBLIC_API_URL;

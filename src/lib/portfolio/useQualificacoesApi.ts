@@ -2,13 +2,12 @@
 
 import useSWR from "swr";
 import { dadosQualificacoes, type Qualificacao } from "@/data/dadosQualificacoes";
+import { fetchPortfolioJson } from "./apiClient";
 
 const baseUrl = process.env.NEXT_PUBLIC_API_URL?.replace(/\/$/, "");
 
-const fetcher = async (url: string): Promise<Qualificacao[]> => {
-  const response = await fetch(url);
-  if (!response.ok) throw new Error("Não foi possível carregar as qualificações");
-  const data = await response.json();
+const fetcher = async (): Promise<Qualificacao[]> => {
+  const data = await fetchPortfolioJson<Array<Partial<Qualificacao> & { id: number | string }>>("/api/qualificacoes");
   return data.map((item: Partial<Qualificacao> & { id: number | string }) => ({
     id: String(item.id),
     title: item.title ?? "Qualificação",

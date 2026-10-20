@@ -35,7 +35,7 @@ export default function AdminLoginPage() {
                 </div>
                 <label className="block text-sm text-slate-700">E-mail<input required type="email" value={email} onChange={(event) => setEmail(event.target.value)} className="mt-2 w-full rounded-lg border border-slate-300 bg-white px-3 py-3 outline-none focus:border-cyan-500" /></label>
                 <label className="block text-sm text-slate-700">Senha<input required type="password" value={senha} onChange={(event) => setSenha(event.target.value)} className="mt-2 w-full rounded-lg border border-slate-300 bg-white px-3 py-3 outline-none focus:border-cyan-500" /></label>
-                {erro && <p role="alert" className="rounded-lg border border-red-900 bg-red-950/40 p-3 text-sm text-red-300">{erro}</p>}
+                {erro && <p role="alert" aria-live="polite" className="rounded-lg border border-red-900 bg-red-950/40 p-3 text-sm text-red-300">{erro}</p>}
                 <button disabled={carregando} className="w-full rounded-lg bg-cyan-500 px-4 py-3 font-semibold text-slate-950 transition hover:bg-cyan-400 disabled:cursor-wait disabled:opacity-60">{carregando ? "Entrando..." : "Entrar"}</button>
             </form>
         </main>

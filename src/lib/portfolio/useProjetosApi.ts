@@ -3,12 +3,9 @@
 import useSWR from "swr";
 
 import { dadosPortfolio, type Project } from "@/data/dadosPortfolio";
+import { fetchPortfolioJson } from "./apiClient";
 
-const fetcher = async (url: string): Promise<Project[]> => {
-    const response = await fetch(url);
-    if (!response.ok) throw new Error("Não foi possível carregar os projetos.");
-    return response.json();
-};
+const fetcher = async (): Promise<Project[]> => fetchPortfolioJson<Project[]>("/api/projetos");
 
 export function useProjetosApi() {
     const apiUrl = process.env.NEXT_PUBLIC_API_URL;
