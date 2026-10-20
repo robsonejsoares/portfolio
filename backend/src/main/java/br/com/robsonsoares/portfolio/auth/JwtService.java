@@ -12,7 +12,11 @@ import java.util.Date;
 public class JwtService {
     private final SecretKey key;
     private final long expirationMs;
-    public JwtService(@Value("${app.jwt.secret}") String secret, @Value("${app.jwt.expiration-ms}") long expirationMs) { this.key = Keys.hmacShaKeyFor(secret.getBytes(StandardCharsets.UTF_8)); this.expirationMs = expirationMs; }
+    public JwtService(@Value("${app.jwt.secret}") String secret, @Value("${app.jwt.expiration-ms}") long expirationMs) {
+        if (secret == null || secret.length() < 32 || secret.startsWith("change-me")) throw new IllegalStateException("JWT_SECRET deve ser configurado com pelo menos 32 caracteres.");
+        this.key = Keys.hmacShaKeyFor(secret.getBytes(StandardCharsets.UTF_8));
+        this.expirationMs = expirationMs;
+    }
     public String generate(String email) { Date now = new Date(); return Jwts.builder().subject(email).issuedAt(now).expiration(new Date(now.getTime() + expirationMs)).signWith(key).compact(); }
     public String extractEmail(String token) { return Jwts.parser().verifyWith(key).build().parseSignedClaims(token).getPayload().getSubject(); }
     public boolean isValid(String token) { try { extractEmail(token); return true; } catch (Exception exception) { return false; } }
