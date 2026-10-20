@@ -35,7 +35,7 @@ export function logoutAdmin() {
     sessionStorage.removeItem(NAME_KEY);
 }
 
-export function adminHeaders() {
+export function adminHeaders(): HeadersInit {
     const token = getAdminToken();
     return token ? { Authorization: `Bearer ${token}` } : {};
 }

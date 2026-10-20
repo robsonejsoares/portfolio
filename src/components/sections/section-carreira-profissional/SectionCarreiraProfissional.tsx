@@ -7,6 +7,7 @@ import { ClipboardList } from "lucide-react";
 import { ButtonAbrirDialog } from "@/components/ui/ButtonAbrirDialog";
 import { LoadingDialog } from "@/components/common/LoadingDialog";
 import { dadosCurriculo } from "@/data/dadosCurriculo";
+import { useCarreiraApi } from "@/lib/portfolio/useCarreiraApi";
 
 import { CardCarreiraProfissional } from "./components/CardCarreiraProfissional";
 import { DialogCarreiraProfissional } from "./dialogs/DialogCarreiraProfissional";
@@ -55,13 +56,16 @@ const visualPadrao = {
 export function SectionCarreiraProfissional() {
     const [dialogAberto, setDialogAberto] = useState(false);
     const [isLoading, setIsLoading] = useState(false);
+    const { carreiras } = useCarreiraApi();
 
-    const experiencias = [
+    const experiencias = carreiras.map((item) => ({ company: item.empresa, subtitle: item.descricao ?? "", period: item.periodo, role: item.cargo, highlights: item.conquistas.split("\n").filter(Boolean) }));
+
+    const experienciasComFallback = experiencias.length ? experiencias : [
         experienciaFreelancer,
-        ...dadosCurriculo.experiences,
+        ...dadosCurriculo.experiences
     ];
 
-    const experienciasRecentes = experiencias.slice(0, 2);
+    const experienciasRecentes = experienciasComFallback.slice(0, 2);
 
     const handleOpenExperiences = useCallback(() => {
         if (isLoading || dialogAberto) return;
@@ -109,7 +113,7 @@ export function SectionCarreiraProfissional() {
                             </h2>
                         </div>
 
-                        {experiencias.length > 2 && (
+                        {experienciasComFallback.length > 2 && (
                             <ButtonAbrirDialog
                                 type="button"
                                 variant="default"
@@ -181,7 +185,7 @@ export function SectionCarreiraProfissional() {
             <DialogCarreiraProfissional
                 isOpen={dialogAberto}
                 onClose={handleCloseDialog}
-                experiencias={experiencias}
+                experiencias={experienciasComFallback}
                 configuracaoVisual={configuracaoVisual}
             />
         </>

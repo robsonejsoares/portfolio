@@ -9,7 +9,7 @@ const vazio = { cargo: "", empresa: "", periodo: "", tipo: "", descricao: "", co
 const api = () => process.env.NEXT_PUBLIC_API_URL?.replace(/\/$/, "") || "http://localhost:8080";
 
 export function AdminCarreira() {
-  const { data: itens = [], mutate } = useSWR<Carreira[]>(`${api()}/api/carreiras`, (url) => fetch(url).then((r) => r.json()));
+  const { data: itens = [], mutate } = useSWR<Carreira[]>(`${api()}/api/carreiras`, (url: string) => fetch(url).then((r) => r.json()));
   const [form, setForm] = useState(vazio);
   const [editando, setEditando] = useState<number | null>(null);
   const [erro, setErro] = useState("");

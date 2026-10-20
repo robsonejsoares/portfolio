@@ -7,7 +7,7 @@ type Mensagem = { id: number; nome: string; email: string; empresa?: string; pro
 const apiUrl = () => (process.env.NEXT_PUBLIC_API_URL ?? "").replace(/\/$/, "");
 
 export function AdminMensagens() {
-    const { data: mensagens = [], mutate } = useSWR<Mensagem[]>(`${apiUrl()}/api/contato`, (url) => fetch(url, { headers: adminHeaders() }).then((res) => res.json()));
+    const { data: mensagens = [], mutate } = useSWR<Mensagem[]>(`${apiUrl()}/api/contato`, (url: string) => fetch(url, { headers: adminHeaders() }).then((res) => res.json()));
 
     async function atualizar(id: number, lida: boolean) {
         await fetch(`${apiUrl()}/api/contato/${id}`, { method: "PATCH", headers: { ...adminHeaders(), "Content-Type": "application/json" }, body: JSON.stringify({ lida }) });

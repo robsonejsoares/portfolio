@@ -20,7 +20,7 @@ const vazio: Formulario = { titulo: "", categoria: "Sistemas Web", descricao: ""
 const baseUrl = () => (process.env.NEXT_PUBLIC_API_URL ?? "").replace(/\/$/, "");
 
 export function AdminProjetos() {
-    const { data: projetos = [], mutate: recarregar } = useSWR<Projeto[]>(`${baseUrl()}/api/projetos`, (url) => fetch(url).then((res) => res.json()));
+    const { data: projetos = [], mutate: recarregar } = useSWR<Projeto[]>(`${baseUrl()}/api/projetos`, (url: string) => fetch(url).then((res) => res.json()));
     const [formulario, setFormulario] = useState<Formulario>(vazio);
     const [editando, setEditando] = useState<number | null>(null);
     const [erro, setErro] = useState("");

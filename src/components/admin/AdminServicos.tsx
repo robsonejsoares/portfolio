@@ -10,7 +10,7 @@ const vazio: Formulario = { titulo: "", descricao: "", icone: "" };
 const baseUrl = () => (process.env.NEXT_PUBLIC_API_URL ?? "").replace(/\/$/, "");
 
 export function AdminServicos() {
-    const { data: servicos = [], mutate } = useSWR<Servico[]>(`${baseUrl()}/api/servicos`, (url) => fetch(url).then((res) => res.json()));
+    const { data: servicos = [], mutate } = useSWR<Servico[]>(`${baseUrl()}/api/servicos`, (url: string) => fetch(url).then((res) => res.json()));
     const [formulario, setFormulario] = useState<Formulario>(vazio);
     const [editando, setEditando] = useState<number | null>(null);
     const [erro, setErro] = useState("");
