@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import { getAdminName, getAdminToken, logoutAdmin } from "@/lib/auth/adminAuth";
 import { AdminProjetos } from "@/components/admin/AdminProjetos";
+import { AdminServicos } from "@/components/admin/AdminServicos";
 
 export default function AdminPage() {
     const router = useRouter();
@@ -28,7 +29,8 @@ export default function AdminPage() {
                     <button onClick={sair} className="rounded-lg border border-slate-700 px-4 py-2 text-sm hover:border-cyan-400">Sair</button>
                 </div>
                 <AdminProjetos />
-                <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
+                <AdminServicos />
+                <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
                     {["Serviços", "Habilidades", "Qualificações", "Carreira", "Mensagens"].map((item) => <section key={item} className="rounded-xl border border-slate-800 bg-slate-900 p-5"><h2 className="font-semibold">{item}</h2><p className="mt-2 text-sm text-slate-400">Disponível pela API Spring Boot.</p></section>)}
                 </div>
             </div>
