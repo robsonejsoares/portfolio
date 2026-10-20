@@ -22,24 +22,6 @@ import { SectionContato } from "@/components/sections/section-contato/SectionCon
 export default function HomePortfolio() {
     const [estaCarregando, setEstaCarregando] = useState(true);
 
-    useEffect(() => {
-        console.log("[DEBUG] Página montada", {
-            scrollY: window.scrollY,
-            hash: window.location.hash,
-            activeElement: document.activeElement,
-        });
-
-        const timer = window.setTimeout(() => {
-            console.log("[DEBUG] Após 2 segundos", {
-                scrollY: window.scrollY,
-                hash: window.location.hash,
-                activeElement: document.activeElement,
-            });
-        }, 2000);
-
-        return () => window.clearTimeout(timer);
-    }, []);
-
     return (
         <main className="relative min-h-screen bg-[#070913] pb-14 text-white">
             {/* Loading */}
