@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { motion } from "framer-motion";
 import { dadosPortfolio } from "@/data/dadosPortfolio";
 import { OrbitasTecnologias } from "./OrbitasTecnologias";
@@ -30,10 +31,12 @@ export function AvatarHero() {
                         }}
                     />
 
-                    <img
+                    <Image
                         src="/avatar.jpg"
                         alt={personal.name}
-                        className="h-full w-full object-cover object-center transition-transform duration-700 group-hover:scale-110"
+                        fill
+                        priority
+                        className="object-cover object-center transition-transform duration-700 group-hover:scale-110"
                     />
 
                     <div className="absolute inset-x-0 bottom-0 h-16 bg-gradient-to-t from-black/70 to-transparent" />

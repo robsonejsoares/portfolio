@@ -1,6 +1,7 @@
 
 "use client";
 
+import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import { Bot } from "lucide-react";
 import type { skillCategories } from "../dadosHabilidades";
@@ -59,11 +60,12 @@ export function GridHabilidades({
                                     aria-label="Agentes IA"
                                 />
                             ) : (
-                                <img
+                                <Image
                                     src={skill.logo}
                                     alt={skill.name}
-                                    loading="lazy"
-                                    className={`h-full w-full object-contain ${"extraClass" in skill
+                                    fill
+                                    unoptimized
+                                    className={`object-contain ${"extraClass" in skill
                                             ? skill.extraClass
                                             : ""
                                         }`}

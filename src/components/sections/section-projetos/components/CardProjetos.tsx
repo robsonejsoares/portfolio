@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { motion } from "framer-motion";
 import { Monitor } from "lucide-react";
 
@@ -34,10 +35,12 @@ export function CardProjetos({
             {/* Imagem do projeto */}
             <div className="relative flex aspect-[16/9] w-full items-center justify-center overflow-hidden rounded-t-md border-b border-slate-200 bg-white p-6">
                 {projeto.image ? (
-                    <img
+                    <Image
                         src={projeto.image}
                         alt={`Logo do projeto ${projeto.title}`}
-                        loading={index < 2 ? "eager" : "lazy"}
+                        fill
+                        unoptimized
+                        priority={index < 2}
                         className="relative z-10 h-full w-full object-contain transition-transform duration-300 group-hover:scale-[1.03]"
                         onError={(event) => {
                             event.currentTarget.style.display = "none";
