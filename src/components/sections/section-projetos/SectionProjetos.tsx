@@ -7,8 +7,8 @@ import {
     ChevronRight,
 } from "lucide-react";
 
-import { dadosPortfolio } from "@/data/dadosPortfolio";
 import type { Project } from "@/data/dadosPortfolio";
+import { useProjetosApi } from "@/lib/portfolio/useProjetosApi";
 
 import { CategoriasProjetos } from "./components/CategoriasProjetos";
 import { CardProjetos } from "./components/CardProjetos";
@@ -20,8 +20,7 @@ export function SectionProjetos() {
 
     const [selectedProject, setSelectedProject] =
         useState<Project | null>(null);
-
-    const projects = dadosPortfolio.projects;
+    const { projects } = useProjetosApi();
 
     // Filtra os projetos conforme a categoria selecionada.
     const filteredProjects = useMemo(() => {
